@@ -1,0 +1,472 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		202C660519604D5D00497257 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 202C660419604D5D00497257 /* Foundation.framework */; };
+		202C660719604D5D00497257 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 202C660619604D5D00497257 /* CoreGraphics.framework */; };
+		202C660919604D5D00497257 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 202C660819604D5D00497257 /* UIKit.framework */; };
+		202C660F19604D5D00497257 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 202C660D19604D5D00497257 /* InfoPlist.strings */; };
+		202C661119604D5D00497257 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 202C661019604D5D00497257 /* main.m */; };
+		202C661519604D5D00497257 /* ATDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 202C661419604D5D00497257 /* ATDAppDelegate.m */; };
+		202C661819604D5D00497257 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 202C661619604D5D00497257 /* Main.storyboard */; };
+		202C661B19604D5D00497257 /* ATDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 202C661A19604D5D00497257 /* ATDViewController.m */; };
+		202C661D19604D5D00497257 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 202C661C19604D5D00497257 /* Images.xcassets */; };
+		202C662419604D5E00497257 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 202C662319604D5E00497257 /* XCTest.framework */; };
+		202C662519604D5E00497257 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 202C660419604D5D00497257 /* Foundation.framework */; };
+		202C662619604D5E00497257 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 202C660819604D5D00497257 /* UIKit.framework */; };
+		202C662E19604D5E00497257 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 202C662C19604D5E00497257 /* InfoPlist.strings */; };
+		202C663019604D5E00497257 /* ATODETests.m in Sources */ = {isa = PBXBuildFile; fileRef = 202C662F19604D5E00497257 /* ATODETests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		202C662719604D5E00497257 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 202C65F919604D5D00497257 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 202C660019604D5D00497257;
+			remoteInfo = ATODE;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		202C660119604D5D00497257 /* ATODE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATODE.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		202C660419604D5D00497257 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		202C660619604D5D00497257 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		202C660819604D5D00497257 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		202C660C19604D5D00497257 /* ATODE-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ATODE-Info.plist"; sourceTree = "<group>"; };
+		202C660E19604D5D00497257 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		202C661019604D5D00497257 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		202C661219604D5D00497257 /* ATODE-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ATODE-Prefix.pch"; sourceTree = "<group>"; };
+		202C661319604D5D00497257 /* ATDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATDAppDelegate.h; sourceTree = "<group>"; };
+		202C661419604D5D00497257 /* ATDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATDAppDelegate.m; sourceTree = "<group>"; };
+		202C661719604D5D00497257 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		202C661919604D5D00497257 /* ATDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATDViewController.h; sourceTree = "<group>"; };
+		202C661A19604D5D00497257 /* ATDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATDViewController.m; sourceTree = "<group>"; };
+		202C661C19604D5D00497257 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		202C662219604D5E00497257 /* ATODETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ATODETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		202C662319604D5E00497257 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		202C662B19604D5E00497257 /* ATODETests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ATODETests-Info.plist"; sourceTree = "<group>"; };
+		202C662D19604D5E00497257 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		202C662F19604D5E00497257 /* ATODETests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATODETests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		202C65FE19604D5D00497257 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				202C660719604D5D00497257 /* CoreGraphics.framework in Frameworks */,
+				202C660919604D5D00497257 /* UIKit.framework in Frameworks */,
+				202C660519604D5D00497257 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		202C661F19604D5E00497257 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				202C662419604D5E00497257 /* XCTest.framework in Frameworks */,
+				202C662619604D5E00497257 /* UIKit.framework in Frameworks */,
+				202C662519604D5E00497257 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		202C65F819604D5D00497257 = {
+			isa = PBXGroup;
+			children = (
+				202C660A19604D5D00497257 /* ATODE */,
+				202C662919604D5E00497257 /* ATODETests */,
+				202C660319604D5D00497257 /* Frameworks */,
+				202C660219604D5D00497257 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		202C660219604D5D00497257 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				202C660119604D5D00497257 /* ATODE.app */,
+				202C662219604D5E00497257 /* ATODETests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		202C660319604D5D00497257 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				202C660419604D5D00497257 /* Foundation.framework */,
+				202C660619604D5D00497257 /* CoreGraphics.framework */,
+				202C660819604D5D00497257 /* UIKit.framework */,
+				202C662319604D5E00497257 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		202C660A19604D5D00497257 /* ATODE */ = {
+			isa = PBXGroup;
+			children = (
+				202C661319604D5D00497257 /* ATDAppDelegate.h */,
+				202C661419604D5D00497257 /* ATDAppDelegate.m */,
+				202C661619604D5D00497257 /* Main.storyboard */,
+				202C661919604D5D00497257 /* ATDViewController.h */,
+				202C661A19604D5D00497257 /* ATDViewController.m */,
+				202C661C19604D5D00497257 /* Images.xcassets */,
+				202C660B19604D5D00497257 /* Supporting Files */,
+			);
+			path = ATODE;
+			sourceTree = "<group>";
+		};
+		202C660B19604D5D00497257 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				202C660C19604D5D00497257 /* ATODE-Info.plist */,
+				202C660D19604D5D00497257 /* InfoPlist.strings */,
+				202C661019604D5D00497257 /* main.m */,
+				202C661219604D5D00497257 /* ATODE-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		202C662919604D5E00497257 /* ATODETests */ = {
+			isa = PBXGroup;
+			children = (
+				202C662F19604D5E00497257 /* ATODETests.m */,
+				202C662A19604D5E00497257 /* Supporting Files */,
+			);
+			path = ATODETests;
+			sourceTree = "<group>";
+		};
+		202C662A19604D5E00497257 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				202C662B19604D5E00497257 /* ATODETests-Info.plist */,
+				202C662C19604D5E00497257 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		202C660019604D5D00497257 /* ATODE */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 202C663319604D5E00497257 /* Build configuration list for PBXNativeTarget "ATODE" */;
+			buildPhases = (
+				202C65FD19604D5D00497257 /* Sources */,
+				202C65FE19604D5D00497257 /* Frameworks */,
+				202C65FF19604D5D00497257 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ATODE;
+			productName = ATODE;
+			productReference = 202C660119604D5D00497257 /* ATODE.app */;
+			productType = "com.apple.product-type.application";
+		};
+		202C662119604D5E00497257 /* ATODETests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 202C663619604D5E00497257 /* Build configuration list for PBXNativeTarget "ATODETests" */;
+			buildPhases = (
+				202C661E19604D5E00497257 /* Sources */,
+				202C661F19604D5E00497257 /* Frameworks */,
+				202C662019604D5E00497257 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				202C662819604D5E00497257 /* PBXTargetDependency */,
+			);
+			name = ATODETests;
+			productName = ATODETests;
+			productReference = 202C662219604D5E00497257 /* ATODETests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		202C65F919604D5D00497257 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = ATD;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = himara2;
+				TargetAttributes = {
+					202C662119604D5E00497257 = {
+						TestTargetID = 202C660019604D5D00497257;
+					};
+				};
+			};
+			buildConfigurationList = 202C65FC19604D5D00497257 /* Build configuration list for PBXProject "ATODE" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 202C65F819604D5D00497257;
+			productRefGroup = 202C660219604D5D00497257 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				202C660019604D5D00497257 /* ATODE */,
+				202C662119604D5E00497257 /* ATODETests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		202C65FF19604D5D00497257 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				202C661D19604D5D00497257 /* Images.xcassets in Resources */,
+				202C660F19604D5D00497257 /* InfoPlist.strings in Resources */,
+				202C661819604D5D00497257 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		202C662019604D5E00497257 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				202C662E19604D5E00497257 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		202C65FD19604D5D00497257 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				202C661519604D5D00497257 /* ATDAppDelegate.m in Sources */,
+				202C661119604D5D00497257 /* main.m in Sources */,
+				202C661B19604D5D00497257 /* ATDViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		202C661E19604D5E00497257 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				202C663019604D5E00497257 /* ATODETests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		202C662819604D5E00497257 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 202C660019604D5D00497257 /* ATODE */;
+			targetProxy = 202C662719604D5E00497257 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		202C660D19604D5D00497257 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				202C660E19604D5D00497257 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		202C661619604D5D00497257 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				202C661719604D5D00497257 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		202C662C19604D5E00497257 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				202C662D19604D5E00497257 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		202C663119604D5E00497257 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		202C663219604D5E00497257 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		202C663419604D5E00497257 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ATODE/ATODE-Prefix.pch";
+				INFOPLIST_FILE = "ATODE/ATODE-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		202C663519604D5E00497257 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ATODE/ATODE-Prefix.pch";
+				INFOPLIST_FILE = "ATODE/ATODE-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		202C663719604D5E00497257 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ATODE.app/ATODE";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ATODE/ATODE-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ATODETests/ATODETests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		202C663819604D5E00497257 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ATODE.app/ATODE";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ATODE/ATODE-Prefix.pch";
+				INFOPLIST_FILE = "ATODETests/ATODETests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		202C65FC19604D5D00497257 /* Build configuration list for PBXProject "ATODE" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				202C663119604D5E00497257 /* Debug */,
+				202C663219604D5E00497257 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		202C663319604D5E00497257 /* Build configuration list for PBXNativeTarget "ATODE" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				202C663419604D5E00497257 /* Debug */,
+				202C663519604D5E00497257 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		202C663619604D5E00497257 /* Build configuration list for PBXNativeTarget "ATODETests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				202C663719604D5E00497257 /* Debug */,
+				202C663819604D5E00497257 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 202C65F919604D5D00497257 /* Project object */;
+}
