@@ -9,6 +9,8 @@
 #import "ATDViewController.h"
 #import "ATDPlaceMemoCell.h"
 #import "ATDAddViewController.h"
+#import "ATDCoreDataManger.h"
+
 
 @interface ATDViewController ()
 <UICollectionViewDataSource, UICollectionViewDelegate,
@@ -27,12 +29,18 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate>
     [super viewDidLoad];
 
     [self registerNib];
+    
+    [self reloadData];
 }
 
 - (void)registerNib {
     [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([ATDPlaceMemoCell class])
                                                bundle:[NSBundle mainBundle]]
       forCellWithReuseIdentifier:@"Cell"];
+}
+
+- (void)reloadData {
+    [[ATDCoreDataManger sharedInstance] getAllMemos];
 }
 
 // 写真撮影画面へ遷移
@@ -49,7 +57,14 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 #pragma mark IBAction
 
 - (IBAction)addBtnTouched:(id)sender {
+#if (TARGET_IPHONE_SIMULATOR)
+    // シミュレータで動作中
+    UIImage *image = [UIImage imageNamed:@"sample.jpg"];
+    [self performSegueWithIdentifier:@"showAdd" sender:image];
+#else
+    // 実機で動作中
     [self showImagePickerView];
+#endif
 }
 
 

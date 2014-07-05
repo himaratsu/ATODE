@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		201F041E196829440045AB37 /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 201F041D196829440045AB37 /* sample.jpg */; };
 		202C660519604D5D00497257 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 202C660419604D5D00497257 /* Foundation.framework */; };
 		202C660719604D5D00497257 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 202C660619604D5D00497257 /* CoreGraphics.framework */; };
 		202C660919604D5D00497257 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 202C660819604D5D00497257 /* UIKit.framework */; };
@@ -25,6 +26,10 @@
 		208131AF19678E8E0094E577 /* ATDPlaceMemoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 208131AE19678E8E0094E577 /* ATDPlaceMemoCell.m */; };
 		208131B119678E9B0094E577 /* ATDPlaceMemoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 208131B019678E9B0094E577 /* ATDPlaceMemoCell.xib */; };
 		208131B4196791A70094E577 /* ATDAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 208131B3196791A70094E577 /* ATDAddViewController.m */; };
+		208131BB196798BA0094E577 /* ATODE.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 208131B9196798BA0094E577 /* ATODE.xcdatamodeld */; };
+		208131BE1967A04F0094E577 /* PlaceMemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 208131BD1967A04F0094E577 /* PlaceMemo.m */; };
+		208131C11967AF2F0094E577 /* ATDCoreDataManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 208131C01967AF2F0094E577 /* ATDCoreDataManger.m */; };
+		BADD391C7A8C4D6FBB1C5F1C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E43CBDEB2F3F49CA98E99DC4 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		201F041D196829440045AB37 /* sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample.jpg; sourceTree = "<group>"; };
 		202C660119604D5D00497257 /* ATODE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATODE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		202C660419604D5D00497257 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		202C660619604D5D00497257 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -64,6 +70,13 @@
 		208131B019678E9B0094E577 /* ATDPlaceMemoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATDPlaceMemoCell.xib; sourceTree = "<group>"; };
 		208131B2196791A70094E577 /* ATDAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDAddViewController.h; sourceTree = "<group>"; };
 		208131B3196791A70094E577 /* ATDAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDAddViewController.m; sourceTree = "<group>"; };
+		208131BA196798BA0094E577 /* ATODE.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ATODE.xcdatamodel; sourceTree = "<group>"; };
+		208131BC1967A04F0094E577 /* PlaceMemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceMemo.h; sourceTree = "<group>"; };
+		208131BD1967A04F0094E577 /* PlaceMemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceMemo.m; sourceTree = "<group>"; };
+		208131BF1967AF2F0094E577 /* ATDCoreDataManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDCoreDataManger.h; sourceTree = "<group>"; };
+		208131C01967AF2F0094E577 /* ATDCoreDataManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDCoreDataManger.m; sourceTree = "<group>"; };
+		D74FAF12D3944CD3976CCA94 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		E43CBDEB2F3F49CA98E99DC4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +87,7 @@
 				202C660719604D5D00497257 /* CoreGraphics.framework in Frameworks */,
 				202C660919604D5D00497257 /* UIKit.framework in Frameworks */,
 				202C660519604D5D00497257 /* Foundation.framework in Frameworks */,
+				BADD391C7A8C4D6FBB1C5F1C /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +111,7 @@
 				202C662919604D5E00497257 /* ATODETests */,
 				202C660319604D5D00497257 /* Frameworks */,
 				202C660219604D5D00497257 /* Products */,
+				D74FAF12D3944CD3976CCA94 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,6 +131,7 @@
 				202C660619604D5D00497257 /* CoreGraphics.framework */,
 				202C660819604D5D00497257 /* UIKit.framework */,
 				202C662319604D5E00497257 /* XCTest.framework */,
+				E43CBDEB2F3F49CA98E99DC4 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -123,12 +139,14 @@
 		202C660A19604D5D00497257 /* ATODE */ = {
 			isa = PBXGroup;
 			children = (
+				208131B51967987A0094E577 /* Data */,
 				202C663E19678C9E00497257 /* ViewController */,
 				202C663D19678C9600497257 /* View */,
 				202C663919678B3D00497257 /* Model */,
 				202C661319604D5D00497257 /* ATDAppDelegate.h */,
 				202C661419604D5D00497257 /* ATDAppDelegate.m */,
 				202C661619604D5D00497257 /* Main.storyboard */,
+				201F041D196829440045AB37 /* sample.jpg */,
 				202C661C19604D5D00497257 /* Images.xcassets */,
 				202C660B19604D5D00497257 /* Supporting Files */,
 			);
@@ -194,6 +212,18 @@
 			name = ViewController;
 			sourceTree = "<group>";
 		};
+		208131B51967987A0094E577 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				208131B9196798BA0094E577 /* ATODE.xcdatamodeld */,
+				208131BF1967AF2F0094E577 /* ATDCoreDataManger.h */,
+				208131C01967AF2F0094E577 /* ATDCoreDataManger.m */,
+				208131BC1967A04F0094E577 /* PlaceMemo.h */,
+				208131BD1967A04F0094E577 /* PlaceMemo.m */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -201,9 +231,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 202C663319604D5E00497257 /* Build configuration list for PBXNativeTarget "ATODE" */;
 			buildPhases = (
+				2855450B6C934BC79E4B7E34 /* Check Pods Manifest.lock */,
 				202C65FD19604D5D00497257 /* Sources */,
 				202C65FE19604D5D00497257 /* Frameworks */,
 				202C65FF19604D5D00497257 /* Resources */,
+				F98D58F4EE264E79A40416FF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -275,6 +307,7 @@
 				208131B119678E9B0094E577 /* ATDPlaceMemoCell.xib in Resources */,
 				202C660F19604D5D00497257 /* InfoPlist.strings in Resources */,
 				202C661819604D5D00497257 /* Main.storyboard in Resources */,
+				201F041E196829440045AB37 /* sample.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,13 +321,49 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2855450B6C934BC79E4B7E34 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F98D58F4EE264E79A40416FF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		202C65FD19604D5D00497257 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				208131BB196798BA0094E577 /* ATODE.xcdatamodeld in Sources */,
+				208131BE1967A04F0094E577 /* PlaceMemo.m in Sources */,
 				202C661519604D5D00497257 /* ATDAppDelegate.m in Sources */,
 				202C663C19678BB400497257 /* ATDPlaceMemo.m in Sources */,
+				208131C11967AF2F0094E577 /* ATDCoreDataManger.m in Sources */,
 				202C661119604D5D00497257 /* main.m in Sources */,
 				202C661B19604D5D00497257 /* ATDViewController.m in Sources */,
 				208131B4196791A70094E577 /* ATDAddViewController.m in Sources */,
@@ -420,6 +489,7 @@
 		};
 		202C663419604D5E00497257 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D74FAF12D3944CD3976CCA94 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -433,6 +503,7 @@
 		};
 		202C663519604D5E00497257 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D74FAF12D3944CD3976CCA94 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -515,6 +586,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		208131B9196798BA0094E577 /* ATODE.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				208131BA196798BA0094E577 /* ATODE.xcdatamodel */,
+			);
+			currentVersion = 208131BA196798BA0094E577 /* ATODE.xcdatamodel */;
+			path = ATODE.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 202C65F919604D5D00497257 /* Project object */;
 }
