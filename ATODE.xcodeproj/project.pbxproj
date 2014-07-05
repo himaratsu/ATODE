@@ -21,6 +21,10 @@
 		202C662619604D5E00497257 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 202C660819604D5D00497257 /* UIKit.framework */; };
 		202C662E19604D5E00497257 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 202C662C19604D5E00497257 /* InfoPlist.strings */; };
 		202C663019604D5E00497257 /* ATODETests.m in Sources */ = {isa = PBXBuildFile; fileRef = 202C662F19604D5E00497257 /* ATODETests.m */; };
+		202C663C19678BB400497257 /* ATDPlaceMemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 202C663B19678BB400497257 /* ATDPlaceMemo.m */; };
+		208131AF19678E8E0094E577 /* ATDPlaceMemoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 208131AE19678E8E0094E577 /* ATDPlaceMemoCell.m */; };
+		208131B119678E9B0094E577 /* ATDPlaceMemoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 208131B019678E9B0094E577 /* ATDPlaceMemoCell.xib */; };
+		208131B4196791A70094E577 /* ATDAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 208131B3196791A70094E577 /* ATDAddViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,13 @@
 		202C662B19604D5E00497257 /* ATODETests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ATODETests-Info.plist"; sourceTree = "<group>"; };
 		202C662D19604D5E00497257 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		202C662F19604D5E00497257 /* ATODETests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATODETests.m; sourceTree = "<group>"; };
+		202C663A19678BB400497257 /* ATDPlaceMemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDPlaceMemo.h; sourceTree = "<group>"; };
+		202C663B19678BB400497257 /* ATDPlaceMemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDPlaceMemo.m; sourceTree = "<group>"; };
+		208131AD19678E8E0094E577 /* ATDPlaceMemoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDPlaceMemoCell.h; sourceTree = "<group>"; };
+		208131AE19678E8E0094E577 /* ATDPlaceMemoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDPlaceMemoCell.m; sourceTree = "<group>"; };
+		208131B019678E9B0094E577 /* ATDPlaceMemoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATDPlaceMemoCell.xib; sourceTree = "<group>"; };
+		208131B2196791A70094E577 /* ATDAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDAddViewController.h; sourceTree = "<group>"; };
+		208131B3196791A70094E577 /* ATDAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDAddViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,11 +123,12 @@
 		202C660A19604D5D00497257 /* ATODE */ = {
 			isa = PBXGroup;
 			children = (
+				202C663E19678C9E00497257 /* ViewController */,
+				202C663D19678C9600497257 /* View */,
+				202C663919678B3D00497257 /* Model */,
 				202C661319604D5D00497257 /* ATDAppDelegate.h */,
 				202C661419604D5D00497257 /* ATDAppDelegate.m */,
 				202C661619604D5D00497257 /* Main.storyboard */,
-				202C661919604D5D00497257 /* ATDViewController.h */,
-				202C661A19604D5D00497257 /* ATDViewController.m */,
 				202C661C19604D5D00497257 /* Images.xcassets */,
 				202C660B19604D5D00497257 /* Supporting Files */,
 			);
@@ -150,6 +162,36 @@
 				202C662C19604D5E00497257 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		202C663919678B3D00497257 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				202C663A19678BB400497257 /* ATDPlaceMemo.h */,
+				202C663B19678BB400497257 /* ATDPlaceMemo.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		202C663D19678C9600497257 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				208131AD19678E8E0094E577 /* ATDPlaceMemoCell.h */,
+				208131AE19678E8E0094E577 /* ATDPlaceMemoCell.m */,
+				208131B019678E9B0094E577 /* ATDPlaceMemoCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		202C663E19678C9E00497257 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				202C661919604D5D00497257 /* ATDViewController.h */,
+				202C661A19604D5D00497257 /* ATDViewController.m */,
+				208131B2196791A70094E577 /* ATDAddViewController.h */,
+				208131B3196791A70094E577 /* ATDAddViewController.m */,
+			);
+			name = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				202C661D19604D5D00497257 /* Images.xcassets in Resources */,
+				208131B119678E9B0094E577 /* ATDPlaceMemoCell.xib in Resources */,
 				202C660F19604D5D00497257 /* InfoPlist.strings in Resources */,
 				202C661819604D5D00497257 /* Main.storyboard in Resources */,
 			);
@@ -251,8 +294,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				202C661519604D5D00497257 /* ATDAppDelegate.m in Sources */,
+				202C663C19678BB400497257 /* ATDPlaceMemo.m in Sources */,
 				202C661119604D5D00497257 /* main.m in Sources */,
 				202C661B19604D5D00497257 /* ATDViewController.m in Sources */,
+				208131B4196791A70094E577 /* ATDAddViewController.m in Sources */,
+				208131AF19678E8E0094E577 /* ATDPlaceMemoCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +503,7 @@
 				202C663519604D5E00497257 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		202C663619604D5E00497257 /* Build configuration list for PBXNativeTarget "ATODETests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +512,7 @@
 				202C663819604D5E00497257 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
