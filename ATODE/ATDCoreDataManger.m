@@ -51,7 +51,7 @@
 }
 
 - (void)printCoreData {
-    NSLog(@"memos[%@]", [PlaceMemo MR_findAll]);
+    NSLog(@"メモが %d件 あります", [[PlaceMemo MR_findAll] count]);
 }
 
 

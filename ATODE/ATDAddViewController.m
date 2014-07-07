@@ -10,12 +10,16 @@
 #import "ATDCoreDataManger.h"
 #import "ATDPlaceMemo.h"
 #import <CommonCrypto/CommonCrypto.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface ATDAddViewController ()
+<CLLocationManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
 
+@property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, strong) CLLocation *currentLocation;
 
 @end
 
@@ -29,6 +33,8 @@
     [super viewDidLoad];
     
     _imageView.image = _image;
+    
+    [self startUpdateLocation];
 }
 
 - (void)saveNewMemoWithTitle:(NSString *)title
@@ -97,6 +103,13 @@
     
 }
 
+- (void)startUpdateLocation {
+    self.locationManager = [[CLLocationManager alloc]init];
+    self.locationManager.delegate = self;
+    
+    [self.locationManager startUpdatingLocation];
+}
+
 - (IBAction)addBtnTouched:(id)sender {
     // タイトル
     NSString *title = _titleField.text;
@@ -117,13 +130,28 @@
     NSString *postdate = [self postdateFromNow];
     NSLog(@"postdate[%@]", postdate);
     
+    // Location
+    NSLog(@"latlng:%f,%f", _currentLocation.coordinate.latitude, _currentLocation.coordinate.longitude);
+    
     // TODO: siteUrl（オプション）
     
     // 保存
-    [self saveNewMemoWithTitle:title
-                      filePath:filePath
-                      postdate:postdate
-                       siteUrl:@""];
+//    [self saveNewMemoWithTitle:title
+//                      filePath:filePath
+//                      postdate:postdate
+//                       siteUrl:@""];
+}
+
+
+#pragma mark -
+#pragma mark CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    self.currentLocation = [locations lastObject];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    NSLog(@"error[%@]", error);
 }
 
 @end

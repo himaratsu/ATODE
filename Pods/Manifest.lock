@@ -27,6 +27,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - AFNetworking (~> 2.3.1)
   - MagicalRecord (~> 2.2)
   - SVProgressHUD
 
