@@ -8,6 +8,7 @@
 
 #import "ATDPlaceSearchViewController.h"
 #import <AFNetworking/AFNetworking.h>
+#import "ATD4sqPlace.h"
 
 
 static NSString * const kApiClientID = @"UXFP35M0BBM3BSQS0IEDLDHQECN4PIP5IYE14CD4MBR1VPS2";
@@ -35,23 +36,24 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
 
 
 - (void)reloadData {
-    self.places = @[@"aaa", @"bbb", @"ccc"];
-    
     NSDictionary *params = @{@"client_id":kApiClientID,
                              @"client_secret":kApiClientSecret,
                              @"v":@"20140707",
                              @"near":@"Tokyo"};
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:@"https://api.foursquare.com/v2/venues/explore"
+    [manager GET:@"https://api.foursquare.com/v2/venues/search"
       parameters:params
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//             NSLog(@"Success:[%@]", responseObject);
+             NSArray *venues = responseObject[@"response"][@"venues"];
              
-             NSArray *venues = responseObject[@"response"][@"groups"][0][@"items"][0][@"venue"];
+             NSMutableArray *mutArray = [NSMutableArray array];
+             [venues enumerateObjectsUsingBlock:^(NSDictionary *dict, NSUInteger idx, BOOL *stop) {
+                 ATD4sqPlace *place = [[ATD4sqPlace alloc] initWithDictionary:dict];
+                 [mutArray addObject:place];
+             }];
              
-             NSLog(@"venues[%@]", venues);
-             
+             self.places = mutArray;
              [_tableView reloadData];
          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"error:[%@]", error);
@@ -69,7 +71,14 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    cell.textLabel.text = _places[indexPath.row];
+    ATD4sqPlace *place = _places[indexPath.row];
+    cell.textLabel.text = place.name;
+    if (place.address) {
+        cell.detailTextLabel.text = place.address;
+    }
+    else {
+        cell.detailTextLabel.text = @"";
+    }
     return cell;
 }
 

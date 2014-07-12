@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		201F041E196829440045AB37 /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 201F041D196829440045AB37 /* sample.jpg */; };
 		201F042119699AEE0045AB37 /* ATDPlaceSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 201F042019699AEE0045AB37 /* ATDPlaceSearchViewController.m */; };
+		201F04241970F9560045AB37 /* ATD4sqPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 201F04231970F9560045AB37 /* ATD4sqPlace.m */; };
 		202C660519604D5D00497257 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 202C660419604D5D00497257 /* Foundation.framework */; };
 		202C660719604D5D00497257 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 202C660619604D5D00497257 /* CoreGraphics.framework */; };
 		202C660919604D5D00497257 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 202C660819604D5D00497257 /* UIKit.framework */; };
@@ -47,6 +48,8 @@
 		201F041D196829440045AB37 /* sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample.jpg; sourceTree = "<group>"; };
 		201F041F19699AEE0045AB37 /* ATDPlaceSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDPlaceSearchViewController.h; sourceTree = "<group>"; };
 		201F042019699AEE0045AB37 /* ATDPlaceSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDPlaceSearchViewController.m; sourceTree = "<group>"; };
+		201F04221970F9560045AB37 /* ATD4sqPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATD4sqPlace.h; sourceTree = "<group>"; };
+		201F04231970F9560045AB37 /* ATD4sqPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATD4sqPlace.m; sourceTree = "<group>"; };
 		202C660119604D5D00497257 /* ATODE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATODE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		202C660419604D5D00497257 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		202C660619604D5D00497257 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -190,6 +193,8 @@
 			children = (
 				202C663A19678BB400497257 /* ATDPlaceMemo.h */,
 				202C663B19678BB400497257 /* ATDPlaceMemo.m */,
+				201F04221970F9560045AB37 /* ATD4sqPlace.h */,
+				201F04231970F9560045AB37 /* ATD4sqPlace.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -374,6 +379,7 @@
 				202C661B19604D5D00497257 /* ATDViewController.m in Sources */,
 				208131B4196791A70094E577 /* ATDAddViewController.m in Sources */,
 				208131AF19678E8E0094E577 /* ATDPlaceMemoCell.m in Sources */,
+				201F04241970F9560045AB37 /* ATD4sqPlace.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
