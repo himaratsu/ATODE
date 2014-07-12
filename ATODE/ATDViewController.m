@@ -10,6 +10,9 @@
 #import "ATDPlaceMemoCell.h"
 #import "ATDAddViewController.h"
 #import "ATDCoreDataManger.h"
+#import "PlaceMemo.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <FontAwesome-iOS/NSString+FontAwesome.h>
 
 
 @interface ATDViewController ()
@@ -17,6 +20,8 @@
 UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
+@property (nonatomic, strong) NSArray *memos;
 
 @end
 
@@ -31,16 +36,18 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate>
     [self registerNib];
     
     [self reloadData];
+    
 }
 
 - (void)registerNib {
     [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([ATDPlaceMemoCell class])
                                                bundle:[NSBundle mainBundle]]
-      forCellWithReuseIdentifier:@"Cell"];
+      forCellWithReuseIdentifier:NSStringFromClass([ATDPlaceMemoCell class])];
 }
 
 - (void)reloadData {
-    [[ATDCoreDataManger sharedInstance] getAllMemos];
+    self.memos = [[ATDCoreDataManger sharedInstance] getAllMemos];
+    [_collectionView reloadData];
 }
 
 // 写真撮影画面へ遷移
@@ -66,6 +73,8 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate>
     [self showImagePickerView];
 #endif
 }
+
+
 
 
 #pragma mark -
@@ -99,11 +108,22 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 #pragma mark UICollectionViewDelegate
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 12;
+    return [_memos count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    ATDPlaceMemoCell *cell = [collectionView
+                                  dequeueReusableCellWithReuseIdentifier:NSStringFromClass([ATDPlaceMemoCell class])
+                                  forIndexPath:indexPath];
+    PlaceMemo *memo = _memos[indexPath.row];
+    
+    cell.nameLabel.text = memo.title;
+    [cell.imageView setImageWithURL:[NSURL fileURLWithPath:memo.imageFilePath]
+                   placeholderImage:[UIImage imageNamed:@"noimage"]
+                          completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                              
+                          }];
+    
     return cell;
 }
 

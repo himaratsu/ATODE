@@ -46,8 +46,7 @@
 
 - (NSArray *)getAllMemos {
     [self setUpStack];
-    [self printCoreData];
-    return nil;
+    return [PlaceMemo MR_findAll];
 }
 
 - (void)printCoreData {
@@ -55,10 +54,18 @@
 }
 
 
+- (void)resetSaveData {
+    NSURL *URL = [NSPersistentStore MR_urlForStoreName:[MagicalRecord defaultStoreName]];
+    [[NSFileManager defaultManager] removeItemAtURL:URL error:nil];
+}
+
+
+
 - (void)setUpStack {
     [MagicalRecord setupCoreDataStack];
     _magicalContext = [NSManagedObjectContext MR_contextForCurrentThread];
 }
+
 
 
 @end

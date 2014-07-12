@@ -46,6 +46,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="あとで行く" id="0eP-d6-k19">
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="gBL-0d-Zzp">
+                            <connections>
+                                <segue destination="2EW-BR-wvh" kind="modal" id="zqy-7H-TqI"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="OCX-Xv-WSn">
                             <connections>
                                 <action selector="addBtnTouched:" destination="vXZ-lx-hvc" id="nQl-Zo-LX4"/>
@@ -114,7 +119,65 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jyz-Ya-xNi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1083" y="67"/>
+            <point key="canvasLocation" x="1147" y="-160"/>
+        </scene>
+        <!--Setting View Controller - 設定-->
+        <scene sceneID="N8S-8a-bip">
+            <objects>
+                <viewController id="JE6-4g-RlN" customClass="ATDSettingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="N2m-Ep-vjG"/>
+                        <viewControllerLayoutGuide type="bottom" id="elo-j3-Mbk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aP0-AM-5nd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Xdc-kU-qdy">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DeleteCell" textLabel="MSb-pf-9mC" style="IBUITableViewCellStyleDefault" id="SQ1-q7-hJN">
+                                        <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SQ1-q7-hJN" id="lGJ-2P-5tz">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="データをすべて削除" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MSb-pf-9mC">
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="JE6-4g-RlN" id="n8K-Jy-9jl"/>
+                                    <outlet property="delegate" destination="JE6-4g-RlN" id="JMm-Fj-g3F"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="設定" id="i8z-Lr-zoJ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="1zc-8s-NiM">
+                            <connections>
+                                <action selector="closeBtnTouched:" destination="JE6-4g-RlN" id="oqv-MF-1qy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="Xdc-kU-qdy" id="MhS-Cb-v2I"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V34-b5-1jI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1584" y="591"/>
         </scene>
         <!--Place Search View Controller - お店を検索-->
         <scene sceneID="5qb-kq-1zs">
@@ -173,7 +236,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BGO-5B-9pD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1460" y="67"/>
+            <point key="canvasLocation" x="1524" y="-160"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UOA-qK-A6C">
@@ -192,6 +255,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DmY-9P-Dvu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="307" y="67"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="e4m-tN-2my">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2EW-BR-wvh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SbF-5T-LX7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="JE6-4g-RlN" kind="relationship" relationship="rootViewController" id="Yb1-9X-01Q"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nD4-yL-ygE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1147" y="591"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

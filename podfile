@@ -1,6 +1,6 @@
 platform :ios, '7.0'
-pod 'AFNetworking'
 pod 'SVProgressHUD'
 pod 'MagicalRecord', '~> 2.2'
 pod 'AFNetworking', '~> 2.3.1'
-
+pod 'SDWebImage', '~> 3.6'
+pod 'FontAwesome-iOS'

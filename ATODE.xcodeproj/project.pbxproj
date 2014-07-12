@@ -10,6 +10,8 @@
 		201F041E196829440045AB37 /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 201F041D196829440045AB37 /* sample.jpg */; };
 		201F042119699AEE0045AB37 /* ATDPlaceSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 201F042019699AEE0045AB37 /* ATDPlaceSearchViewController.m */; };
 		201F04241970F9560045AB37 /* ATD4sqPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 201F04231970F9560045AB37 /* ATD4sqPlace.m */; };
+		201F04271970FF5B0045AB37 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 201F04261970FF5B0045AB37 /* fontawesome-webfont.ttf */; };
+		201F042A197102750045AB37 /* ATDSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 201F0429197102750045AB37 /* ATDSettingViewController.m */; };
 		202C660519604D5D00497257 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 202C660419604D5D00497257 /* Foundation.framework */; };
 		202C660719604D5D00497257 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 202C660619604D5D00497257 /* CoreGraphics.framework */; };
 		202C660919604D5D00497257 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 202C660819604D5D00497257 /* UIKit.framework */; };
@@ -50,6 +52,9 @@
 		201F042019699AEE0045AB37 /* ATDPlaceSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDPlaceSearchViewController.m; sourceTree = "<group>"; };
 		201F04221970F9560045AB37 /* ATD4sqPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATD4sqPlace.h; sourceTree = "<group>"; };
 		201F04231970F9560045AB37 /* ATD4sqPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATD4sqPlace.m; sourceTree = "<group>"; };
+		201F04261970FF5B0045AB37 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
+		201F0428197102750045AB37 /* ATDSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDSettingViewController.h; sourceTree = "<group>"; };
+		201F0429197102750045AB37 /* ATDSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDSettingViewController.m; sourceTree = "<group>"; };
 		202C660119604D5D00497257 /* ATODE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATODE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		202C660419604D5D00497257 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		202C660619604D5D00497257 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -110,6 +115,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		201F04251970FF500045AB37 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				201F04261970FF5B0045AB37 /* fontawesome-webfont.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		202C65F819604D5D00497257 = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +158,7 @@
 		202C660A19604D5D00497257 /* ATODE */ = {
 			isa = PBXGroup;
 			children = (
+				201F04251970FF500045AB37 /* Resources */,
 				208131B51967987A0094E577 /* Data */,
 				202C663E19678C9E00497257 /* ViewController */,
 				202C663D19678C9600497257 /* View */,
@@ -218,6 +232,8 @@
 				208131B3196791A70094E577 /* ATDAddViewController.m */,
 				201F041F19699AEE0045AB37 /* ATDPlaceSearchViewController.h */,
 				201F042019699AEE0045AB37 /* ATDPlaceSearchViewController.m */,
+				201F0428197102750045AB37 /* ATDSettingViewController.h */,
+				201F0429197102750045AB37 /* ATDSettingViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -316,6 +332,7 @@
 				202C661D19604D5D00497257 /* Images.xcassets in Resources */,
 				208131B119678E9B0094E577 /* ATDPlaceMemoCell.xib in Resources */,
 				202C660F19604D5D00497257 /* InfoPlist.strings in Resources */,
+				201F04271970FF5B0045AB37 /* fontawesome-webfont.ttf in Resources */,
 				202C661819604D5D00497257 /* Main.storyboard in Resources */,
 				201F041E196829440045AB37 /* sample.jpg in Resources */,
 			);
@@ -372,6 +389,7 @@
 				201F042119699AEE0045AB37 /* ATDPlaceSearchViewController.m in Sources */,
 				208131BB196798BA0094E577 /* ATODE.xcdatamodeld in Sources */,
 				208131BE1967A04F0094E577 /* PlaceMemo.m in Sources */,
+				201F042A197102750045AB37 /* ATDSettingViewController.m in Sources */,
 				202C661519604D5D00497257 /* ATDAppDelegate.m in Sources */,
 				202C663C19678BB400497257 /* ATDPlaceMemo.m in Sources */,
 				208131C11967AF2F0094E577 /* ATDCoreDataManger.m in Sources */,

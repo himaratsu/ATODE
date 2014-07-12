@@ -15,5 +15,6 @@
 
 - (void)saveNewMemo:(ATDPlaceMemo *)memo;
 - (NSArray *)getAllMemos;
+- (void)resetSaveData;
 
 @end
