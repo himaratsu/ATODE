@@ -42,10 +42,11 @@
                     postdate:(NSString *)postdate
                      siteUrl:(NSString *)siteUrl {
     ATDPlaceMemo *memo = [ATDPlaceMemo new];
-    memo.title = @"Sample Memo";
-    memo.imageFilePath = @"image/path";
-    memo.postdate = @"2014/04/10";
-    memo.siteUrl = @"http://yahoo.co.jp";
+
+    memo.title = title;
+    memo.imageFilePath = filePath;
+    memo.postdate = postdate;
+    memo.siteUrl = siteUrl;
     
     [[ATDCoreDataManger sharedInstance] saveNewMemo:memo];
 }
@@ -77,8 +78,6 @@
     NSString *DocumentsDirPath = [paths objectAtIndex:0];
     NSString *filePath = [DocumentsDirPath stringByAppendingFormat:@"/%@", hashStr];
     
-    NSLog(@"imagePath[%@]", filePath);
-    
     // Save image.
     if (![UIImagePNGRepresentation(image) writeToFile:filePath atomically:YES]) {
         NSLog(@"save file error!");
@@ -88,7 +87,7 @@
     // TODO: SDWebImageでキャッシュ
     // TODO: 保存失敗した時の処理
     
-    return hashStr;
+    return filePath;
 }
 
 - (NSString *)postdateFromNow {
@@ -97,7 +96,7 @@
     NSLocale *enUSPOSIXLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
     [dateFormatter setLocale:enUSPOSIXLocale];
     [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
-    dateFormatter.dateFormat = @"yyyy-MM-dd";
+    dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm";
     
     return [dateFormatter stringFromDate:[NSDate date]];
     
@@ -136,10 +135,10 @@
     // TODO: siteUrl（オプション）
     
     // 保存
-//    [self saveNewMemoWithTitle:title
-//                      filePath:filePath
-//                      postdate:postdate
-//                       siteUrl:@""];
+    [self saveNewMemoWithTitle:title
+                      filePath:filePath
+                      postdate:postdate
+                       siteUrl:@""];
 }
 
 
