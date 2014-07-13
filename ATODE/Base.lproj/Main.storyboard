@@ -303,9 +303,17 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="y7L-a7-sGe">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" placeholder="店名で検索" id="XUh-ff-aLx">
+                                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="MhX-WO-jrt" id="OCw-eV-OWz"/>
+                                    </connections>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="QK1-XO-HQf" detailTextLabel="Ilo-Jx-yay" style="IBUITableViewCellStyleSubtitle" id="He6-Vq-6pK">
-                                        <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="130" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="He6-Vq-6pK" id="9iS-Va-0Bn">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -339,10 +347,21 @@
                     </view>
                     <navigationItem key="navigationItem" title="お店を検索" id="koM-LN-1KY"/>
                     <connections>
+                        <outlet property="searchBar" destination="XUh-ff-aLx" id="uqN-TY-lmU"/>
+                        <outlet property="searchDisplayController" destination="b6R-Se-ENW" id="sXq-ba-RH4"/>
                         <outlet property="tableView" destination="y7L-a7-sGe" id="m6n-4P-IuO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BGO-5B-9pD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="b6R-Se-ENW">
+                    <connections>
+                        <outlet property="delegate" destination="MhX-WO-jrt" id="c2n-3x-lvV"/>
+                        <outlet property="searchBar" destination="XUh-ff-aLx" id="gmw-Y2-9Py"/>
+                        <outlet property="searchContentsController" destination="MhX-WO-jrt" id="Qo0-PT-09K"/>
+                        <outlet property="searchResultsDataSource" destination="MhX-WO-jrt" id="Dt1-R1-DQq"/>
+                        <outlet property="searchResultsDelegate" destination="MhX-WO-jrt" id="ej5-0p-dVF"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1644" y="-724"/>
         </scene>

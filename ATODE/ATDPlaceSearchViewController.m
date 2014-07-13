@@ -18,7 +18,12 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
 <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+
 @property (nonatomic, strong) NSArray *places;
+@property (nonatomic, strong) NSArray *filterdPlaces;
+
+
 
 @end
 
@@ -70,12 +75,27 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
 #pragma mark UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_places count];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [_filterdPlaces count];
+    }
+    else {
+        return [_places count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    ATD4sqPlace *place = _places[indexPath.row];
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                                                   reuseIdentifier:@"Cell"];
+    
+    ATD4sqPlace *place;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        place = _filterdPlaces[indexPath.row];
+    }
+    else {
+        place = _places[indexPath.row];
+    }
+    
     cell.textLabel.text = place.name;
     if (place.address) {
         cell.detailTextLabel.text = place.address;
@@ -83,6 +103,7 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
     else {
         cell.detailTextLabel.text = @"";
     }
+    
     return cell;
 }
 
@@ -98,6 +119,19 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
     else {
         NSLog(@"delegate not found");
     }
+}
+
+
+
+- (void)filterContainsWithSearchText:(NSString *)searchText {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", searchText];
+    
+    self.filterdPlaces = [_places filteredArrayUsingPredicate:predicate];
+}
+
+- (BOOL)searchDisplayController:controller shouldReloadTableForSearchString:(NSString *)searchString {
+    [self filterContainsWithSearchText:searchString];
+    return YES;
 }
 
 @end
