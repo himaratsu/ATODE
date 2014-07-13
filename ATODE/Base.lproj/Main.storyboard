@@ -185,7 +185,7 @@
                                 <rect key="frame" x="99" y="70" width="122" height="122"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="メモを入力（オプション）" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1Ll-bB-nUz">
-                                <rect key="frame" x="59" y="239" width="202" height="30"/>
+                                <rect key="frame" x="59" y="305" width="202" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
@@ -193,7 +193,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUh-zQ-LaR">
-                                <rect key="frame" x="112" y="307" width="96" height="37"/>
+                                <rect key="frame" x="112" y="366" width="96" height="37"/>
                                 <state key="normal" title="追加する">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -202,20 +202,28 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zcb-2u-wqp">
-                                <rect key="frame" x="59" y="208" width="202" height="30"/>
-                                <state key="normal" title="お店の候補を調べる">
+                                <rect key="frame" x="54" y="251" width="202" height="30"/>
+                                <state key="normal" title="お店の候補を調べる >">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="MhX-WO-jrt" kind="push" identifier="show4sq" id="HrC-RO-sER"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ここにfoursquareで選んだスポット名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SD7-fN-FGy">
+                                <rect key="frame" x="23" y="220" width="274" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="UeU-wp-T3d"/>
                     <connections>
                         <outlet property="imageView" destination="Wck-M3-kUP" id="6Ob-Bu-Iro"/>
+                        <outlet property="placeNameLabel" destination="SD7-fN-FGy" id="bBi-2T-7Mh"/>
                         <outlet property="titleField" destination="1Ll-bB-nUz" id="cUG-wW-roG"/>
                     </connections>
                 </viewController>

@@ -21,6 +21,7 @@ ATDPlaceSearchViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
 @property (nonatomic, strong) ATD4sqPlace *placeInfo;
+@property (weak, nonatomic) IBOutlet UILabel *placeNameLabel;
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) CLLocation *currentLocation;
@@ -169,6 +170,7 @@ ATDPlaceSearchViewControllerDelegate>
 
 - (void)didSelectPlace:(ATD4sqPlace *)placeInfo {
     self.placeInfo = placeInfo;
+    _placeNameLabel.text = _placeInfo.name;
 }
 
 
@@ -180,7 +182,7 @@ ATDPlaceSearchViewControllerDelegate>
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-    NSLog(@"error[%@]", error);
+    NSLog(@"locationManager_error[%@]", error);
 }
 
 
