@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface ATDAddViewController : UIViewController
 
 @property (nonatomic, strong) UIImage *image;
+@property (nonatomic, assign) CLLocationCoordinate2D coordinate;
 
 @end

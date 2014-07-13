@@ -42,8 +42,8 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
 
 - (void)reloadData {
     NSString *ll = [NSString stringWithFormat:@"%f,%f",
-                    _location.coordinate.latitude,
-                    _location.coordinate.longitude];
+                    _coordinate.latitude,
+                    _coordinate.longitude];
     
     NSDictionary *params = @{@"client_id":kApiClientID,
                              @"client_secret":kApiClientSecret,

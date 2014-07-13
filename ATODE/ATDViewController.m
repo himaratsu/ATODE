@@ -12,6 +12,8 @@
 #import "ATDDetailViewController.h"
 #import "ATDCoreDataManger.h"
 #import "PlaceMemo.h"
+#import <UIActionSheet+Blocks/UIActionSheet+Blocks.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 #import <CoreLocation/CoreLocation.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <FontAwesome-iOS/NSString+FontAwesome.h>
@@ -30,6 +32,10 @@ CLLocationManagerDelegate>
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) CLLocation *currentLocation;
 @property (nonatomic, assign) BOOL isLocationLoading;
+
+@property (nonatomic, strong) ALAssetsLibrary *library;
+
+@property (nonatomic, assign) CLLocationCoordinate2D imageCoordinate;
 
 @end
 
@@ -101,20 +107,18 @@ CLLocationManagerDelegate>
         CLLocationDistance distance1 = [_currentLocation distanceFromLocation:location1];
         CLLocationDistance distance2 = [_currentLocation distanceFromLocation:location2];
         
-        NSLog(@"distance [%f] < [%f]", distance1, distance2);
-        
-        return distance1 < distance2;
+        return distance1 > distance2;
     }];
     
     return sorterdMemos;
 }
 
 // 写真撮影画面へ遷移
-- (void)showImagePickerView {
+- (void)showImagePickerView:(UIImagePickerControllerSourceType)sourceType {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = YES;
-    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    picker.sourceType = sourceType;
     
     [self presentViewController:picker animated:YES completion:nil];
 }
@@ -123,14 +127,67 @@ CLLocationManagerDelegate>
 #pragma mark IBAction
 
 - (IBAction)addBtnTouched:(id)sender {
+    [UIActionSheet showInView:self.view
+                    withTitle:@"写真"
+            cancelButtonTitle:@"キャンセル"
+       destructiveButtonTitle:nil
+            otherButtonTitles:@[@"カメラで撮る", @"ライブラリから選ぶ"]
+                     tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
+                         if (buttonIndex != actionSheet.cancelButtonIndex) {
+                             if (buttonIndex == 0) {
+                                 [self getPhotoFromCamera];
+                             }
+                             else if (buttonIndex == 1) {
+                                 [self getPhotoFromLibrary];
+                             }
+                         }
+                     }];
+}
+
+
+- (void)getPhotoFromCamera {
 #if (TARGET_IPHONE_SIMULATOR)
     // シミュレータで動作中
     UIImage *image = [UIImage imageNamed:@"sample.jpg"];
     [self performSegueWithIdentifier:@"showAdd" sender:image];
 #else
     // 実機で動作中
-    [self showImagePickerView];
+    [self showImagePickerView:UIImagePickerControllerSourceTypeCamera];
 #endif
+}
+
+- (void)getPhotoFromLibrary {
+    [self showImagePickerView:UIImagePickerControllerSourceTypePhotoLibrary];
+}
+
+
+- (void)gotoAddViewWithAsset:(NSURL *)assetURL image:(UIImage *)image {
+    self.library = [[ALAssetsLibrary alloc] init];
+    [_library assetForURL:assetURL
+             resultBlock:^(ALAsset *asset) {
+                 
+                 //画像があればYES、無ければNOを返す
+                 if(asset){
+                     NSLog(@"データがあります");
+                     ALAssetRepresentation *assetRepresentation = [asset defaultRepresentation];
+                     NSDictionary *metadata = [assetRepresentation metadata];
+                     
+                     if ([[metadata allKeys] containsObject:@"{GPS}"]) {
+                         NSDictionary *gpsInfo = metadata[@"{GPS}"];
+                         
+                         double lat = [gpsInfo[@"Latitude"] doubleValue];
+                         double lng = [gpsInfo[@"Longitude"] doubleValue];
+
+                         self.imageCoordinate = CLLocationCoordinate2DMake(lat, lng);
+                         [self performSegueWithIdentifier:@"showAdd" sender:image];
+                     }
+                 }else{
+                     NSLog(@"データがありません");
+                     self.imageCoordinate = CLLocationCoordinate2DMake(0, 0);
+                     [self performSegueWithIdentifier:@"showAdd" sender:image];
+                 }
+                 
+             } failureBlock: nil];
 }
 
 
@@ -149,6 +206,7 @@ CLLocationManagerDelegate>
     if ([segue.identifier isEqualToString:@"showAdd"]) {
         ATDAddViewController *addVC = segue.destinationViewController;
         addVC.image = sender;
+        addVC.coordinate = _imageCoordinate;
     }
     else if ([segue.identifier isEqualToString:@"showDetail"]) {
         ATDDetailViewController *detailVC = segue.destinationViewController;
@@ -163,12 +221,13 @@ CLLocationManagerDelegate>
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     [picker dismissViewControllerAnimated:YES completion:nil];
     
-    
     UIImage *image = info[UIImagePickerControllerEditedImage];
     
-    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+    // カメラロールに保存
+//    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
     
-    [self performSegueWithIdentifier:@"showAdd" sender:image];
+    NSURL *assetsURL = (NSURL *)info[UIImagePickerControllerReferenceURL];
+    [self gotoAddViewWithAsset:assetsURL image:image];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
@@ -207,8 +266,6 @@ CLLocationManagerDelegate>
     
     cell.nameLabel.text = memo.title;
     [cell.imageView setImageWithURL:[NSURL fileURLWithPath:memo.imageFilePath]];
-    
-    NSLog(@"%@, %@", memo.latitude, memo.longitude);
     
     return cell;
 }

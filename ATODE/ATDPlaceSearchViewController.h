@@ -22,6 +22,6 @@
 @interface ATDPlaceSearchViewController : UIViewController
 
 @property (nonatomic, weak) id<ATDPlaceSearchViewControllerDelegate> delegate;
-@property (nonatomic, strong) CLLocation *location;
+@property (nonatomic, assign) CLLocationCoordinate2D coordinate;
 
 @end

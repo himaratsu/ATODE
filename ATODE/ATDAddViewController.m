@@ -11,23 +11,17 @@
 #import "ATDPlaceMemo.h"
 #import "ATDPlaceSearchViewController.h"
 #import <CommonCrypto/CommonCrypto.h>
-#import <CoreLocation/CoreLocation.h>
 #import <UIAlertView+Blocks/UIAlertView+Blocks.h>
 
 @interface ATDAddViewController ()
-<CLLocationManagerDelegate, UITextFieldDelegate,
-ATDPlaceSearchViewControllerDelegate>
+<UITextFieldDelegate, ATDPlaceSearchViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
 @property (nonatomic, strong) ATD4sqPlace *placeInfo;
 @property (weak, nonatomic) IBOutlet UILabel *placeNameLabel;
 
-@property (nonatomic, strong) CLLocationManager *locationManager;
-@property (nonatomic, strong) CLLocation *currentLocation;
-
 @end
-
 
 
 
@@ -38,8 +32,7 @@ ATDPlaceSearchViewControllerDelegate>
     [super viewDidLoad];
     
     _imageView.image = _image;
-    
-    [self startUpdateLocation];
+
 }
 
 - (void)saveNewMemoWithTitle:(NSString *)title
@@ -57,9 +50,9 @@ ATDPlaceSearchViewControllerDelegate>
         memo.placeInfo = _placeInfo;
     }
     
-    if (_currentLocation) {
-        memo.latitude = _currentLocation.coordinate.latitude;
-        memo.longitude = _currentLocation.coordinate.longitude;
+    if (_coordinate.latitude != 0 && _coordinate.longitude != 0) {
+        memo.latitude = _coordinate.latitude;
+        memo.longitude = _coordinate.longitude;
     }
     
     [[ATDCoreDataManger sharedInstance] saveNewMemo:memo];
@@ -125,13 +118,6 @@ ATDPlaceSearchViewControllerDelegate>
     
 }
 
-- (void)startUpdateLocation {
-    self.locationManager = [[CLLocationManager alloc]init];
-    self.locationManager.delegate = self;
-    
-    [self.locationManager startUpdatingLocation];
-}
-
 - (IBAction)addBtnTouched:(id)sender {
     // タイトル
     NSString *title = _titleField.text;
@@ -151,9 +137,6 @@ ATDPlaceSearchViewControllerDelegate>
     // 投稿日時
     NSString *postdate = [self postdateFromNow];
     NSLog(@"postdate[%@]", postdate);
-    
-    // Location
-    NSLog(@"latlng:%f,%f", _currentLocation.coordinate.latitude, _currentLocation.coordinate.longitude);
     
     // TODO: siteUrl（オプション）
     
@@ -175,18 +158,6 @@ ATDPlaceSearchViewControllerDelegate>
 
 
 #pragma mark -
-#pragma mark CLLocationManagerDelegate
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    self.currentLocation = [locations lastObject];
-}
-
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-    NSLog(@"locationManager_error[%@]", error);
-}
-
-
-#pragma mark -
 #pragma mark UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -202,10 +173,8 @@ ATDPlaceSearchViewControllerDelegate>
     if ([segue.identifier isEqualToString:@"show4sq"]) {
         ATDPlaceSearchViewController *searchVC = segue.destinationViewController;
         searchVC.delegate = self;
-        searchVC.location = _currentLocation;
+        searchVC.coordinate = _coordinate;
     }
-
-
 }
 
 @end
