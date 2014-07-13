@@ -245,18 +245,10 @@
 		202C663E19678C9E00497257 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				202C661919604D5D00497257 /* ATDViewController.h */,
-				202C661A19604D5D00497257 /* ATDViewController.m */,
-				208131B2196791A70094E577 /* ATDAddViewController.h */,
-				208131B3196791A70094E577 /* ATDAddViewController.m */,
-				20A0FA4C1972A53B004FA008 /* ATDDetailViewController.h */,
-				20A0FA4D1972A53B004FA008 /* ATDDetailViewController.m */,
-				201F041F19699AEE0045AB37 /* ATDPlaceSearchViewController.h */,
-				201F042019699AEE0045AB37 /* ATDPlaceSearchViewController.m */,
-				201F0428197102750045AB37 /* ATDSettingViewController.h */,
-				201F0429197102750045AB37 /* ATDSettingViewController.m */,
-				20A0FA5E1972F8C7004FA008 /* ATDMapViewController.h */,
-				20A0FA5F1972F8C7004FA008 /* ATDMapViewController.m */,
+				20A0FA64197300E0004FA008 /* Detail */,
+				20A0FA63197300D6004FA008 /* Add */,
+				20A0FA62197300CB004FA008 /* Top */,
+				20A0FA61197300C4004FA008 /* Setting */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -280,6 +272,46 @@
 				20A0FA591972D48B004FA008 /* MKMapView+ATDZoomLevel.m */,
 			);
 			name = Category;
+			sourceTree = "<group>";
+		};
+		20A0FA61197300C4004FA008 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				201F0428197102750045AB37 /* ATDSettingViewController.h */,
+				201F0429197102750045AB37 /* ATDSettingViewController.m */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
+		20A0FA62197300CB004FA008 /* Top */ = {
+			isa = PBXGroup;
+			children = (
+				202C661919604D5D00497257 /* ATDViewController.h */,
+				202C661A19604D5D00497257 /* ATDViewController.m */,
+			);
+			name = Top;
+			sourceTree = "<group>";
+		};
+		20A0FA63197300D6004FA008 /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				208131B2196791A70094E577 /* ATDAddViewController.h */,
+				208131B3196791A70094E577 /* ATDAddViewController.m */,
+				201F041F19699AEE0045AB37 /* ATDPlaceSearchViewController.h */,
+				201F042019699AEE0045AB37 /* ATDPlaceSearchViewController.m */,
+			);
+			name = Add;
+			sourceTree = "<group>";
+		};
+		20A0FA64197300E0004FA008 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				20A0FA4C1972A53B004FA008 /* ATDDetailViewController.h */,
+				20A0FA4D1972A53B004FA008 /* ATDDetailViewController.m */,
+				20A0FA5E1972F8C7004FA008 /* ATDMapViewController.h */,
+				20A0FA5F1972F8C7004FA008 /* ATDMapViewController.m */,
+			);
+			name = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

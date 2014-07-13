@@ -12,19 +12,23 @@
 #import "ATDDetailViewController.h"
 #import "ATDCoreDataManger.h"
 #import "PlaceMemo.h"
+#import <CoreLocation/CoreLocation.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <FontAwesome-iOS/NSString+FontAwesome.h>
 
 
 @interface ATDViewController ()
 <UICollectionViewDataSource, UICollectionViewDelegate,
-UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+UIImagePickerControllerDelegate, UINavigationControllerDelegate,
+CLLocationManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) NSArray *memos;
 
+@property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, strong) CLLocation *currentLocation;
 @end
 
 
@@ -34,6 +38,8 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self startUpdateLocation];
 
     [self registerNib];
     
@@ -42,6 +48,13 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 - (void)viewWillAppear:(BOOL)animated {
     [self reloadData];
+}
+
+- (void)startUpdateLocation {
+    self.locationManager = [[CLLocationManager alloc]init];
+    self.locationManager.delegate = self;
+    
+    [self.locationManager startUpdatingLocation];
 }
 
 - (void)registerNib {
@@ -61,10 +74,37 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 }
 
 - (void)reloadData {
-    self.memos = [[ATDCoreDataManger sharedInstance] getAllMemos];
+    NSArray *memos = [[ATDCoreDataManger sharedInstance] getAllMemos];
+    self.memos = [self sortMemoByDistance:memos];
+    
     [_collectionView reloadData];
     
     [_refreshControl endRefreshing];
+}
+
+
+- (NSArray *)sortMemoByDistance:(NSArray *)memos {
+    if (!_currentLocation) {
+        NSLog(@"no lcoation");
+        return memos;
+    }
+    
+    NSArray *sorterdMemos =
+    [memos sortedArrayUsingComparator:^NSComparisonResult(PlaceMemo *memo1, PlaceMemo *memo2) {
+        CLLocation *location1 = [[CLLocation alloc] initWithLatitude:[memo1.latitude doubleValue]
+                                                           longitude:[memo1.longitude doubleValue]];
+        CLLocation *location2 = [[CLLocation alloc] initWithLatitude:[memo2.latitude doubleValue]
+                                                           longitude:[memo2.longitude doubleValue]];
+        
+        CLLocationDistance distance1 = [_currentLocation distanceFromLocation:location1];
+        CLLocationDistance distance2 = [_currentLocation distanceFromLocation:location2];
+        
+        NSLog(@"distance [%f] < [%f]", distance1, distance2);
+        
+        return distance1 < distance2;
+    }];
+    
+    return sorterdMemos;
 }
 
 // 写真撮影画面へ遷移
@@ -126,12 +166,25 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate>
     UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
     
     [self performSegueWithIdentifier:@"showAdd" sender:image];
-    
-    
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+#pragma mark -
+#pragma mark CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    if (![_currentLocation isEqual:[locations lastObject]]) {
+        self.currentLocation = [locations lastObject];
+        [self reloadData];
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    NSLog(@"locationManager_error[%@]", error);
 }
 
 
@@ -149,7 +202,6 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate>
     PlaceMemo *memo = _memos[indexPath.row];
     
     cell.nameLabel.text = memo.title;
-//    cell.imageView.alpha = 0.0;
     [cell.imageView setImageWithURL:[NSURL fileURLWithPath:memo.imageFilePath]];
     
     NSLog(@"%@, %@", memo.latitude, memo.longitude);
