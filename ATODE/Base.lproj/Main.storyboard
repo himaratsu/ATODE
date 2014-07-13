@@ -104,7 +104,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qhm-Wr-gun">
-                                <rect key="frame" x="95" y="392" width="130" height="30"/>
+                                <rect key="frame" x="89" y="518" width="130" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="DELETE">
                                     <color key="titleColor" red="1" green="0.29073243739999999" blue="0.28857061680000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -114,12 +114,20 @@
                                     <action selector="deleteBtnTouched:" destination="KVa-Xb-dqj" eventType="touchUpInside" id="k6Q-w5-7Uz"/>
                                 </connections>
                             </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kmV-x1-aJY">
+                                <rect key="frame" x="6" y="352" width="308" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="KVa-Xb-dqj" id="nNJ-uH-I1I"/>
+                                </connections>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="TbV-ah-D0u"/>
                     <connections>
                         <outlet property="imageView" destination="iJ5-ws-pmp" id="NeT-rQ-2hn"/>
+                        <outlet property="mapView" destination="kmV-x1-aJY" id="DQE-iN-Nru"/>
                         <outlet property="memoLabel" destination="DSq-uD-3wZ" id="LSa-X5-vQj"/>
                         <outlet property="placeInfoLabel" destination="qIu-qY-Yo3" id="zXw-Ke-vgg"/>
                         <outlet property="postdateLabel" destination="xCj-io-1iA" id="pga-zW-aN7"/>

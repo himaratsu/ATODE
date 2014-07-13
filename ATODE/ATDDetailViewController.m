@@ -11,6 +11,7 @@
 #import "ATDCoreDataManger.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <UIAlertView+Blocks/UIAlertView+Blocks.h>
+#import <MapKit/MapKit.h>
 
 @interface ATDDetailViewController ()
 
@@ -18,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *memoLabel;
 @property (weak, nonatomic) IBOutlet UILabel *postdateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *placeInfoLabel;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @end
 
@@ -29,12 +31,21 @@
 {
     [super viewDidLoad];
     
+    [self setUpMapView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     [self reloadData];
+}
+
+- (void)setUpMapView {
+    double lat = [_memo.latitude doubleValue];
+    double lng = [_memo.longitude doubleValue];
+    
+    CLLocationCoordinate2D locationCoordinate = CLLocationCoordinate2DMake(lat, lng);
+    [_mapView setCenterCoordinate:locationCoordinate animated:NO];
 }
 
 - (void)reloadData {

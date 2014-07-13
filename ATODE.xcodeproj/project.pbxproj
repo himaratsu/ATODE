@@ -34,6 +34,7 @@
 		208131C11967AF2F0094E577 /* ATDCoreDataManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 208131C01967AF2F0094E577 /* ATDCoreDataManger.m */; };
 		20A0FA4E1972A53B004FA008 /* ATDDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A0FA4D1972A53B004FA008 /* ATDDetailViewController.m */; };
 		20A0FA541972B0E5004FA008 /* PlaceMemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A0FA531972B0E5004FA008 /* PlaceMemo.m */; };
+		20A0FA561972B6B6004FA008 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A0FA551972B6B6004FA008 /* MapKit.framework */; };
 		BADD391C7A8C4D6FBB1C5F1C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E43CBDEB2F3F49CA98E99DC4 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,7 @@
 		20A0FA4D1972A53B004FA008 /* ATDDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDDetailViewController.m; sourceTree = "<group>"; };
 		20A0FA521972B0E5004FA008 /* PlaceMemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceMemo.h; sourceTree = "<group>"; };
 		20A0FA531972B0E5004FA008 /* PlaceMemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceMemo.m; sourceTree = "<group>"; };
+		20A0FA551972B6B6004FA008 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D74FAF12D3944CD3976CCA94 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		E43CBDEB2F3F49CA98E99DC4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -98,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20A0FA561972B6B6004FA008 /* MapKit.framework in Frameworks */,
 				202C660719604D5D00497257 /* CoreGraphics.framework in Frameworks */,
 				202C660919604D5D00497257 /* UIKit.framework in Frameworks */,
 				202C660519604D5D00497257 /* Foundation.framework in Frameworks */,
@@ -149,6 +152,7 @@
 		202C660319604D5D00497257 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				20A0FA551972B6B6004FA008 /* MapKit.framework */,
 				202C660419604D5D00497257 /* Foundation.framework */,
 				202C660619604D5D00497257 /* CoreGraphics.framework */,
 				202C660819604D5D00497257 /* UIKit.framework */,
