@@ -10,4 +10,16 @@
 
 @implementation ATDPlaceMemo
 
+- (id)initWithPlaceMemo:(PlaceMemo *)memo {
+    self = [super init];
+    if (self) {
+        self.title = memo.title;
+        self.imageFilePath = memo.imageFilePath;
+        self.postdate = memo.postdate;
+        self.siteUrl = memo.siteUrl;
+        self.placeInfo = memo.placeInfo;
+    }
+    return self;
+}
+
 @end

@@ -9,8 +9,19 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
+@class ATD4sqPlace;
+
+
+@protocol ATDPlaceSearchViewControllerDelegate <NSObject>
+
+- (void)didSelectPlace:(ATD4sqPlace *)placeInfo;
+
+@end
+
+
 @interface ATDPlaceSearchViewController : UIViewController
 
+@property (nonatomic, weak) id<ATDPlaceSearchViewControllerDelegate> delegate;
 @property (nonatomic, strong) CLLocation *location;
 
 @end

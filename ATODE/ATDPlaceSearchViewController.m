@@ -36,10 +36,14 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
 
 
 - (void)reloadData {
+    NSString *ll = [NSString stringWithFormat:@"%f,%f",
+                    _location.coordinate.latitude,
+                    _location.coordinate.longitude];
+    
     NSDictionary *params = @{@"client_id":kApiClientID,
                              @"client_secret":kApiClientSecret,
                              @"v":@"20140707",
-                             @"near":@"Tokyo"};
+                             @"ll":ll};
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:@"https://api.foursquare.com/v2/venues/search"
@@ -80,6 +84,19 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
         cell.detailTextLabel.text = @"";
     }
     return cell;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    ATD4sqPlace *place = _places[indexPath.row];
+    if ([_delegate respondsToSelector:@selector(didSelectPlace:)]) {
+        [_delegate didSelectPlace:place];
+    }
+    else {
+        NSLog(@"delegate not found");
+    }
 }
 
 @end

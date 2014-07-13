@@ -40,14 +40,11 @@
     [_magicalContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
         NSLog(@"write to CoreData :success[%d]", success);
     }];
-    
-    // check
-    [self printCoreData];
 }
 
 - (NSArray *)getAllMemos {
     [self setUpStack];
-    return [PlaceMemo MR_findAll];
+    return [PlaceMemo MR_findAllSortedBy:@"postdate" ascending:NO];
 }
 
 - (void)printCoreData {

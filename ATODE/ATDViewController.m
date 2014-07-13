@@ -9,6 +9,7 @@
 #import "ATDViewController.h"
 #import "ATDPlaceMemoCell.h"
 #import "ATDAddViewController.h"
+#import "ATDDetailViewController.h"
 #import "ATDCoreDataManger.h"
 #import "PlaceMemo.h"
 #import <SDWebImage/UIImageView+WebCache.h>
@@ -37,9 +38,10 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate>
     [self registerNib];
     
     [self setUpViews];
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
     [self reloadData];
-    
 }
 
 - (void)registerNib {
@@ -101,8 +103,12 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showAdd"]) {
-        ATDAddViewController *addVC = (ATDAddViewController *)segue.destinationViewController;
+        ATDAddViewController *addVC = segue.destinationViewController;
         addVC.image = sender;
+    }
+    else if ([segue.identifier isEqualToString:@"showDetail"]) {
+        ATDDetailViewController *detailVC = segue.destinationViewController;
+        detailVC.memo = sender;
     }
 }
 
@@ -154,6 +160,12 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"select! [%d-%d]", indexPath.section, indexPath.row);
+    
+    PlaceMemo *memo = _memos[indexPath.row];
+    ATDPlaceMemo *convertMemo = [[ATDPlaceMemo alloc] initWithPlaceMemo:memo];
+    
+    [self performSegueWithIdentifier:@"showDetail" sender:convertMemo];
+    
 }
 
 @end

@@ -9,14 +9,18 @@
 #import "ATDAddViewController.h"
 #import "ATDCoreDataManger.h"
 #import "ATDPlaceMemo.h"
+#import "ATDPlaceSearchViewController.h"
 #import <CommonCrypto/CommonCrypto.h>
 #import <CoreLocation/CoreLocation.h>
+#import <UIAlertView+Blocks/UIAlertView+Blocks.h>
 
 @interface ATDAddViewController ()
-<CLLocationManagerDelegate>
+<CLLocationManagerDelegate, UITextFieldDelegate,
+ATDPlaceSearchViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
+@property (nonatomic, strong) ATD4sqPlace *placeInfo;
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) CLLocation *currentLocation;
@@ -48,11 +52,20 @@
     memo.postdate = postdate;
     memo.siteUrl = siteUrl;
     
-    // TODO: けす。dummy
-    ATD4sqPlace *place = [ATD4sqPlace dummy];
-    memo.placeInfo = place;
+    if (_placeInfo) {
+        memo.placeInfo = _placeInfo;
+    }
     
     [[ATDCoreDataManger sharedInstance] saveNewMemo:memo];
+    
+    [UIAlertView showWithTitle:@"Success"
+                       message:@"スポットを登録しました"
+             cancelButtonTitle:nil
+             otherButtonTitles:@[@"OK"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                 if (alertView.cancelButtonIndex != buttonIndex) {
+                     [self.navigationController popToRootViewControllerAnimated:YES];
+                 }
+             }];
 }
 
 - (NSString *)hashFromImage:(UIImage *)image {
@@ -147,6 +160,14 @@
 
 
 #pragma mark -
+#pragma mark ATDPlaceSearchViewControllerDelegate
+
+- (void)didSelectPlace:(ATD4sqPlace *)placeInfo {
+    self.placeInfo = placeInfo;
+}
+
+
+#pragma mark -
 #pragma mark CLLocationManagerDelegate
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
@@ -155,6 +176,29 @@
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     NSLog(@"error[%@]", error);
+}
+
+
+#pragma mark -
+#pragma mark UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
+
+#pragma mark -
+#pragma mark Storyboard
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"show4sq"]) {
+        ATDPlaceSearchViewController *searchVC = segue.destinationViewController;
+        searchVC.delegate = self;
+        searchVC.location = _currentLocation;
+    }
+
+
 }
 
 @end
