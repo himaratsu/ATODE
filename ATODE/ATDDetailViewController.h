@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class ATDPlaceMemo;
+@class PlaceMemo;
 
 
 @interface ATDDetailViewController : UIViewController
 
-@property (nonatomic, strong) ATDPlaceMemo *memo;
+@property (nonatomic, strong) PlaceMemo *memo;
 
 @end

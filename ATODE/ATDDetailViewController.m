@@ -7,8 +7,10 @@
 //
 
 #import "ATDDetailViewController.h"
-#import "ATDPlaceMemo.h"
+#import "PlaceMemo.h"
+#import "ATDCoreDataManger.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <UIAlertView+Blocks/UIAlertView+Blocks.h>
 
 @interface ATDDetailViewController ()
 
@@ -46,6 +48,35 @@
         _placeInfoLabel.text = @"";
     }
 }
+
+
+#pragma mark -
+#pragma mark IBAction
+
+- (IBAction)deleteBtnTouched:(id)sender {
+    [UIAlertView showWithTitle:@"確認"
+                       message:@"本当に削除しますか？"
+             cancelButtonTitle:@"キャンセル"
+             otherButtonTitles:@[@"はい"]
+                      tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                          if (alertView.cancelButtonIndex != buttonIndex) {
+                              [self deleteMemo];
+                          }
+                      }];
+}
+
+- (void)deleteMemo {
+    [[ATDCoreDataManger sharedInstance] deleteMemo:_memo];
+    
+    [UIAlertView showWithTitle:@"Success!"
+                       message:@"削除しました"
+             cancelButtonTitle:nil
+             otherButtonTitles:@[@"OK"]
+                      tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                          [self.navigationController popToRootViewControllerAnimated:YES];
+                      }];
+}
+
 
 
 

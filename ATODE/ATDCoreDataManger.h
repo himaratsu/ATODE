@@ -14,7 +14,10 @@
 + (instancetype)sharedInstance;
 
 - (void)saveNewMemo:(ATDPlaceMemo *)memo;
+- (void)deleteMemo:(PlaceMemo *)memo;
+
 - (NSArray *)getAllMemos;
 - (void)resetSaveData;
+
 
 @end

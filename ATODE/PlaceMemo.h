@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-
+#import "ATD4sqPlace.h"
 
 @interface PlaceMemo : NSManagedObject
 
@@ -16,6 +16,6 @@
 @property (nonatomic, retain) NSString * postdate;
 @property (nonatomic, retain) NSString * siteUrl;
 @property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) id placeInfo;
+@property (nonatomic, retain) ATD4sqPlace *placeInfo;
 
 @end

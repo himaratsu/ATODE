@@ -42,6 +42,12 @@
     }];
 }
 
+- (void)deleteMemo:(PlaceMemo *)memo {
+    [self setUpStack];
+    [memo MR_deleteEntity];
+}
+
+
 - (NSArray *)getAllMemos {
     [self setUpStack];
     return [PlaceMemo MR_findAllSortedBy:@"postdate" ascending:NO];

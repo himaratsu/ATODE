@@ -162,9 +162,7 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate>
     NSLog(@"select! [%d-%d]", indexPath.section, indexPath.row);
     
     PlaceMemo *memo = _memos[indexPath.row];
-    ATDPlaceMemo *convertMemo = [[ATDPlaceMemo alloc] initWithPlaceMemo:memo];
-    
-    [self performSegueWithIdentifier:@"showDetail" sender:convertMemo];
+    [self performSegueWithIdentifier:@"showDetail" sender:memo];
     
 }
 
