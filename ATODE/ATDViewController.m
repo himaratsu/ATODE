@@ -29,6 +29,8 @@ CLLocationManagerDelegate>
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) CLLocation *currentLocation;
+@property (nonatomic, assign) BOOL isLocationLoading;
+
 @end
 
 
@@ -134,6 +136,7 @@ CLLocationManagerDelegate>
 
 - (void)refershControlAction {
     NSLog(@"refresh!");
+    _isLocationLoading = YES;
     [self reloadData];
 }
 
@@ -177,7 +180,8 @@ CLLocationManagerDelegate>
 #pragma mark CLLocationManagerDelegate
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    if (![_currentLocation isEqual:[locations lastObject]]) {
+    if (!_isLocationLoading) {
+        _isLocationLoading = YES;
         self.currentLocation = [locations lastObject];
         [self reloadData];
     }
