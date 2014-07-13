@@ -9,6 +9,8 @@
 #import "ATDDetailViewController.h"
 #import "PlaceMemo.h"
 #import "ATDCoreDataManger.h"
+#import "MKMapView+ATDZoomLevel.h"
+#import "ATDAnnotation.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <UIAlertView+Blocks/UIAlertView+Blocks.h>
 #import <MapKit/MapKit.h>
@@ -45,7 +47,12 @@
     double lng = [_memo.longitude doubleValue];
     
     CLLocationCoordinate2D locationCoordinate = CLLocationCoordinate2DMake(lat, lng);
-    [_mapView setCenterCoordinate:locationCoordinate animated:NO];
+    [_mapView setCenterCoordinate:locationCoordinate zoomLevel:15 animated:YES];
+    
+    ATDAnnotation *annotation = [[ATDAnnotation alloc] initWithCoordinate:locationCoordinate
+                                                                    title:_memo.placeInfo.name
+                                                                 subtitle:_memo.title];
+    [_mapView addAnnotation:annotation];
 }
 
 - (void)reloadData {

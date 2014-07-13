@@ -35,6 +35,8 @@
 		20A0FA4E1972A53B004FA008 /* ATDDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A0FA4D1972A53B004FA008 /* ATDDetailViewController.m */; };
 		20A0FA541972B0E5004FA008 /* PlaceMemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A0FA531972B0E5004FA008 /* PlaceMemo.m */; };
 		20A0FA561972B6B6004FA008 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A0FA551972B6B6004FA008 /* MapKit.framework */; };
+		20A0FA5A1972D48B004FA008 /* MKMapView+ATDZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A0FA591972D48B004FA008 /* MKMapView+ATDZoomLevel.m */; };
+		20A0FA5D1972D5BE004FA008 /* ATDAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A0FA5C1972D5BE004FA008 /* ATDAnnotation.m */; };
 		BADD391C7A8C4D6FBB1C5F1C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E43CBDEB2F3F49CA98E99DC4 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +93,10 @@
 		20A0FA521972B0E5004FA008 /* PlaceMemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceMemo.h; sourceTree = "<group>"; };
 		20A0FA531972B0E5004FA008 /* PlaceMemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceMemo.m; sourceTree = "<group>"; };
 		20A0FA551972B6B6004FA008 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		20A0FA581972D48B004FA008 /* MKMapView+ATDZoomLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+ATDZoomLevel.h"; sourceTree = "<group>"; };
+		20A0FA591972D48B004FA008 /* MKMapView+ATDZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+ATDZoomLevel.m"; sourceTree = "<group>"; };
+		20A0FA5B1972D5BE004FA008 /* ATDAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDAnnotation.h; sourceTree = "<group>"; };
+		20A0FA5C1972D5BE004FA008 /* ATDAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDAnnotation.m; sourceTree = "<group>"; };
 		D74FAF12D3944CD3976CCA94 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		E43CBDEB2F3F49CA98E99DC4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -165,6 +171,7 @@
 		202C660A19604D5D00497257 /* ATODE */ = {
 			isa = PBXGroup;
 			children = (
+				20A0FA571972D470004FA008 /* Category */,
 				201F04251970FF500045AB37 /* Resources */,
 				208131B51967987A0094E577 /* Data */,
 				202C663E19678C9E00497257 /* ViewController */,
@@ -226,6 +233,8 @@
 				208131AD19678E8E0094E577 /* ATDPlaceMemoCell.h */,
 				208131AE19678E8E0094E577 /* ATDPlaceMemoCell.m */,
 				208131B019678E9B0094E577 /* ATDPlaceMemoCell.xib */,
+				20A0FA5B1972D5BE004FA008 /* ATDAnnotation.h */,
+				20A0FA5C1972D5BE004FA008 /* ATDAnnotation.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -257,6 +266,15 @@
 				208131C01967AF2F0094E577 /* ATDCoreDataManger.m */,
 			);
 			name = Data;
+			sourceTree = "<group>";
+		};
+		20A0FA571972D470004FA008 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				20A0FA581972D48B004FA008 /* MKMapView+ATDZoomLevel.h */,
+				20A0FA591972D48B004FA008 /* MKMapView+ATDZoomLevel.m */,
+			);
+			name = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,11 +415,13 @@
 			files = (
 				20A0FA541972B0E5004FA008 /* PlaceMemo.m in Sources */,
 				201F042119699AEE0045AB37 /* ATDPlaceSearchViewController.m in Sources */,
+				20A0FA5D1972D5BE004FA008 /* ATDAnnotation.m in Sources */,
 				20A0FA4E1972A53B004FA008 /* ATDDetailViewController.m in Sources */,
 				208131BB196798BA0094E577 /* ATODE.xcdatamodeld in Sources */,
 				201F042A197102750045AB37 /* ATDSettingViewController.m in Sources */,
 				202C661519604D5D00497257 /* ATDAppDelegate.m in Sources */,
 				202C663C19678BB400497257 /* ATDPlaceMemo.m in Sources */,
+				20A0FA5A1972D48B004FA008 /* MKMapView+ATDZoomLevel.m in Sources */,
 				208131C11967AF2F0094E577 /* ATDCoreDataManger.m in Sources */,
 				202C661119604D5D00497257 /* main.m in Sources */,
 				202C661B19604D5D00497257 /* ATDViewController.m in Sources */,
