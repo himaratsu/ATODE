@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ATD4sqPlace : NSObject
+@interface ATD4sqPlace : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *address;
@@ -16,5 +16,7 @@
 
 
 - (id)initWithDictionary:(NSDictionary *)dict;
+
++ (instancetype)dummy;
 
 @end

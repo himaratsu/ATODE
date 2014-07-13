@@ -2,7 +2,7 @@
 //  PlaceMemo.m
 //  ATODE
 //
-//  Created by himara2 on 2014/07/05.
+//  Created by himara2 on 2014/07/13.
 //  Copyright (c) 2014年 himara2. All rights reserved.
 //
 
@@ -11,9 +11,10 @@
 
 @implementation PlaceMemo
 
-@dynamic title;
 @dynamic imageFilePath;
 @dynamic postdate;
 @dynamic siteUrl;
+@dynamic title;
+@dynamic placeInfo;
 
 @end

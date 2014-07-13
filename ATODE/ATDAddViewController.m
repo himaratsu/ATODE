@@ -48,6 +48,10 @@
     memo.postdate = postdate;
     memo.siteUrl = siteUrl;
     
+    // TODO: けす。dummy
+    ATD4sqPlace *place = [ATD4sqPlace dummy];
+    memo.placeInfo = place;
+    
     [[ATDCoreDataManger sharedInstance] saveNewMemo:memo];
 }
 
