@@ -93,6 +93,7 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
     ATD4sqPlace *place = _places[indexPath.row];
     if ([_delegate respondsToSelector:@selector(didSelectPlace:)]) {
         [_delegate didSelectPlace:place];
+        [self.navigationController popViewControllerAnimated:YES];
     }
     else {
         NSLog(@"delegate not found");

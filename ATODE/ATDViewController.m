@@ -55,8 +55,9 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate>
     self.refreshControl = [[UIRefreshControl alloc] init];
     _refreshControl.tintColor = [UIColor grayColor];
     [_refreshControl addTarget:self action:@selector(refershControlAction) forControlEvents:UIControlEventValueChanged];
-    [self.collectionView addSubview:_refreshControl];
-    self.collectionView.alwaysBounceVertical = YES;
+    [_collectionView addSubview:_refreshControl];
+    _collectionView.alwaysBounceVertical = YES;
+    _collectionView.showsVerticalScrollIndicator = YES;
 }
 
 - (void)reloadData {
@@ -121,7 +122,12 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate>
     
     
     UIImage *image = info[UIImagePickerControllerEditedImage];
+    
+    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+    
     [self performSegueWithIdentifier:@"showAdd" sender:image];
+    
+    
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
@@ -144,16 +150,9 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate>
     
     cell.nameLabel.text = memo.title;
 //    cell.imageView.alpha = 0.0;
-    [cell.imageView setImageWithURL:[NSURL fileURLWithPath:memo.imageFilePath]
-                   placeholderImage:[UIImage imageNamed:@"noimage"]
-                          completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-//                              [UIView animateWithDuration:0.3f animations:^{
-//                                  cell.imageView.alpha = 1.0;
-//                              }];
-                          }];
+    [cell.imageView setImageWithURL:[NSURL fileURLWithPath:memo.imageFilePath]];
     
-    NSDictionary *placeInfo = memo.placeInfo;
-    NSLog(@"placeInfo[%@]", placeInfo);
+    NSLog(@"%@, %@", memo.latitude, memo.longitude);
     
     return cell;
 }

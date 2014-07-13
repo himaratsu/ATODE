@@ -12,9 +12,11 @@
 @implementation PlaceMemo
 
 @dynamic imageFilePath;
+@dynamic placeInfo;
 @dynamic postdate;
 @dynamic siteUrl;
 @dynamic title;
-@dynamic placeInfo;
+@dynamic latitude;
+@dynamic longitude;
 
 @end

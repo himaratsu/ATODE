@@ -17,6 +17,8 @@
         self.imageFilePath = memo.imageFilePath;
         self.postdate = memo.postdate;
         self.siteUrl = memo.siteUrl;
+        self.latitude = [memo.latitude doubleValue];
+        self.longitude = [memo.longitude doubleValue];
         self.placeInfo = memo.placeInfo;
     }
     return self;

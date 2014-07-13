@@ -56,6 +56,11 @@ ATDPlaceSearchViewControllerDelegate>
         memo.placeInfo = _placeInfo;
     }
     
+    if (_currentLocation) {
+        memo.latitude = _currentLocation.coordinate.latitude;
+        memo.longitude = _currentLocation.coordinate.longitude;
+    }
+    
     [[ATDCoreDataManger sharedInstance] saveNewMemo:memo];
     
     [UIAlertView showWithTitle:@"Success"

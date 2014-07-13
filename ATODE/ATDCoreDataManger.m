@@ -36,6 +36,8 @@
     addMemo.postdate = memo.postdate;
     addMemo.siteUrl = memo.siteUrl;
     addMemo.placeInfo = memo.placeInfo;
+    addMemo.latitude = @(memo.latitude);
+    addMemo.longitude = @(memo.longitude);
     
     [_magicalContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
         NSLog(@"write to CoreData :success[%d]", success);
