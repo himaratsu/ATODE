@@ -17,6 +17,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <FontAwesome-iOS/NSString+FontAwesome.h>
+#import <ImageIO/ImageIO.h>
 
 
 @interface ATDViewController ()
@@ -93,7 +94,6 @@ CLLocationManagerDelegate>
 
 - (NSArray *)sortMemoByDistance:(NSArray *)memos {
     if (!_currentLocation) {
-        NSLog(@"no lcoation");
         return memos;
     }
     
@@ -181,6 +181,12 @@ CLLocationManagerDelegate>
                          self.imageCoordinate = CLLocationCoordinate2DMake(lat, lng);
                          [self performSegueWithIdentifier:@"showAdd" sender:image];
                      }
+                     else {
+                         NSLog(@"GPSデータがありません");
+                         self.imageCoordinate = CLLocationCoordinate2DMake(0, 0);
+                         [self performSegueWithIdentifier:@"showAdd" sender:image];
+                         
+                     }
                  }else{
                      NSLog(@"データがありません");
                      self.imageCoordinate = CLLocationCoordinate2DMake(0, 0);
@@ -223,15 +229,105 @@ CLLocationManagerDelegate>
     
     UIImage *image = info[UIImagePickerControllerEditedImage];
     
-    // カメラロールに保存
-//    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
-    
-    NSURL *assetsURL = (NSURL *)info[UIImagePickerControllerReferenceURL];
-    [self gotoAddViewWithAsset:assetsURL image:image];
+    if (picker.sourceType == UIImagePickerControllerSourceTypePhotoLibrary) {
+        NSURL *assetURL = (NSURL *)info[UIImagePickerControllerReferenceURL];
+        [self gotoAddViewWithAsset:assetURL image:image];
+    }
+    else if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+        NSMutableDictionary *metadata = (NSMutableDictionary *)[info objectForKey:UIImagePickerControllerMediaMetadata];
+        metadata[(NSString *)kCGImagePropertyGPSDictionary] = [self GPSDictionaryForLocation:self.locationManager.location];
+        
+        ALAssetsLibrary *assetsLibrary = [[ALAssetsLibrary alloc] init];
+        [assetsLibrary writeImageToSavedPhotosAlbum:image.CGImage metadata:metadata completionBlock:^(NSURL *assetURL, NSError *error) {
+            if (error) {
+                NSLog(@"Save image failed. %@", error);
+            }
+            else {
+                [self gotoAddViewWithAsset:assetURL image:image];
+            }
+        }];
+    }
+
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+- (NSString *)stringFromGpsDate:(NSDate *)date {
+    static NSDateFormatter *dateFormatter;
+    
+    if (!dateFormatter) {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.dateFormat = @"yyyy:MM:dd";
+        dateFormatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
+    }
+    
+    return [dateFormatter stringFromDate:date];
+}
+
+- (NSString *)stringFromGpsTime:(NSDate *)date {
+    static NSDateFormatter *dateFormatter;
+    
+    if (!dateFormatter) {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.dateFormat = @"HH:mm:ss.SSSSSS";
+        dateFormatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
+    }
+    
+    return [dateFormatter stringFromDate:date];
+}
+
+
+
+- (NSDictionary *)GPSDictionaryForLocation:(CLLocation *)location
+{
+    NSMutableDictionary *gps = [NSMutableDictionary new];
+    
+    // 日付
+    gps[(NSString *)kCGImagePropertyGPSDateStamp] = [self stringFromGpsDate:location.timestamp];
+    gps[(NSString *)kCGImagePropertyGPSTimeStamp] = [self stringFromGpsTime:location.timestamp];
+    
+    // 緯度
+    CGFloat latitude = location.coordinate.latitude;
+    NSString *gpsLatitudeRef;
+    if (latitude < 0) {
+        latitude = -latitude;
+        gpsLatitudeRef = @"S";
+        } else {
+            gpsLatitudeRef = @"N";
+            }
+    gps[(NSString *)kCGImagePropertyGPSLatitudeRef] = gpsLatitudeRef;
+    gps[(NSString *)kCGImagePropertyGPSLatitude] = @(latitude);
+    
+    // 経度
+    CGFloat longitude = location.coordinate.longitude;
+    NSString *gpsLongitudeRef;
+    if (longitude < 0) {
+        longitude = -longitude;
+            gpsLongitudeRef = @"W";
+        } else {
+            gpsLongitudeRef = @"E";
+        }
+    gps[(NSString *)kCGImagePropertyGPSLongitudeRef] = gpsLongitudeRef;
+    gps[(NSString *)kCGImagePropertyGPSLongitude] = @(longitude);
+    
+    // 標高
+    CGFloat altitude = location.altitude;
+    if (!isnan(altitude)){
+        NSString *gpsAltitudeRef;
+        if (altitude < 0) {
+            altitude = -altitude;
+            gpsAltitudeRef = @"1";
+        } else {
+            gpsAltitudeRef = @"0";
+        }
+        gps[(NSString *)kCGImagePropertyGPSAltitudeRef] = gpsAltitudeRef;
+        gps[(NSString *)kCGImagePropertyGPSAltitude] = @(altitude);
+    }
+    
+    return gps;
 }
 
 
@@ -243,6 +339,8 @@ CLLocationManagerDelegate>
         _isLocationLoading = YES;
         self.currentLocation = [locations lastObject];
         [self reloadData];
+        
+        NSLog(@"location update");
     }
 }
 
