@@ -35,6 +35,7 @@
     addMemo.imageFilePath = memo.imageFilePath;
     addMemo.postdate = memo.postdate;
     addMemo.siteUrl = memo.siteUrl;
+    addMemo.placeInfo = memo.placeInfo;
     
     [_magicalContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
         NSLog(@"write to CoreData :success[%d]", success);
