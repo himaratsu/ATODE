@@ -7,6 +7,7 @@
 //
 
 #import "ATDDetailViewController.h"
+#import "ATDMapViewController.h"
 #import "PlaceMemo.h"
 #import "ATDCoreDataManger.h"
 #import "MKMapView+ATDZoomLevel.h"
@@ -22,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *postdateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *placeInfoLabel;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet UIView *mapOverlayView;
 
 @end
 
@@ -34,6 +36,8 @@
     [super viewDidLoad];
     
     [self setUpMapView];
+    
+    [self setUpViews];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -54,6 +58,13 @@
                                                                  subtitle:_memo.title];
     [_mapView addAnnotation:annotation];
 }
+
+- (void)setUpViews {
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self action:@selector(didTapOverlayView)];
+    [_mapOverlayView addGestureRecognizer:tapGesture];
+}
+
 
 - (void)reloadData {
     [_imageView setImageWithURL:[NSURL fileURLWithPath:_memo.imageFilePath]];
@@ -96,7 +107,22 @@
 }
 
 
+- (void)didTapOverlayView {
+    [self performSegueWithIdentifier:@"showMap" sender:nil];
+}
 
 
+
+#pragma mark -
+#pragma mark Storyboard
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showMap"]) {
+        UINavigationController *nav = segue.destinationViewController;
+        ATDMapViewController *mapVC = nav.viewControllers[0];
+        mapVC.latitude = [_memo.latitude doubleValue];
+        mapVC.longitude = [_memo.longitude doubleValue];
+    }
+}
 
 @end

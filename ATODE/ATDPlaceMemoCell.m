@@ -8,24 +8,22 @@
 
 #import "ATDPlaceMemoCell.h"
 
+@interface ATDPlaceMemoCell ()
+
+@property (weak, nonatomic) IBOutlet UIView *gradientBackgroundView;
+
+@end
+
+
+
 @implementation ATDPlaceMemoCell
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
+- (void)awakeFromNib {
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = self.gradientBackgroundView.bounds;
+    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor clearColor] CGColor], (id)[[UIColor blackColor] CGColor], nil];
+    [self.gradientBackgroundView.layer insertSublayer:gradient atIndex:0];
+    self.gradientBackgroundView.alpha = 0.7f;
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

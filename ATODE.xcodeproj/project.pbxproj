@@ -37,6 +37,7 @@
 		20A0FA561972B6B6004FA008 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A0FA551972B6B6004FA008 /* MapKit.framework */; };
 		20A0FA5A1972D48B004FA008 /* MKMapView+ATDZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A0FA591972D48B004FA008 /* MKMapView+ATDZoomLevel.m */; };
 		20A0FA5D1972D5BE004FA008 /* ATDAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A0FA5C1972D5BE004FA008 /* ATDAnnotation.m */; };
+		20A0FA601972F8C7004FA008 /* ATDMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A0FA5F1972F8C7004FA008 /* ATDMapViewController.m */; };
 		BADD391C7A8C4D6FBB1C5F1C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E43CBDEB2F3F49CA98E99DC4 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +98,8 @@
 		20A0FA591972D48B004FA008 /* MKMapView+ATDZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+ATDZoomLevel.m"; sourceTree = "<group>"; };
 		20A0FA5B1972D5BE004FA008 /* ATDAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDAnnotation.h; sourceTree = "<group>"; };
 		20A0FA5C1972D5BE004FA008 /* ATDAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDAnnotation.m; sourceTree = "<group>"; };
+		20A0FA5E1972F8C7004FA008 /* ATDMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDMapViewController.h; sourceTree = "<group>"; };
+		20A0FA5F1972F8C7004FA008 /* ATDMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDMapViewController.m; sourceTree = "<group>"; };
 		D74FAF12D3944CD3976CCA94 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		E43CBDEB2F3F49CA98E99DC4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -252,6 +255,8 @@
 				201F042019699AEE0045AB37 /* ATDPlaceSearchViewController.m */,
 				201F0428197102750045AB37 /* ATDSettingViewController.h */,
 				201F0429197102750045AB37 /* ATDSettingViewController.m */,
+				20A0FA5E1972F8C7004FA008 /* ATDMapViewController.h */,
+				20A0FA5F1972F8C7004FA008 /* ATDMapViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -420,6 +425,7 @@
 				208131BB196798BA0094E577 /* ATODE.xcdatamodeld in Sources */,
 				201F042A197102750045AB37 /* ATDSettingViewController.m in Sources */,
 				202C661519604D5D00497257 /* ATDAppDelegate.m in Sources */,
+				20A0FA601972F8C7004FA008 /* ATDMapViewController.m in Sources */,
 				202C663C19678BB400497257 /* ATDPlaceMemo.m in Sources */,
 				20A0FA5A1972D48B004FA008 /* MKMapView+ATDZoomLevel.m in Sources */,
 				208131C11967AF2F0094E577 /* ATDCoreDataManger.m in Sources */,
