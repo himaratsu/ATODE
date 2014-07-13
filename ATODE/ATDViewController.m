@@ -21,6 +21,7 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) NSArray *memos;
 
 @end
@@ -35,6 +36,8 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
     [self registerNib];
     
+    [self setUpViews];
+    
     [self reloadData];
     
 }
@@ -45,9 +48,20 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate>
       forCellWithReuseIdentifier:NSStringFromClass([ATDPlaceMemoCell class])];
 }
 
+- (void)setUpViews {
+    // Refresh Control
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    _refreshControl.tintColor = [UIColor grayColor];
+    [_refreshControl addTarget:self action:@selector(refershControlAction) forControlEvents:UIControlEventValueChanged];
+    [self.collectionView addSubview:_refreshControl];
+    self.collectionView.alwaysBounceVertical = YES;
+}
+
 - (void)reloadData {
     self.memos = [[ATDCoreDataManger sharedInstance] getAllMemos];
     [_collectionView reloadData];
+    
+    [_refreshControl endRefreshing];
 }
 
 // 写真撮影画面へ遷移
@@ -74,6 +88,11 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 #endif
 }
 
+
+- (void)refershControlAction {
+    NSLog(@"refresh!");
+    [self reloadData];
+}
 
 
 
@@ -118,11 +137,17 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate>
     PlaceMemo *memo = _memos[indexPath.row];
     
     cell.nameLabel.text = memo.title;
+//    cell.imageView.alpha = 0.0;
     [cell.imageView setImageWithURL:[NSURL fileURLWithPath:memo.imageFilePath]
                    placeholderImage:[UIImage imageNamed:@"noimage"]
                           completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                              
+//                              [UIView animateWithDuration:0.3f animations:^{
+//                                  cell.imageView.alpha = 1.0;
+//                              }];
                           }];
+    
+    NSDictionary *placeInfo = memo.placeInfo;
+    NSLog(@"placeInfo[%@]", placeInfo);
     
     return cell;
 }
