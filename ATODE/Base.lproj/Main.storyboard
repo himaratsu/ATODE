@@ -59,7 +59,7 @@
                     <connections>
                         <outlet property="collectionView" destination="Oo6-DG-mko" id="Kxh-VI-AIu"/>
                         <segue destination="biE-qT-31g" kind="push" identifier="showAdd" id="7cx-ZZ-VUX"/>
-                        <segue destination="KVa-Xb-dqj" kind="push" identifier="showDetail" id="fhV-hW-jyS"/>
+                        <segue destination="8Zi-ME-39t" kind="push" identifier="showDetail" id="Ykd-SS-lBk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -67,72 +67,159 @@
             <point key="canvasLocation" x="699" y="67"/>
         </scene>
         <!--Detail View Controller-->
-        <scene sceneID="A4n-nj-YHR">
+        <scene sceneID="d03-xa-CNP">
             <objects>
-                <viewController id="KVa-Xb-dqj" customClass="ATDDetailViewController" sceneMemberID="viewController">
+                <viewController id="8Zi-ME-39t" customClass="ATDDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hKF-5x-le5"/>
-                        <viewControllerLayoutGuide type="bottom" id="pBe-Vo-g8a"/>
+                        <viewControllerLayoutGuide type="top" id="4o5-74-cvv"/>
+                        <viewControllerLayoutGuide type="bottom" id="1SO-ke-UUU"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Lbj-a3-Mfc">
+                    <view key="view" contentMode="scaleToFill" id="1Aq-dE-PPh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iJ5-ws-pmp">
-                                <rect key="frame" x="95" y="73" width="130" height="130"/>
-                            </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="メモ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DSq-uD-3wZ">
-                                <rect key="frame" x="36" y="228" width="249" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="スポットの情報" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIu-qY-Yo3">
-                                <rect key="frame" x="23" y="313" width="274" height="31"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="日付" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xCj-io-1iA">
-                                <rect key="frame" x="41" y="253" width="238" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qhm-Wr-gun">
-                                <rect key="frame" x="89" y="518" width="130" height="30"/>
-                                <state key="normal" title="DELETE">
-                                    <color key="titleColor" red="1" green="0.29073243739999999" blue="0.28857061680000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="103" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cAJ-PO-fLL">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ATDPhotoCell" rowHeight="147" id="aSV-YS-al3" customClass="ATDPhotoCell">
+                                        <rect key="frame" x="0.0" y="86" width="320" height="147"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aSV-YS-al3" id="SAp-yD-kpz">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="146"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mIZ-Ad-QRh">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="146"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="photoImageView" destination="mIZ-Ad-QRh" id="ewy-Kg-EDm"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ATDMemoCell" id="2jb-jx-0Rt" customClass="ATDMemoCell">
+                                        <rect key="frame" x="0.0" y="233" width="320" height="103"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2jb-jx-0Rt" id="6cG-8t-R8B">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="102"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="良さげなイタリアン" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyi-9M-7RF">
+                                                    <rect key="frame" x="20" y="26" width="291" height="67"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="memo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNa-4E-sgJ">
+                                                    <rect key="frame" x="20" y="7" width="49" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="memoLabel" destination="yyi-9M-7RF" id="pC5-lx-FLs"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ATDPlaceInfoCell" rowHeight="58" id="jJd-xl-YKa" customClass="ATDPlaceInfoCell">
+                                        <rect key="frame" x="0.0" y="336" width="320" height="58"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jJd-xl-YKa" id="4V6-OV-fvL">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="57"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="スポットの名前" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZe-X8-HbW">
+                                                    <rect key="frame" x="100" y="8" width="191" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="スポットの詳細情報" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mem-kI-tb6">
+                                                    <rect key="frame" x="100" y="30" width="153" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Mn-6D-z1X">
+                                                    <rect key="frame" x="20" y="8" width="43" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.96299027423469385" green="0.96299027423469385" blue="0.96299027423469385" alpha="1" colorSpace="calibratedRGB"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="placeDetailLabel" destination="mem-kI-tb6" id="9VZ-WW-wxn"/>
+                                            <outlet property="placeImageView" destination="9Mn-6D-z1X" id="wJv-a5-qNq"/>
+                                            <outlet property="placeNameLabel" destination="CZe-X8-HbW" id="9rM-og-Y6I"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ATDMapCell" id="HMC-jP-MqC" customClass="ATDMapCell">
+                                        <rect key="frame" x="0.0" y="394" width="320" height="103"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HMC-jP-MqC" id="uOW-pE-QXt">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="102"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="sZA-id-Dh8">
+                                                    <rect key="frame" x="8" y="4" width="305" height="93"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </mapView>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nVO-lR-r6d">
+                                                    <rect key="frame" x="8" y="4" width="305" height="93"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="mapOverlayView" destination="nVO-lR-r6d" id="khp-D4-oGk"/>
+                                            <outlet property="mapView" destination="sZA-id-Dh8" id="Ana-6F-J1B"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ATDPostDateCell" rowHeight="44" id="MWk-ZZ-ZTj" customClass="ATDPostDateCell">
+                                        <rect key="frame" x="0.0" y="497" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MWk-ZZ-ZTj" id="m77-wR-zpz">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JF7-Ok-wIT">
+                                                    <rect key="frame" x="57" y="11" width="207" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="postDateLabel" destination="JF7-Ok-wIT" id="JOs-hv-GhP"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
-                                    <action selector="deleteBtnTouched:" destination="KVa-Xb-dqj" eventType="touchUpInside" id="k6Q-w5-7Uz"/>
+                                    <outlet property="dataSource" destination="8Zi-ME-39t" id="Kmr-ii-Onz"/>
+                                    <outlet property="delegate" destination="8Zi-ME-39t" id="wHI-P8-39K"/>
                                 </connections>
-                            </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kmV-x1-aJY">
-                                <rect key="frame" x="6" y="352" width="308" height="120"/>
-                                <connections>
-                                    <outlet property="delegate" destination="KVa-Xb-dqj" id="nNJ-uH-I1I"/>
-                                </connections>
-                            </mapView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cho-wV-IOU">
-                                <rect key="frame" x="6" y="352" width="308" height="120"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="TbV-ah-D0u"/>
+                    <navigationItem key="navigationItem" id="atF-Xn-Buy"/>
                     <connections>
-                        <outlet property="imageView" destination="iJ5-ws-pmp" id="NeT-rQ-2hn"/>
-                        <outlet property="mapOverlayView" destination="cho-wV-IOU" id="t2t-o4-LtK"/>
-                        <outlet property="mapView" destination="kmV-x1-aJY" id="DQE-iN-Nru"/>
-                        <outlet property="memoLabel" destination="DSq-uD-3wZ" id="LSa-X5-vQj"/>
-                        <outlet property="placeInfoLabel" destination="qIu-qY-Yo3" id="zXw-Ke-vgg"/>
-                        <outlet property="postdateLabel" destination="xCj-io-1iA" id="pga-zW-aN7"/>
-                        <segue destination="lxw-5a-hoR" kind="modal" identifier="showMap" modalTransitionStyle="crossDissolve" id="kdm-sR-eoL"/>
+                        <outlet property="tableView" destination="cAJ-PO-fLL" id="VaE-0j-Y8h"/>
+                        <segue destination="lxw-5a-hoR" kind="modal" identifier="showMap" modalTransitionStyle="crossDissolve" id="4Bh-Tp-ME9"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Z47-bc-8HQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8at-QW-J4D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1207" y="67"/>
         </scene>
@@ -406,6 +493,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lxw-5a-hoR" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="gpa-od-36l"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yyj-6Y-JOx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

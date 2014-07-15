@@ -38,6 +38,11 @@
 		20A0FA5A1972D48B004FA008 /* MKMapView+ATDZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A0FA591972D48B004FA008 /* MKMapView+ATDZoomLevel.m */; };
 		20A0FA5D1972D5BE004FA008 /* ATDAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A0FA5C1972D5BE004FA008 /* ATDAnnotation.m */; };
 		20A0FA601972F8C7004FA008 /* ATDMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A0FA5F1972F8C7004FA008 /* ATDMapViewController.m */; };
+		20AA05B119756967009A1735 /* ATDPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20AA05B019756967009A1735 /* ATDPhotoCell.m */; };
+		20AA05B419756975009A1735 /* ATDPlaceInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20AA05B319756975009A1735 /* ATDPlaceInfoCell.m */; };
+		20AA05B719756982009A1735 /* ATDMemoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20AA05B619756982009A1735 /* ATDMemoCell.m */; };
+		20AA05BA1975698E009A1735 /* ATDMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20AA05B91975698E009A1735 /* ATDMapCell.m */; };
+		20AA05BD197569A9009A1735 /* ATDPostDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20AA05BC197569A9009A1735 /* ATDPostDateCell.m */; };
 		BADD391C7A8C4D6FBB1C5F1C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E43CBDEB2F3F49CA98E99DC4 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +105,16 @@
 		20A0FA5C1972D5BE004FA008 /* ATDAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDAnnotation.m; sourceTree = "<group>"; };
 		20A0FA5E1972F8C7004FA008 /* ATDMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDMapViewController.h; sourceTree = "<group>"; };
 		20A0FA5F1972F8C7004FA008 /* ATDMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDMapViewController.m; sourceTree = "<group>"; };
+		20AA05AF19756967009A1735 /* ATDPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDPhotoCell.h; sourceTree = "<group>"; };
+		20AA05B019756967009A1735 /* ATDPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDPhotoCell.m; sourceTree = "<group>"; };
+		20AA05B219756975009A1735 /* ATDPlaceInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDPlaceInfoCell.h; sourceTree = "<group>"; };
+		20AA05B319756975009A1735 /* ATDPlaceInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDPlaceInfoCell.m; sourceTree = "<group>"; };
+		20AA05B519756982009A1735 /* ATDMemoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDMemoCell.h; sourceTree = "<group>"; };
+		20AA05B619756982009A1735 /* ATDMemoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDMemoCell.m; sourceTree = "<group>"; };
+		20AA05B81975698E009A1735 /* ATDMapCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDMapCell.h; sourceTree = "<group>"; };
+		20AA05B91975698E009A1735 /* ATDMapCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDMapCell.m; sourceTree = "<group>"; };
+		20AA05BB197569A9009A1735 /* ATDPostDateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDPostDateCell.h; sourceTree = "<group>"; };
+		20AA05BC197569A9009A1735 /* ATDPostDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDPostDateCell.m; sourceTree = "<group>"; };
 		D74FAF12D3944CD3976CCA94 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		E43CBDEB2F3F49CA98E99DC4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -233,6 +248,7 @@
 		202C663D19678C9600497257 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				20AA05AE1975694D009A1735 /* DetailCell */,
 				208131AD19678E8E0094E577 /* ATDPlaceMemoCell.h */,
 				208131AE19678E8E0094E577 /* ATDPlaceMemoCell.m */,
 				208131B019678E9B0094E577 /* ATDPlaceMemoCell.xib */,
@@ -312,6 +328,23 @@
 				20A0FA5F1972F8C7004FA008 /* ATDMapViewController.m */,
 			);
 			name = Detail;
+			sourceTree = "<group>";
+		};
+		20AA05AE1975694D009A1735 /* DetailCell */ = {
+			isa = PBXGroup;
+			children = (
+				20AA05AF19756967009A1735 /* ATDPhotoCell.h */,
+				20AA05B019756967009A1735 /* ATDPhotoCell.m */,
+				20AA05B219756975009A1735 /* ATDPlaceInfoCell.h */,
+				20AA05B319756975009A1735 /* ATDPlaceInfoCell.m */,
+				20AA05B519756982009A1735 /* ATDMemoCell.h */,
+				20AA05B619756982009A1735 /* ATDMemoCell.m */,
+				20AA05B81975698E009A1735 /* ATDMapCell.h */,
+				20AA05B91975698E009A1735 /* ATDMapCell.m */,
+				20AA05BB197569A9009A1735 /* ATDPostDateCell.h */,
+				20AA05BC197569A9009A1735 /* ATDPostDateCell.m */,
+			);
+			name = DetailCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -454,13 +487,18 @@
 				201F042119699AEE0045AB37 /* ATDPlaceSearchViewController.m in Sources */,
 				20A0FA5D1972D5BE004FA008 /* ATDAnnotation.m in Sources */,
 				20A0FA4E1972A53B004FA008 /* ATDDetailViewController.m in Sources */,
+				20AA05B119756967009A1735 /* ATDPhotoCell.m in Sources */,
+				20AA05B419756975009A1735 /* ATDPlaceInfoCell.m in Sources */,
 				208131BB196798BA0094E577 /* ATODE.xcdatamodeld in Sources */,
 				201F042A197102750045AB37 /* ATDSettingViewController.m in Sources */,
 				202C661519604D5D00497257 /* ATDAppDelegate.m in Sources */,
 				20A0FA601972F8C7004FA008 /* ATDMapViewController.m in Sources */,
+				20AA05BD197569A9009A1735 /* ATDPostDateCell.m in Sources */,
 				202C663C19678BB400497257 /* ATDPlaceMemo.m in Sources */,
+				20AA05B719756982009A1735 /* ATDMemoCell.m in Sources */,
 				20A0FA5A1972D48B004FA008 /* MKMapView+ATDZoomLevel.m in Sources */,
 				208131C11967AF2F0094E577 /* ATDCoreDataManger.m in Sources */,
+				20AA05BA1975698E009A1735 /* ATDMapCell.m in Sources */,
 				202C661119604D5D00497257 /* main.m in Sources */,
 				202C661B19604D5D00497257 /* ATDViewController.m in Sources */,
 				208131B4196791A70094E577 /* ATDAddViewController.m in Sources */,

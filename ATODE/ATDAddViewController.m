@@ -12,6 +12,10 @@
 #import "ATDPlaceSearchViewController.h"
 #import <CommonCrypto/CommonCrypto.h>
 #import <UIAlertView+Blocks/UIAlertView+Blocks.h>
+#import <AFNetworking/AFNetworking.h>
+
+static NSString * const kApiClientID = @"UXFP35M0BBM3BSQS0IEDLDHQECN4PIP5IYE14CD4MBR1VPS2";
+static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHYJXU5ZA14YCXY2";
 
 @interface ATDAddViewController ()
 <UITextFieldDelegate, ATDPlaceSearchViewControllerDelegate>
@@ -148,12 +152,45 @@
 }
 
 
+- (void)reloadVenuePhotoUrls {
+    NSString *url = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/%@/photos",
+                     _placeInfo.venueId];
+    
+    NSDictionary *params = @{@"client_id":kApiClientID,
+                             @"client_secret":kApiClientSecret,
+                             @"v":@"20140707"};
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"response[%@]", responseObject);
+        
+        
+        NSMutableArray *tmpPhotoUrls = [NSMutableArray array];
+        NSArray *items = responseObject[@"response"][@"photos"][@"items"];
+        [items enumerateObjectsUsingBlock:^(NSDictionary *item, NSUInteger idx, BOOL *stop) {
+            NSString *photoUrl = [NSString stringWithFormat:@"%@300x300%@",
+                                  item[@"prefix"],
+                                  item[@"suffix"]];
+            NSLog(@"%@", photoUrl);
+            [tmpPhotoUrls addObject:photoUrl];
+        }];
+        _placeInfo.photoUrls = [NSArray arrayWithArray:tmpPhotoUrls];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"error! [%@]", error);
+    }];
+}
+
+
 #pragma mark -
 #pragma mark ATDPlaceSearchViewControllerDelegate
 
 - (void)didSelectPlace:(ATD4sqPlace *)placeInfo {
     self.placeInfo = placeInfo;
     _placeNameLabel.text = _placeInfo.name;
+    
+    // Venueの画像取得する
+    [self reloadVenuePhotoUrls];
 }
 
 

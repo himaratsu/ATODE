@@ -13,26 +13,32 @@
 - (id)initWithDictionary:(NSDictionary *)dict {
     self = [super init];
     if (self) {
+        self.venueId = dict[@"id"];
         self.name = dict[@"name"];
         self.address = dict[@"location"][@"address"];
         self.url = dict[@"url"];
+        self.photoUrls = nil;
     }
     return self;
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super init]) {
+        self.venueId = [aDecoder decodeObjectForKey:@"VENUE_ID"];
         self.name = [aDecoder decodeObjectForKey:@"NAME"];
         self.address = [aDecoder decodeObjectForKey:@"ADDRESS"];
         self.url = [aDecoder decodeObjectForKey:@"URL"];
+        self.photoUrls = [aDecoder decodeObjectForKey:@"PHOTO_URLS"];
     }
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:_venueId forKey:@"VENUE_ID"];
     [aCoder encodeObject:_name forKey:@"NAME"];
     [aCoder encodeObject:_address forKey:@"ADDRESS"];
     [aCoder encodeObject:_url forKey:@"URL"];
+    [aCoder encodeObject:_photoUrls forKey:@"PHOTO_URLS"];
 }
 
 

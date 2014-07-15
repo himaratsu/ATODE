@@ -10,9 +10,11 @@
 
 @interface ATD4sqPlace : NSObject <NSCoding>
 
+@property (nonatomic, strong) NSString *venueId;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *address;
 @property (nonatomic, strong) NSString *url;
+@property (nonatomic, strong) NSArray  *photoUrls;
 
 
 - (id)initWithDictionary:(NSDictionary *)dict;

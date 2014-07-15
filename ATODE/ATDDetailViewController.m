@@ -10,13 +10,29 @@
 #import "ATDMapViewController.h"
 #import "PlaceMemo.h"
 #import "ATDCoreDataManger.h"
-#import "MKMapView+ATDZoomLevel.h"
-#import "ATDAnnotation.h"
+#import "ATDPhotoCell.h"
+#import "ATDPlaceInfoCell.h"
+#import "ATDMemoCell.h"
+#import "ATDMapCell.h"
+#import "ATDPostDateCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <UIAlertView+Blocks/UIAlertView+Blocks.h>
 #import <MapKit/MapKit.h>
 
+
+typedef NS_ENUM(NSUInteger, DetailTableCell) {
+    DetailTableCellPhoto,
+    DetailTableCellMemo,
+    DetailTableCellPlace,
+    DetailTableCellMap,
+    DetailTableCellPostDate
+};
+
+
+
 @interface ATDDetailViewController ()
+<UITableViewDataSource, UITableViewDelegate,
+ATDMapCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *memoLabel;
@@ -24,6 +40,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *placeInfoLabel;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIView *mapOverlayView;
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -35,47 +53,81 @@
 {
     [super viewDidLoad];
     
-    [self setUpMapView];
-    
-    [self setUpViews];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    [self reloadData];
+#pragma mark -
+#pragma mark UITableViewDelegate / UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 5;
 }
 
-- (void)setUpMapView {
-    double lat = [_memo.latitude doubleValue];
-    double lng = [_memo.longitude doubleValue];
-    
-    CLLocationCoordinate2D locationCoordinate = CLLocationCoordinate2DMake(lat, lng);
-    [_mapView setCenterCoordinate:locationCoordinate zoomLevel:15 animated:YES];
-    
-    ATDAnnotation *annotation = [[ATDAnnotation alloc] initWithCoordinate:locationCoordinate
-                                                                    title:_memo.placeInfo.name
-                                                                 subtitle:_memo.title];
-    [_mapView addAnnotation:annotation];
-}
-
-- (void)setUpViews {
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]
-                                          initWithTarget:self action:@selector(didTapOverlayView)];
-    [_mapOverlayView addGestureRecognizer:tapGesture];
-}
-
-
-- (void)reloadData {
-    [_imageView setImageWithURL:[NSURL fileURLWithPath:_memo.imageFilePath]];
-    _memoLabel.text = _memo.title;
-    _postdateLabel.text = _memo.postdate;
-    if (_memo.placeInfo) {
-        _placeInfoLabel.text = _memo.placeInfo.name;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell;
+    switch (indexPath.row) {
+        case DetailTableCellPhoto:
+            cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ATDPhotoCell class])];
+            break;
+        case DetailTableCellMemo:
+            cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ATDMemoCell class])];
+            break;
+        case DetailTableCellPlace:
+            if (!_memo.placeInfo) {
+                return 0;
+            }
+            cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ATDPlaceInfoCell class])];
+            break;
+        case DetailTableCellMap:
+            cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ATDMapCell class])];
+            break;
+        case DetailTableCellPostDate:
+            cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ATDPostDateCell class])];
+            break;
     }
-    else {
-        _placeInfoLabel.text = @"";
+    
+    return cell.frame.size.height;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == DetailTableCellPhoto) {
+        ATDPhotoCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ATDPhotoCell class])];
+        [cell.photoImageView setImageWithURL:[NSURL fileURLWithPath:_memo.imageFilePath]];
+        return cell;
     }
+    else if (indexPath.row == DetailTableCellMemo) {
+        ATDMemoCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ATDMemoCell class])];
+        cell.memoLabel.text = _memo.title;
+        return cell;
+    }
+    else if (indexPath.row == DetailTableCellPlace) {
+        ATDPlaceInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ATDPlaceInfoCell class])];
+        cell.placeNameLabel.text = _memo.placeInfo.name;
+        cell.placeDetailLabel.text = _memo.placeInfo.address;
+        [cell.placeImageView setImageWithURL:[NSURL URLWithString:_memo.placeInfo.photoUrls[0]]];
+        return cell;
+    }
+    else if (indexPath.row == DetailTableCellMap) {
+        ATDMapCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ATDMapCell class])];
+        cell.memo = _memo;
+        cell.delegate = self;
+        return cell;
+    }
+    else if (indexPath.row == DetailTableCellPostDate) {
+        ATDPostDateCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ATDPostDateCell class])];
+        cell.postDateLabel.text = _memo.postdate;
+        return cell;
+    }
+    
+    return nil;
+}
+
+
+
+#pragma mark -
+#pragma mark ATDMapCellDelegate
+
+- (void)didTapOverlayView {
+    [self performSegueWithIdentifier:@"showMap" sender:nil];
 }
 
 
@@ -104,11 +156,6 @@
                       tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
                           [self.navigationController popToRootViewControllerAnimated:YES];
                       }];
-}
-
-
-- (void)didTapOverlayView {
-    [self performSegueWithIdentifier:@"showMap" sender:nil];
 }
 
 
