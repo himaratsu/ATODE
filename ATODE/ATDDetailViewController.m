@@ -101,10 +101,20 @@ ATDMapCellDelegate>
     }
     else if (indexPath.row == DetailTableCellPlace) {
         ATDPlaceInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ATDPlaceInfoCell class])];
-        cell.placeNameLabel.text = _memo.placeInfo.name;
-        cell.placeDetailLabel.text = _memo.placeInfo.address;
-        [cell.placeImageView setImageWithURL:[NSURL URLWithString:_memo.placeInfo.photoUrls[0]]];
-        return cell;
+        
+        if (!_memo.placeInfo) {
+            cell.placeNameLabel.text = @"";
+            cell.placeDetailLabel.text = @"";
+            cell.placeImageView.alpha = 0.0;
+            return cell;
+        }
+        else {
+            cell.placeNameLabel.text = _memo.placeInfo.name;
+            cell.placeDetailLabel.text = _memo.placeInfo.address;
+            cell.placeImageView.alpha = 1.0;
+            [cell.placeImageView setImageWithURL:[NSURL URLWithString:_memo.placeInfo.photoUrls[0]]];
+            return cell;
+        }
     }
     else if (indexPath.row == DetailTableCellMap) {
         ATDMapCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ATDMapCell class])];

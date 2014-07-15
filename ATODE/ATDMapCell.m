@@ -23,9 +23,7 @@
 @implementation ATDMapCell
 
 - (void)awakeFromNib
-{
-    [self setUpMapView];
-    
+{    
     [self setUpViews];
 }
 
@@ -53,6 +51,12 @@
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]
                                           initWithTarget:self action:@selector(didTapOverlayView)];
     [_mapOverlayView addGestureRecognizer:tapGesture];
+}
+
+
+- (void)setMemo:(PlaceMemo *)memo {
+    _memo = memo;
+    [self setUpMapView];
 }
 
 
