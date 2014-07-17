@@ -21,8 +21,9 @@
 
 - (void)awakeFromNib
 {
-    _photoImageView.layer.cornerRadius = 3.0f;
-    _photoImageView.layer.masksToBounds = YES;
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                 action:@selector(imageTouched)];
+    [_photoImageView addGestureRecognizer:tapGesture];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -30,6 +31,12 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)imageTouched {
+    if ([_delegate respondsToSelector:@selector(didTapImage:)]) {
+        [_delegate didTapImage:_photoImageView.image];
+    }
 }
 
 @end

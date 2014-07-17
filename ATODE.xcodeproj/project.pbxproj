@@ -44,6 +44,7 @@
 		20AA05BA1975698E009A1735 /* ATDMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20AA05B91975698E009A1735 /* ATDMapCell.m */; };
 		20AA05BD197569A9009A1735 /* ATDPostDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20AA05BC197569A9009A1735 /* ATDPostDateCell.m */; };
 		BADD391C7A8C4D6FBB1C5F1C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E43CBDEB2F3F49CA98E99DC4 /* libPods.a */; };
+		D99773F71977825100DBEF35 /* ATDImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99773F61977825100DBEF35 /* ATDImageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +117,8 @@
 		20AA05BB197569A9009A1735 /* ATDPostDateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDPostDateCell.h; sourceTree = "<group>"; };
 		20AA05BC197569A9009A1735 /* ATDPostDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDPostDateCell.m; sourceTree = "<group>"; };
 		D74FAF12D3944CD3976CCA94 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		D99773F51977825100DBEF35 /* ATDImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDImageViewController.h; sourceTree = "<group>"; };
+		D99773F61977825100DBEF35 /* ATDImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDImageViewController.m; sourceTree = "<group>"; };
 		E43CBDEB2F3F49CA98E99DC4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -326,6 +329,8 @@
 				20A0FA4D1972A53B004FA008 /* ATDDetailViewController.m */,
 				20A0FA5E1972F8C7004FA008 /* ATDMapViewController.h */,
 				20A0FA5F1972F8C7004FA008 /* ATDMapViewController.m */,
+				D99773F51977825100DBEF35 /* ATDImageViewController.h */,
+				D99773F61977825100DBEF35 /* ATDImageViewController.m */,
 			);
 			name = Detail;
 			sourceTree = "<group>";
@@ -487,6 +492,7 @@
 				201F042119699AEE0045AB37 /* ATDPlaceSearchViewController.m in Sources */,
 				20A0FA5D1972D5BE004FA008 /* ATDAnnotation.m in Sources */,
 				20A0FA4E1972A53B004FA008 /* ATDDetailViewController.m in Sources */,
+				D99773F71977825100DBEF35 /* ATDImageViewController.m in Sources */,
 				20AA05B119756967009A1735 /* ATDPhotoCell.m in Sources */,
 				20AA05B419756975009A1735 /* ATDPlaceInfoCell.m in Sources */,
 				208131BB196798BA0094E577 /* ATODE.xcdatamodeld in Sources */,

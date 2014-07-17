@@ -83,32 +83,33 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ATDPhotoCell" rowHeight="147" id="aSV-YS-al3" customClass="ATDPhotoCell">
-                                        <rect key="frame" x="0.0" y="86" width="320" height="147"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ATDPhotoCell" rowHeight="197" id="aSV-YS-al3" customClass="ATDPhotoCell">
+                                        <rect key="frame" x="0.0" y="86" width="320" height="197"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aSV-YS-al3" id="SAp-yD-kpz">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="146"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="196"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mIZ-Ad-QRh">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="146"/>
+                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mIZ-Ad-QRh">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="196"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="photoImageView" destination="mIZ-Ad-QRh" id="ewy-Kg-EDm"/>
+                                            <segue destination="o4O-3F-K4A" kind="modal" identifier="showImage" modalTransitionStyle="crossDissolve" id="24W-4b-cSi"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ATDMemoCell" id="2jb-jx-0Rt" customClass="ATDMemoCell">
-                                        <rect key="frame" x="0.0" y="233" width="320" height="103"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ATDMemoCell" rowHeight="85" id="2jb-jx-0Rt" customClass="ATDMemoCell">
+                                        <rect key="frame" x="0.0" y="283" width="320" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2jb-jx-0Rt" id="6cG-8t-R8B">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="102"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="84"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="良さげなイタリアン" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyi-9M-7RF">
-                                                    <rect key="frame" x="20" y="26" width="291" height="67"/>
+                                                    <rect key="frame" x="20" y="26" width="291" height="51"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -128,7 +129,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ATDPlaceInfoCell" rowHeight="58" id="jJd-xl-YKa" customClass="ATDPlaceInfoCell">
-                                        <rect key="frame" x="0.0" y="336" width="320" height="58"/>
+                                        <rect key="frame" x="0.0" y="368" width="320" height="58"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jJd-xl-YKa" id="4V6-OV-fvL">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="57"/>
@@ -162,7 +163,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ATDMapCell" id="HMC-jP-MqC" customClass="ATDMapCell">
-                                        <rect key="frame" x="0.0" y="394" width="320" height="103"/>
+                                        <rect key="frame" x="0.0" y="426" width="320" height="103"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HMC-jP-MqC" id="uOW-pE-QXt">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="102"/>
@@ -185,7 +186,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ATDPostDateCell" rowHeight="44" id="MWk-ZZ-ZTj" customClass="ATDPostDateCell">
-                                        <rect key="frame" x="0.0" y="497" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="529" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MWk-ZZ-ZTj" id="m77-wR-zpz">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -254,7 +255,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yen-zh-PNH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2032" y="67"/>
+            <point key="canvasLocation" x="2032" y="451"/>
         </scene>
         <!--Add View Controller-->
         <scene sceneID="a4D-NM-Bno">
@@ -316,7 +317,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jyz-Ya-xNi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1207" y="-724"/>
+            <point key="canvasLocation" x="1207" y="-1002"/>
         </scene>
         <!--Setting View Controller - 設定-->
         <scene sceneID="N8S-8a-bip">
@@ -373,7 +374,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V34-b5-1jI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1644" y="763"/>
+            <point key="canvasLocation" x="1644" y="1243"/>
         </scene>
         <!--Place Search View Controller - お店を検索-->
         <scene sceneID="5qb-kq-1zs">
@@ -450,7 +451,46 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1644" y="-724"/>
+            <point key="canvasLocation" x="1644" y="-1002"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="efm-ib-LLq">
+            <objects>
+                <viewController id="o4O-3F-K4A" customClass="ATDImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Lq0-iS-a6i"/>
+                        <viewControllerLayoutGuide type="bottom" id="i3t-PS-FVC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="l7m-Qd-Mh7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5sm-I4-2Ld">
+                                <rect key="frame" x="0.0" y="124" width="320" height="320"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTo-eI-As7">
+                                <rect key="frame" x="105" y="526" width="111" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="🙅 閉じる">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeBtnTouched:" destination="o4O-3F-K4A" eventType="touchUpInside" id="gme-UE-Gzn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="5sm-I4-2Ld" id="hWG-dp-TSK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sxZ-DV-wsT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1654" y="-243"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UOA-qK-A6C">
@@ -486,7 +526,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nD4-yL-ygE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1207" y="763"/>
+            <point key="canvasLocation" x="1207" y="1243"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2pv-g8-d6V">
@@ -505,7 +545,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zye-xs-r7A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1644" y="67"/>
+            <point key="canvasLocation" x="1644" y="451"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

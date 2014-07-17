@@ -48,6 +48,9 @@
 }
 
 - (void)setUpViews {
+    _mapView.layer.cornerRadius = 5.0f;
+    _mapView.layer.masksToBounds = YES;
+    
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]
                                           initWithTarget:self action:@selector(didTapOverlayView)];
     [_mapOverlayView addGestureRecognizer:tapGesture];

@@ -8,7 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol ATDPhotoCellDelegate <NSObject>
+
+- (void)didTapImage:(UIImage *)image;
+
+@end
+
+
 @interface ATDPhotoCell : UITableViewCell
+
+@property (nonatomic, weak) id<ATDPhotoCellDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
 
 @end

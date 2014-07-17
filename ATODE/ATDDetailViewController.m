@@ -7,6 +7,7 @@
 //
 
 #import "ATDDetailViewController.h"
+#import "ATDImageViewController.h"
 #import "ATDMapViewController.h"
 #import "PlaceMemo.h"
 #import "ATDCoreDataManger.h"
@@ -32,7 +33,7 @@ typedef NS_ENUM(NSUInteger, DetailTableCell) {
 
 @interface ATDDetailViewController ()
 <UITableViewDataSource, UITableViewDelegate,
-ATDMapCellDelegate>
+ATDPhotoCellDelegate, ATDMapCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *memoLabel;
@@ -91,6 +92,7 @@ ATDMapCellDelegate>
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == DetailTableCellPhoto) {
         ATDPhotoCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ATDPhotoCell class])];
+        cell.delegate = self;
         [cell.photoImageView setImageWithURL:[NSURL fileURLWithPath:_memo.imageFilePath]];
         return cell;
     }
@@ -131,6 +133,13 @@ ATDMapCellDelegate>
     return nil;
 }
 
+
+#pragma mark -
+#pragma mark ATDPhotoCellDelegate
+
+- (void)didTapImage:(UIImage *)image {
+    [self performSegueWithIdentifier:@"showImage" sender:image];
+}
 
 
 #pragma mark -
@@ -179,6 +188,10 @@ ATDMapCellDelegate>
         ATDMapViewController *mapVC = nav.viewControllers[0];
         mapVC.latitude = [_memo.latitude doubleValue];
         mapVC.longitude = [_memo.longitude doubleValue];
+    }
+    else if ([segue.identifier isEqualToString:@"showImage"]) {
+        ATDImageViewController *imageVC = segue.destinationViewController;
+        imageVC.image = sender;
     }
 }
 
