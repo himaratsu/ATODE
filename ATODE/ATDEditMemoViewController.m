@@ -11,6 +11,7 @@
 #import <UIAlertView+Blocks/UIAlertView+Blocks.h>
 
 @interface ATDEditMemoViewController ()
+<UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 
@@ -32,6 +33,10 @@
 }
 
 - (IBAction)doneBtnTouched:(id)sender {
+    [self updateMemoTitle];
+}
+
+- (void)updateMemoTitle {
     NSString *newTitle = _textView.text;
     PlaceMemo *newMemo = [[ATDCoreDataManger sharedInstance] updateMemo:_memo title:newTitle];
     
@@ -48,9 +53,21 @@
                               [self.navigationController popViewControllerAnimated:YES];
                           }
                       }];
-
 }
 
+
+#pragma mark -
+#pragma mark UITextViewDelegate
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    
+    if ([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        [self updateMemoTitle];
+        return NO;
+    }
+    return YES;
+}
 
 
 @end

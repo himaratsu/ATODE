@@ -24,7 +24,10 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet ATDPlaceholderTextView *titleTextView;
 @property (nonatomic, strong) ATD4sqPlace *placeInfo;
-@property (weak, nonatomic) IBOutlet UILabel *placeNameLabel;
+@property (weak, nonatomic) IBOutlet UIButton *placeAddButton;
+
+@property (weak, nonatomic) IBOutlet UIView *titleFrameView;
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
 
 @end
 
@@ -39,7 +42,23 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
     _imageView.image = _image;
     
     _titleTextView.placeholder = @"メモを入力できます（オプション）";
+    
+    [self setUpViews];
 
+}
+
+- (void)setUpViews {
+    _titleFrameView.layer.cornerRadius = 3.0f;
+    _titleFrameView.layer.masksToBounds = YES;
+    
+    _placeAddButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    _placeAddButton.contentEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0);
+    
+    _placeAddButton.layer.cornerRadius = 3.0f;
+    _placeAddButton.layer.masksToBounds = YES;
+    
+    _doneButton.layer.cornerRadius = 3.0f;
+    _doneButton.layer.masksToBounds = YES;
 }
 
 - (void)saveNewMemoWithTitle:(NSString *)title
@@ -176,7 +195,7 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
         NSMutableArray *tmpPhotoUrls = [NSMutableArray array];
         NSArray *items = responseObject[@"response"][@"venue"][@"photos"][@"groups"][0][@"items"];
         [items enumerateObjectsUsingBlock:^(NSDictionary *item, NSUInteger idx, BOOL *stop) {
-            NSString *photoUrl = [NSString stringWithFormat:@"%@300x300%@",
+            NSString *photoUrl = [NSString stringWithFormat:@"%@320x480%@",
                                   item[@"prefix"],
                                   item[@"suffix"]];
             NSLog(@"%@", photoUrl);
@@ -208,7 +227,7 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
 
 - (void)didSelectPlace:(ATD4sqPlace *)placeInfo {
     self.placeInfo = placeInfo;
-    _placeNameLabel.text = _placeInfo.name;
+    [_placeAddButton setTitle:_placeInfo.name forState:UIControlStateNormal];
     
     // Venueの画像取得する
     [self reloadMoreVenueInfo];

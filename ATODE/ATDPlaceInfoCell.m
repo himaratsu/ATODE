@@ -23,6 +23,10 @@
 {
     _placeImageView.layer.cornerRadius = 5.0f;
     _placeImageView.layer.masksToBounds = YES;
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                 action:@selector(didTapPlaceImage)];
+    [_placeImageView addGestureRecognizer:tapGesture];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -31,5 +35,12 @@
 
     // Configure the view for the selected state
 }
+
+- (void)didTapPlaceImage {
+    if ([_delegate respondsToSelector:@selector(didTapPlaceImage)]) {
+        [_delegate didTapPlaceImage];
+    }
+}
+
 
 @end

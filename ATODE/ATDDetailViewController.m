@@ -21,6 +21,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <UIAlertView+Blocks/UIAlertView+Blocks.h>
 #import <MapKit/MapKit.h>
+#import <MWPhotoBrowser/MWPhotoBrowser.h>
 
 
 typedef NS_ENUM(NSUInteger, DetailTableCell) {
@@ -36,16 +37,13 @@ typedef NS_ENUM(NSUInteger, DetailTableCell) {
 @interface ATDDetailViewController ()
 <UITableViewDataSource, UITableViewDelegate,
 ATDPhotoCellDelegate, ATDMapCellDelegate,
-ATDEditMemoViewControllerDelegate>
-
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UILabel *memoLabel;
-@property (weak, nonatomic) IBOutlet UILabel *postdateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *placeInfoLabel;
-@property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property (weak, nonatomic) IBOutlet UIView *mapOverlayView;
+ATDPlaceInfoCellDelegate,
+ATDEditMemoViewControllerDelegate,
+MWPhotoBrowserDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic, strong) NSMutableArray *foursquarePhotos;
 
 @end
 
@@ -114,6 +112,7 @@ ATDEditMemoViewControllerDelegate>
             return cell;
         }
         else {
+            cell.delegate = self;
             cell.placeNameLabel.text = _memo.placeInfo.name;
             cell.placeDetailLabel.text = _memo.placeInfo.address;
             cell.placeImageView.alpha = 1.0;
@@ -159,6 +158,41 @@ ATDEditMemoViewControllerDelegate>
 - (void)didChangeMemo:(PlaceMemo *)memo {
     _memo = memo;
     [_tableView reloadData];
+}
+
+
+#pragma mark -
+#pragma mark ATDPlaceInfoCellDelegate
+
+- (void)didTapPlaceImage {
+    self.foursquarePhotos = [NSMutableArray array];
+    
+    NSArray *photoUrls = _memo.placeInfo.photoUrls;
+    [photoUrls enumerateObjectsUsingBlock:^(NSString *photoUrl, NSUInteger idx, BOOL *stop) {
+        [_foursquarePhotos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:photoUrl]]];
+    }];
+    
+    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];    
+    // Present
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:browser];
+    [self presentViewController:nav animated:YES completion:nil];
+    
+    // Manipulate
+    [browser showNextPhotoAnimated:YES];
+    [browser showPreviousPhotoAnimated:YES];
+}
+
+#pragma mark -
+#pragma mark MWPhoto
+
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
+    return self.foursquarePhotos.count;
+}
+
+- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
+    if (index < self.foursquarePhotos.count)
+        return [self.foursquarePhotos objectAtIndex:index];
+    return nil;
 }
 
 
