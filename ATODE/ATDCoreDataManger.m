@@ -55,6 +55,17 @@
     return [PlaceMemo MR_findAllSortedBy:@"postdate" ascending:NO];
 }
 
+- (PlaceMemo *)updateMemo:(PlaceMemo *)memo title:(NSString *)title {
+    [self setUpStack];
+    
+    PlaceMemo *newMemo = memo;
+    
+    newMemo.title = title;
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+    
+    return newMemo;
+}
+
 - (void)printCoreData {
     NSLog(@"メモが %d件 あります", [[PlaceMemo MR_findAll] count]);
 }

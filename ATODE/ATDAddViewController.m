@@ -21,7 +21,7 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
 <UITextFieldDelegate, ATDPlaceSearchViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UITextField *titleField;
+@property (weak, nonatomic) IBOutlet UITextView *titleTextView;
 @property (nonatomic, strong) ATD4sqPlace *placeInfo;
 @property (weak, nonatomic) IBOutlet UILabel *placeNameLabel;
 
@@ -124,7 +124,7 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
 
 - (IBAction)addBtnTouched:(id)sender {
     // タイトル
-    NSString *title = _titleField.text;
+    NSString *title = _titleTextView.text;
     
     // 画像
     NSString *filePath = [self saveImageWithImage:_image];
@@ -152,21 +152,26 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
 }
 
 
-- (void)reloadVenuePhotoUrls {
-    NSString *url = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/%@/photos",
+- (void)reloadMoreVenueInfo {
+    NSString *url = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/%@",
                      _placeInfo.venueId];
-    
+
     NSDictionary *params = @{@"client_id":kApiClientID,
                              @"client_secret":kApiClientSecret,
                              @"v":@"20140707"};
-    
+
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"response[%@]", responseObject);
+
+        // 4sqページURL
+        NSString *shortUrl = responseObject[@"response"][@"venue"][@"shortUrl"];
+        _placeInfo.shortUrl = shortUrl;
+        NSLog(@"shortUrl is %@", _placeInfo.shortUrl);
         
-        
+        // 写真
         NSMutableArray *tmpPhotoUrls = [NSMutableArray array];
-        NSArray *items = responseObject[@"response"][@"photos"][@"items"];
+        NSArray *items = responseObject[@"response"][@"venue"][@"photos"][@"groups"][0][@"items"];
         [items enumerateObjectsUsingBlock:^(NSDictionary *item, NSUInteger idx, BOOL *stop) {
             NSString *photoUrl = [NSString stringWithFormat:@"%@300x300%@",
                                   item[@"prefix"],
@@ -175,10 +180,23 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
             [tmpPhotoUrls addObject:photoUrl];
         }];
         _placeInfo.photoUrls = [NSArray arrayWithArray:tmpPhotoUrls];
-        
+
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error! [%@]", error);
     }];
+}
+
+
+#pragma mark -
+#pragma mark UITextViewDelegate
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    
+    if ([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    return YES;
 }
 
 
@@ -190,16 +208,7 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
     _placeNameLabel.text = _placeInfo.name;
     
     // Venueの画像取得する
-    [self reloadVenuePhotoUrls];
-}
-
-
-#pragma mark -
-#pragma mark UITextFieldDelegate
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
-    return YES;
+    [self reloadMoreVenueInfo];
 }
 
 

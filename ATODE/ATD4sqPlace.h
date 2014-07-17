@@ -16,6 +16,8 @@
 @property (nonatomic, strong) NSString *url;
 @property (nonatomic, strong) NSArray  *photoUrls;
 
+@property (nonatomic, strong) NSString *shortUrl;   // 4sq page
+
 
 - (id)initWithDictionary:(NSDictionary *)dict;
 

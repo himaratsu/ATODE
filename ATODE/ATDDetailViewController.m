@@ -9,6 +9,8 @@
 #import "ATDDetailViewController.h"
 #import "ATDImageViewController.h"
 #import "ATDMapViewController.h"
+#import "ATDWebViewController.h"
+#import "ATDEditMemoViewController.h"
 #import "PlaceMemo.h"
 #import "ATDCoreDataManger.h"
 #import "ATDPhotoCell.h"
@@ -33,7 +35,8 @@ typedef NS_ENUM(NSUInteger, DetailTableCell) {
 
 @interface ATDDetailViewController ()
 <UITableViewDataSource, UITableViewDelegate,
-ATDPhotoCellDelegate, ATDMapCellDelegate>
+ATDPhotoCellDelegate, ATDMapCellDelegate,
+ATDEditMemoViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *memoLabel;
@@ -151,6 +154,15 @@ ATDPhotoCellDelegate, ATDMapCellDelegate>
 
 
 #pragma mark -
+#pragma mark ATDEditMemoViewController
+
+- (void)didChangeMemo:(PlaceMemo *)memo {
+    _memo = memo;
+    [_tableView reloadData];
+}
+
+
+#pragma mark -
 #pragma mark IBAction
 
 - (IBAction)deleteBtnTouched:(id)sender {
@@ -192,6 +204,15 @@ ATDPhotoCellDelegate, ATDMapCellDelegate>
     else if ([segue.identifier isEqualToString:@"showImage"]) {
         ATDImageViewController *imageVC = segue.destinationViewController;
         imageVC.image = sender;
+    }
+    else if ([segue.identifier isEqualToString:@"showWeb"]) {
+        ATDWebViewController *webVC = segue.destinationViewController;
+        webVC.url = _memo.placeInfo.shortUrl;
+    }
+    else if ([segue.identifier isEqualToString:@"editMemo"]) {
+        ATDEditMemoViewController *editVC = segue.destinationViewController;
+        editVC.delegate = self;
+        editVC.memo = _memo;
     }
 }
 

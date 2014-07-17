@@ -91,7 +91,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mIZ-Ad-QRh">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="196"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="353" height="196"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -108,10 +108,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="84"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="良さげなイタリアン" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyi-9M-7RF">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="良さげなイタリアン" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="yyi-9M-7RF">
                                                     <rect key="frame" x="20" y="26" width="291" height="51"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -126,6 +126,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="memoLabel" destination="yyi-9M-7RF" id="pC5-lx-FLs"/>
+                                            <segue destination="x71-bs-gzM" kind="push" identifier="editMemo" id="Kwo-LS-9oi"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ATDPlaceInfoCell" rowHeight="58" id="jJd-xl-YKa" customClass="ATDPlaceInfoCell">
@@ -160,6 +161,7 @@
                                             <outlet property="placeDetailLabel" destination="mem-kI-tb6" id="9VZ-WW-wxn"/>
                                             <outlet property="placeImageView" destination="9Mn-6D-z1X" id="wJv-a5-qNq"/>
                                             <outlet property="placeNameLabel" destination="CZe-X8-HbW" id="9rM-og-Y6I"/>
+                                            <segue destination="KwN-6c-ahf" kind="modal" identifier="showWeb" modalTransitionStyle="crossDissolve" id="bHs-hk-WiB"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ATDMapCell" id="HMC-jP-MqC" customClass="ATDMapCell">
@@ -257,6 +259,47 @@
             </objects>
             <point key="canvasLocation" x="2032" y="451"/>
         </scene>
+        <!--Edit Memo View Controller - メモを編集-->
+        <scene sceneID="zMS-ap-HIW">
+            <objects>
+                <viewController id="x71-bs-gzM" customClass="ATDEditMemoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ciA-Td-8jt"/>
+                        <viewControllerLayoutGuide type="bottom" id="3zw-RH-qUH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kCW-k5-lxb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hrj-jn-TFt">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="295"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="x71-bs-gzM" id="w1q-2X-0uI"/>
+                                </connections>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="メモを編集" id="CeW-mO-Aq4">
+                        <barButtonItem key="rightBarButtonItem" title="更新" id="vBF-dC-fqY">
+                            <connections>
+                                <action selector="doneBtnTouched:" destination="x71-bs-gzM" id="MwP-sb-m9G"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textView" destination="hrj-jn-TFt" id="b4W-bf-svC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bC1-vw-AtE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2576" y="451"/>
+        </scene>
         <!--Add View Controller-->
         <scene sceneID="a4D-NM-Bno">
             <objects>
@@ -266,23 +309,36 @@
                         <viewControllerLayoutGuide type="bottom" id="3X0-FU-93a"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="aTM-7f-9ZX">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z8A-6K-Ctt">
+                                <rect key="frame" x="10" y="14" width="301" height="104"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="81I-nD-XLT">
+                                        <rect key="frame" x="13" y="6" width="180" height="86"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="biE-qT-31g" id="V9g-C9-O0Z"/>
+                                        </connections>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wck-M3-kUP">
-                                <rect key="frame" x="99" y="70" width="122" height="122"/>
+                                <rect key="frame" x="211" y="20" width="89" height="89"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="メモを入力（オプション）" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1Ll-bB-nUz">
-                                <rect key="frame" x="59" y="305" width="202" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                <connections>
-                                    <outlet property="delegate" destination="biE-qT-31g" id="mAU-hY-JI7"/>
-                                </connections>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUh-zQ-LaR">
-                                <rect key="frame" x="112" y="366" width="96" height="37"/>
-                                <state key="normal" title="追加する">
+                                <rect key="frame" x="10" y="237" width="301" height="39"/>
+                                <color key="backgroundColor" red="0.27819194819999998" green="0.67401682370000005" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.27819194823616122" green="0.67401682365075255" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="完了">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -290,7 +346,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zcb-2u-wqp">
-                                <rect key="frame" x="54" y="251" width="202" height="30"/>
+                                <rect key="frame" x="150" y="155" width="136" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <state key="normal" title="お店の候補を調べる >">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -299,20 +356,21 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ここにfoursquareで選んだスポット名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SD7-fN-FGy">
-                                <rect key="frame" x="23" y="220" width="274" height="31"/>
+                                <rect key="frame" x="26" y="134" width="274" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="UeU-wp-T3d"/>
                     <connections>
                         <outlet property="imageView" destination="Wck-M3-kUP" id="6Ob-Bu-Iro"/>
                         <outlet property="placeNameLabel" destination="SD7-fN-FGy" id="bBi-2T-7Mh"/>
-                        <outlet property="titleField" destination="1Ll-bB-nUz" id="cUG-wW-roG"/>
+                        <outlet property="titleTextView" destination="81I-nD-XLT" id="rXw-0O-sdc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jyz-Ya-xNi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -491,6 +549,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sxZ-DV-wsT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1654" y="-243"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="3vz-1M-8qR">
+            <objects>
+                <viewController id="KwN-6c-ahf" customClass="ATDWebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XmP-Bz-olV"/>
+                        <viewControllerLayoutGuide type="bottom" id="epu-hl-31f"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UQc-GZ-mFa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpU-8Y-0yc">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="とじる">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeBtnTouched:" destination="KwN-6c-ahf" eventType="touchUpInside" id="zff-ET-6x6"/>
+                                </connections>
+                            </button>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cCr-Pu-uid">
+                                <rect key="frame" x="0.0" y="20" width="320" height="503"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="KwN-6c-ahf" id="erv-j6-pQf"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" id="vhb-sf-5MD"/>
+                    <connections>
+                        <outlet property="webView" destination="cCr-Pu-uid" id="4e2-cM-LCL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9RY-MJ-fMe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2576" y="-343"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UOA-qK-A6C">

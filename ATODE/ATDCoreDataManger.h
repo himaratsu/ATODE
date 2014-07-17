@@ -17,6 +17,7 @@
 - (void)deleteMemo:(PlaceMemo *)memo;
 
 - (NSArray *)getAllMemos;
+- (PlaceMemo *)updateMemo:(PlaceMemo *)memo title:(NSString *)title;
 - (void)resetSaveData;
 
 

@@ -45,6 +45,8 @@
 		20AA05BD197569A9009A1735 /* ATDPostDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20AA05BC197569A9009A1735 /* ATDPostDateCell.m */; };
 		BADD391C7A8C4D6FBB1C5F1C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E43CBDEB2F3F49CA98E99DC4 /* libPods.a */; };
 		D99773F71977825100DBEF35 /* ATDImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99773F61977825100DBEF35 /* ATDImageViewController.m */; };
+		D99773FD1977D96800DBEF35 /* ATDWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99773FC1977D96800DBEF35 /* ATDWebViewController.m */; };
+		D99774011977DFCC00DBEF35 /* ATDEditMemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99774001977DFCC00DBEF35 /* ATDEditMemoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +121,10 @@
 		D74FAF12D3944CD3976CCA94 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		D99773F51977825100DBEF35 /* ATDImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDImageViewController.h; sourceTree = "<group>"; };
 		D99773F61977825100DBEF35 /* ATDImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDImageViewController.m; sourceTree = "<group>"; };
+		D99773FB1977D96800DBEF35 /* ATDWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDWebViewController.h; sourceTree = "<group>"; };
+		D99773FC1977D96800DBEF35 /* ATDWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDWebViewController.m; sourceTree = "<group>"; };
+		D99773FF1977DFCC00DBEF35 /* ATDEditMemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDEditMemoViewController.h; sourceTree = "<group>"; };
+		D99774001977DFCC00DBEF35 /* ATDEditMemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDEditMemoViewController.m; sourceTree = "<group>"; };
 		E43CBDEB2F3F49CA98E99DC4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -325,12 +331,12 @@
 		20A0FA64197300E0004FA008 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				D99773FE1977DFC000DBEF35 /* Edit */,
+				D99773FA1977D94F00DBEF35 /* Image */,
+				D99773F91977D94900DBEF35 /* WebView */,
+				D99773F81977D94400DBEF35 /* Map */,
 				20A0FA4C1972A53B004FA008 /* ATDDetailViewController.h */,
 				20A0FA4D1972A53B004FA008 /* ATDDetailViewController.m */,
-				20A0FA5E1972F8C7004FA008 /* ATDMapViewController.h */,
-				20A0FA5F1972F8C7004FA008 /* ATDMapViewController.m */,
-				D99773F51977825100DBEF35 /* ATDImageViewController.h */,
-				D99773F61977825100DBEF35 /* ATDImageViewController.m */,
 			);
 			name = Detail;
 			sourceTree = "<group>";
@@ -350,6 +356,42 @@
 				20AA05BC197569A9009A1735 /* ATDPostDateCell.m */,
 			);
 			name = DetailCell;
+			sourceTree = "<group>";
+		};
+		D99773F81977D94400DBEF35 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				20A0FA5E1972F8C7004FA008 /* ATDMapViewController.h */,
+				20A0FA5F1972F8C7004FA008 /* ATDMapViewController.m */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
+		D99773F91977D94900DBEF35 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				D99773FB1977D96800DBEF35 /* ATDWebViewController.h */,
+				D99773FC1977D96800DBEF35 /* ATDWebViewController.m */,
+			);
+			name = WebView;
+			sourceTree = "<group>";
+		};
+		D99773FA1977D94F00DBEF35 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				D99773F51977825100DBEF35 /* ATDImageViewController.h */,
+				D99773F61977825100DBEF35 /* ATDImageViewController.m */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
+		D99773FE1977DFC000DBEF35 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				D99773FF1977DFCC00DBEF35 /* ATDEditMemoViewController.h */,
+				D99774001977DFCC00DBEF35 /* ATDEditMemoViewController.m */,
+			);
+			name = Edit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -506,10 +548,12 @@
 				208131C11967AF2F0094E577 /* ATDCoreDataManger.m in Sources */,
 				20AA05BA1975698E009A1735 /* ATDMapCell.m in Sources */,
 				202C661119604D5D00497257 /* main.m in Sources */,
+				D99774011977DFCC00DBEF35 /* ATDEditMemoViewController.m in Sources */,
 				202C661B19604D5D00497257 /* ATDViewController.m in Sources */,
 				208131B4196791A70094E577 /* ATDAddViewController.m in Sources */,
 				208131AF19678E8E0094E577 /* ATDPlaceMemoCell.m in Sources */,
 				201F04241970F9560045AB37 /* ATD4sqPlace.m in Sources */,
+				D99773FD1977D96800DBEF35 /* ATDWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

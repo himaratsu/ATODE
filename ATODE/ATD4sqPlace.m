@@ -29,6 +29,7 @@
         self.address = [aDecoder decodeObjectForKey:@"ADDRESS"];
         self.url = [aDecoder decodeObjectForKey:@"URL"];
         self.photoUrls = [aDecoder decodeObjectForKey:@"PHOTO_URLS"];
+        self.shortUrl = [aDecoder decodeObjectForKey:@"SHORT_URL"];
     }
     return self;
 }
@@ -39,6 +40,7 @@
     [aCoder encodeObject:_address forKey:@"ADDRESS"];
     [aCoder encodeObject:_url forKey:@"URL"];
     [aCoder encodeObject:_photoUrls forKey:@"PHOTO_URLS"];
+    [aCoder encodeObject:_shortUrl forKey:@"SHORT_URL"];
 }
 
 
