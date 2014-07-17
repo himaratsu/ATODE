@@ -47,6 +47,7 @@
 		D99773F71977825100DBEF35 /* ATDImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99773F61977825100DBEF35 /* ATDImageViewController.m */; };
 		D99773FD1977D96800DBEF35 /* ATDWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99773FC1977D96800DBEF35 /* ATDWebViewController.m */; };
 		D99774011977DFCC00DBEF35 /* ATDEditMemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99774001977DFCC00DBEF35 /* ATDEditMemoViewController.m */; };
+		D99774051977EB3800DBEF35 /* ATDPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D99774041977EB3800DBEF35 /* ATDPlaceholderTextView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,8 @@
 		D99773FC1977D96800DBEF35 /* ATDWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDWebViewController.m; sourceTree = "<group>"; };
 		D99773FF1977DFCC00DBEF35 /* ATDEditMemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDEditMemoViewController.h; sourceTree = "<group>"; };
 		D99774001977DFCC00DBEF35 /* ATDEditMemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDEditMemoViewController.m; sourceTree = "<group>"; };
+		D99774031977EB3800DBEF35 /* ATDPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDPlaceholderTextView.h; sourceTree = "<group>"; };
+		D99774041977EB3800DBEF35 /* ATDPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDPlaceholderTextView.m; sourceTree = "<group>"; };
 		E43CBDEB2F3F49CA98E99DC4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -198,6 +201,7 @@
 		202C660A19604D5D00497257 /* ATODE */ = {
 			isa = PBXGroup;
 			children = (
+				D99774021977EB2100DBEF35 /* Library */,
 				20A0FA571972D470004FA008 /* Category */,
 				201F04251970FF500045AB37 /* Resources */,
 				208131B51967987A0094E577 /* Data */,
@@ -394,6 +398,15 @@
 			name = Edit;
 			sourceTree = "<group>";
 		};
+		D99774021977EB2100DBEF35 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				D99774031977EB3800DBEF35 /* ATDPlaceholderTextView.h */,
+				D99774041977EB3800DBEF35 /* ATDPlaceholderTextView.m */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -554,6 +567,7 @@
 				208131AF19678E8E0094E577 /* ATDPlaceMemoCell.m in Sources */,
 				201F04241970F9560045AB37 /* ATD4sqPlace.m in Sources */,
 				D99773FD1977D96800DBEF35 /* ATDWebViewController.m in Sources */,
+				D99774051977EB3800DBEF35 /* ATDPlaceholderTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

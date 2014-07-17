@@ -10,6 +10,7 @@
 #import "ATDCoreDataManger.h"
 #import "ATDPlaceMemo.h"
 #import "ATDPlaceSearchViewController.h"
+#import "ATDPlaceholderTextView.h"
 #import <CommonCrypto/CommonCrypto.h>
 #import <UIAlertView+Blocks/UIAlertView+Blocks.h>
 #import <AFNetworking/AFNetworking.h>
@@ -21,7 +22,7 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
 <UITextFieldDelegate, ATDPlaceSearchViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UITextView *titleTextView;
+@property (weak, nonatomic) IBOutlet ATDPlaceholderTextView *titleTextView;
 @property (nonatomic, strong) ATD4sqPlace *placeInfo;
 @property (weak, nonatomic) IBOutlet UILabel *placeNameLabel;
 
@@ -36,6 +37,8 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
     [super viewDidLoad];
     
     _imageView.image = _image;
+    
+    _titleTextView.placeholder = @"メモを入力できます（オプション）";
 
 }
 
