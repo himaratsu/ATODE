@@ -369,11 +369,8 @@ CLLocationManagerDelegate>
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"select! [%d-%d]", indexPath.section, indexPath.row);
-    
     PlaceMemo *memo = _memos[indexPath.row];
     [self performSegueWithIdentifier:@"showDetail" sender:memo];
-    
 }
 
 @end

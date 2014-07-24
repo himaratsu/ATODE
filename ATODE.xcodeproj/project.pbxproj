@@ -51,6 +51,7 @@
 		D997740C1978D49300DBEF35 /* LicenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D997740A1978D49300DBEF35 /* LicenseViewController.m */; };
 		D99774111978D51700DBEF35 /* license.html in Resources */ = {isa = PBXBuildFile; fileRef = D997740F1978D51700DBEF35 /* license.html */; };
 		D99774121978D51700DBEF35 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = D99774101978D51700DBEF35 /* style.css */; };
+		D9E958651980D2080090BEED /* ATDPlaceSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E958631980D2080090BEED /* ATDPlaceSearchCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +136,8 @@
 		D997740A1978D49300DBEF35 /* LicenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LicenseViewController.m; sourceTree = "<group>"; };
 		D997740F1978D51700DBEF35 /* license.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = license.html; sourceTree = "<group>"; };
 		D99774101978D51700DBEF35 /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
+		D9E958621980D2080090BEED /* ATDPlaceSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDPlaceSearchCell.h; sourceTree = "<group>"; };
+		D9E958631980D2080090BEED /* ATDPlaceSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDPlaceSearchCell.m; sourceTree = "<group>"; };
 		E43CBDEB2F3F49CA98E99DC4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -268,6 +271,7 @@
 		202C663D19678C9600497257 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D9E958611980D1EC0090BEED /* Add */,
 				20AA05AE1975694D009A1735 /* DetailCell */,
 				208131AD19678E8E0094E577 /* ATDPlaceMemoCell.h */,
 				208131AE19678E8E0094E577 /* ATDPlaceMemoCell.m */,
@@ -426,6 +430,15 @@
 			name = license;
 			sourceTree = "<group>";
 		};
+		D9E958611980D1EC0090BEED /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				D9E958621980D2080090BEED /* ATDPlaceSearchCell.h */,
+				D9E958631980D2080090BEED /* ATDPlaceSearchCell.m */,
+			);
+			name = Add;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -580,6 +593,7 @@
 				202C663C19678BB400497257 /* ATDPlaceMemo.m in Sources */,
 				20AA05B719756982009A1735 /* ATDMemoCell.m in Sources */,
 				20A0FA5A1972D48B004FA008 /* MKMapView+ATDZoomLevel.m in Sources */,
+				D9E958651980D2080090BEED /* ATDPlaceSearchCell.m in Sources */,
 				208131C11967AF2F0094E577 /* ATDCoreDataManger.m in Sources */,
 				20AA05BA1975698E009A1735 /* ATDMapCell.m in Sources */,
 				202C661119604D5D00497257 /* main.m in Sources */,

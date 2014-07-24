@@ -9,7 +9,7 @@
 #import "ATDPlaceSearchViewController.h"
 #import <AFNetworking/AFNetworking.h>
 #import "ATD4sqPlace.h"
-
+#import "ATDPlaceSearchCell.h"
 
 static NSString * const kApiClientID = @"UXFP35M0BBM3BSQS0IEDLDHQECN4PIP5IYE14CD4MBR1VPS2";
 static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHYJXU5ZA14YCXY2";
@@ -121,8 +121,7 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                                                   reuseIdentifier:@"Cell"];
+    ATDPlaceSearchCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     
     ATD4sqPlace *place;
     if (tableView == self.searchDisplayController.searchResultsTableView) {
@@ -132,12 +131,12 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
         place = _places[indexPath.row];
     }
     
-    cell.textLabel.text = place.name;
+    cell.placeNameLabel.text = place.name;
     if (place.address) {
-        cell.detailTextLabel.text = place.address;
+        cell.addressLabel.text = place.address;
     }
     else {
-        cell.detailTextLabel.text = @"";
+        cell.addressLabel.text = @"";
     }
     
     return cell;
