@@ -10,5 +10,6 @@
 
 @interface ATDMemoCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *memoLabel;
+@property (weak, nonatomic) IBOutlet UILabel *brankLabel;
 
 @end

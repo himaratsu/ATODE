@@ -32,27 +32,14 @@
     [_textView becomeFirstResponder];
 }
 
-- (IBAction)doneBtnTouched:(id)sender {
-    [self updateMemoTitle];
-}
-
 - (void)updateMemoTitle {
     NSString *newTitle = _textView.text;
     PlaceMemo *newMemo = [[ATDCoreDataManger sharedInstance] updateMemo:_memo title:newTitle];
     
     if ([_delegate respondsToSelector:@selector(didChangeMemo:)]) {
         [_delegate didChangeMemo:newMemo];
+        [self.navigationController popViewControllerAnimated:YES];
     }
-    
-    [UIAlertView showWithTitle:@"Success"
-                       message:@"メモの更新に成功しました"
-             cancelButtonTitle:nil
-             otherButtonTitles:@[@"OK"]
-                      tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
-                          if (buttonIndex != alertView.cancelButtonIndex) {
-                              [self.navigationController popViewControllerAnimated:YES];
-                          }
-                      }];
 }
 
 

@@ -44,6 +44,8 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
     _titleTextView.placeholder = @"メモを入力できます（オプション）";
     
     [self setUpViews];
+    
+    [self setBackButton];
 
 }
 
@@ -59,6 +61,13 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
     
     _doneButton.layer.cornerRadius = 3.0f;
     _doneButton.layer.masksToBounds = YES;
+}
+
+- (void)setBackButton {
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop
+                                                                          target:self
+                                                                          action:@selector(closeBtnTouched)];
+    self.navigationItem.leftBarButtonItem = item;
 }
 
 - (void)saveNewMemoWithTitle:(NSString *)title
@@ -193,14 +202,18 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
         
         // 写真
         NSMutableArray *tmpPhotoUrls = [NSMutableArray array];
-        NSArray *items = responseObject[@"response"][@"venue"][@"photos"][@"groups"][0][@"items"];
-        [items enumerateObjectsUsingBlock:^(NSDictionary *item, NSUInteger idx, BOOL *stop) {
-            NSString *photoUrl = [NSString stringWithFormat:@"%@320x480%@",
-                                  item[@"prefix"],
-                                  item[@"suffix"]];
-            NSLog(@"%@", photoUrl);
-            [tmpPhotoUrls addObject:photoUrl];
-        }];
+        
+        NSInteger photoCount = [responseObject[@"response"][@"venue"][@"photos"][@"count"] integerValue];
+        if (photoCount > 0) {
+            NSArray *items = responseObject[@"response"][@"venue"][@"photos"][@"groups"][0][@"items"];
+            [items enumerateObjectsUsingBlock:^(NSDictionary *item, NSUInteger idx, BOOL *stop) {
+                NSString *photoUrl = [NSString stringWithFormat:@"%@320x480%@",
+                                      item[@"prefix"],
+                                      item[@"suffix"]];
+                NSLog(@"%@", photoUrl);
+                [tmpPhotoUrls addObject:photoUrl];
+            }];
+        }
         _placeInfo.photoUrls = [NSArray arrayWithArray:tmpPhotoUrls];
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -233,6 +246,21 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
     [self reloadMoreVenueInfo];
 }
 
+
+#pragma mark -
+#pragma mark IBAction
+
+- (void)closeBtnTouched {
+    [UIAlertView showWithTitle:@"確認"
+                       message:@"編集内容を破棄しますか？"
+             cancelButtonTitle:@"キャンセル"
+             otherButtonTitles:@[@"破棄する"]
+                      tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                          if (alertView.cancelButtonIndex != buttonIndex) {
+                              [self.navigationController popViewControllerAnimated:YES];
+                          }
+                      }];
+}
 
 #pragma mark -
 #pragma mark Storyboard

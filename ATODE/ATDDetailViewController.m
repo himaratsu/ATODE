@@ -99,7 +99,14 @@ MWPhotoBrowserDelegate>
     }
     else if (indexPath.row == DetailTableCellMemo) {
         ATDMemoCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ATDMemoCell class])];
-        cell.memoLabel.text = _memo.title;
+        if (_memo.title && ![_memo.title isEqualToString:@""]) {
+            cell.memoLabel.text = _memo.title;
+            cell.brankLabel.hidden = YES;
+        }
+        else {
+            cell.memoLabel.text = @"";
+            cell.brankLabel.hidden = NO;
+        }
         return cell;
     }
     else if (indexPath.row == DetailTableCellPlace) {
@@ -133,6 +140,14 @@ MWPhotoBrowserDelegate>
     }
     
     return nil;
+}
+
+
+#pragma mark -
+#pragma mark UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 

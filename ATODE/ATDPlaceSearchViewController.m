@@ -15,7 +15,7 @@ static NSString * const kApiClientID = @"UXFP35M0BBM3BSQS0IEDLDHQECN4PIP5IYE14CD
 static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHYJXU5ZA14YCXY2";
 
 @interface ATDPlaceSearchViewController ()
-<UITableViewDataSource, UITableViewDelegate>
+<UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
@@ -75,6 +75,39 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
 }
 
 
+- (void)searchPlaceWithFourSquare:(NSString *)query {
+    NSLog(@"searchString[%@]", query);
+    
+    NSString *ll = [NSString stringWithFormat:@"%f,%f",
+                    _coordinate.latitude,
+                    _coordinate.longitude];
+    
+    NSDictionary *params = @{@"client_id":kApiClientID,
+                             @"client_secret":kApiClientSecret,
+                             @"query":query,
+                             @"v":@"20140707",
+                             @"ll":ll};
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:@"https://api.foursquare.com/v2/venues/search"
+      parameters:params
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             NSArray *venues = responseObject[@"response"][@"venues"];
+             
+             NSMutableArray *mutArray = [NSMutableArray array];
+             [venues enumerateObjectsUsingBlock:^(NSDictionary *dict, NSUInteger idx, BOOL *stop) {
+                 ATD4sqPlace *place = [[ATD4sqPlace alloc] initWithDictionary:dict];
+                 [mutArray addObject:place];
+             }];
+             
+             self.filterdPlaces = mutArray;
+             [_tableView reloadData];
+         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"error:[%@]", error);
+         }];
+}
+
+
 #pragma mark -
 #pragma mark UITableViewDataSource
 
@@ -88,7 +121,6 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                                    reuseIdentifier:@"Cell"];
     
@@ -126,16 +158,15 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
 }
 
 
-
-- (void)filterContainsWithSearchText:(NSString *)searchText {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", searchText];
-    
-    self.filterdPlaces = [_places filteredArrayUsingPredicate:predicate];
-}
-
 - (BOOL)searchDisplayController:controller shouldReloadTableForSearchString:(NSString *)searchString {
-    [self filterContainsWithSearchText:searchString];
+    [self searchPlaceWithFourSquare:searchString];
     return YES;
 }
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [self searchPlaceWithFourSquare:searchBar.text];
+}
+
+
 
 @end
