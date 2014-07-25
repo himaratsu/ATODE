@@ -44,8 +44,13 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
     
     _titleTextView.placeholder = @"メモを入力できます（オプション）";
     
-    _latlngLabel.text = [NSString stringWithFormat:@"%f, %f", _coordinate.latitude, _coordinate.longitude]
-    ;
+    if (_coordinate.latitude != 0 && _coordinate.longitude != 0) {
+        _latlngLabel.text = [NSString stringWithFormat:@"%f, %f", _coordinate.latitude, _coordinate.longitude];
+    }
+    else {
+        _latlngLabel.text = @"写真から位置情報を取得できませんでした";
+    }
+    
     [self setUpViews];
     
     [self setBackButton];

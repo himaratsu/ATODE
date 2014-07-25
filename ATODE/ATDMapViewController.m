@@ -9,6 +9,7 @@
 #import "ATDMapViewController.h"
 #import "MKMapView+ATDZoomLevel.h"
 #import "ATDAnnotation.h"
+#import <UIActionSheet+Blocks/UIActionSheet+Blocks.h>
 
 @interface ATDMapViewController ()
 
@@ -46,6 +47,42 @@
 
 - (IBAction)closeBtnTouched:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)actionBtnTouched:(id)sender {
+    [UIActionSheet showInView:self.view
+                    withTitle:@"他のアプリで開く"
+            cancelButtonTitle:@"キャンセル"
+       destructiveButtonTitle:nil
+            otherButtonTitles:@[@"iOSの地図で開く", @"Google Mapで開く"]
+                     tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
+                         if (actionSheet.cancelButtonIndex != buttonIndex) {
+                             if (buttonIndex == 0) {
+                                 [self openNativeMap];
+                             }
+                             else if (buttonIndex == 1) {
+                                 [self openGoogleMap];
+                             }
+                         }
+                     }];
+}
+
+
+- (void)openNativeMap {
+    NSString *urlStr = [NSString stringWithFormat:@"http://maps.apple.com/maps?q=%f,%f&z=15",
+                        _latitude, _longitude];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlStr]];
+}
+
+- (void)openGoogleMap {
+    NSString *urlStr = [NSString stringWithFormat:@"comgooglemaps://?q=%f,%f&zoom=15",
+                        _latitude, _longitude];
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"comgooglemaps://"]]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlStr]];
+    }
+    else {
+        NSLog(@"google map not installed");
+    }
 }
 
 

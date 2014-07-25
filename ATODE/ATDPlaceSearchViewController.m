@@ -58,9 +58,15 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
 #if (TARGET_IPHONE_SIMULATOR)
     NSString *ll = @"35.661913, 139.700943";    // Tokyo tower
 #else
-    NSString *ll = [NSString stringWithFormat:@"%f,%f",
-                    _coordinate.latitude,
-                    _coordinate.longitude];
+    NSString *ll;
+    if (_coordinate.latitude != 0 && _coordinate.longitude != 0) {
+         ll = [NSString stringWithFormat:@"%f,%f",
+                        _coordinate.latitude,
+                        _coordinate.longitude];
+    }
+    else {
+        ll = @"35.661913, 139.700943";
+    }
 #endif
     
     NSDictionary *params = @{@"client_id":kApiClientID,

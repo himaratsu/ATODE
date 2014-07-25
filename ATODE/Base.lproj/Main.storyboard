@@ -257,6 +257,11 @@
                                 <action selector="closeBtnTouched:" destination="dhm-rJ-qvN" id="gYe-0b-SPo"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="gA6-lg-0lO">
+                            <connections>
+                                <action selector="actionBtnTouched:" destination="dhm-rJ-qvN" id="xSs-aB-6Fe"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="WQV-bH-Lzm" id="sWq-B4-DR3"/>
