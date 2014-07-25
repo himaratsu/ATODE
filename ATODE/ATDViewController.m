@@ -199,7 +199,7 @@ CLLocationManagerDelegate>
 
 - (void)refershControlAction {
     NSLog(@"refresh!");
-    _isLocationLoading = YES;
+    _isLocationLoading = NO;
     [self reloadData];
 }
 

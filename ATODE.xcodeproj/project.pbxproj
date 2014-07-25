@@ -51,6 +51,7 @@
 		D997740C1978D49300DBEF35 /* LicenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D997740A1978D49300DBEF35 /* LicenseViewController.m */; };
 		D99774111978D51700DBEF35 /* license.html in Resources */ = {isa = PBXBuildFile; fileRef = D997740F1978D51700DBEF35 /* license.html */; };
 		D99774121978D51700DBEF35 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = D99774101978D51700DBEF35 /* style.css */; };
+		D9CD7F2C1982176B00293F37 /* ATDPlaceSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9CD7F2B1982176B00293F37 /* ATDPlaceSearchCell.xib */; };
 		D9E958651980D2080090BEED /* ATDPlaceSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E958631980D2080090BEED /* ATDPlaceSearchCell.m */; };
 /* End PBXBuildFile section */
 
@@ -136,6 +137,7 @@
 		D997740A1978D49300DBEF35 /* LicenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LicenseViewController.m; sourceTree = "<group>"; };
 		D997740F1978D51700DBEF35 /* license.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = license.html; sourceTree = "<group>"; };
 		D99774101978D51700DBEF35 /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
+		D9CD7F2B1982176B00293F37 /* ATDPlaceSearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATDPlaceSearchCell.xib; sourceTree = "<group>"; };
 		D9E958621980D2080090BEED /* ATDPlaceSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDPlaceSearchCell.h; sourceTree = "<group>"; };
 		D9E958631980D2080090BEED /* ATDPlaceSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDPlaceSearchCell.m; sourceTree = "<group>"; };
 		E43CBDEB2F3F49CA98E99DC4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -435,6 +437,7 @@
 			children = (
 				D9E958621980D2080090BEED /* ATDPlaceSearchCell.h */,
 				D9E958631980D2080090BEED /* ATDPlaceSearchCell.m */,
+				D9CD7F2B1982176B00293F37 /* ATDPlaceSearchCell.xib */,
 			);
 			name = Add;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 				202C661D19604D5D00497257 /* Images.xcassets in Resources */,
 				D99774121978D51700DBEF35 /* style.css in Resources */,
 				208131B119678E9B0094E577 /* ATDPlaceMemoCell.xib in Resources */,
+				D9CD7F2C1982176B00293F37 /* ATDPlaceSearchCell.xib in Resources */,
 				D99774111978D51700DBEF35 /* license.html in Resources */,
 				202C660F19604D5D00497257 /* InfoPlist.strings in Resources */,
 				201F04271970FF5B0045AB37 /* fontawesome-webfont.ttf in Resources */,

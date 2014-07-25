@@ -36,7 +36,21 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
 {
     [super viewDidLoad];
     
+    [self registerNibFiles];
+    
     [self reloadData];
+}
+
+
+- (void)registerNibFiles {
+    [self.tableView registerNib:[UINib nibWithNibName:@"ATDPlaceSearchCell"
+                                              bundle:[NSBundle mainBundle]]
+         forCellReuseIdentifier:@"Cell"];
+    
+    [self.searchDisplayController.searchResultsTableView
+     registerNib:[UINib nibWithNibName:@"ATDPlaceSearchCell"
+                                bundle:[NSBundle mainBundle]]
+     forCellReuseIdentifier:@"Cell"];
 }
 
 
@@ -92,6 +106,8 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
     [manager GET:@"https://api.foursquare.com/v2/venues/search"
       parameters:params
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             NSLog(@"responseObject[%@]", responseObject);
+             
              NSArray *venues = responseObject[@"response"][@"venues"];
              
              NSMutableArray *mutArray = [NSMutableArray array];
@@ -100,8 +116,10 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
                  [mutArray addObject:place];
              }];
              
+             NSLog(@"reload search table");
+             
              self.filterdPlaces = mutArray;
-             [_tableView reloadData];
+             [self.searchDisplayController.searchResultsTableView reloadData];
          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"error:[%@]", error);
          }];
@@ -118,6 +136,11 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
     else {
         return [_places count];
     }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    return cell.frame.size.height;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -147,6 +170,13 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     ATD4sqPlace *place = _places[indexPath.row];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        place = _filterdPlaces[indexPath.row];
+    }
+    else {
+        place = _places[indexPath.row];
+    }
+    
     if ([_delegate respondsToSelector:@selector(didSelectPlace:)]) {
         [_delegate didSelectPlace:place];
         [self.navigationController popViewControllerAnimated:YES];
@@ -156,8 +186,14 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
     }
 }
 
+- (void)filterContainsWithSearchText:(NSString *)searchText {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", searchText];
+    
+    self.filterdPlaces = [_places filteredArrayUsingPredicate:predicate];
+}
 
 - (BOOL)searchDisplayController:controller shouldReloadTableForSearchString:(NSString *)searchString {
+    [self filterContainsWithSearchText:searchString];
     [self searchPlaceWithFourSquare:searchString];
     return YES;
 }

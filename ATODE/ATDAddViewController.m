@@ -28,6 +28,7 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
 
 @property (weak, nonatomic) IBOutlet UIView *titleFrameView;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
+@property (weak, nonatomic) IBOutlet UILabel *latlngLabel;
 
 @end
 
@@ -43,6 +44,8 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
     
     _titleTextView.placeholder = @"メモを入力できます（オプション）";
     
+    _latlngLabel.text = [NSString stringWithFormat:@"%f, %f", _coordinate.latitude, _coordinate.longitude]
+    ;
     [self setUpViews];
     
     [self setBackButton];
@@ -193,8 +196,6 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"response[%@]", responseObject);
-
         // 4sqページURL
         NSString *shortUrl = responseObject[@"response"][@"venue"][@"shortUrl"];
         _placeInfo.shortUrl = shortUrl;

@@ -23,7 +23,7 @@
     gradient.frame = self.gradientBackgroundView.bounds;
     gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor clearColor] CGColor], (id)[[UIColor blackColor] CGColor], nil];
     [self.gradientBackgroundView.layer insertSublayer:gradient atIndex:0];
-    self.gradientBackgroundView.alpha = 0.7f;
+    self.gradientBackgroundView.alpha = 0.6f;
 }
 
 @end

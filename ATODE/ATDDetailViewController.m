@@ -123,7 +123,13 @@ MWPhotoBrowserDelegate>
             cell.placeNameLabel.text = _memo.placeInfo.name;
             cell.placeDetailLabel.text = _memo.placeInfo.address;
             cell.placeImageView.alpha = 1.0;
-            [cell.placeImageView setImageWithURL:[NSURL URLWithString:_memo.placeInfo.photoUrls[0]]];
+            
+            if ([_memo.placeInfo.photoUrls count] > 0) {
+                [cell.placeImageView setImageWithURL:[NSURL URLWithString:_memo.placeInfo.photoUrls[0]]];
+            }
+            else {
+                cell.placeImageView.image = nil;
+            }
             return cell;
         }
     }
@@ -183,6 +189,11 @@ MWPhotoBrowserDelegate>
     self.foursquarePhotos = [NSMutableArray array];
     
     NSArray *photoUrls = _memo.placeInfo.photoUrls;
+    
+    if ([photoUrls count] <= 0) {
+        return;
+    }
+    
     [photoUrls enumerateObjectsUsingBlock:^(NSString *photoUrl, NSUInteger idx, BOOL *stop) {
         [_foursquarePhotos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:photoUrl]]];
     }];

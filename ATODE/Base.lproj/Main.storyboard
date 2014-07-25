@@ -358,6 +358,13 @@
                                     <segue destination="MhX-WO-jrt" kind="push" identifier="show4sq" id="Fs1-Ax-r8w"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lPo-OA-GtA">
+                                <rect key="frame" x="20" y="178" width="291" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.91733099489795922" green="0.91733099489795922" blue="0.91733099489795922" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -366,6 +373,7 @@
                     <connections>
                         <outlet property="doneButton" destination="dUh-zQ-LaR" id="PQI-5j-9DS"/>
                         <outlet property="imageView" destination="Wck-M3-kUP" id="6Ob-Bu-Iro"/>
+                        <outlet property="latlngLabel" destination="lPo-OA-GtA" id="s8W-ym-5O3"/>
                         <outlet property="placeAddButton" destination="2fU-u7-6QC" id="7YC-gY-eOz"/>
                         <outlet property="titleFrameView" destination="Z8A-6K-Ctt" id="el1-mx-1rD"/>
                         <outlet property="titleTextView" destination="81I-nD-XLT" id="rXw-0O-sdc"/>
