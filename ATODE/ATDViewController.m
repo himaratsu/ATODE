@@ -18,12 +18,15 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <FontAwesome-iOS/NSString+FontAwesome.h>
 #import <ImageIO/ImageIO.h>
+#import <MapKit/MapKit.h>
+#import "MKMapView+ATDZoomLevel.h"
+#import "ATDAnnotation.h"
 
 
 @interface ATDViewController ()
 <UICollectionViewDataSource, UICollectionViewDelegate,
 UIImagePickerControllerDelegate, UINavigationControllerDelegate,
-CLLocationManagerDelegate>
+CLLocationManagerDelegate, MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
@@ -37,6 +40,11 @@ CLLocationManagerDelegate>
 @property (nonatomic, strong) ALAssetsLibrary *library;
 
 @property (nonatomic, assign) CLLocationCoordinate2D imageCoordinate;
+
+
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *typeSegmentedControl;
 
 @end
 
@@ -53,6 +61,9 @@ CLLocationManagerDelegate>
     [self registerNib];
     
     [self setUpViews];
+    
+    // 最初はリスト表示
+    [self showTypeChanged:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -80,6 +91,36 @@ CLLocationManagerDelegate>
     [_collectionView addSubview:_refreshControl];
     _collectionView.alwaysBounceVertical = YES;
     _collectionView.showsVerticalScrollIndicator = YES;
+}
+
+- (void)setUpMapViews {
+    if (_currentLocation) {
+        CLLocationCoordinate2D locationCoordinate = _currentLocation.coordinate;
+        [_mapView setCenterCoordinate:locationCoordinate zoomLevel:15 animated:NO];
+        
+        _mapView.showsUserLocation = YES;
+        
+        // add pins
+        [self setUpPins];
+    }
+}
+
+- (void)setUpPins {
+    [_memos enumerateObjectsUsingBlock:^(PlaceMemo *memo, NSUInteger idx, BOOL *stop) {
+        if ([memo.latitude floatValue] != 0
+            && [memo.longitude floatValue] != 0) {
+            CLLocationCoordinate2D locationCoordinate = CLLocationCoordinate2DMake([memo.latitude floatValue],
+                                                                                   [memo.longitude floatValue]);
+            ATDAnnotation *annotation = [[ATDAnnotation alloc] initWithCoordinate:locationCoordinate
+                                                                            title:memo.title
+                                                                         subtitle:memo.placeInfo.address];
+            annotation.memo = memo;
+            
+            [_mapView addAnnotation:annotation];
+            
+            NSLog(@"add pin [%@ - %@]", memo.latitude, memo.longitude);
+        }
+    }];
 }
 
 - (void)reloadData {
@@ -201,6 +242,30 @@ CLLocationManagerDelegate>
     NSLog(@"refresh!");
     _isLocationLoading = NO;
     [self reloadData];
+}
+
+
+- (IBAction)typeChanged:(UISegmentedControl *)control {
+    if (control.selectedSegmentIndex == 0) {
+        [self showTypeChanged:YES];
+    }
+    else {
+        [self showTypeChanged:NO];
+    }
+}
+
+
+- (void)showTypeChanged:(BOOL)isList {
+    if (isList) {
+        // リスト形式に
+        _collectionView.hidden = NO;
+        _mapView.hidden = YES;
+    }
+    else {
+        // マップ形式に
+        _collectionView.hidden = YES;
+        _mapView.hidden = NO;
+    }
 }
 
 
@@ -341,6 +406,7 @@ CLLocationManagerDelegate>
         [self reloadData];
         
         NSLog(@"location update");
+        [self setUpMapViews];
     }
 }
 
@@ -372,5 +438,26 @@ CLLocationManagerDelegate>
     PlaceMemo *memo = _memos[indexPath.row];
     [self performSegueWithIdentifier:@"showDetail" sender:memo];
 }
+
+
+#pragma mark -
+#pragma mark MapView
+
+- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
+    // add detail disclosure button to callout
+    [views enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL* stop) {
+        ((MKAnnotationView*)obj).rightCalloutAccessoryView
+        = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    }];
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+    ATDAnnotation *annotation = (ATDAnnotation *)view.annotation;
+    PlaceMemo *selectedMemo = annotation.memo;
+    
+    [self performSegueWithIdentifier:@"showDetail" sender:selectedMemo];
+}
+
+
 
 @end
