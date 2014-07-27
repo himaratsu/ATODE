@@ -124,9 +124,28 @@ CLLocationManagerDelegate, MKMapViewDelegate>
             && [memo.longitude floatValue] != 0) {
             CLLocationCoordinate2D locationCoordinate = CLLocationCoordinate2DMake([memo.latitude floatValue],
                                                                                    [memo.longitude floatValue]);
+            
+            // 空欄対策
+            NSString *pinTitle = @"";
+            NSString *pinSubTitle = @"";
+            if (memo.title) {
+                pinTitle = memo.title;
+            }
+            else {
+                pinTitle = @"メモなし";
+            }
+            
+            if (memo.placeInfo.address) {
+                pinSubTitle = memo.placeInfo.address;
+            }
+            else {
+                pinSubTitle = @"";
+            }
+                
+            
             ATDAnnotation *annotation = [[ATDAnnotation alloc] initWithCoordinate:locationCoordinate
-                                                                            title:memo.title
-                                                                         subtitle:memo.placeInfo.address];
+                                                                            title:pinTitle
+                                                                         subtitle:pinSubTitle];
             annotation.memo = memo;
             
             [_mapView addAnnotation:annotation];
@@ -461,9 +480,13 @@ CLLocationManagerDelegate, MKMapViewDelegate>
 
 - (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
     // add detail disclosure button to callout
-    [views enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL* stop) {
-        ((MKAnnotationView*)obj).rightCalloutAccessoryView
-        = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    [views enumerateObjectsUsingBlock:^(MKAnnotationView *obj, NSUInteger idx, BOOL* stop) {
+        if ([obj.annotation isKindOfClass:[MKUserLocation class]]) {
+            // do nothing
+        }
+        else {
+            obj.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        }
     }];
 }
 
