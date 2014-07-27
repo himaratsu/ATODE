@@ -47,8 +47,8 @@
 - (void)deleteMemo:(PlaceMemo *)memo {
     [self setUpStack];
     [memo MR_deleteEntity];
+    [self saveContext];
 }
-
 
 - (NSArray *)getAllMemos {
     [self setUpStack];
@@ -83,6 +83,8 @@
     _magicalContext = [NSManagedObjectContext MR_contextForCurrentThread];
 }
 
-
+- (void)saveContext {
+    [_magicalContext MR_save];
+}
 
 @end

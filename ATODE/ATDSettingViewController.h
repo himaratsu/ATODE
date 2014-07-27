@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger, kSettingCellType) {
+    kSettingCellTypeRequest,
+    kSettingCellTypeIntroduce,
+    kSettingCellTypeReview,
+    kSettingCellTypeLicense,
+    kSettingCellTypeVersion
+};
+
 @interface ATDSettingViewController : UIViewController
 
 @end
