@@ -56,8 +56,6 @@ CLLocationManagerDelegate, MKMapViewDelegate>
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [self startUpdateLocation];
 
     [self registerNib];
     
@@ -68,7 +66,15 @@ CLLocationManagerDelegate, MKMapViewDelegate>
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    _isLocationLoading = NO;
+    [self startUpdateLocation];
+
     [self reloadData];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [_locationManager stopUpdatingLocation];
+    [super viewWillDisappear:animated];
 }
 
 - (void)startUpdateLocation {
@@ -117,7 +123,7 @@ CLLocationManagerDelegate, MKMapViewDelegate>
 }
 
 - (void)setUpPins {
-//    [self resetPins];
+    [self resetPins];
     
     [_memos enumerateObjectsUsingBlock:^(PlaceMemo *memo, NSUInteger idx, BOOL *stop) {
         if ([memo.latitude floatValue] != 0
