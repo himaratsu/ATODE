@@ -43,6 +43,7 @@ CLLocationManagerDelegate, MKMapViewDelegate>
 
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (nonatomic, strong) NSMutableArray *pins;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *typeSegmentedControl;
 
@@ -95,6 +96,7 @@ CLLocationManagerDelegate, MKMapViewDelegate>
 
 - (void)setUpMapViews {
     if (_currentLocation) {
+        NSLog(@"setUpMapViews");
         CLLocationCoordinate2D locationCoordinate = _currentLocation.coordinate;
         [_mapView setCenterCoordinate:locationCoordinate zoomLevel:15 animated:NO];
         
@@ -103,9 +105,20 @@ CLLocationManagerDelegate, MKMapViewDelegate>
         // add pins
         [self setUpPins];
     }
+    else {
+        NSLog(@"setUpMapViews not _currentLoc");
+    }
+}
+
+- (void)resetPins {
+    NSMutableArray * annotationsToRemove = [_mapView.annotations mutableCopy];
+    [annotationsToRemove removeObject:_mapView.userLocation];
+    [_mapView removeAnnotations:annotationsToRemove];
 }
 
 - (void)setUpPins {
+//    [self resetPins];
+    
     [_memos enumerateObjectsUsingBlock:^(PlaceMemo *memo, NSUInteger idx, BOOL *stop) {
         if ([memo.latitude floatValue] != 0
             && [memo.longitude floatValue] != 0) {
@@ -124,6 +137,7 @@ CLLocationManagerDelegate, MKMapViewDelegate>
 }
 
 - (void)reloadData {
+    _isLocationLoading = NO;
     NSArray *memos = [[ATDCoreDataManger sharedInstance] getAllMemos];
     self.memos = [self sortMemoByDistance:memos];
     
@@ -240,7 +254,6 @@ CLLocationManagerDelegate, MKMapViewDelegate>
 
 - (void)refershControlAction {
     NSLog(@"refresh!");
-    _isLocationLoading = NO;
     [self reloadData];
 }
 
@@ -403,7 +416,6 @@ CLLocationManagerDelegate, MKMapViewDelegate>
     if (!_isLocationLoading) {
         _isLocationLoading = YES;
         self.currentLocation = [locations lastObject];
-        [self reloadData];
         
         NSLog(@"location update");
         [self setUpMapViews];
@@ -412,6 +424,10 @@ CLLocationManagerDelegate, MKMapViewDelegate>
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     NSLog(@"locationManager_error[%@]", error);
+    
+    if (_currentLocation) {
+        [self setUpMapViews];
+    }
 }
 
 

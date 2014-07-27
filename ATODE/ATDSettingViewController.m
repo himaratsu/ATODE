@@ -43,10 +43,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return 1;
+        return 5;
     }
     else if (section == 1) {
-        return 5;
+        return 1;
     }
     
     return 0;
@@ -57,10 +57,10 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    if (section == 0) {
+    if (section == 1) {
         return @"メモの管理";
     }
-    else if (section == 1) {
+    else if (section == 0) {
         return @"このアプリについて";
     }
     
@@ -68,11 +68,11 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
+    if (indexPath.section == 1) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DeleteCell"];
         return cell;
     }
-    else if (indexPath.section == 1) {
+    else if (indexPath.section == 0) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IndicatorCell"];
         switch (indexPath.row) {
             case kSettingCellTypeRequest:
@@ -104,7 +104,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.section == 0) {
+    if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             // データ削除
             [UIActionSheet showInView:self.view
@@ -119,7 +119,7 @@
                              }];
         }
     }
-    else if (indexPath.section == 1) {
+    else if (indexPath.section == 0) {
         switch (indexPath.row) {
             case kSettingCellTypeIntroduce:
                 // 友達に紹介する(Tw / Fb)
