@@ -19,6 +19,7 @@
 #import "ATDMapCell.h"
 #import "ATDPostDateCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <UIActionSheet+Blocks/UIActionSheet+Blocks.h>
 #import <UIAlertView+Blocks/UIAlertView+Blocks.h>
 #import <MapKit/MapKit.h>
 #import <MWPhotoBrowser/MWPhotoBrowser.h>
@@ -226,15 +227,15 @@ MWPhotoBrowserDelegate>
 #pragma mark IBAction
 
 - (IBAction)deleteBtnTouched:(id)sender {
-    [UIAlertView showWithTitle:@"確認"
-                       message:@"本当に削除しますか？"
-             cancelButtonTitle:@"キャンセル"
-             otherButtonTitles:@[@"はい"]
-                      tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
-                          if (alertView.cancelButtonIndex != buttonIndex) {
-                              [self deleteMemo];
-                          }
-                      }];
+    [UIActionSheet showInView:self.view withTitle:@"削除したメモは元に戻せません。\n本当に削除しますか？"
+            cancelButtonTitle:@"キャンセル"
+       destructiveButtonTitle:@"削除する"
+            otherButtonTitles:nil
+                     tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
+                         if (actionSheet.destructiveButtonIndex == buttonIndex) {
+                             [self deleteMemo];
+                         }
+                     }];
 }
 
 - (void)deleteMemo {

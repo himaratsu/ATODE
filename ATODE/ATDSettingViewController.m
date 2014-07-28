@@ -28,6 +28,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self setUpFooterView];
+}
+
+- (void)setUpFooterView {
+    UILabel *footerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    footerLabel.text = @"Copyright (c) 2014 @himara2.";
+    footerLabel.textColor = [UIColor lightGrayColor];
+    footerLabel.textAlignment = NSTextAlignmentCenter;
+    footerLabel.font = [UIFont systemFontOfSize:12.0f];
+    footerLabel.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(footerLabelTouched)];
+    [footerLabel addGestureRecognizer:tapGesture];
+    _tableView.tableFooterView = footerLabel;
+}
+
+- (void)footerLabelTouched {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:DEVELOPER_TWITTER_URL]];
 }
 
 
@@ -71,6 +91,7 @@
     
     return @"";
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 1) {
@@ -258,6 +279,8 @@
         // マーケットに出ている場合
         NSString *body = @"【お問い合わせ内容】\n\n\n\n※以下は変更しないで下さい。\n-----\nDEVICE: %@\niOS: %@\nVERSION: %@\n";
         [mailViewController setMessageBody:[NSString stringWithFormat:body,[UIDevice currentDevice].systemVersion, [self _platformString],[self _appVersion]] isHTML:NO];
+        
+        [[mailViewController navigationBar] setTintColor:[UIColor whiteColor]];
         
         [self presentViewController:mailViewController animated:YES completion:nil];
     }

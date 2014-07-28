@@ -50,6 +50,8 @@
 - (void)setUpViews {
     _mapView.layer.cornerRadius = 5.0f;
     _mapView.layer.masksToBounds = YES;
+    _mapView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    _mapView.layer.borderWidth = 0.5;
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]
                                           initWithTarget:self action:@selector(didTapOverlayView)];

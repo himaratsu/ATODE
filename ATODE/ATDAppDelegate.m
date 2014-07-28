@@ -15,6 +15,15 @@
     // Override point for customization after application launch.
     [UITableViewCell appearance].separatorInset = UIEdgeInsetsZero;
     
+    [UINavigationBar appearance].barTintColor = [UIColor colorWithRed:70/255.0 green:171/255.0 blue:235/255.0 alpha:1.0];
+    [UINavigationBar appearance].tintColor = [UIColor whiteColor];
+    NSDictionary *attributes = @{
+                                 NSFontAttributeName : [UIFont systemFontOfSize:18],
+                                 NSForegroundColorAttributeName : [UIColor whiteColor]
+                                 };
+    [UINavigationBar appearance].titleTextAttributes = attributes;
+ 
+
     return YES;
 }
 							

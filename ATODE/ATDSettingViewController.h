@@ -8,6 +8,7 @@
 
 #define SUPPORT_MAIL_ADDRESS    @"himaratsu.dev@gmail.com"
 #define APP_STORE_URL           @"http://itunes.apple.com/ja/app/id669050459?mt=8"
+#define DEVELOPER_TWITTER_URL   @"https://twitter.com/himara2"
 
 #import <UIKit/UIKit.h>
 
