@@ -10,4 +10,6 @@
 
 @interface LicenseViewController : UIViewController
 
++ (instancetype)view;
+
 @end

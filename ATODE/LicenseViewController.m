@@ -11,20 +11,25 @@
 @interface LicenseViewController ()
 <UIWebViewDelegate>
 
-@property (nonatomic, strong) UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end
 
 
-
 @implementation LicenseViewController
+
++ (instancetype)view {
+    LicenseViewController *vc = [[LicenseViewController alloc] initWithNibName:@"LicenseViewController"
+                                                                        bundle:nil];
+    return vc;
+}
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    self.webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
-    _webView.delegate = self;
+    self.title = @"ライセンス";
     
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"license" ofType:@"html"];
     NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:filePath]];

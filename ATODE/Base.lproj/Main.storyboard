@@ -53,7 +53,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="0eP-d6-k19">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="gBL-0d-Zzp">
+                        <barButtonItem key="leftBarButtonItem" id="gBL-0d-Zzp">
                             <connections>
                                 <segue destination="2EW-BR-wvh" kind="modal" id="zqy-7H-TqI"/>
                             </connections>
@@ -77,6 +77,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Oo6-DG-mko" id="Kxh-VI-AIu"/>
+                        <outlet property="leftBarButtonItem" destination="gBL-0d-Zzp" id="jUt-SC-dE7"/>
                         <outlet property="mapView" destination="wJY-JR-xUG" id="YU6-qs-QaD"/>
                         <outlet property="typeSegmentedControl" destination="v5k-SN-2Rf" id="gdT-7o-0Fw"/>
                         <segue destination="biE-qT-31g" kind="push" identifier="showAdd" id="7cx-ZZ-VUX"/>

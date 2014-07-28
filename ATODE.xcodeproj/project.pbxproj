@@ -48,10 +48,11 @@
 		D99773FD1977D96800DBEF35 /* ATDWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99773FC1977D96800DBEF35 /* ATDWebViewController.m */; };
 		D99774011977DFCC00DBEF35 /* ATDEditMemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99774001977DFCC00DBEF35 /* ATDEditMemoViewController.m */; };
 		D99774051977EB3800DBEF35 /* ATDPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D99774041977EB3800DBEF35 /* ATDPlaceholderTextView.m */; };
-		D997740C1978D49300DBEF35 /* LicenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D997740A1978D49300DBEF35 /* LicenseViewController.m */; };
 		D99774111978D51700DBEF35 /* license.html in Resources */ = {isa = PBXBuildFile; fileRef = D997740F1978D51700DBEF35 /* license.html */; };
 		D99774121978D51700DBEF35 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = D99774101978D51700DBEF35 /* style.css */; };
 		D9CD7F2C1982176B00293F37 /* ATDPlaceSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9CD7F2B1982176B00293F37 /* ATDPlaceSearchCell.xib */; };
+		D9CD7F3F1986061300293F37 /* LicenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CD7F3D1986061300293F37 /* LicenseViewController.m */; };
+		D9CD7F401986061300293F37 /* LicenseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9CD7F3E1986061300293F37 /* LicenseViewController.xib */; };
 		D9E958651980D2080090BEED /* ATDPlaceSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E958631980D2080090BEED /* ATDPlaceSearchCell.m */; };
 /* End PBXBuildFile section */
 
@@ -133,11 +134,12 @@
 		D99774001977DFCC00DBEF35 /* ATDEditMemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDEditMemoViewController.m; sourceTree = "<group>"; };
 		D99774031977EB3800DBEF35 /* ATDPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDPlaceholderTextView.h; sourceTree = "<group>"; };
 		D99774041977EB3800DBEF35 /* ATDPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDPlaceholderTextView.m; sourceTree = "<group>"; };
-		D99774091978D49300DBEF35 /* LicenseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LicenseViewController.h; sourceTree = "<group>"; };
-		D997740A1978D49300DBEF35 /* LicenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LicenseViewController.m; sourceTree = "<group>"; };
 		D997740F1978D51700DBEF35 /* license.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = license.html; sourceTree = "<group>"; };
 		D99774101978D51700DBEF35 /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
 		D9CD7F2B1982176B00293F37 /* ATDPlaceSearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATDPlaceSearchCell.xib; sourceTree = "<group>"; };
+		D9CD7F3C1986061300293F37 /* LicenseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LicenseViewController.h; sourceTree = "<group>"; };
+		D9CD7F3D1986061300293F37 /* LicenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LicenseViewController.m; sourceTree = "<group>"; };
+		D9CD7F3E1986061300293F37 /* LicenseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LicenseViewController.xib; sourceTree = "<group>"; };
 		D9E958621980D2080090BEED /* ATDPlaceSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDPlaceSearchCell.h; sourceTree = "<group>"; };
 		D9E958631980D2080090BEED /* ATDPlaceSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDPlaceSearchCell.m; sourceTree = "<group>"; };
 		E43CBDEB2F3F49CA98E99DC4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -416,8 +418,9 @@
 			children = (
 				D99774031977EB3800DBEF35 /* ATDPlaceholderTextView.h */,
 				D99774041977EB3800DBEF35 /* ATDPlaceholderTextView.m */,
-				D99774091978D49300DBEF35 /* LicenseViewController.h */,
-				D997740A1978D49300DBEF35 /* LicenseViewController.m */,
+				D9CD7F3C1986061300293F37 /* LicenseViewController.h */,
+				D9CD7F3D1986061300293F37 /* LicenseViewController.m */,
+				D9CD7F3E1986061300293F37 /* LicenseViewController.xib */,
 				D997740E1978D50700DBEF35 /* license */,
 			);
 			name = Library;
@@ -525,6 +528,7 @@
 				D99774121978D51700DBEF35 /* style.css in Resources */,
 				208131B119678E9B0094E577 /* ATDPlaceMemoCell.xib in Resources */,
 				D9CD7F2C1982176B00293F37 /* ATDPlaceSearchCell.xib in Resources */,
+				D9CD7F401986061300293F37 /* LicenseViewController.xib in Resources */,
 				D99774111978D51700DBEF35 /* license.html in Resources */,
 				202C660F19604D5D00497257 /* InfoPlist.strings in Resources */,
 				201F04271970FF5B0045AB37 /* fontawesome-webfont.ttf in Resources */,
@@ -585,8 +589,8 @@
 				201F042119699AEE0045AB37 /* ATDPlaceSearchViewController.m in Sources */,
 				20A0FA5D1972D5BE004FA008 /* ATDAnnotation.m in Sources */,
 				20A0FA4E1972A53B004FA008 /* ATDDetailViewController.m in Sources */,
-				D997740C1978D49300DBEF35 /* LicenseViewController.m in Sources */,
 				D99773F71977825100DBEF35 /* ATDImageViewController.m in Sources */,
+				D9CD7F3F1986061300293F37 /* LicenseViewController.m in Sources */,
 				20AA05B119756967009A1735 /* ATDPhotoCell.m in Sources */,
 				20AA05B419756975009A1735 /* ATDPlaceInfoCell.m in Sources */,
 				208131BB196798BA0094E577 /* ATODE.xcdatamodeld in Sources */,

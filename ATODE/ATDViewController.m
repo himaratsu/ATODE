@@ -16,11 +16,12 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <CoreLocation/CoreLocation.h>
 #import <SDWebImage/UIImageView+WebCache.h>
-#import <FontAwesome-iOS/NSString+FontAwesome.h>
 #import <ImageIO/ImageIO.h>
 #import <MapKit/MapKit.h>
+#import <FontAwesomeKit/FontAwesomeKit.h>
 #import "MKMapView+ATDZoomLevel.h"
 #import "ATDAnnotation.h"
+
 
 
 @interface ATDViewController ()
@@ -46,6 +47,8 @@ CLLocationManagerDelegate, MKMapViewDelegate>
 @property (nonatomic, strong) NSMutableArray *pins;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *typeSegmentedControl;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *leftBarButtonItem;
 
 @end
 
@@ -98,6 +101,9 @@ CLLocationManagerDelegate, MKMapViewDelegate>
     [_collectionView addSubview:_refreshControl];
     _collectionView.alwaysBounceVertical = YES;
     _collectionView.showsVerticalScrollIndicator = YES;
+    
+    FAKFontAwesome *icon = [FAKFontAwesome gearIconWithSize:20];
+    self.leftBarButtonItem.image = [icon imageWithSize:CGSizeMake(20, 20)];
 }
 
 - (void)setUpMapViews {

@@ -8,9 +8,12 @@
 
 #import "ATDSettingViewController.h"
 #import "ATDCoreDataManger.h"
+#import "LicenseViewController.h"
 #import <UIActionSheet+Blocks/UIActionSheet+Blocks.h>
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
+#import <Social/Social.h>
+#import <sys/sysctl.h>
 
 @interface ATDSettingViewController ()
 <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>
@@ -125,6 +128,7 @@
         switch (indexPath.row) {
             case kSettingCellTypeIntroduce:
                 // 友達に紹介する(Tw / Fb)
+                [self introduceFriends];
                 break;
             case kSettingCellTypeRequest:
                 // ご意見・ご要望（メール or Tw）
@@ -133,14 +137,16 @@
             case kSettingCellTypeReview:
             {
                 // レビュー
-                [[UIApplication sharedApplication]
-                 openURL:[NSURL URLWithString:@"http://itunes.apple.com/ja/app/id669050459?mt=8"]];
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:APP_STORE_URL]];
                 break;
             }
-
             case kSettingCellTypeLicense:
+            {
                 // ライセンス
+                LicenseViewController *vc = [LicenseViewController view];
+                [self.navigationController pushViewController:vc animated:YES];
                 break;
+            }   
         }
     }
 }
@@ -158,6 +164,81 @@
 }
 
 
+#pragma mark -
+#pragma mark Post to SNS
+
+- (void)introduceFriends {
+    [UIActionSheet showInView:self.view
+                    withTitle:@"友達に紹介する"
+            cancelButtonTitle:@"キャンセル"
+       destructiveButtonTitle:nil
+            otherButtonTitles:@[@"Twitter", @"Facebook", @"LINE"]
+                     tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
+                         if (actionSheet.cancelButtonIndex != buttonIndex) {
+                             if (buttonIndex == 0) {
+                                 [self postTwitter];
+                             }
+                             else if (buttonIndex == 1) {
+                                 [self postFacebook];
+                             }
+                             else if (buttonIndex == 2) {
+                                 [self postLINE];
+                             }
+                         }
+                     }];
+}
+
+- (NSString *)createShareMessage {
+    NSString *msg = [NSString stringWithFormat:@"「あとで行く」と思ったお店を忘れなくなるアプリ Go memo - %@", APP_STORE_URL];
+    return msg;
+}
+
+- (void)postTwitter {
+    SLComposeViewController *vc = [SLComposeViewController
+                                   composeViewControllerForServiceType:SLServiceTypeTwitter];
+    [vc setInitialText:@"「あとで行く」と思ったお店を忘れなくなるアプリ Go Memo"];
+    [vc addURL:[NSURL URLWithString:APP_STORE_URL]];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (void)postFacebook {
+    SLComposeViewController *vc = [SLComposeViewController
+                                   composeViewControllerForServiceType:SLServiceTypeFacebook];
+    [vc setInitialText:@"「あとで行く」と思ったお店を忘れなくなるアプリ Go Memo"];
+    [vc addURL:[NSURL URLWithString:APP_STORE_URL]];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (void)postLINE {
+    if (![[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"line://"]]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+                                                        message:@"LINEがインストールされていません"
+                                                       delegate:nil
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"OK", nil];
+        [alert show];
+        return;
+    }
+    
+    // この例ではUIImageクラスの_resultImageを送る
+    NSString *encodeMes = [self encodeStr:[self createShareMessage]];
+    // URLスキームを使ってLINEを起動
+    NSString *LineUrlString = [NSString stringWithFormat:@"line://msg/text/%@", encodeMes];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:LineUrlString]];
+}
+
+
+- (NSString *)encodeStr:(NSString *)str {
+    NSString *escapedUrlString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
+                                                                                                       NULL,
+                                                                                                       (CFStringRef)str,
+                                                                                                       NULL,
+                                                                                                       (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                                                                                       kCFStringEncodingUTF8 ));
+    return escapedUrlString;
+}
+
+
 
 #pragma mark -
 
@@ -172,7 +253,7 @@
         mailViewController.mailComposeDelegate = self;
         [mailViewController setToRecipients:[NSArray arrayWithObject:SUPPORT_MAIL_ADDRESS]];
         mailViewController.title = @"";
-        [mailViewController setSubject:@"【Manifesto】お問い合わせ"];
+        [mailViewController setSubject:@"【GoItLater】お問い合わせ"];
         
         // マーケットに出ている場合
         NSString *body = @"【お問い合わせ内容】\n\n\n\n※以下は変更しないで下さい。\n-----\nDEVICE: %@\niOS: %@\nVERSION: %@\n";

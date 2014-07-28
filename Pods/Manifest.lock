@@ -21,7 +21,21 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - DACircularProgress (2.2.0)
-  - FontAwesome-iOS (0.0.4)
+  - FontAwesomeKit (2.1.7):
+    - FontAwesomeKit/Core
+    - FontAwesomeKit/FontAwesome
+    - FontAwesomeKit/FoundationIcons
+    - FontAwesomeKit/IonIcons
+    - FontAwesomeKit/Zocial
+  - FontAwesomeKit/Core (2.1.7)
+  - FontAwesomeKit/FontAwesome (2.1.7):
+    - FontAwesomeKit/Core
+  - FontAwesomeKit/FoundationIcons (2.1.7):
+    - FontAwesomeKit/Core
+  - FontAwesomeKit/IonIcons (2.1.7):
+    - FontAwesomeKit/Core
+  - FontAwesomeKit/Zocial (2.1.7):
+    - FontAwesomeKit/Core
   - MagicalRecord (2.2):
     - MagicalRecord/Core
   - MagicalRecord/Core (2.2)
@@ -42,7 +56,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - AFNetworking (~> 2.3.1)
-  - FontAwesome-iOS
+  - FontAwesomeKit
   - MagicalRecord (~> 2.2)
   - MWPhotoBrowser
   - SDWebImage (~> 3.6)
@@ -53,7 +67,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 6d7b76aa5d04c8c37daad3eef4b7e3f2a7620da3
   DACircularProgress: 3b41941891a56dc6aa17971f5322a9a38a6f446e
-  FontAwesome-iOS: 0c39b9f5d4687d36cf8958f61295c2b7960a7308
+  FontAwesomeKit: af6eef70d23986349284d2feb4e959459621587d
   MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
   MBProgressHUD: c356980b0cd097f19acec959b49dca5eb8ec31be
   MWPhotoBrowser: 4efcdb9da34751f97992128a5356f3929d1af537
