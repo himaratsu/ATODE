@@ -274,7 +274,7 @@
         mailViewController.mailComposeDelegate = self;
         [mailViewController setToRecipients:[NSArray arrayWithObject:SUPPORT_MAIL_ADDRESS]];
         mailViewController.title = @"";
-        [mailViewController setSubject:@"【GoItLater】お問い合わせ"];
+        [mailViewController setSubject:@"【Go Memo】お問い合わせ"];
         
         // マーケットに出ている場合
         NSString *body = @"【お問い合わせ内容】\n\n\n\n※以下は変更しないで下さい。\n-----\nDEVICE: %@\niOS: %@\nVERSION: %@\n";

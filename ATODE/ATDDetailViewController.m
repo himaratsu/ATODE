@@ -81,6 +81,10 @@ MWPhotoBrowserDelegate>
             cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ATDPlaceInfoCell class])];
             break;
         case DetailTableCellMap:
+            if ([_memo.latitude floatValue] == 0
+                && [_memo.longitude floatValue] == 0) {
+                return 0;
+            }
             cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ATDMapCell class])];
             break;
         case DetailTableCellPostDate:
@@ -135,6 +139,11 @@ MWPhotoBrowserDelegate>
         }
     }
     else if (indexPath.row == DetailTableCellMap) {
+        if ([_memo.latitude floatValue] == 0
+            && [_memo.longitude floatValue] == 0) {
+            UITableViewCell *cell = [[UITableViewCell alloc] init];
+            return cell;
+        }
         ATDMapCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ATDMapCell class])];
         cell.memo = _memo;
         cell.delegate = self;
