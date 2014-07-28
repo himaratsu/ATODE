@@ -300,6 +300,11 @@ CLLocationManagerDelegate, MKMapViewDelegate>
              } failureBlock: nil];
 }
 
+- (void)gotoAddViewWithCoordinate:(CLLocationCoordinate2D)coordinate image:(UIImage *)image {
+    self.imageCoordinate = coordinate;
+    [self performSegueWithIdentifier:@"showAdd" sender:image];
+}
+
 
 - (void)refershControlAction {
     NSLog(@"refresh!");
@@ -361,16 +366,17 @@ CLLocationManagerDelegate, MKMapViewDelegate>
         [self gotoAddViewWithAsset:assetURL image:image];
     }
     else if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+        UIImage *originImage = info[UIImagePickerControllerOriginalImage];
         NSMutableDictionary *metadata = (NSMutableDictionary *)[info objectForKey:UIImagePickerControllerMediaMetadata];
         metadata[(NSString *)kCGImagePropertyGPSDictionary] = [self GPSDictionaryForLocation:self.locationManager.location];
         
         ALAssetsLibrary *assetsLibrary = [[ALAssetsLibrary alloc] init];
-        [assetsLibrary writeImageToSavedPhotosAlbum:image.CGImage metadata:metadata completionBlock:^(NSURL *assetURL, NSError *error) {
+        [assetsLibrary writeImageToSavedPhotosAlbum:originImage.CGImage metadata:metadata completionBlock:^(NSURL *assetURL, NSError *error) {
             if (error) {
                 NSLog(@"Save image failed. %@", error);
             }
             else {
-                [self gotoAddViewWithAsset:assetURL image:image];
+                [self gotoAddViewWithCoordinate:self.locationManager.location.coordinate image:image];
             }
         }];
     }
@@ -379,6 +385,43 @@ CLLocationManagerDelegate, MKMapViewDelegate>
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (UIImage*)rotateImage:(UIImage*)img angle:(int)angle
+{
+    CGImageRef      imgRef = [img CGImage];
+    CGContextRef    context;
+    
+    switch (angle) {
+        case 90:
+            UIGraphicsBeginImageContextWithOptions(CGSizeMake(img.size.height, img.size.width), YES, img.scale);
+            context = UIGraphicsGetCurrentContext();
+            CGContextTranslateCTM(context, img.size.height, img.size.width);
+            CGContextScaleCTM(context, 1, -1);
+            CGContextRotateCTM(context, M_PI_2);
+            break;
+        case 180:
+            UIGraphicsBeginImageContextWithOptions(CGSizeMake(img.size.width, img.size.height), YES, img.scale);
+            context = UIGraphicsGetCurrentContext();
+            CGContextTranslateCTM(context, img.size.width, 0);
+            CGContextScaleCTM(context, 1, -1);
+            CGContextRotateCTM(context, -M_PI);
+            break;
+        case 270:
+            UIGraphicsBeginImageContextWithOptions(CGSizeMake(img.size.height, img.size.width), YES, img.scale);
+            context = UIGraphicsGetCurrentContext();
+            CGContextScaleCTM(context, 1, -1);
+            CGContextRotateCTM(context, -M_PI_2);
+            break;
+        default:
+            return img;
+            break;
+    }
+    
+    CGContextDrawImage(context, CGRectMake(0, 0, img.size.width, img.size.height), imgRef);
+    UIImage*    result = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return result;
 }
 
 

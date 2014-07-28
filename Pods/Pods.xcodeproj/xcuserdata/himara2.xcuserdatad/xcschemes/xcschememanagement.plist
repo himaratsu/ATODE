@@ -14,7 +14,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-FontAwesome-iOS.xcscheme</key>
+		<key>Pods-FontAwesomeKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -67,62 +67,62 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1674850CBF524DC9B89154AC</key>
+		<key>1081547404894D7AADC62F87</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>359432E37D49461F8609D7C3</key>
+		<key>2431B9AF107C43308B124BE3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>36E43DA34DB64293B6647E66</key>
+		<key>29089CAA3D9C48C28863899C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>425813DCB34E40CCBCEBA146</key>
+		<key>29A2E57745434C92A2E054DF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4E90653BC2564BB2A0EFBA4E</key>
+		<key>2B3E4BB29F244337BBA96259</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>59095FE2D3C24EC5BB81BBD4</key>
+		<key>3410B5FAAB244C5C9D549FEE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>90578E37A3064925B618DF2A</key>
+		<key>3FEA54C7CAD1412FA4A074EE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9ED256D7A1314791A109ACC4</key>
+		<key>40675272178240FEAA0C57D5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ABED275D2E0842CA86C6EE56</key>
+		<key>4B9EAEB8168C456DBB4B7C7D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ECD33B13C5AC4A4793753A66</key>
+		<key>7F7910EE5CB249AA9A6E34A4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EE86F231E9204D6E94D5DF96</key>
+		<key>9399516AE5674F9FA7F20D72</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FE2F2C0DDD6049A4AD77D6B6</key>
+		<key>9A7B979873C14EBA951F3E62</key>
 		<dict>
 			<key>primary</key>
 			<true/>
