@@ -156,22 +156,16 @@ CLLocationManagerDelegate, MKMapViewDelegate>
                                                                                    [memo.longitude floatValue]);
             
             // 空欄対策
-            NSString *pinTitle = @"";
+            NSString *pinTitle = @"メモなし";
             NSString *pinSubTitle = @"";
             if (memo.title) {
                 pinTitle = memo.title;
-            }
-            else {
-                pinTitle = @"メモなし";
             }
             
             if (memo.placeInfo.address) {
                 pinSubTitle = memo.placeInfo.address;
             }
-            else {
-                pinSubTitle = @"";
-            }
-                
+
             
             ATDAnnotation *annotation = [[ATDAnnotation alloc] initWithCoordinate:locationCoordinate
                                                                             title:pinTitle
