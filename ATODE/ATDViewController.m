@@ -18,12 +18,15 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <FontAwesome-iOS/NSString+FontAwesome.h>
 #import <ImageIO/ImageIO.h>
+#import <MapKit/MapKit.h>
+#import "MKMapView+ATDZoomLevel.h"
+#import "ATDAnnotation.h"
 
 
 @interface ATDViewController ()
 <UICollectionViewDataSource, UICollectionViewDelegate,
 UIImagePickerControllerDelegate, UINavigationControllerDelegate,
-CLLocationManagerDelegate>
+CLLocationManagerDelegate, MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
@@ -38,6 +41,12 @@ CLLocationManagerDelegate>
 
 @property (nonatomic, assign) CLLocationCoordinate2D imageCoordinate;
 
+
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (nonatomic, strong) NSMutableArray *pins;
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *typeSegmentedControl;
+
 @end
 
 
@@ -47,16 +56,25 @@ CLLocationManagerDelegate>
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [self startUpdateLocation];
 
     [self registerNib];
     
     [self setUpViews];
+    
+    // 最初はリスト表示
+    [self showTypeChanged:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    _isLocationLoading = NO;
+    [self startUpdateLocation];
+
     [self reloadData];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [_locationManager stopUpdatingLocation];
+    [super viewWillDisappear:animated];
 }
 
 - (void)startUpdateLocation {
@@ -82,7 +100,69 @@ CLLocationManagerDelegate>
     _collectionView.showsVerticalScrollIndicator = YES;
 }
 
+- (void)setUpMapViews {
+    if (_currentLocation) {
+        NSLog(@"setUpMapViews");
+        CLLocationCoordinate2D locationCoordinate = _currentLocation.coordinate;
+        [_mapView setCenterCoordinate:locationCoordinate zoomLevel:15 animated:NO];
+        
+        _mapView.showsUserLocation = YES;
+        
+        // add pins
+        [self setUpPins];
+    }
+    else {
+        NSLog(@"setUpMapViews not _currentLoc");
+    }
+}
+
+- (void)resetPins {
+    NSMutableArray * annotationsToRemove = [_mapView.annotations mutableCopy];
+    [annotationsToRemove removeObject:_mapView.userLocation];
+    [_mapView removeAnnotations:annotationsToRemove];
+}
+
+- (void)setUpPins {
+    [self resetPins];
+    
+    [_memos enumerateObjectsUsingBlock:^(PlaceMemo *memo, NSUInteger idx, BOOL *stop) {
+        if ([memo.latitude floatValue] != 0
+            && [memo.longitude floatValue] != 0) {
+            CLLocationCoordinate2D locationCoordinate = CLLocationCoordinate2DMake([memo.latitude floatValue],
+                                                                                   [memo.longitude floatValue]);
+            
+            // 空欄対策
+            NSString *pinTitle = @"";
+            NSString *pinSubTitle = @"";
+            if (memo.title) {
+                pinTitle = memo.title;
+            }
+            else {
+                pinTitle = @"メモなし";
+            }
+            
+            if (memo.placeInfo.address) {
+                pinSubTitle = memo.placeInfo.address;
+            }
+            else {
+                pinSubTitle = @"";
+            }
+                
+            
+            ATDAnnotation *annotation = [[ATDAnnotation alloc] initWithCoordinate:locationCoordinate
+                                                                            title:pinTitle
+                                                                         subtitle:pinSubTitle];
+            annotation.memo = memo;
+            
+            [_mapView addAnnotation:annotation];
+            
+            NSLog(@"add pin [%@ - %@]", memo.latitude, memo.longitude);
+        }
+    }];
+}
+
 - (void)reloadData {
+    _isLocationLoading = NO;
     NSArray *memos = [[ATDCoreDataManger sharedInstance] getAllMemos];
     self.memos = [self sortMemoByDistance:memos];
     
@@ -199,8 +279,31 @@ CLLocationManagerDelegate>
 
 - (void)refershControlAction {
     NSLog(@"refresh!");
-    _isLocationLoading = NO;
     [self reloadData];
+}
+
+
+- (IBAction)typeChanged:(UISegmentedControl *)control {
+    if (control.selectedSegmentIndex == 0) {
+        [self showTypeChanged:YES];
+    }
+    else {
+        [self showTypeChanged:NO];
+    }
+}
+
+
+- (void)showTypeChanged:(BOOL)isList {
+    if (isList) {
+        // リスト形式に
+        _collectionView.hidden = NO;
+        _mapView.hidden = YES;
+    }
+    else {
+        // マップ形式に
+        _collectionView.hidden = YES;
+        _mapView.hidden = NO;
+    }
 }
 
 
@@ -338,14 +441,18 @@ CLLocationManagerDelegate>
     if (!_isLocationLoading) {
         _isLocationLoading = YES;
         self.currentLocation = [locations lastObject];
-        [self reloadData];
         
         NSLog(@"location update");
+        [self setUpMapViews];
     }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     NSLog(@"locationManager_error[%@]", error);
+    
+    if (_currentLocation) {
+        [self setUpMapViews];
+    }
 }
 
 
@@ -372,5 +479,30 @@ CLLocationManagerDelegate>
     PlaceMemo *memo = _memos[indexPath.row];
     [self performSegueWithIdentifier:@"showDetail" sender:memo];
 }
+
+
+#pragma mark -
+#pragma mark MapView
+
+- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
+    // add detail disclosure button to callout
+    [views enumerateObjectsUsingBlock:^(MKAnnotationView *obj, NSUInteger idx, BOOL* stop) {
+        if ([obj.annotation isKindOfClass:[MKUserLocation class]]) {
+            // do nothing
+        }
+        else {
+            obj.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        }
+    }];
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+    ATDAnnotation *annotation = (ATDAnnotation *)view.annotation;
+    PlaceMemo *selectedMemo = annotation.memo;
+    
+    [self performSegueWithIdentifier:@"showDetail" sender:selectedMemo];
+}
+
+
 
 @end

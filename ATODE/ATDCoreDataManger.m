@@ -47,8 +47,8 @@
 - (void)deleteMemo:(PlaceMemo *)memo {
     [self setUpStack];
     [memo MR_deleteEntity];
+    [self saveContext];
 }
-
 
 - (NSArray *)getAllMemos {
     [self setUpStack];
@@ -74,6 +74,8 @@
 - (void)resetSaveData {
     NSURL *URL = [NSPersistentStore MR_urlForStoreName:[MagicalRecord defaultStoreName]];
     [[NSFileManager defaultManager] removeItemAtURL:URL error:nil];
+    
+    [self saveContext];
 }
 
 
@@ -83,6 +85,8 @@
     _magicalContext = [NSManagedObjectContext MR_contextForCurrentThread];
 }
 
-
+- (void)saveContext {
+    [_magicalContext MR_save];
+}
 
 @end
