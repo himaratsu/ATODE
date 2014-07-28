@@ -21,8 +21,10 @@
 #import <FontAwesomeKit/FontAwesomeKit.h>
 #import "MKMapView+ATDZoomLevel.h"
 #import "ATDAnnotation.h"
+#import "GADBannerView.h"
 
 
+static NSString * const kBannerUnitID = @"ca-app-pub-5042077439159662/4239166953";
 
 @interface ATDViewController ()
 <UICollectionViewDataSource, UICollectionViewDelegate,
@@ -50,6 +52,9 @@ CLLocationManagerDelegate, MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *leftBarButtonItem;
 
+// ad
+@property (nonatomic, strong) GADBannerView *bannerView;
+
 @end
 
 
@@ -63,6 +68,8 @@ CLLocationManagerDelegate, MKMapViewDelegate>
     [self registerNib];
     
     [self setUpViews];
+    
+    [self setUpBannerView];
     
     // 最初はリスト表示
     [self showTypeChanged:YES];
@@ -104,6 +111,17 @@ CLLocationManagerDelegate, MKMapViewDelegate>
     
     FAKFontAwesome *icon = [FAKFontAwesome gearIconWithSize:20];
     self.leftBarButtonItem.image = [icon imageWithSize:CGSizeMake(20, 20)];
+}
+
+- (void)setUpBannerView {
+    self.bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+    _bannerView.adUnitID = kBannerUnitID;
+    _bannerView.rootViewController = self;
+    _bannerView.backgroundColor = [UIColor yellowColor];
+    _bannerView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height-50, 320, 50);
+    [self.view addSubview:_bannerView];
+    
+    [_bannerView loadRequest:[GADRequest request]];
 }
 
 - (void)setUpMapViews {
