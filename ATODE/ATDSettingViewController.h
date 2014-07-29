@@ -12,14 +12,20 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSUInteger, kSettingCellType) {
-    kSettingCellTypeHowToUse,
-    kSettingCellTypeRequest,
-    kSettingCellTypeIntroduce,
-    kSettingCellTypeReview,
-    kSettingCellTypeLicense,
-    kSettingCellTypeVersion
+// お問い合わせsection
+typedef NS_ENUM(NSUInteger, kSettingRequestCellType) {
+    kSettingRequestCellTypeRequest,
+    kSettingRequestCellTypeIntroduce,
+    kSettingRequestCellTypeReview
 };
+
+// このアプリについてsection
+typedef NS_ENUM(NSUInteger, kSettingAboutCellType) {
+    kSettingAboutCellTypeHowToUse,
+    kSettingAboutCellTypeLicense,
+    kSettingAboutCellTypeVersion
+};
+
 
 @interface ATDSettingViewController : UIViewController
 

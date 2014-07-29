@@ -64,14 +64,17 @@
 #pragma mark UITableViewDelegate / DataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return 5;
+        return 3;
     }
     else if (section == 1) {
+        return 3;
+    }
+    else if (section == 2) {
         return 1;
     }
     
@@ -79,15 +82,18 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 55;
+    return 50;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    if (section == 1) {
-        return @"メモの管理";
+    if (section == 0) {
+        return @"お問い合わせ";
     }
-    else if (section == 0) {
+    else if (section == 1) {
         return @"このアプリについて";
+    }
+    else if (section == 2) {
+        return @"その他";
     }
     
     return @"";
@@ -95,29 +101,31 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 1) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DeleteCell"];
-        return cell;
-    }
-    else if (indexPath.section == 0) {
+    if (indexPath.section == 0) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IndicatorCell"];
         switch (indexPath.row) {
-            case kSettingCellTypeHowToUse:
-                cell.textLabel.text = @"使い方を見る";
-                break;
-            case kSettingCellTypeRequest:
+            case kSettingRequestCellTypeRequest:
                 cell.textLabel.text = @"ご意見・ご要望";
                 break;
-            case kSettingCellTypeIntroduce:
+            case kSettingRequestCellTypeIntroduce:
                 cell.textLabel.text = @"このアプリを友達に紹介する";
                 break;
-            case kSettingCellTypeReview:
+            case kSettingRequestCellTypeReview:
                 cell.textLabel.text = @"アプリのレビューを書く";
                 break;
-            case kSettingCellTypeLicense:
+        }
+        return cell;
+    }
+    else if (indexPath.section == 1) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IndicatorCell"];
+        switch (indexPath.row) {
+            case kSettingAboutCellTypeHowToUse:
+                cell.textLabel.text = @"使い方を見る";
+                break;
+            case kSettingAboutCellTypeLicense:
                 cell.textLabel.text = @"ソフトウェア・ライセンス";
                 break;
-            case kSettingCellTypeVersion:
+            case kSettingAboutCellTypeVersion:
             {
                 UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
                 cell.textLabel.text = @"アプリのバージョン";
@@ -127,6 +135,10 @@
         }
         return cell;
     }
+    else if (indexPath.section == 2) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DeleteCell"];
+        return cell;
+    }
     
     return nil;
 }
@@ -134,11 +146,45 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.section == 1) {
+
+    if (indexPath.section == 0) {
+        switch (indexPath.row) {
+            case kSettingRequestCellTypeIntroduce:
+                // 友達に紹介する(Tw / Fb)
+                [self introduceFriends];
+                break;
+            case kSettingRequestCellTypeRequest:
+                // ご意見・ご要望（メール or Tw）
+                [self launchMail];
+                break;
+            case kSettingRequestCellTypeReview:
+            {
+                // レビュー
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:APP_STORE_URL]];
+                break;
+            }
+        }
+    }
+    else if (indexPath.section == 1) {
+        switch (indexPath.row) {
+            case kSettingAboutCellTypeHowToUse:
+                // 使い方を見る
+                [self showTutorial];
+                break;
+            case kSettingAboutCellTypeLicense:
+            {
+                // ライセンス
+                LicenseViewController *vc = [LicenseViewController view];
+                [self.navigationController pushViewController:vc animated:YES];
+                break;
+            }
+        }
+    }
+    else if (indexPath.section == 2) {
         if (indexPath.row == 0) {
             // データ削除
             [UIActionSheet showInView:self.view
-                            withTitle:@"削除したデータは元に戻せません。よろしいですか？"
+                            withTitle:@"削除したデータは元に戻せません。\n削除してよろしいですか？"
                     cancelButtonTitle:@"キャンセル"
                destructiveButtonTitle:@"データをすべて削除する"
                     otherButtonTitles:nil
@@ -147,35 +193,6 @@
                                      [self resetMemoData];
                                  }
                              }];
-        }
-    }
-    else if (indexPath.section == 0) {
-        switch (indexPath.row) {
-            case kSettingCellTypeHowToUse:
-                // 使い方を見る
-                [self showTutorial];
-                break;
-            case kSettingCellTypeIntroduce:
-                // 友達に紹介する(Tw / Fb)
-                [self introduceFriends];
-                break;
-            case kSettingCellTypeRequest:
-                // ご意見・ご要望（メール or Tw）
-                [self launchMail];
-                break;
-            case kSettingCellTypeReview:
-            {
-                // レビュー
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:APP_STORE_URL]];
-                break;
-            }
-            case kSettingCellTypeLicense:
-            {
-                // ライセンス
-                LicenseViewController *vc = [LicenseViewController view];
-                [self.navigationController pushViewController:vc animated:YES];
-                break;
-            }   
         }
     }
 }
@@ -207,7 +224,7 @@
                     withTitle:@"友達に紹介する"
             cancelButtonTitle:@"キャンセル"
        destructiveButtonTitle:nil
-            otherButtonTitles:@[@"Twitter", @"Facebook", @"LINE"]
+            otherButtonTitles:@[@"Twitterに投稿する", @"Facebookに投稿する", @"LINEに投稿する"]
                      tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
                          if (actionSheet.cancelButtonIndex != buttonIndex) {
                              if (buttonIndex == 0) {
