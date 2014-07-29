@@ -76,8 +76,11 @@ CLLocationManagerDelegate, MKMapViewDelegate>
     // 最初はリスト表示
     [self showTypeChanged:YES];
     
-    // チュートリアル？
-    [self showTutorialView];
+    // 初回ならチュートリアル
+    BOOL isDoneTutorial = [[NSUserDefaults standardUserDefaults] boolForKey:kTutorialDoneFlag];
+    if (!isDoneTutorial) {
+        [self showTutorialView];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {

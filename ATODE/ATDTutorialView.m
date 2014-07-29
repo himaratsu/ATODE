@@ -10,6 +10,9 @@
 #import "ATDTutorialFinalView.h"
 #import "ATDAppDelegate.h"
 
+
+NSString *kTutorialDoneFlag = @"kTutorialDoneFlag";
+
 @interface ATDTutorialView ()
 <UIScrollViewDelegate, ATDTutorialFinalViewDelegate>
 
@@ -17,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @end
-
 
 
 @implementation ATDTutorialView
@@ -44,7 +46,9 @@
                          _scrollView.alpha = 1.0;
                      }
                      completion:^(BOOL finished) {
-                         
+                         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                         [defaults setBool:YES forKey:kTutorialDoneFlag];
+                         [defaults synchronize];
                      }];
 }
 

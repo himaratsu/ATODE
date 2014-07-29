@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSString *kTutorialDoneFlag;
+
 @interface ATDTutorialView : UIView
 
 + (instancetype)view;
