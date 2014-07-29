@@ -18,6 +18,9 @@
 @interface ATDTutorialFinalView : UIView
 
 @property (nonatomic, weak) id<ATDTutorialFinalViewDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
+
 + (instancetype)view;
+
 
 @end

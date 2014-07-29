@@ -23,7 +23,7 @@
                     <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QF9-FJ-MZO">
-                    <rect key="frame" x="28" y="320" width="221" height="36"/>
+                    <rect key="frame" x="65" y="327" width="146" height="36"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.27450980390000002" green="0.6705882353" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="使ってみる">
@@ -37,6 +37,9 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="doneButton" destination="QF9-FJ-MZO" id="Qe0-6Y-BVw"/>
+            </connections>
         </view>
     </objects>
 </document>

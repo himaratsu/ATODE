@@ -15,6 +15,11 @@
     return [[[NSBundle mainBundle] loadNibNamed:className owner:nil options:0] firstObject];
 }
 
+- (void)awakeFromNib {
+    _doneButton.layer.cornerRadius = 4.0f;
+    _doneButton.layer.masksToBounds = YES;
+}
+
 - (IBAction)doneBtnTouched:(id)sender {
     if ([_delegate respondsToSelector:@selector(didTouchDoneBtn)]) {
         [_delegate didTouchDoneBtn];
