@@ -117,7 +117,7 @@ CLLocationManagerDelegate, MKMapViewDelegate>
     self.bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
     _bannerView.adUnitID = kBannerUnitID;
     _bannerView.rootViewController = self;
-    _bannerView.backgroundColor = [UIColor yellowColor];
+    _bannerView.backgroundColor = [UIColor colorWithRed:232/255.0 green:232/255.0 blue:232/255.0 alpha:1.0];
     _bannerView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height-50, 320, 50);
     [self.view addSubview:_bannerView];
     
