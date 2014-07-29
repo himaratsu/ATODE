@@ -9,7 +9,6 @@
 #import "ATDDetailViewController.h"
 #import "ATDImageViewController.h"
 #import "ATDMapViewController.h"
-#import "ATDWebViewController.h"
 #import "ATDEditMemoViewController.h"
 #import "PlaceMemo.h"
 #import "ATDCoreDataManger.h"
@@ -274,10 +273,6 @@ MWPhotoBrowserDelegate>
     else if ([segue.identifier isEqualToString:@"showImage"]) {
         ATDImageViewController *imageVC = segue.destinationViewController;
         imageVC.image = sender;
-    }
-    else if ([segue.identifier isEqualToString:@"showWeb"]) {
-        ATDWebViewController *webVC = segue.destinationViewController;
-        webVC.url = _memo.placeInfo.shortUrl;
     }
     else if ([segue.identifier isEqualToString:@"editMemo"]) {
         ATDEditMemoViewController *editVC = segue.destinationViewController;
