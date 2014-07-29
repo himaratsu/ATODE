@@ -23,8 +23,6 @@
 		202C662419604D5E00497257 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 202C662319604D5E00497257 /* XCTest.framework */; };
 		202C662519604D5E00497257 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 202C660419604D5D00497257 /* Foundation.framework */; };
 		202C662619604D5E00497257 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 202C660819604D5D00497257 /* UIKit.framework */; };
-		202C662E19604D5E00497257 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 202C662C19604D5E00497257 /* InfoPlist.strings */; };
-		202C663019604D5E00497257 /* ATODETests.m in Sources */ = {isa = PBXBuildFile; fileRef = 202C662F19604D5E00497257 /* ATODETests.m */; };
 		202C663C19678BB400497257 /* ATDPlaceMemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 202C663B19678BB400497257 /* ATDPlaceMemo.m */; };
 		208131AF19678E8E0094E577 /* ATDPlaceMemoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 208131AE19678E8E0094E577 /* ATDPlaceMemoCell.m */; };
 		208131B119678E9B0094E577 /* ATDPlaceMemoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 208131B019678E9B0094E577 /* ATDPlaceMemoCell.xib */; };
@@ -101,9 +99,6 @@
 		202C661C19604D5D00497257 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		202C662219604D5E00497257 /* ATODETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ATODETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		202C662319604D5E00497257 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		202C662B19604D5E00497257 /* ATODETests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ATODETests-Info.plist"; sourceTree = "<group>"; };
-		202C662D19604D5E00497257 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		202C662F19604D5E00497257 /* ATODETests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATODETests.m; sourceTree = "<group>"; };
 		202C663A19678BB400497257 /* ATDPlaceMemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDPlaceMemo.h; sourceTree = "<group>"; };
 		202C663B19678BB400497257 /* ATDPlaceMemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDPlaceMemo.m; sourceTree = "<group>"; };
 		208131AD19678E8E0094E577 /* ATDPlaceMemoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDPlaceMemoCell.h; sourceTree = "<group>"; };
@@ -239,7 +234,6 @@
 			isa = PBXGroup;
 			children = (
 				202C660A19604D5D00497257 /* ATODE */,
-				202C662919604D5E00497257 /* ATODETests */,
 				202C660319604D5D00497257 /* Frameworks */,
 				202C660219604D5D00497257 /* Products */,
 				D74FAF12D3944CD3976CCA94 /* Pods.xcconfig */,
@@ -303,24 +297,6 @@
 				202C660D19604D5D00497257 /* InfoPlist.strings */,
 				202C661019604D5D00497257 /* main.m */,
 				202C661219604D5D00497257 /* ATODE-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		202C662919604D5E00497257 /* ATODETests */ = {
-			isa = PBXGroup;
-			children = (
-				202C662F19604D5E00497257 /* ATODETests.m */,
-				202C662A19604D5E00497257 /* Supporting Files */,
-			);
-			path = ATODETests;
-			sourceTree = "<group>";
-		};
-		202C662A19604D5E00497257 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				202C662B19604D5E00497257 /* ATODETests-Info.plist */,
-				202C662C19604D5E00497257 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -660,7 +636,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				202C662E19604D5E00497257 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -737,7 +712,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				202C663019604D5E00497257 /* ATODETests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -766,14 +740,6 @@
 				202C661719604D5D00497257 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		202C662C19604D5E00497257 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				202C662D19604D5E00497257 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

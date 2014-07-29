@@ -32,6 +32,7 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate,
 CLLocationManagerDelegate, MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIView *noItemView;
 
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) NSArray *memos;
@@ -124,6 +125,8 @@ CLLocationManagerDelegate, MKMapViewDelegate>
     [_bannerView loadRequest:[GADRequest request]];
 }
 
+
+
 - (void)setUpMapViews {
     if (_currentLocation) {
         NSLog(@"setUpMapViews");
@@ -183,6 +186,13 @@ CLLocationManagerDelegate, MKMapViewDelegate>
     _isLocationLoading = NO;
     NSArray *memos = [[ATDCoreDataManger sharedInstance] getAllMemos];
     self.memos = [self sortMemoByDistance:memos];
+    
+    if (_memos.count == 0) {
+        _noItemView.hidden = NO;
+    }
+    else {
+        _noItemView.hidden = YES;
+    }
     
     [_collectionView reloadData];
     
