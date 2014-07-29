@@ -143,6 +143,21 @@ CLLocationManagerDelegate, MKMapViewDelegate>
     }
 }
 
+- (void)setUpMapErrorViews {
+    UIView *errorOverlayView = [[UIView alloc] initWithFrame:_mapView.bounds];
+    errorOverlayView.backgroundColor = [UIColor blackColor];
+    errorOverlayView.alpha = 0.7;
+    [_mapView addSubview:errorOverlayView];
+    
+    UILabel *descLabel = [[UILabel alloc] initWithFrame:_mapView.bounds];
+    descLabel.text = @"位置情報をONにしてください\n\n設定は\n設定アプリ > プライバシー > 位置情報サービス \nから変更できます。";
+    descLabel.numberOfLines = 0;
+    descLabel.font = [UIFont systemFontOfSize:13.0f];
+    descLabel.textAlignment = NSTextAlignmentCenter;
+    descLabel.textColor = [UIColor whiteColor];
+    [_mapView addSubview:descLabel];
+}
+
 - (void)resetPins {
     NSMutableArray * annotationsToRemove = [_mapView.annotations mutableCopy];
     [annotationsToRemove removeObject:_mapView.userLocation];
@@ -371,8 +386,12 @@ CLLocationManagerDelegate, MKMapViewDelegate>
     }
     else if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
         UIImage *originImage = info[UIImagePickerControllerOriginalImage];
+        
         NSMutableDictionary *metadata = (NSMutableDictionary *)[info objectForKey:UIImagePickerControllerMediaMetadata];
-        metadata[(NSString *)kCGImagePropertyGPSDictionary] = [self GPSDictionaryForLocation:self.locationManager.location];
+        if (_locationManager.location.coordinate.latitude != 0
+            && _locationManager.location.coordinate.longitude != 0) {
+            metadata[(NSString *)kCGImagePropertyGPSDictionary] = [self GPSDictionaryForLocation:self.locationManager.location];
+        }
         
         ALAssetsLibrary *assetsLibrary = [[ALAssetsLibrary alloc] init];
         [assetsLibrary writeImageToSavedPhotosAlbum:originImage.CGImage metadata:metadata completionBlock:^(NSURL *assetURL, NSError *error) {
@@ -523,6 +542,9 @@ CLLocationManagerDelegate, MKMapViewDelegate>
     
     if (_currentLocation) {
         [self setUpMapViews];
+    }
+    else {
+        [self setUpMapErrorViews];
     }
 }
 

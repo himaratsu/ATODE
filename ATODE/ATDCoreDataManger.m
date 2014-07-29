@@ -72,9 +72,8 @@
 
 
 - (void)resetSaveData {
-    NSURL *URL = [NSPersistentStore MR_urlForStoreName:[MagicalRecord defaultStoreName]];
-    [[NSFileManager defaultManager] removeItemAtURL:URL error:nil];
-    
+    [self setUpStack];
+    [PlaceMemo MR_truncateAll];
     [self saveContext];
 }
 
