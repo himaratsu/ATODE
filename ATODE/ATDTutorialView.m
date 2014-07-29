@@ -8,6 +8,7 @@
 
 #import "ATDTutorialView.h"
 #import "ATDTutorialFinalView.h"
+#import "ATDAppDelegate.h"
 
 @interface ATDTutorialView ()
 <UIScrollViewDelegate, ATDTutorialFinalViewDelegate>
@@ -27,13 +28,16 @@
 }
 
 - (void)show {
+    ATDAppDelegate *appDelegate = (ATDAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.window addSubview:self];
+    
     CGAffineTransform zoom = CGAffineTransformMakeScale(0.9, 0.9);
     _scrollView.transform = zoom;
     
     _scrollView.alpha = 0.3;
     
     [UIView animateWithDuration:0.2f
-                          delay:0.1f
+                          delay:0.f
                         options:UIViewAnimationOptionBeginFromCurrentState
                      animations:^{
                          _scrollView.transform = CGAffineTransformMakeScale(1.0, 1.0);

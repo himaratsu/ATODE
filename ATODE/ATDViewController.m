@@ -23,7 +23,6 @@
 #import "ATDAnnotation.h"
 #import "ATDTutorialView.h"
 #import "GADBannerView.h"
-#import "ATDAppDelegate.h"
 
 
 static NSString * const kBannerUnitID = @"ca-app-pub-5042077439159662/4239166953";
@@ -615,15 +614,9 @@ CLLocationManagerDelegate, MKMapViewDelegate>
     [self performSegueWithIdentifier:@"showDetail" sender:selectedMemo];
 }
 
-
-
 - (void)showTutorialView {
     ATDTutorialView *view = [ATDTutorialView view];
     view.center = self.view.center;
-    
-    ATDAppDelegate *appDelegate = (ATDAppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appDelegate.window addSubview:view];
-    
     [view show];
 }
 

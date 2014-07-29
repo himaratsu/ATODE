@@ -9,6 +9,7 @@
 #import "ATDSettingViewController.h"
 #import "ATDCoreDataManger.h"
 #import "LicenseViewController.h"
+#import "ATDTutorialView.h"
 #import <UIActionSheet+Blocks/UIActionSheet+Blocks.h>
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
@@ -101,6 +102,9 @@
     else if (indexPath.section == 0) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IndicatorCell"];
         switch (indexPath.row) {
+            case kSettingCellTypeHowToUse:
+                cell.textLabel.text = @"使い方を見る";
+                break;
             case kSettingCellTypeRequest:
                 cell.textLabel.text = @"ご意見・ご要望";
                 break;
@@ -147,6 +151,10 @@
     }
     else if (indexPath.section == 0) {
         switch (indexPath.row) {
+            case kSettingCellTypeHowToUse:
+                // 使い方を見る
+                [self showTutorial];
+                break;
             case kSettingCellTypeIntroduce:
                 // 友達に紹介する(Tw / Fb)
                 [self introduceFriends];
@@ -187,6 +195,12 @@
 
 #pragma mark -
 #pragma mark Post to SNS
+
+- (void)showTutorial {
+    ATDTutorialView *view = [ATDTutorialView view];
+    view.center = self.view.center;
+    [view show];
+}
 
 - (void)introduceFriends {
     [UIActionSheet showInView:self.view

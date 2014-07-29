@@ -13,6 +13,7 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSUInteger, kSettingCellType) {
+    kSettingCellTypeHowToUse,
     kSettingCellTypeRequest,
     kSettingCellTypeIntroduce,
     kSettingCellTypeReview,
