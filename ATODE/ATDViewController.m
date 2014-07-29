@@ -21,7 +21,9 @@
 #import <FontAwesomeKit/FontAwesomeKit.h>
 #import "MKMapView+ATDZoomLevel.h"
 #import "ATDAnnotation.h"
+#import "ATDTutorialView.h"
 #import "GADBannerView.h"
+#import "ATDAppDelegate.h"
 
 
 static NSString * const kBannerUnitID = @"ca-app-pub-5042077439159662/4239166953";
@@ -74,6 +76,9 @@ CLLocationManagerDelegate, MKMapViewDelegate>
     
     // 最初はリスト表示
     [self showTypeChanged:YES];
+    
+    // チュートリアル？
+    [self showTutorialView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -128,6 +133,8 @@ CLLocationManagerDelegate, MKMapViewDelegate>
 
 
 - (void)setUpMapViews {
+    [self resetMapErrorViews];
+    
     if (_currentLocation) {
         NSLog(@"setUpMapViews");
         CLLocationCoordinate2D locationCoordinate = _currentLocation.coordinate;
@@ -143,15 +150,27 @@ CLLocationManagerDelegate, MKMapViewDelegate>
     }
 }
 
+- (void)resetMapErrorViews {
+    UIView *errorOverlayView = [self.view viewWithTag:1];
+    [errorOverlayView removeFromSuperview];
+    
+    UIView *descLabel = [self.view viewWithTag:2];
+    [descLabel removeFromSuperview];
+}
+
 - (void)setUpMapErrorViews {
+    [self resetMapErrorViews];
+    
     UIView *errorOverlayView = [[UIView alloc] initWithFrame:_mapView.bounds];
     errorOverlayView.backgroundColor = [UIColor blackColor];
     errorOverlayView.alpha = 0.7;
+    errorOverlayView.tag = 1;
     [_mapView addSubview:errorOverlayView];
     
     UILabel *descLabel = [[UILabel alloc] initWithFrame:_mapView.bounds];
     descLabel.text = @"位置情報をONにしてください\n\n設定は\n設定アプリ > プライバシー > 位置情報サービス \nから変更できます。";
     descLabel.numberOfLines = 0;
+    descLabel.tag = 2;
     descLabel.font = [UIFont systemFontOfSize:13.0f];
     descLabel.textAlignment = NSTextAlignmentCenter;
     descLabel.textColor = [UIColor whiteColor];
@@ -597,5 +616,15 @@ CLLocationManagerDelegate, MKMapViewDelegate>
 }
 
 
+
+- (void)showTutorialView {
+    ATDTutorialView *view = [ATDTutorialView view];
+    view.center = self.view.center;
+    
+    ATDAppDelegate *appDelegate = (ATDAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.window addSubview:view];
+    
+    [view show];
+}
 
 @end

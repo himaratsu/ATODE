@@ -23,6 +23,7 @@
                                  };
     [UINavigationBar appearance].titleTextAttributes = attributes;
  
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
     return YES;
 }
