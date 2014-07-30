@@ -15,6 +15,7 @@
 #import <MessageUI/MFMailComposeViewController.h>
 #import <Social/Social.h>
 #import <sys/sysctl.h>
+#import "GAIDictionaryBuilder.h"
 
 @interface ATDSettingViewController ()
 <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>
@@ -160,6 +161,12 @@
             case kSettingRequestCellTypeReview:
             {
                 // レビュー
+                id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
+                [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ACTION"
+                                                                      action:@"touch"
+                                                                       label:@"go review"
+                                                                       value:nil] build]];
+                
                 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:APP_STORE_URL]];
                 break;
             }
@@ -207,6 +214,12 @@
                                            cancelButtonTitle:nil otherButtonTitles:@"OK", nil
                            ];
     [alert show];
+    
+    id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ACTION"
+                                                          action:@"touch"
+                                                           label:@"delete all memo"
+                                                           value:nil] build]];
 }
 
 
@@ -217,6 +230,12 @@
     ATDTutorialView *view = [ATDTutorialView view];
     view.center = self.view.center;
     [view show];
+    
+    id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ACTION"
+                                                          action:@"touch"
+                                                           label:@"show tutorial"
+                                                           value:nil] build]];
 }
 
 - (void)introduceFriends {
@@ -251,6 +270,12 @@
     [vc setInitialText:@"「あとで行く」と思ったお店を忘れなくなるアプリ Go Memo"];
     [vc addURL:[NSURL URLWithString:APP_STORE_URL]];
     [self presentViewController:vc animated:YES completion:nil];
+    
+    id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ACTION"
+                                                          action:@"touch"
+                                                           label:@"share twitter"
+                                                           value:nil] build]];
 }
 
 - (void)postFacebook {
@@ -259,6 +284,12 @@
     [vc setInitialText:@"「あとで行く」と思ったお店を忘れなくなるアプリ Go Memo"];
     [vc addURL:[NSURL URLWithString:APP_STORE_URL]];
     [self presentViewController:vc animated:YES completion:nil];
+    
+    id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ACTION"
+                                                          action:@"touch"
+                                                           label:@"share facebook"
+                                                           value:nil] build]];
 }
 
 - (void)postLINE {
@@ -277,6 +308,12 @@
     // URLスキームを使ってLINEを起動
     NSString *LineUrlString = [NSString stringWithFormat:@"line://msg/text/%@", encodeMes];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:LineUrlString]];
+    
+    id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ACTION"
+                                                          action:@"touch"
+                                                           label:@"share line"
+                                                           value:nil] build]];
 }
 
 

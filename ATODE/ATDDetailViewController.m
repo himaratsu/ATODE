@@ -22,6 +22,7 @@
 #import <UIAlertView+Blocks/UIAlertView+Blocks.h>
 #import <MapKit/MapKit.h>
 #import <MWPhotoBrowser/MWPhotoBrowser.h>
+#import "GAIDictionaryBuilder.h"
 
 
 typedef NS_ENUM(NSUInteger, DetailTableCell) {
@@ -171,6 +172,12 @@ MWPhotoBrowserDelegate>
 
 - (void)didTapImage:(UIImage *)image {
     [self performSegueWithIdentifier:@"showImage" sender:image];
+    
+    id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ACTION"
+                                                          action:@"touch"
+                                                           label:@"show user photo"
+                                                           value:nil] build]];
 }
 
 
@@ -179,6 +186,12 @@ MWPhotoBrowserDelegate>
 
 - (void)didTapOverlayView {
     [self performSegueWithIdentifier:@"showMap" sender:nil];
+    
+    id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ACTION"
+                                                          action:@"touch"
+                                                           label:@"show map"
+                                                           value:nil] build]];
 }
 
 
@@ -215,6 +228,12 @@ MWPhotoBrowserDelegate>
     // Manipulate
     [browser showNextPhotoAnimated:YES];
     [browser showPreviousPhotoAnimated:YES];
+    
+    id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ACTION"
+                                                          action:@"touch"
+                                                           label:@"show 4sq photos"
+                                                           value:nil] build]];
 }
 
 #pragma mark -
@@ -256,6 +275,12 @@ MWPhotoBrowserDelegate>
                       tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
                           [self.navigationController popToRootViewControllerAnimated:YES];
                       }];
+    
+    id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ACTION"
+                                                          action:@"touch"
+                                                           label:@"delete memo"
+                                                           value:nil] build]];
 }
 
 
@@ -278,6 +303,12 @@ MWPhotoBrowserDelegate>
         ATDEditMemoViewController *editVC = segue.destinationViewController;
         editVC.delegate = self;
         editVC.memo = _memo;
+        
+        id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
+        [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ACTION"
+                                                              action:@"touch"
+                                                               label:@"edit memo"
+                                                               value:nil] build]];
     }
 }
 

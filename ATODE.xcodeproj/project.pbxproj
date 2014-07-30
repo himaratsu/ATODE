@@ -28,6 +28,7 @@
 		204C159B198935D600CFDCBB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 204C159A198935D600CFDCBB /* libz.dylib */; };
 		204C159D198935E700CFDCBB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 204C159C198935E700CFDCBB /* CoreData.framework */; };
 		204C159F1989365600CFDCBB /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 204C159E1989365600CFDCBB /* libsqlite3.0.dylib */; };
+		207796961989380800EF3879 /* UIViewController+GAInject.m in Sources */ = {isa = PBXBuildFile; fileRef = 207796951989380800EF3879 /* UIViewController+GAInject.m */; };
 		208131AF19678E8E0094E577 /* ATDPlaceMemoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 208131AE19678E8E0094E577 /* ATDPlaceMemoCell.m */; };
 		208131B119678E9B0094E577 /* ATDPlaceMemoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 208131B019678E9B0094E577 /* ATDPlaceMemoCell.xib */; };
 		208131B4196791A70094E577 /* ATDAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 208131B3196791A70094E577 /* ATDAddViewController.m */; };
@@ -126,6 +127,8 @@
 		204C159A198935D600CFDCBB /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		204C159C198935E700CFDCBB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		204C159E1989365600CFDCBB /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		207796941989380800EF3879 /* UIViewController+GAInject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+GAInject.h"; sourceTree = "<group>"; };
+		207796951989380800EF3879 /* UIViewController+GAInject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+GAInject.m"; sourceTree = "<group>"; };
 		208131AD19678E8E0094E577 /* ATDPlaceMemoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDPlaceMemoCell.h; sourceTree = "<group>"; };
 		208131AE19678E8E0094E577 /* ATDPlaceMemoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDPlaceMemoCell.m; sourceTree = "<group>"; };
 		208131B019678E9B0094E577 /* ATDPlaceMemoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATDPlaceMemoCell.xib; sourceTree = "<group>"; };
@@ -414,6 +417,8 @@
 			children = (
 				20A0FA581972D48B004FA008 /* MKMapView+ATDZoomLevel.h */,
 				20A0FA591972D48B004FA008 /* MKMapView+ATDZoomLevel.m */,
+				207796941989380800EF3879 /* UIViewController+GAInject.h */,
+				207796951989380800EF3879 /* UIViewController+GAInject.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -787,6 +792,7 @@
 				208131B4196791A70094E577 /* ATDAddViewController.m in Sources */,
 				208131AF19678E8E0094E577 /* ATDPlaceMemoCell.m in Sources */,
 				D9AEEBD91987BFF90058AFA7 /* ATDTutorialView.m in Sources */,
+				207796961989380800EF3879 /* UIViewController+GAInject.m in Sources */,
 				201F04241970F9560045AB37 /* ATD4sqPlace.m in Sources */,
 				D99774051977EB3800DBEF35 /* ATDPlaceholderTextView.m in Sources */,
 			);

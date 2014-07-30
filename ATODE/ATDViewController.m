@@ -23,7 +23,7 @@
 #import "ATDAnnotation.h"
 #import "ATDTutorialView.h"
 #import "GADBannerView.h"
-
+#import "GAIDictionaryBuilder.h"
 
 static NSString * const kBannerUnitID = @"ca-app-pub-5042077439159662/4239166953";
 
@@ -298,10 +298,22 @@ CLLocationManagerDelegate, MKMapViewDelegate>
     // 実機で動作中
     [self showImagePickerView:UIImagePickerControllerSourceTypeCamera];
 #endif
+    
+    id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ACTION"
+                                                          action:@"touch"
+                                                           label:@"add from camera"
+                                                           value:nil] build]];
 }
 
 - (void)getPhotoFromLibrary {
     [self showImagePickerView:UIImagePickerControllerSourceTypePhotoLibrary];
+    
+    id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ACTION"
+                                                          action:@"touch"
+                                                           label:@"add from library"
+                                                           value:nil] build]];
 }
 
 
@@ -353,12 +365,21 @@ CLLocationManagerDelegate, MKMapViewDelegate>
 
 
 - (IBAction)typeChanged:(UISegmentedControl *)control {
+    NSString *btnName;
     if (control.selectedSegmentIndex == 0) {
         [self showTypeChanged:YES];
+        btnName = @"list";
     }
     else {
         [self showTypeChanged:NO];
+        btnName = @"map";
     }
+    
+    id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ACTION"
+                                                         action:@"touch"
+                                                          label:btnName
+                                                           value:nil] build]];
 }
 
 

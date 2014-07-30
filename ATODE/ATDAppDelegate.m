@@ -7,12 +7,32 @@
 //
 
 #import "ATDAppDelegate.h"
+#import "GAI.h"
+#import "UIViewController+GAInject.h"
 
 @implementation ATDAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    // 見た目
+    [self setAppearance];
+    
+    // Google Analytics
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    [GAI sharedInstance].dispatchInterval = 20;
+    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
+    
+    [[GAI sharedInstance] trackerWithTrackingId:@"UA-53347390-1"];
+    
+    // GAIを仕込む
+    [UIViewController exchangeMethod];
+
+    return YES;
+}
+
+
+// 見た目の設定
+- (void)setAppearance {
     [UITableViewCell appearance].separatorInset = UIEdgeInsetsZero;
     
     [UINavigationBar appearance].barTintColor = [UIColor colorWithRed:70/255.0 green:171/255.0 blue:235/255.0 alpha:1.0];
@@ -22,11 +42,10 @@
                                  NSForegroundColorAttributeName : [UIColor whiteColor]
                                  };
     [UINavigationBar appearance].titleTextAttributes = attributes;
- 
+    
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-
-    return YES;
 }
+
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {

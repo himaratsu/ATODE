@@ -14,6 +14,7 @@
 #import <CommonCrypto/CommonCrypto.h>
 #import <UIAlertView+Blocks/UIAlertView+Blocks.h>
 #import <AFNetworking/AFNetworking.h>
+#import "GAIDictionaryBuilder.h"
 
 static NSString * const kApiClientID = @"UXFP35M0BBM3BSQS0IEDLDHQECN4PIP5IYE14CD4MBR1VPS2";
 static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHYJXU5ZA14YCXY2";
@@ -108,6 +109,16 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
                      [self.navigationController popToRootViewControllerAnimated:YES];
                  }
              }];
+    
+    
+    NSString *logStr = [NSString stringWithFormat:@"4sq[%d] latlng[%d]",
+                          (_placeInfo != nil),
+                          (_coordinate.latitude != 0 && _coordinate.longitude != 0)];
+    id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ACTION"
+                                                          action:@"add"
+                                                           label:logStr
+                                                           value:nil] build]];
 }
 
 - (NSString *)hashFromImage:(UIImage *)image {
@@ -181,13 +192,17 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
     NSString *postdate = [self postdateFromNow];
     NSLog(@"postdate[%@]", postdate);
     
-    // TODO: siteUrl（オプション）
-    
     // 保存
     [self saveNewMemoWithTitle:title
                       filePath:filePath
                       postdate:postdate
                        siteUrl:@""];
+    
+    id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ACTION"
+                                                          action:@"add"
+                                                           label:title
+                                                           value:nil] build]];
 }
 
 
