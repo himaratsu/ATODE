@@ -29,6 +29,8 @@
 		204C159D198935E700CFDCBB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 204C159C198935E700CFDCBB /* CoreData.framework */; };
 		204C159F1989365600CFDCBB /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 204C159E1989365600CFDCBB /* libsqlite3.0.dylib */; };
 		207796961989380800EF3879 /* UIViewController+GAInject.m in Sources */ = {isa = PBXBuildFile; fileRef = 207796951989380800EF3879 /* UIViewController+GAInject.m */; };
+		2077969E19893FF300EF3879 /* dsym_upload.sh in Resources */ = {isa = PBXBuildFile; fileRef = 2077969C19893FF300EF3879 /* dsym_upload.sh */; };
+		2077969F19893FF300EF3879 /* libCrittercism_v4_3_4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2077969D19893FF300EF3879 /* libCrittercism_v4_3_4.a */; };
 		208131AF19678E8E0094E577 /* ATDPlaceMemoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 208131AE19678E8E0094E577 /* ATDPlaceMemoCell.m */; };
 		208131B119678E9B0094E577 /* ATDPlaceMemoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 208131B019678E9B0094E577 /* ATDPlaceMemoCell.xib */; };
 		208131B4196791A70094E577 /* ATDAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 208131B3196791A70094E577 /* ATDAddViewController.m */; };
@@ -129,6 +131,11 @@
 		204C159E1989365600CFDCBB /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		207796941989380800EF3879 /* UIViewController+GAInject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+GAInject.h"; sourceTree = "<group>"; };
 		207796951989380800EF3879 /* UIViewController+GAInject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+GAInject.m"; sourceTree = "<group>"; };
+		2077969919893FF300EF3879 /* CRFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRFilter.h; sourceTree = "<group>"; };
+		2077969A19893FF300EF3879 /* Crittercism.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crittercism.h; sourceTree = "<group>"; };
+		2077969B19893FF300EF3879 /* CrittercismDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrittercismDelegate.h; sourceTree = "<group>"; };
+		2077969C19893FF300EF3879 /* dsym_upload.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = dsym_upload.sh; sourceTree = "<group>"; };
+		2077969D19893FF300EF3879 /* libCrittercism_v4_3_4.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCrittercism_v4_3_4.a; sourceTree = "<group>"; };
 		208131AD19678E8E0094E577 /* ATDPlaceMemoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDPlaceMemoCell.h; sourceTree = "<group>"; };
 		208131AE19678E8E0094E577 /* ATDPlaceMemoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDPlaceMemoCell.m; sourceTree = "<group>"; };
 		208131B019678E9B0094E577 /* ATDPlaceMemoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATDPlaceMemoCell.xib; sourceTree = "<group>"; };
@@ -234,6 +241,7 @@
 				D9AEEBC3198663E40058AFA7 /* iAd.framework in Frameworks */,
 				D9AEEBC1198663E00058AFA7 /* CoreTelephony.framework in Frameworks */,
 				D9AEEBBD198663D50058AFA7 /* StoreKit.framework in Frameworks */,
+				2077969F19893FF300EF3879 /* libCrittercism_v4_3_4.a in Frameworks */,
 				D9AEEBBB198663D10058AFA7 /* MessageUI.framework in Frameworks */,
 				202C660719604D5D00497257 /* CoreGraphics.framework in Frameworks */,
 				D9AEEBB9198663C70058AFA7 /* AVFoundation.framework in Frameworks */,
@@ -400,6 +408,26 @@
 			name = Analytics;
 			sourceTree = "<group>";
 		};
+		2077969719893FEB00EF3879 /* Crash */ = {
+			isa = PBXGroup;
+			children = (
+				2077969819893FF300EF3879 /* CrittercismSDK */,
+			);
+			name = Crash;
+			sourceTree = "<group>";
+		};
+		2077969819893FF300EF3879 /* CrittercismSDK */ = {
+			isa = PBXGroup;
+			children = (
+				2077969919893FF300EF3879 /* CRFilter.h */,
+				2077969A19893FF300EF3879 /* Crittercism.h */,
+				2077969B19893FF300EF3879 /* CrittercismDelegate.h */,
+				2077969C19893FF300EF3879 /* dsym_upload.sh */,
+				2077969D19893FF300EF3879 /* libCrittercism_v4_3_4.a */,
+			);
+			path = CrittercismSDK;
+			sourceTree = "<group>";
+		};
 		208131B51967987A0094E577 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -511,6 +539,7 @@
 		D99774021977EB2100DBEF35 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				2077969719893FEB00EF3879 /* Crash */,
 				204C158D1989358200CFDCBB /* Analytics */,
 				D9AEEB9D198663220058AFA7 /* AdLibrary */,
 				D99774031977EB3800DBEF35 /* ATDPlaceholderTextView.h */,
@@ -708,6 +737,7 @@
 				208131B119678E9B0094E577 /* ATDPlaceMemoCell.xib in Resources */,
 				D9CD7F2C1982176B00293F37 /* ATDPlaceSearchCell.xib in Resources */,
 				D9CD7F401986061300293F37 /* LicenseViewController.xib in Resources */,
+				2077969E19893FF300EF3879 /* dsym_upload.sh in Resources */,
 				D99774111978D51700DBEF35 /* license.html in Resources */,
 				D9AEEBE01987C3290058AFA7 /* ATDTutorialFirstView.xib in Resources */,
 				202C660F19604D5D00497257 /* InfoPlist.strings in Resources */,
@@ -920,6 +950,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ATODE",
+					"$(PROJECT_DIR)/ATODE/CrittercismSDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -939,6 +970,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ATODE",
+					"$(PROJECT_DIR)/ATODE/CrittercismSDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

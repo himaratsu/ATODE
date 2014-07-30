@@ -54,7 +54,6 @@ PODS:
   - UIAlertView+Blocks (0.8.1)
 
 DEPENDENCIES:
-  - AFNetworking
   - AFNetworking (~> 2.3.1)
   - FontAwesomeKit
   - MagicalRecord (~> 2.2)

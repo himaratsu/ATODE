@@ -8,24 +8,27 @@
 
 #import "ATDAppDelegate.h"
 #import "GAI.h"
+#import "Crittercism.h"
 #import "UIViewController+GAInject.h"
 
 @implementation ATDAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // 見た目
-    [self setAppearance];
-    
     // Google Analytics
     [GAI sharedInstance].trackUncaughtExceptions = YES;
     [GAI sharedInstance].dispatchInterval = 20;
-    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
     
     [[GAI sharedInstance] trackerWithTrackingId:@"UA-53347390-1"];
     
     // GAIを仕込む
     [UIViewController exchangeMethod];
+    
+    // 見た目
+    [self setAppearance];
+    
+    // Crittercism
+//    [Crittercism enableWithAppID:@"531f7f9d0ee9483d3d000001"];
 
     return YES;
 }
