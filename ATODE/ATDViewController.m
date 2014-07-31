@@ -170,7 +170,7 @@ CLLocationManagerDelegate, MKMapViewDelegate>
     [_mapView addSubview:errorOverlayView];
     
     UILabel *descLabel = [[UILabel alloc] initWithFrame:_mapView.bounds];
-    descLabel.text = @"位置情報をONにしてください\n\n設定は\n設定アプリ > プライバシー > 位置情報サービス \nから変更できます。";
+    descLabel.text = NSLocalizedString(LOCATION_SETTING_NOTICE, nil);
     descLabel.numberOfLines = 0;
     descLabel.tag = 2;
     descLabel.font = [UIFont systemFontOfSize:13.0f];
@@ -272,10 +272,11 @@ CLLocationManagerDelegate, MKMapViewDelegate>
 
 - (IBAction)addBtnTouched:(id)sender {
     [UIActionSheet showInView:self.view
-                    withTitle:@"写真"
-            cancelButtonTitle:@"キャンセル"
+                    withTitle:NSLocalizedString(PHOTO, nil)
+            cancelButtonTitle:NSLocalizedString(CANCEL, nil)
        destructiveButtonTitle:nil
-            otherButtonTitles:@[@"カメラで撮る", @"ライブラリから選ぶ"]
+            otherButtonTitles:@[NSLocalizedString(TAKE_PICTURE, nil),
+                                NSLocalizedString(SELECT_LIBRARY, nil)]
                      tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
                          if (buttonIndex != actionSheet.cancelButtonIndex) {
                              if (buttonIndex == 0) {

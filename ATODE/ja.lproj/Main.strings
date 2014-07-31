@@ -1,0 +1,75 @@
+/* Class = "IBUIButton"; normalTitle = "Add Place"; ObjectID = "2fU-u7-6QC"; */
+"2fU-u7-6QC.normalTitle" = "Add Place";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "726-CY-9rI"; */
+"726-CY-9rI.text" = "Title";
+
+/* Class = "IBUIButton"; normalTitle = "🙅 Close"; ObjectID = "BTo-eI-As7"; */
+"BTo-eI-As7.normalTitle" = "🙅 Close";
+
+/* Class = "IBUILabel"; text = "place name"; ObjectID = "CZe-X8-HbW"; */
+"CZe-X8-HbW.text" = "place name";
+
+/* Class = "IBUINavigationItem"; title = "Edit Memo"; ObjectID = "CeW-mO-Aq4"; */
+"CeW-mO-Aq4.title" = "Edit Memo";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "JF7-Ok-wIT"; */
+"JF7-Ok-wIT.text" = "Label";
+
+/* Class = "IBUILabel"; text = "Clear all memos"; ObjectID = "MSb-pf-9mC"; */
+"MSb-pf-9mC.text" = "Clear all memos";
+
+/* Class = "IBUILabel"; text = "Tap here to add memo"; ObjectID = "TtF-2K-yQR"; */
+"TtF-2K-yQR.text" = "Tap here to add memo";
+
+/* Class = "IBUINavigationItem"; title = "Add New Memo"; ObjectID = "UeU-wp-T3d"; */
+"UeU-wp-T3d.title" = "Add New Memo";
+
+/* Class = "IBUILabel"; text = "住所"; ObjectID = "VtI-fY-HG0"; */
+"VtI-fY-HG0.text" = "住所";
+
+/* Class = "IBUILabel"; text = "Tap \"+\" button and\nadd first memo!"; ObjectID = "WeZ-24-E9N"; */
+"WeZ-24-E9N.text" = "Tap \"+\" button and\nadd first memo!";
+
+/* Class = "IBUISearchBar"; placeholder = "place name | address"; ObjectID = "XUh-ff-aLx"; */
+"XUh-ff-aLx.placeholder" = "place name | address";
+
+/* Class = "IBUIButton"; normalTitle = "done"; ObjectID = "dUh-zQ-LaR"; */
+"dUh-zQ-LaR.normalTitle" = "done";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "gXr-JR-ZGp"; */
+"gXr-JR-ZGp.text" = "Title";
+
+/* Class = "IBUINavigationItem"; title = "Setting"; ObjectID = "i8z-Lr-zoJ"; */
+"i8z-Lr-zoJ.title" = "Setting";
+
+/* Class = "IBUINavigationItem"; title = "Search Place"; ObjectID = "koM-LN-1KY"; */
+"koM-LN-1KY.title" = "Search Place";
+
+/* Class = "IBUILabel"; text = "memo"; ObjectID = "lNa-4E-sgJ"; */
+"lNa-4E-sgJ.text" = "memo";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "lPo-OA-GtA"; */
+"lPo-OA-GtA.text" = "Label";
+
+/* Class = "IBUILabel"; text = "place detail info"; ObjectID = "mem-kI-tb6"; */
+"mem-kI-tb6.text" = "place detail info";
+
+/* Class = "IBUILabel"; text = "Detail"; ObjectID = "oAQ-fb-dCu"; */
+"oAQ-fb-dCu.text" = "Detail";
+
+/* Class = "IBUILabel"; text = "No memo exist yes."; ObjectID = "t2P-1B-HHU"; */
+"t2P-1B-HHU.text" = "No memo exist yes.";
+
+/* Class = "IBUISegmentedControl"; v5k-SN-2Rf.segmentTitles[0] = "nearest"; ObjectID = "v5k-SN-2Rf"; */
+"v5k-SN-2Rf.segmentTitles[0]" = "nearest";
+
+/* Class = "IBUISegmentedControl"; v5k-SN-2Rf.segmentTitles[1] = "map"; ObjectID = "v5k-SN-2Rf"; */
+"v5k-SN-2Rf.segmentTitles[1]" = "map";
+
+/* Class = "IBUILabel"; text = "スポットの名前"; ObjectID = "yDE-S6-gXm"; */
+"yDE-S6-gXm.text" = "スポットの名前";
+
+/* Class = "IBUILabel"; text = "Good Italian Restaurant"; ObjectID = "yyi-9M-7RF"; */
+"yyi-9M-7RF.text" = "Good Italian Restaurant";
+

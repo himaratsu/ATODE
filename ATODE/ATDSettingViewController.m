@@ -88,13 +88,13 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (section == 0) {
-        return @"お問い合わせ";
+        return NSLocalizedString(CONTACT_US, nil);
     }
     else if (section == 1) {
-        return @"このアプリについて";
+        return NSLocalizedString(ABOUT, nil);
     }
     else if (section == 2) {
-        return @"その他";
+        return NSLocalizedString(OTHER, nil);
     }
     
     return @"";
@@ -106,13 +106,13 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IndicatorCell"];
         switch (indexPath.row) {
             case kSettingRequestCellTypeRequest:
-                cell.textLabel.text = @"ご意見・ご要望";
+                cell.textLabel.text = NSLocalizedString(FEEDBACK_AND_COMMENT, nil);
                 break;
             case kSettingRequestCellTypeIntroduce:
-                cell.textLabel.text = @"このアプリを友達に紹介する";
+                cell.textLabel.text = NSLocalizedString(INTRODUCE_FRIENDS, nil);
                 break;
             case kSettingRequestCellTypeReview:
-                cell.textLabel.text = @"アプリのレビューを書く";
+                cell.textLabel.text = NSLocalizedString(WRITE_REVIEW, nil);
                 break;
         }
         return cell;
@@ -121,15 +121,15 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IndicatorCell"];
         switch (indexPath.row) {
             case kSettingAboutCellTypeHowToUse:
-                cell.textLabel.text = @"使い方を見る";
+                cell.textLabel.text = NSLocalizedString(HOW_TO_USE, nil);
                 break;
             case kSettingAboutCellTypeLicense:
-                cell.textLabel.text = @"ソフトウェア・ライセンス";
+                cell.textLabel.text = NSLocalizedString(LICENSE, nil);
                 break;
             case kSettingAboutCellTypeVersion:
             {
                 UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-                cell.textLabel.text = @"アプリのバージョン";
+                cell.textLabel.text = NSLocalizedString(VERSION, nil);
                 cell.detailTextLabel.text = [self _appVersion];
                 return cell;
             }
@@ -191,8 +191,8 @@
         if (indexPath.row == 0) {
             // データ削除
             [UIActionSheet showInView:self.view
-                            withTitle:@"削除したデータは元に戻せません。\n削除してよろしいですか？"
-                    cancelButtonTitle:@"キャンセル"
+                            withTitle:NSLocalizedString(DELETE_CONFIRM, nil)
+                    cancelButtonTitle:NSLocalizedString(CANCEL, nil)
                destructiveButtonTitle:@"データをすべて削除する"
                     otherButtonTitles:nil
                              tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
@@ -208,7 +208,7 @@
 
 - (void)resetMemoData {
     [[ATDCoreDataManger sharedInstance] resetSaveData];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"データを削除しました"
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(DELETE_DONE, nil)
                                                      message:@""
                                                     delegate:nil
                                            cancelButtonTitle:nil otherButtonTitles:@"OK", nil
@@ -240,10 +240,12 @@
 
 - (void)introduceFriends {
     [UIActionSheet showInView:self.view
-                    withTitle:@"友達に紹介する"
-            cancelButtonTitle:@"キャンセル"
+                    withTitle:NSLocalizedString(INTRODUCE_FRIENDS, nil)
+            cancelButtonTitle:NSLocalizedString(CANCEL, nil)
        destructiveButtonTitle:nil
-            otherButtonTitles:@[@"Twitterに投稿する", @"Facebookに投稿する", @"LINEに投稿する"]
+            otherButtonTitles:@[NSLocalizedString(POST_TO_TWITTER, nil),
+                                NSLocalizedString(POST_TO_FACEBOOK, nil),
+                                NSLocalizedString(POST_TO_LINE, nil)]
                      tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
                          if (actionSheet.cancelButtonIndex != buttonIndex) {
                              if (buttonIndex == 0) {
@@ -260,14 +262,16 @@
 }
 
 - (NSString *)createShareMessage {
-    NSString *msg = [NSString stringWithFormat:@"「あとで行く」と思ったお店を忘れなくなるアプリ Go memo - %@", APP_STORE_URL];
+    NSString *msg = [NSString stringWithFormat:@"%@ - %@",
+                     NSLocalizedString(APP_DESCRIPTION, nil),
+                     APP_STORE_URL];
     return msg;
 }
 
 - (void)postTwitter {
     SLComposeViewController *vc = [SLComposeViewController
                                    composeViewControllerForServiceType:SLServiceTypeTwitter];
-    [vc setInitialText:@"「あとで行く」と思ったお店を忘れなくなるアプリ Go Memo"];
+    [vc setInitialText:NSLocalizedString(APP_DESCRIPTION, nil)];
     [vc addURL:[NSURL URLWithString:APP_STORE_URL]];
     [self presentViewController:vc animated:YES completion:nil];
     
@@ -281,7 +285,7 @@
 - (void)postFacebook {
     SLComposeViewController *vc = [SLComposeViewController
                                    composeViewControllerForServiceType:SLServiceTypeFacebook];
-    [vc setInitialText:@"「あとで行く」と思ったお店を忘れなくなるアプリ Go Memo"];
+    [vc setInitialText:NSLocalizedString(APP_DESCRIPTION, nil)];
     [vc addURL:[NSURL URLWithString:APP_STORE_URL]];
     [self presentViewController:vc animated:YES completion:nil];
     
@@ -295,7 +299,7 @@
 - (void)postLINE {
     if (![[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"line://"]]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
-                                                        message:@"LINEがインストールされていません"
+                                                        message:NSLocalizedString(LINE_NOT_INSTALLED, nil)
                                                        delegate:nil
                                               cancelButtonTitle:nil
                                               otherButtonTitles:@"OK", nil];
@@ -342,11 +346,18 @@
         mailViewController.mailComposeDelegate = self;
         [mailViewController setToRecipients:[NSArray arrayWithObject:SUPPORT_MAIL_ADDRESS]];
         mailViewController.title = @"";
-        [mailViewController setSubject:@"【Go Memo】お問い合わせ"];
+        
+        NSString *subjectStr = [NSString stringWithFormat:@"【Go Memo】%@", NSLocalizedString(CONTACT_US, nil)];
+        [mailViewController setSubject:subjectStr];
         
         // マーケットに出ている場合
-        NSString *body = @"【お問い合わせ内容】\n\n\n\n※以下は変更しないで下さい。\n-----\nDEVICE: %@\niOS: %@\nVERSION: %@\n";
-        [mailViewController setMessageBody:[NSString stringWithFormat:body,[UIDevice currentDevice].systemVersion, [self _platformString],[self _appVersion]] isHTML:NO];
+        NSString *body = @"【%@】\n\n\n\n※%@ \n-----\nDEVICE: %@\niOS: %@\nVERSION: %@\n";
+        [mailViewController setMessageBody:[NSString stringWithFormat:body,
+                                            NSLocalizedString(FEEDBACK_AND_COMMENT, nil),
+                                            NSLocalizedString(DONT_CHANGE_BELOW, nil),
+                                            [UIDevice currentDevice].systemVersion,
+                                            [self _platformString],
+                                            [self _appVersion]] isHTML:NO];
         
         [[mailViewController navigationBar] setTintColor:[UIColor whiteColor]];
         
@@ -428,8 +439,8 @@
     
     // 送信
     if (result == MFMailComposeResultSent) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"ありがとうございます"
-                                                            message:@"頂いたご意見を参考にアプリをより良く改善していきます。"
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(THANK_YOU, nil)
+                                                            message:NSLocalizedString(WE_IMPROVE, nil)
                                                            delegate:nil
                                                   cancelButtonTitle:nil
                                                   otherButtonTitles:@"OK", nil];
