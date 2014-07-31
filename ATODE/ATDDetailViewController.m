@@ -254,9 +254,9 @@ MWPhotoBrowserDelegate>
 #pragma mark IBAction
 
 - (IBAction)deleteBtnTouched:(id)sender {
-    [UIActionSheet showInView:self.view withTitle:@"削除したメモは元に戻せません。\n本当に削除しますか？"
-            cancelButtonTitle:@"キャンセル"
-       destructiveButtonTitle:@"削除する"
+    [UIActionSheet showInView:self.view withTitle:NSLocalizedString(DELETE_CONFIRM, nil)
+            cancelButtonTitle:NSLocalizedString(CANCEL, nil)
+       destructiveButtonTitle:NSLocalizedString(GO_DELETE, nil)
             otherButtonTitles:nil
                      tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
                          if (actionSheet.destructiveButtonIndex == buttonIndex) {
@@ -269,7 +269,7 @@ MWPhotoBrowserDelegate>
     [[ATDCoreDataManger sharedInstance] deleteMemo:_memo];
     
     [UIAlertView showWithTitle:@"Success!"
-                       message:@"削除しました"
+                       message:NSLocalizedString(DELETE_DONE, nil)
              cancelButtonTitle:nil
              otherButtonTitles:@[@"OK"]
                       tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {

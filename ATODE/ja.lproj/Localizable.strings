@@ -11,8 +11,44 @@
 // Common
 "PHOTO" = "写真";
 "CANCEL" = "キャンセル";
+"ERROR" = "エラー";
+"CONFIRM" = "確認";
+"DELETE_EDITED_OK" = "編集内容を破棄しますか？";
+"DESTORY" = "破棄する";
 
 // TOPViewController
 "TAKE_PICTURE"  = "写真を撮る";
 "SELECT_LIBRARY"    = "カメラロールから選ぶ";
 "LOCATION_SETTING_NOTICE"   =  "位置情報をONにしてください\n\n設定は\n設定アプリ > プライバシー > 位置情報サービス \nから変更できます。";
+
+// ADDViewController
+"CAN_INPUT_MEMO" = "メモを入力できます（オプション）";
+"CANNOT_GET_LOCATION" = "写真から位置情報を取得できませんでした";
+"ADD_PLACE" = "スポットを登録しました";
+"FAIL_SAVE_IMAGE" = "画像の保存に失敗しました";
+
+// DetailViewController
+"DELETE_CONFIRM" = "削除したデータは元に戻せません。\n本当に削除しますか？";
+"GO_DELETE" = "削除する";
+"DELETE_DONE" = "削除しました";
+
+// SettingViewController
+"CONTACT_US" = "お問い合わせ";
+"ABOUT" = "このアプリについて";
+"OTHER" = "その他";
+"FEEDBACK_AND_COMMENT" = "ご意見・ご要望";
+"INTRODUCE_FRIENDS" = "友達に紹介する";
+"WRITE_REVIEW" = "アプリのレビューを書く";
+"HOW_TO_USE" = "使い方を見る";
+"LICENSE" = "ソフトウェア・ライセンス";
+"VERSION" = "バージョン";
+"POST_TO_TWITTER" = "Twitterに投稿する";
+"POST_TO_FACEBOOK" = "Facebookに投稿する";
+"POST_TO_LINE" = "LINEに投稿する";
+"LINE_NOT_INSTALLED" = "LINEがインストールされていません";
+"THANK_YOU" = "ありがとうございます";
+"WE_IMPROVE" = "頂いたご意見を参考にアプリをより良く改善していきます。";
+"DONT_CHANGE_BELOW" = "以下は変更しないで下さい。";
+
+// APP
+"APP_DESCRIPTION" = "「あとで行く」と思ったお店を忘れなくなるアプリ Go memo";

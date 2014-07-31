@@ -11,8 +11,44 @@
 // Common
 "PHOTO" = "photo";
 "CANCEL" = "Cancel";
+"ERROR" = "ERROR";
+"CONFIRM" = "Confirm";
+"DELETE_EDITED_OK" = "Can I delete it?";
+"DESTORY" = "delete";
 
 // TOPViewController
 "TAKE_PICTURE"  = "Camera";
 "SELECT_LIBRARY"    = "Choose from Library";
 "LOCATION_SETTING_NOTICE"   =  "Please turn location information 'ON'.\n\nSetting:\nSetting(app) > Privacy > Location Manager";
+
+// ADDViewController
+"CAN_INPUT_MEMO" = "Input memo here (Optional)";
+"CANNOT_GET_LOCATION" = "I can't get location.";
+"ADD_PLACE" = "place added";
+"FAIL_SAVE_IMAGE" = "failed to upload image";
+
+// DetailViewController
+"DELETE_CONFIRM" = "deleted data can't recover.\nyou really delete?";
+"GO_DELETE" = "delete";
+"DELETE_DONE" = "deleted";
+
+// SettingViewController
+"CONTACT_US" = "Contact Us";
+"ABOUT" = "About";
+"OTHER" = "Other";
+"FEEDBACK_AND_COMMENT" = "FeedBack | Comment";
+"INTRODUCE_FRIENDS" = "Introduce friends";
+"WRITE_REVIEW" = "Write Review";
+"HOW_TO_USE" = "How to Use";
+"LICENSE" = "software license";
+"VERSION" = "Version";
+"POST_TO_TWITTER" = "Share with Twitter";
+"POST_TO_FACEBOOK" = "Share with Facebook";
+"POST_TO_LINE" = "Share with LINE";
+"LINE_NOT_INSTALLED" = "LINE is not installed";
+"THANK_YOU" = "Thank you!";
+"WE_IMPROVE" = "We Improve this app and will make you happy!";
+"DONT_CHANGE_BELOW" = "Don't change below";
+
+// APP
+"APP_DESCRIPTION" = "regist 'Will Go Later' place, Go Memo";
