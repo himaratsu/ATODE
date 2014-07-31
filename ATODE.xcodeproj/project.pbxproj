@@ -150,6 +150,7 @@
 		209A4069198A8FAB007409B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		209A406D198A8FFB007409B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		209A406F198A9011007409B1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		209A4070198A907F007409B1 /* StringConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringConst.h; sourceTree = "<group>"; };
 		20A0FA4C1972A53B004FA008 /* ATDDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDDetailViewController.h; sourceTree = "<group>"; };
 		20A0FA4D1972A53B004FA008 /* ATDDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDDetailViewController.m; sourceTree = "<group>"; };
 		20A0FA521972B0E5004FA008 /* PlaceMemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceMemo.h; sourceTree = "<group>"; };
@@ -357,6 +358,7 @@
 				202C661019604D5D00497257 /* main.m */,
 				202C661219604D5D00497257 /* ATODE-Prefix.pch */,
 				209A406E198A8FFB007409B1 /* Localizable.strings */,
+				209A4070198A907F007409B1 /* StringConst.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

@@ -17,6 +17,7 @@
 
 
 #import "GAI.h"
+#import "StringConst.h"
 
 
 #define NSLog(...)

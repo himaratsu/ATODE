@@ -5,3 +5,14 @@
   Created by himara2 on 2014/07/31.
   Copyright (c) 2014年 himara2. All rights reserved.
 */
+
+//// Japanese
+
+// Common
+"PHOTO" = "写真";
+"CANCEL" = "キャンセル";
+
+// TOPViewController
+"TAKE_PICTURE"  = "写真を撮る";
+"SELECT_LIBRARY"    = "カメラロールから選ぶ";
+"LOCATION_SETTING_NOTICE"   =  "位置情報をONにしてください\n\n設定は\n設定アプリ > プライバシー > 位置情報サービス \nから変更できます。";
