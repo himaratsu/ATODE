@@ -52,7 +52,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="518"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="まだメモがありません" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t2P-1B-HHU">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No memo exist yes." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t2P-1B-HHU">
                                         <rect key="frame" x="47" y="169" width="221" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -62,8 +62,8 @@
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="227" translatesAutoresizingMaskIntoConstraints="NO" id="WeZ-24-E9N">
                                         <rect key="frame" x="47" y="187" width="227" height="66"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <string key="text">右上の + マークから
-最初のメモを追加しましょう！</string>
+                                        <string key="text">Tap "+" button and
+add first memo!</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -95,8 +95,8 @@
                             <rect key="frame" x="67" y="7" width="186" height="31"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
-                                <segment title="近い順"/>
-                                <segment title="マップ"/>
+                                <segment title="nearest"/>
+                                <segment title="map"/>
                             </segments>
                             <connections>
                                 <action selector="typeChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="grH-yU-NSk"/>
@@ -164,14 +164,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="84"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ここをタップしてメモを追加" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TtF-2K-yQR">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap here to add memo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TtF-2K-yQR">
                                                     <rect key="frame" x="20" y="34" width="231" height="35"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.85375478316326525" green="0.85375478316326525" blue="0.85375478316326525" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="良さげなイタリアン" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="yyi-9M-7RF">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Good Italian Restaurant" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="yyi-9M-7RF">
                                                     <rect key="frame" x="20" y="26" width="260" height="51"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
@@ -200,14 +200,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="57"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="スポットの名前" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZe-X8-HbW">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="place name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZe-X8-HbW">
                                                     <rect key="frame" x="74" y="10" width="226" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="スポットの詳細情報" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mem-kI-tb6">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="place detail info" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mem-kI-tb6">
                                                     <rect key="frame" x="74" y="29" width="209" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -346,7 +346,7 @@
             </objects>
             <point key="canvasLocation" x="2032" y="451"/>
         </scene>
-        <!--Edit Memo View Controller - メモを編集-->
+        <!--Edit Memo View Controller - Edit Memo-->
         <scene sceneID="zMS-ap-HIW">
             <objects>
                 <viewController id="x71-bs-gzM" customClass="ATDEditMemoViewController" sceneMemberID="viewController">
@@ -372,7 +372,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="メモを編集" id="CeW-mO-Aq4"/>
+                    <navigationItem key="navigationItem" title="Edit Memo" id="CeW-mO-Aq4"/>
                     <connections>
                         <outlet property="textView" destination="hrj-jn-TFt" id="b4W-bf-svC"/>
                     </connections>
@@ -381,7 +381,7 @@
             </objects>
             <point key="canvasLocation" x="2576" y="451"/>
         </scene>
-        <!--Add View Controller - メモを登録-->
+        <!--Add View Controller - Add New Memo-->
         <scene sceneID="a4D-NM-Bno">
             <objects>
                 <viewController id="biE-qT-31g" customClass="ATDAddViewController" sceneMemberID="viewController">
@@ -418,7 +418,7 @@
                                 <rect key="frame" x="10" y="237" width="301" height="39"/>
                                 <color key="backgroundColor" red="0.27450980392156865" green="0.6705882352941176" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.27819194823616122" green="0.67401682365075255" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="完了">
+                                <state key="normal" title="done">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -431,7 +431,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="場所を追加">
+                                <state key="normal" title="Add Place">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -449,7 +449,7 @@
                         <color key="backgroundColor" red="0.91733099489795922" green="0.91733099489795922" blue="0.91733099489795922" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="メモを登録" id="UeU-wp-T3d"/>
+                    <navigationItem key="navigationItem" title="Add New Memo" id="UeU-wp-T3d"/>
                     <connections>
                         <outlet property="doneButton" destination="dUh-zQ-LaR" id="PQI-5j-9DS"/>
                         <outlet property="imageView" destination="Wck-M3-kUP" id="6Ob-Bu-Iro"/>
@@ -463,7 +463,7 @@
             </objects>
             <point key="canvasLocation" x="1207" y="-1002"/>
         </scene>
-        <!--Setting View Controller - 設定-->
+        <!--Setting View Controller - Setting-->
         <scene sceneID="N8S-8a-bip">
             <objects>
                 <viewController id="JE6-4g-RlN" customClass="ATDSettingViewController" sceneMemberID="viewController">
@@ -527,7 +527,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="データをすべて削除" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MSb-pf-9mC">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="clear all memos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MSb-pf-9mC">
                                                     <rect key="frame" x="15" y="0.0" width="290" height="49"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -552,7 +552,7 @@
                             <constraint firstItem="Xdc-kU-qdy" firstAttribute="leading" secondItem="aP0-AM-5nd" secondAttribute="leading" id="zZF-PS-UtV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="設定" id="i8z-Lr-zoJ">
+                    <navigationItem key="navigationItem" title="Setting" id="i8z-Lr-zoJ">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="1zc-8s-NiM">
                             <connections>
                                 <action selector="closeBtnTouched:" destination="JE6-4g-RlN" id="oqv-MF-1qy"/>
@@ -567,7 +567,7 @@
             </objects>
             <point key="canvasLocation" x="1644" y="1243"/>
         </scene>
-        <!--Place Search View Controller - お店を検索-->
+        <!--Place Search View Controller - Search Place-->
         <scene sceneID="5qb-kq-1zs">
             <objects>
                 <viewController id="MhX-WO-jrt" customClass="ATDPlaceSearchViewController" sceneMemberID="viewController">
@@ -582,7 +582,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="51" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="y7L-a7-sGe">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" placeholder="店名で検索" id="XUh-ff-aLx">
+                                <searchBar key="tableHeaderView" contentMode="redraw" text="" placeholder="place name | address" id="XUh-ff-aLx">
                                     <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -633,7 +633,7 @@
                             <constraint firstItem="EIc-7D-fn0" firstAttribute="top" secondItem="y7L-a7-sGe" secondAttribute="bottom" id="kk6-b4-peb"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="お店を検索" id="koM-LN-1KY"/>
+                    <navigationItem key="navigationItem" title="Search Place" id="koM-LN-1KY"/>
                     <connections>
                         <outlet property="searchBar" destination="XUh-ff-aLx" id="uqN-TY-lmU"/>
                         <outlet property="searchDisplayController" destination="b6R-Se-ENW" id="sXq-ba-RH4"/>
@@ -677,7 +677,7 @@
                                 <rect key="frame" x="74" y="508" width="173" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="🙅 閉じる">
+                                <state key="normal" title="🙅 Close">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>

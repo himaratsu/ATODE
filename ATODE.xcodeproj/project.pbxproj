@@ -672,6 +672,7 @@
 				202C65FE19604D5D00497257 /* Frameworks */,
 				202C65FF19604D5D00497257 /* Resources */,
 				F98D58F4EE264E79A40416FF /* Copy Pods Resources */,
+				20A0F5CF198A992600D94141 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -769,6 +770,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		20A0F5CF198A992600D94141 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PROJECT_DIR}/scripts/update_storyboard_strings.sh";
+		};
 		2855450B6C934BC79E4B7E34 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
