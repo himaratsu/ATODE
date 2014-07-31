@@ -34,6 +34,11 @@
 #define GO_DELETE           @"GO_DELETE"        // DELETE is can't user
 #define DELETE_DONE         @"DELETE_DONE"
 
+// MapViewController
+#define OPEN_OTHER_APP      @"OPEN_OTHER_APP"
+#define OPEN_IOS_MAP        @"OPEN_IOS_MAP"
+#define OPEN_GOOGLE_MAP     @"OPEN_GOOGLE_MAP"
+
 // SettingViewController
 #define CONTACT_US              @"CONTACT_US"
 #define ABOUT                   @"ABOUT"

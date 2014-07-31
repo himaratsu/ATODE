@@ -16,8 +16,8 @@
 /* Class = "IBUILabel"; text = "Label"; ObjectID = "JF7-Ok-wIT"; */
 "JF7-Ok-wIT.text" = "Label";
 
-/* Class = "IBUILabel"; text = "clear all memos"; ObjectID = "MSb-pf-9mC"; */
-"MSb-pf-9mC.text" = "clear all memos";
+/* Class = "IBUILabel"; text = "Clear all memos"; ObjectID = "MSb-pf-9mC"; */
+"MSb-pf-9mC.text" = "Clear all memos";
 
 /* Class = "IBUILabel"; text = "Tap here to add memo"; ObjectID = "TtF-2K-yQR"; */
 "TtF-2K-yQR.text" = "Tap here to add memo";

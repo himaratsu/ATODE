@@ -32,6 +32,10 @@
 "GO_DELETE" = "削除する";
 "DELETE_DONE" = "削除しました";
 
+"OPEN_OTHER_APP" = "他のアプリで開く";
+"OPEN_IOS_MAP" = "iOSの地図で開く";
+"OPEN_GOOGLE_MAP" = "Google Mapで開く";
+
 // SettingViewController
 "CONTACT_US" = "お問い合わせ";
 "ABOUT" = "このアプリについて";

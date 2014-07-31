@@ -32,6 +32,11 @@
 "GO_DELETE" = "delete";
 "DELETE_DONE" = "deleted";
 
+// MapViewController
+"OPEN_OTHER_APP" = "open other app";
+"OPEN_IOS_MAP" = "Open iOS Map";
+"OPEN_GOOGLE_MAP" = "Open Google Map";
+
 // SettingViewController
 "CONTACT_US" = "Contact Us";
 "ABOUT" = "About";
