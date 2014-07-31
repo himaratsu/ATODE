@@ -426,6 +426,16 @@
  */
 -(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
     
+    // 送信
+    if (result == MFMailComposeResultSent) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"ありがとうございます"
+                                                            message:@"頂いたご意見を参考にアプリをより良く改善していきます。"
+                                                           delegate:nil
+                                                  cancelButtonTitle:nil
+                                                  otherButtonTitles:@"OK", nil];
+        [alertView show];
+    }
+    
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }

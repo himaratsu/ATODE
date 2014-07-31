@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 himara2. All rights reserved.
 //
 
-#define SUPPORT_MAIL_ADDRESS    @"himaratsu.dev@gmail.com"
+#define SUPPORT_MAIL_ADDRESS    @"gomemo.team@gmail.com"
 #define APP_STORE_URL           @"http://itunes.apple.com/ja/app/id903841654?mt=8"
 #define DEVELOPER_TWITTER_URL   @"https://twitter.com/himara2"
 
