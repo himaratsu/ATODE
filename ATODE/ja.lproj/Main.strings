@@ -1,0 +1,75 @@
+
+/* Class = "IBUIButton"; normalTitle = "場所を追加"; ObjectID = "2fU-u7-6QC"; */
+"2fU-u7-6QC.normalTitle" = "場所を追加";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "726-CY-9rI"; */
+"726-CY-9rI.text" = "Title";
+
+/* Class = "IBUIButton"; normalTitle = "🙅 閉じる"; ObjectID = "BTo-eI-As7"; */
+"BTo-eI-As7.normalTitle" = "🙅 閉じる";
+
+/* Class = "IBUILabel"; text = "スポットの名前"; ObjectID = "CZe-X8-HbW"; */
+"CZe-X8-HbW.text" = "スポットの名前";
+
+/* Class = "IBUINavigationItem"; title = "メモを編集"; ObjectID = "CeW-mO-Aq4"; */
+"CeW-mO-Aq4.title" = "メモを編集";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "JF7-Ok-wIT"; */
+"JF7-Ok-wIT.text" = "Label";
+
+/* Class = "IBUILabel"; text = "データをすべて削除"; ObjectID = "MSb-pf-9mC"; */
+"MSb-pf-9mC.text" = "データをすべて削除";
+
+/* Class = "IBUILabel"; text = "ここをタップしてメモを追加"; ObjectID = "TtF-2K-yQR"; */
+"TtF-2K-yQR.text" = "ここをタップしてメモを追加";
+
+/* Class = "IBUINavigationItem"; title = "メモを登録"; ObjectID = "UeU-wp-T3d"; */
+"UeU-wp-T3d.title" = "メモを登録";
+
+/* Class = "IBUILabel"; text = "住所"; ObjectID = "VtI-fY-HG0"; */
+"VtI-fY-HG0.text" = "住所";
+
+/* Class = "IBUILabel"; text = "右上の + マークから\n最初のメモを追加しましょう！"; ObjectID = "WeZ-24-E9N"; */
+"WeZ-24-E9N.text" = "右上の + マークから\n最初のメモを追加しましょう！";
+
+/* Class = "IBUISearchBar"; placeholder = "店名で検索"; ObjectID = "XUh-ff-aLx"; */
+"XUh-ff-aLx.placeholder" = "店名で検索";
+
+/* Class = "IBUIButton"; normalTitle = "完了"; ObjectID = "dUh-zQ-LaR"; */
+"dUh-zQ-LaR.normalTitle" = "完了";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "gXr-JR-ZGp"; */
+"gXr-JR-ZGp.text" = "Title";
+
+/* Class = "IBUINavigationItem"; title = "設定"; ObjectID = "i8z-Lr-zoJ"; */
+"i8z-Lr-zoJ.title" = "設定";
+
+/* Class = "IBUINavigationItem"; title = "お店を検索"; ObjectID = "koM-LN-1KY"; */
+"koM-LN-1KY.title" = "お店を検索";
+
+/* Class = "IBUILabel"; text = "memo"; ObjectID = "lNa-4E-sgJ"; */
+"lNa-4E-sgJ.text" = "memo";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "lPo-OA-GtA"; */
+"lPo-OA-GtA.text" = "Label";
+
+/* Class = "IBUILabel"; text = "スポットの詳細情報"; ObjectID = "mem-kI-tb6"; */
+"mem-kI-tb6.text" = "スポットの詳細情報";
+
+/* Class = "IBUILabel"; text = "Detail"; ObjectID = "oAQ-fb-dCu"; */
+"oAQ-fb-dCu.text" = "Detail";
+
+/* Class = "IBUILabel"; text = "まだメモがありません"; ObjectID = "t2P-1B-HHU"; */
+"t2P-1B-HHU.text" = "まだメモがありません";
+
+/* Class = "IBUISegmentedControl"; v5k-SN-2Rf.segmentTitles[0] = "近い順"; ObjectID = "v5k-SN-2Rf"; */
+"v5k-SN-2Rf.segmentTitles[0]" = "近い順";
+
+/* Class = "IBUISegmentedControl"; v5k-SN-2Rf.segmentTitles[1] = "マップ"; ObjectID = "v5k-SN-2Rf"; */
+"v5k-SN-2Rf.segmentTitles[1]" = "マップ";
+
+/* Class = "IBUILabel"; text = "スポットの名前"; ObjectID = "yDE-S6-gXm"; */
+"yDE-S6-gXm.text" = "スポットの名前";
+
+/* Class = "IBUILabel"; text = "良さげなイタリアン"; ObjectID = "yyi-9M-7RF"; */
+"yyi-9M-7RF.text" = "良さげなイタリアン";
