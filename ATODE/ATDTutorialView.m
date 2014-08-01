@@ -18,6 +18,7 @@ NSString *kTutorialDoneFlag = @"kTutorialDoneFlag";
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (weak, nonatomic) IBOutlet UIView *backOverlayView;
 
 @end
 
@@ -106,6 +107,10 @@ NSString *kTutorialDoneFlag = @"kTutorialDoneFlag";
 #pragma mark ATDTutorialFinalViewDelegate
 
 - (void)didTouchDoneBtn {
+    [self exitTutorial];
+}
+
+- (void)exitTutorial {
     [UIView animateWithDuration:0.15f
                      animations:^{
                          // expand animation
@@ -117,5 +122,13 @@ NSString *kTutorialDoneFlag = @"kTutorialDoneFlag";
                          [self removeFromSuperview];
                      }];
 }
+
+#pragma mark -
+#pragma mark IBAction
+
+- (IBAction)backOverlayViewTouched:(id)sender {
+    [self exitTutorial];
+}
+
 
 @end
