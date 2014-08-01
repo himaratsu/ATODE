@@ -1,29 +1,29 @@
 /* Class = "IBUIButton"; normalTitle = "Add Place"; ObjectID = "2fU-u7-6QC"; */
-"2fU-u7-6QC.normalTitle" = "Add Place";
+"2fU-u7-6QC.normalTitle" = "場所を追加";
 
 /* Class = "IBUILabel"; text = "Title"; ObjectID = "726-CY-9rI"; */
 "726-CY-9rI.text" = "Title";
 
 /* Class = "IBUIButton"; normalTitle = "🙅 Close"; ObjectID = "BTo-eI-As7"; */
-"BTo-eI-As7.normalTitle" = "🙅 Close";
+"BTo-eI-As7.normalTitle" = "🙅 とじる";
 
 /* Class = "IBUILabel"; text = "place name"; ObjectID = "CZe-X8-HbW"; */
 "CZe-X8-HbW.text" = "place name";
 
 /* Class = "IBUINavigationItem"; title = "Edit Memo"; ObjectID = "CeW-mO-Aq4"; */
-"CeW-mO-Aq4.title" = "Edit Memo";
+"CeW-mO-Aq4.title" = "メモを編集";
 
 /* Class = "IBUILabel"; text = "Label"; ObjectID = "JF7-Ok-wIT"; */
 "JF7-Ok-wIT.text" = "Label";
 
 /* Class = "IBUILabel"; text = "Clear all memos"; ObjectID = "MSb-pf-9mC"; */
-"MSb-pf-9mC.text" = "Clear all memos";
+"MSb-pf-9mC.text" = "データをすべて削除する";
 
 /* Class = "IBUILabel"; text = "Tap here to add memo"; ObjectID = "TtF-2K-yQR"; */
-"TtF-2K-yQR.text" = "Tap here to add memo";
+"TtF-2K-yQR.text" = "タップしてメモを追加";
 
 /* Class = "IBUINavigationItem"; title = "Add New Memo"; ObjectID = "UeU-wp-T3d"; */
-"UeU-wp-T3d.title" = "Add New Memo";
+"UeU-wp-T3d.title" = "メモを追加";
 
 /* Class = "IBUILabel"; text = "住所"; ObjectID = "VtI-fY-HG0"; */
 "VtI-fY-HG0.text" = "住所";
@@ -32,19 +32,19 @@
 "WeZ-24-E9N.text" = "右上の + ボタンから\n最初のメモを追加しましょう！";
 
 /* Class = "IBUISearchBar"; placeholder = "place name | address"; ObjectID = "XUh-ff-aLx"; */
-"XUh-ff-aLx.placeholder" = "place name | address";
+"XUh-ff-aLx.placeholder" = "場所名, 住所で検索";
 
 /* Class = "IBUIButton"; normalTitle = "done"; ObjectID = "dUh-zQ-LaR"; */
-"dUh-zQ-LaR.normalTitle" = "done";
+"dUh-zQ-LaR.normalTitle" = "完了";
 
 /* Class = "IBUILabel"; text = "Title"; ObjectID = "gXr-JR-ZGp"; */
 "gXr-JR-ZGp.text" = "Title";
 
 /* Class = "IBUINavigationItem"; title = "Setting"; ObjectID = "i8z-Lr-zoJ"; */
-"i8z-Lr-zoJ.title" = "Setting";
+"i8z-Lr-zoJ.title" = "設定";
 
 /* Class = "IBUINavigationItem"; title = "Search Place"; ObjectID = "koM-LN-1KY"; */
-"koM-LN-1KY.title" = "Search Place";
+"koM-LN-1KY.title" = "場所を検索";
 
 /* Class = "IBUILabel"; text = "memo"; ObjectID = "lNa-4E-sgJ"; */
 "lNa-4E-sgJ.text" = "memo";
@@ -71,5 +71,5 @@
 "yDE-S6-gXm.text" = "スポットの名前";
 
 /* Class = "IBUILabel"; text = "Good Italian Restaurant"; ObjectID = "yyi-9M-7RF"; */
-"yyi-9M-7RF.text" = "Good Italian Restaurant";
+"yyi-9M-7RF.text" = "良さそうなイタリアン";
 
