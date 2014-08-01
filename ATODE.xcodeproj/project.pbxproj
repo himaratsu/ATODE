@@ -144,12 +144,8 @@
 		208131BA196798BA0094E577 /* ATODE.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ATODE.xcdatamodel; sourceTree = "<group>"; };
 		208131BF1967AF2F0094E577 /* ATDCoreDataManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDCoreDataManger.h; sourceTree = "<group>"; };
 		208131C01967AF2F0094E577 /* ATDCoreDataManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDCoreDataManger.m; sourceTree = "<group>"; };
-		209A4065198A8F7F007409B1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		209A4069198A8FAB007409B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		209A406D198A8FFB007409B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		209A406F198A9011007409B1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		209A4070198A907F007409B1 /* StringConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringConst.h; sourceTree = "<group>"; };
-		20A0F5CE198A988500D94141 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		20A0FA4C1972A53B004FA008 /* ATDDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDDetailViewController.h; sourceTree = "<group>"; };
 		20A0FA4D1972A53B004FA008 /* ATDDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDDetailViewController.m; sourceTree = "<group>"; };
 		20A0FA521972B0E5004FA008 /* PlaceMemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceMemo.h; sourceTree = "<group>"; };
@@ -171,6 +167,9 @@
 		20AA05B91975698E009A1735 /* ATDMapCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDMapCell.m; sourceTree = "<group>"; };
 		20AA05BB197569A9009A1735 /* ATDPostDateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDPostDateCell.h; sourceTree = "<group>"; };
 		20AA05BC197569A9009A1735 /* ATDPostDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDPostDateCell.m; sourceTree = "<group>"; };
+		20D64FD5198BBFF1006A6E07 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		20D64FD7198BC371006A6E07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		20D64FD8198BC380006A6E07 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		D74FAF12D3944CD3976CCA94 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		D99773F51977825100DBEF35 /* ATDImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDImageViewController.h; sourceTree = "<group>"; };
 		D99773F61977825100DBEF35 /* ATDImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDImageViewController.m; sourceTree = "<group>"; };
@@ -874,7 +873,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				202C660E19604D5D00497257 /* en */,
-				209A4065198A8F7F007409B1 /* ja */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -882,8 +880,8 @@
 		202C661619604D5D00497257 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				209A4069198A8FAB007409B1 /* en */,
-				20A0F5CE198A988500D94141 /* ja */,
+				20D64FD7198BC371006A6E07 /* Base */,
+				20D64FD8198BC380006A6E07 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -892,7 +890,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				209A406D198A8FFB007409B1 /* en */,
-				209A406F198A9011007409B1 /* ja */,
+				20D64FD5198BBFF1006A6E07 /* ja */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

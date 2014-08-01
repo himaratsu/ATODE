@@ -29,7 +29,7 @@
 "VtI-fY-HG0.text" = "住所";
 
 /* Class = "IBUILabel"; text = "Tap \"+\" button and\nadd first memo!"; ObjectID = "WeZ-24-E9N"; */
-"WeZ-24-E9N.text" = "Tap \"+\" button and\nadd first memo!";
+"WeZ-24-E9N.text" = "右上の + ボタンから\n最初のメモを追加しましょう！";
 
 /* Class = "IBUISearchBar"; placeholder = "place name | address"; ObjectID = "XUh-ff-aLx"; */
 "XUh-ff-aLx.placeholder" = "place name | address";
@@ -59,13 +59,13 @@
 "oAQ-fb-dCu.text" = "Detail";
 
 /* Class = "IBUILabel"; text = "No memo exist yes."; ObjectID = "t2P-1B-HHU"; */
-"t2P-1B-HHU.text" = "No memo exist yes.";
+"t2P-1B-HHU.text" = "まだメモはありません";
 
 /* Class = "IBUISegmentedControl"; v5k-SN-2Rf.segmentTitles[0] = "nearest"; ObjectID = "v5k-SN-2Rf"; */
-"v5k-SN-2Rf.segmentTitles[0]" = "nearest";
+"v5k-SN-2Rf.segmentTitles[0]" = "近い順";
 
 /* Class = "IBUISegmentedControl"; v5k-SN-2Rf.segmentTitles[1] = "map"; ObjectID = "v5k-SN-2Rf"; */
-"v5k-SN-2Rf.segmentTitles[1]" = "map";
+"v5k-SN-2Rf.segmentTitles[1]" = "マップ";
 
 /* Class = "IBUILabel"; text = "スポットの名前"; ObjectID = "yDE-S6-gXm"; */
 "yDE-S6-gXm.text" = "スポットの名前";
