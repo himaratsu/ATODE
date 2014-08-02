@@ -151,7 +151,9 @@ ATDTutorialFinalViewDelegate>
 #pragma mark IBAction
 
 - (IBAction)brankBtnTouched:(id)sender {
-    [self exitTutorial];
+    if (!_isFirstTutorial) {
+        [self exitTutorial];
+    }
 }
 
 - (IBAction)pageControllerTouched:(UIPageControl *)sender {
