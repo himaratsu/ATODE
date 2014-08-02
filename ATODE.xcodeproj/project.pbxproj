@@ -718,6 +718,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = himara2;
 				TargetAttributes = {
+					202C660019604D5D00497257 = {
+						DevelopmentTeam = Y6LHTNYSDM;
+					};
 					202C662119604D5E00497257 = {
 						TestTargetID = 202C660019604D5D00497257;
 					};
@@ -963,7 +966,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: RYOSUKE HIRAMATSU (Y6LHTNYSDM)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -975,6 +978,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
+				PROVISIONING_PROFILE = "17536024-DC56-45F6-841D-5D361C97E7C2";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -986,6 +990,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ATODE/ATODE-Prefix.pch";
 				INFOPLIST_FILE = "ATODE/ATODE-Info.plist";
@@ -996,6 +1002,7 @@
 					"$(PROJECT_DIR)/ATODE/CrittercismSDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1006,6 +1013,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: RYOSUKE HIRAMATSU (Y6LHTNYSDM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: RYOSUKE HIRAMATSU (Y6LHTNYSDM)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ATODE/ATODE-Prefix.pch";
 				INFOPLIST_FILE = "ATODE/ATODE-Info.plist";
@@ -1016,6 +1025,7 @@
 					"$(PROJECT_DIR)/ATODE/CrittercismSDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "17536024-DC56-45F6-841D-5D361C97E7C2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
