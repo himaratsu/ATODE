@@ -7,6 +7,7 @@
 //
 
 #import "ATDTutorialView.h"
+#import "ATDTutorialStartView.h"
 #import "ATDTutorialFinalView.h"
 #import "ATDAppDelegate.h"
 
@@ -14,7 +15,9 @@
 NSString *kTutorialDoneFlag = @"kTutorialDoneFlag";
 
 @interface ATDTutorialView ()
-<UIScrollViewDelegate, ATDTutorialFinalViewDelegate>
+<UIScrollViewDelegate,
+ATDTutorialStartViewDelegate,
+ATDTutorialFinalViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
@@ -36,8 +39,8 @@ NSString *kTutorialDoneFlag = @"kTutorialDoneFlag";
     
     CGAffineTransform zoom = CGAffineTransformMakeScale(0.9, 0.9);
     _scrollView.transform = zoom;
-    
     _scrollView.alpha = 0.3;
+    _pageControl.alpha = 0.0;
     
     [UIView animateWithDuration:0.2f
                           delay:0.f
@@ -45,6 +48,7 @@ NSString *kTutorialDoneFlag = @"kTutorialDoneFlag";
                      animations:^{
                          _scrollView.transform = CGAffineTransformMakeScale(1.0, 1.0);
                          _scrollView.alpha = 1.0;
+                         _pageControl.alpha = 1.0;
                      }
                      completion:^(BOOL finished) {
                          NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -61,13 +65,22 @@ NSString *kTutorialDoneFlag = @"kTutorialDoneFlag";
 }
 
 - (void)setUpViews {
+    // 最初は特別扱い
+    ATDTutorialStartView *startView = [ATDTutorialStartView view];
+    startView.frame = CGRectMake(0,
+                                 0,
+                                 _scrollView.frame.size.width,
+                                 _scrollView.frame.size.height);
+    startView.delegate = self;
+    [_scrollView addSubview:startView];
+    
     NSArray *normalNibNames = @[@"ATDTutorialFirstView",
                                 @"ATDTutorialSecondView",
                                 @"ATDTutorialThirdView"];
     
     [normalNibNames enumerateObjectsUsingBlock:^(NSString *nibName, NSUInteger idx, BOOL *stop) {
         UIView *view = [self viewByNibName:nibName];
-        view.frame = CGRectMake(idx*_scrollView.frame.size.width,
+        view.frame = CGRectMake((idx+1)*_scrollView.frame.size.width,
                                 0,
                                 _scrollView.frame.size.width,
                                 _scrollView.frame.size.height);
@@ -76,14 +89,14 @@ NSString *kTutorialDoneFlag = @"kTutorialDoneFlag";
     
     // 最後は特別扱い
     ATDTutorialFinalView *finalView = [ATDTutorialFinalView view];
-    finalView.frame = CGRectMake((normalNibNames.count)*_scrollView.frame.size.width,
+    finalView.frame = CGRectMake((normalNibNames.count+1)*_scrollView.frame.size.width,
                                  0,
                                  _scrollView.frame.size.width,
                                  _scrollView.frame.size.height);
     finalView.delegate = self;
     [_scrollView addSubview:finalView];
     
-    _scrollView.contentSize = CGSizeMake(_scrollView.frame.size.width * (normalNibNames.count + 1),
+    _scrollView.contentSize = CGSizeMake(_scrollView.frame.size.width * (normalNibNames.count + 2),
                                          _scrollView.frame.size.height);
     
     _scrollView.alpha = 0.0;
@@ -102,6 +115,17 @@ NSString *kTutorialDoneFlag = @"kTutorialDoneFlag";
     _pageControl.currentPage = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
 }
 
+
+#pragma mark -
+#pragma mark ATDTutorialStartViewDelegate
+
+- (void)didTouchStartBtn {
+    CGRect frame = CGRectMake(_scrollView.frame.size.width+1,
+                              0,
+                              _scrollView.frame.size.width,
+                              _scrollView.frame.size.height);
+    [_scrollView scrollRectToVisible:frame animated:YES];
+}
 
 #pragma mark -
 #pragma mark ATDTutorialFinalViewDelegate
@@ -126,8 +150,16 @@ NSString *kTutorialDoneFlag = @"kTutorialDoneFlag";
 #pragma mark -
 #pragma mark IBAction
 
-- (IBAction)backOverlayViewTouched:(id)sender {
+- (IBAction)brankBtnTouched:(id)sender {
     [self exitTutorial];
+}
+
+- (IBAction)pageControllerTouched:(UIPageControl *)sender {
+    CGRect frame = CGRectMake(sender.currentPage *_scrollView.frame.size.width+1,
+                              0,
+                              _scrollView.frame.size.width,
+                              _scrollView.frame.size.height);
+    [_scrollView scrollRectToVisible:frame animated:YES];
 }
 
 

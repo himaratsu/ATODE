@@ -642,6 +642,7 @@ CLLocationManagerDelegate, MKMapViewDelegate>
 - (void)showTutorialView {
     ATDTutorialView *view = [ATDTutorialView view];
     view.center = self.view.center;
+    view.isFirstTutorial = YES;
     [view show];
 }
 

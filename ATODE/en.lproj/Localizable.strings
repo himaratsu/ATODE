@@ -14,7 +14,7 @@
 "ERROR" = "ERROR";
 "CONFIRM" = "Confirm";
 "DELETE_EDITED_OK" = "Can I delete it?";
-"DESTORY" = "delete";
+"DESTROY" = "delete";
 
 // TOPViewController
 "TAKE_PICTURE"  = "Camera";

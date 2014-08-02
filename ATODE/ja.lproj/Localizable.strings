@@ -14,7 +14,7 @@
 "ERROR" = "エラー";
 "CONFIRM" = "確認";
 "DELETE_EDITED_OK" = "編集内容を破棄しますか？";
-"DESTORY" = "破棄する";
+"DESTROY" = "破棄する";
 
 // TOPViewController
 "TAKE_PICTURE"  = "写真を撮る";

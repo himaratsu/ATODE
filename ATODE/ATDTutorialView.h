@@ -12,6 +12,8 @@ extern NSString *kTutorialDoneFlag;
 
 @interface ATDTutorialView : UIView
 
+@property (nonatomic, assign) BOOL isFirstTutorial;
+
 + (instancetype)view;
 - (void)show;
 

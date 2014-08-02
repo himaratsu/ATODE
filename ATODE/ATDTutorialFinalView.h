@@ -19,6 +19,7 @@
 
 @property (nonatomic, weak) id<ATDTutorialFinalViewDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
+@property (nonatomic, assign) BOOL isFirstTutorial;
 
 + (instancetype)view;
 

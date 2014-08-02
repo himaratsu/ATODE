@@ -20,6 +20,16 @@
     _doneButton.layer.masksToBounds = YES;
 }
 
+- (void)setIsFirstTutorial:(BOOL)isFirstTutorial {
+    _isFirstTutorial = isFirstTutorial;
+    if (_isFirstTutorial) {
+        [_doneButton setTitle:@"使ってみる" forState:UIControlStateNormal];
+    }
+    else {
+        [_doneButton setTitle:@"閉じる" forState:UIControlStateNormal];
+    }
+}
+
 - (IBAction)doneBtnTouched:(id)sender {
     if ([_delegate respondsToSelector:@selector(didTouchDoneBtn)]) {
         [_delegate didTouchDoneBtn];

@@ -229,6 +229,7 @@
 - (void)showTutorial {
     ATDTutorialView *view = [ATDTutorialView view];
     view.center = self.view.center;
+    view.isFirstTutorial = NO;
     [view show];
     
     id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;

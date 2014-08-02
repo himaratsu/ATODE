@@ -13,10 +13,20 @@
                 <view alpha="0.5499999999999996" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VAy-jp-zXz">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s5V-pn-8k7">
+                            <rect key="frame" x="0.0" y="512" width="320" height="56"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="10"/>
+                            <state key="normal">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="brankBtnTouched:" destination="iN0-l3-epB" eventType="touchUpInside" id="Jhw-VE-3Vv"/>
+                            </connections>
+                        </button>
+                    </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    <connections>
-                        <outletCollection property="gestureRecognizers" destination="QLF-vP-Vkn" appends="YES" id="PmN-So-xr8"/>
-                    </connections>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vga-aT-wpC">
                     <rect key="frame" x="14" y="62" width="292" height="450"/>
@@ -26,11 +36,14 @@
                         <outlet property="delegate" destination="iN0-l3-epB" id="LJt-Qf-Mrq"/>
                     </connections>
                 </scrollView>
-                <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="riS-T1-pUX">
+                <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="riS-T1-pUX">
                     <rect key="frame" x="118" y="479" width="84" height="37"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="pageIndicatorTintColor" red="0.84642059948979598" green="0.84642059948979598" blue="0.84642059948979598" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="currentPageIndicatorTintColor" red="0.27819194819999998" green="0.67401682370000005" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="pageControllerTouched:" destination="iN0-l3-epB" eventType="touchDown" id="y0Z-H9-tFa"/>
+                    </connections>
                 </pageControl>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -41,13 +54,7 @@
                 <outlet property="backOverlayView" destination="VAy-jp-zXz" id="Pvz-yI-a0q"/>
                 <outlet property="pageControl" destination="riS-T1-pUX" id="rRC-EI-4yc"/>
                 <outlet property="scrollView" destination="Vga-aT-wpC" id="Bhl-34-N83"/>
-                <outletCollection property="gestureRecognizers" destination="QLF-vP-Vkn" appends="YES" id="DBl-qj-D1M"/>
             </connections>
         </view>
-        <tapGestureRecognizer id="QLF-vP-Vkn">
-            <connections>
-                <action selector="backOverlayViewTouched:" destination="iN0-l3-epB" id="DQu-AC-jEm"/>
-            </connections>
-        </tapGestureRecognizer>
     </objects>
 </document>
