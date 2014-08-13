@@ -11,7 +11,9 @@
 #import "ATDAddViewController.h"
 #import "ATDDetailViewController.h"
 #import "ATDCoreDataManger.h"
+#import "ATDTabelogSearcher.h"
 #import "PlaceMemo.h"
+#import <UIAlertView+Blocks/UIAlertView+Blocks.h>
 #import <UIActionSheet+Blocks/UIActionSheet+Blocks.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <CoreLocation/CoreLocation.h>
@@ -53,6 +55,8 @@ CLLocationManagerDelegate, MKMapViewDelegate>
 @property (weak, nonatomic) IBOutlet UISegmentedControl *typeSegmentedControl;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *leftBarButtonItem;
+
+@property (nonatomic, strong) ATDTabelogSearcher *searcher;
 
 // ad
 @property (nonatomic, strong) GADBannerView *bannerView;
@@ -276,7 +280,8 @@ CLLocationManagerDelegate, MKMapViewDelegate>
             cancelButtonTitle:NSLocalizedString(CANCEL, nil)
        destructiveButtonTitle:nil
             otherButtonTitles:@[NSLocalizedString(TAKE_PICTURE, nil),
-                                NSLocalizedString(SELECT_LIBRARY, nil)]
+                                NSLocalizedString(SELECT_LIBRARY, nil),
+                                @"食べログから追加 (コピーしているURLを使います)"]
                      tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
                          if (buttonIndex != actionSheet.cancelButtonIndex) {
                              if (buttonIndex == 0) {
@@ -284,6 +289,9 @@ CLLocationManagerDelegate, MKMapViewDelegate>
                              }
                              else if (buttonIndex == 1) {
                                  [self getPhotoFromLibrary];
+                             }
+                             else if (buttonIndex == 2) {
+                                 [self getInfoFromTabelog];
                              }
                          }
                      }];
@@ -317,6 +325,27 @@ CLLocationManagerDelegate, MKMapViewDelegate>
                                                            value:nil] build]];
 }
 
+- (void)getInfoFromTabelog {
+    // Pasteboardをチェックして
+    UIPasteboard *board = [UIPasteboard generalPasteboard];
+    NSString *url = [board valueForPasteboardType:@"public.text"];
+    
+    // パターンにマッチすれば提案を出す
+    NSString *host = [[NSURL URLWithString:url] host];
+    if ([host isEqualToString:@"tabelog.com"]
+        || [host isEqualToString:@"s.tabelog.com"]
+        || [host isEqualToString:@"r.gnavi.co.jp"]) {
+        self.searcher = [ATDTabelogSearcher new];
+        [_searcher searchInfoWithTabelogUrl:url];
+    }
+    else {
+        [UIAlertView showWithTitle:@"コピーされている文字列がありません"
+                           message:@"食べログのURLをコピーして再度お試しください"
+                 cancelButtonTitle:nil
+                 otherButtonTitles:@[@"OK"]
+                          tapBlock:nil];
+    }
+}
 
 - (void)gotoAddViewWithAsset:(NSURL *)assetURL image:(UIImage *)image {
     self.library = [[ALAssetsLibrary alloc] init];

@@ -20,4 +20,8 @@
 #import "StringConst.h"
 
 
+#ifdef DEBUG
+
+#else
 #define NSLog(...)
+#endif

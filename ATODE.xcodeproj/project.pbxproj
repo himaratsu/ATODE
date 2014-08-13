@@ -51,6 +51,7 @@
 		20AA05BD197569A9009A1735 /* ATDPostDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20AA05BC197569A9009A1735 /* ATDPostDateCell.m */; };
 		20D64FDA198BCF11006A6E07 /* ATDTutorialStartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D64FD9198BCF11006A6E07 /* ATDTutorialStartView.xib */; };
 		BADD391C7A8C4D6FBB1C5F1C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E43CBDEB2F3F49CA98E99DC4 /* libPods.a */; };
+		D99390C5199B1D0700E71695 /* ATDTabelogSearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D99390C4199B1D0700E71695 /* ATDTabelogSearcher.m */; };
 		D99773F71977825100DBEF35 /* ATDImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99773F61977825100DBEF35 /* ATDImageViewController.m */; };
 		D99774011977DFCC00DBEF35 /* ATDEditMemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99774001977DFCC00DBEF35 /* ATDEditMemoViewController.m */; };
 		D99774051977EB3800DBEF35 /* ATDPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D99774041977EB3800DBEF35 /* ATDPlaceholderTextView.m */; };
@@ -176,6 +177,8 @@
 		20D64FD8198BC380006A6E07 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		20D64FD9198BCF11006A6E07 /* ATDTutorialStartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATDTutorialStartView.xib; sourceTree = "<group>"; };
 		D74FAF12D3944CD3976CCA94 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		D99390C3199B1D0700E71695 /* ATDTabelogSearcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDTabelogSearcher.h; sourceTree = "<group>"; };
+		D99390C4199B1D0700E71695 /* ATDTabelogSearcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDTabelogSearcher.m; sourceTree = "<group>"; };
 		D99773F51977825100DBEF35 /* ATDImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDImageViewController.h; sourceTree = "<group>"; };
 		D99773F61977825100DBEF35 /* ATDImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDImageViewController.m; sourceTree = "<group>"; };
 		D99773FF1977DFCC00DBEF35 /* ATDEditMemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDEditMemoViewController.h; sourceTree = "<group>"; };
@@ -369,6 +372,7 @@
 		202C663919678B3D00497257 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D99390C2199B1CF500E71695 /* Tabelog */,
 				202C663A19678BB400497257 /* ATDPlaceMemo.h */,
 				202C663B19678BB400497257 /* ATDPlaceMemo.m */,
 				201F04221970F9560045AB37 /* ATD4sqPlace.h */,
@@ -519,6 +523,15 @@
 				20AA05BC197569A9009A1735 /* ATDPostDateCell.m */,
 			);
 			name = DetailCell;
+			sourceTree = "<group>";
+		};
+		D99390C2199B1CF500E71695 /* Tabelog */ = {
+			isa = PBXGroup;
+			children = (
+				D99390C3199B1D0700E71695 /* ATDTabelogSearcher.h */,
+				D99390C4199B1D0700E71695 /* ATDTabelogSearcher.m */,
+			);
+			name = Tabelog;
 			sourceTree = "<group>";
 		};
 		D99773F81977D94400DBEF35 /* Map */ = {
@@ -679,7 +692,6 @@
 				202C65FE19604D5D00497257 /* Frameworks */,
 				202C65FF19604D5D00497257 /* Resources */,
 				F98D58F4EE264E79A40416FF /* Copy Pods Resources */,
-				20A0F5CF198A992600D94141 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -781,19 +793,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		20A0F5CF198A992600D94141 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "${PROJECT_DIR}/scripts/update_storyboard_strings.sh";
-		};
 		2855450B6C934BC79E4B7E34 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -840,6 +839,7 @@
 				20AA05B119756967009A1735 /* ATDPhotoCell.m in Sources */,
 				20AA05B419756975009A1735 /* ATDPlaceInfoCell.m in Sources */,
 				208131BB196798BA0094E577 /* ATODE.xcdatamodeld in Sources */,
+				D99390C5199B1D0700E71695 /* ATDTabelogSearcher.m in Sources */,
 				201F042A197102750045AB37 /* ATDSettingViewController.m in Sources */,
 				202C661519604D5D00497257 /* ATDAppDelegate.m in Sources */,
 				D9AEEBE91987CDA40058AFA7 /* ATDTutorialFinalView.m in Sources */,
