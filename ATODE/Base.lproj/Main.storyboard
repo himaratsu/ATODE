@@ -116,6 +116,7 @@ add first memo!</string>
                         <outlet property="typeSegmentedControl" destination="v5k-SN-2Rf" id="gdT-7o-0Fw"/>
                         <segue destination="biE-qT-31g" kind="push" identifier="showAdd" id="7cx-ZZ-VUX"/>
                         <segue destination="8Zi-ME-39t" kind="push" identifier="showDetail" id="Ykd-SS-lBk"/>
+                        <segue destination="biE-qT-31g" kind="push" identifier="showAddFromSite" id="0am-88-7pm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -764,4 +765,7 @@ add first memo!</string>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="0am-88-7pm"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -281,7 +281,7 @@ CLLocationManagerDelegate, MKMapViewDelegate>
        destructiveButtonTitle:nil
             otherButtonTitles:@[NSLocalizedString(TAKE_PICTURE, nil),
                                 NSLocalizedString(SELECT_LIBRARY, nil),
-                                @"食べログから追加 (コピーしているURLを使います)"]
+                                @"食べログから追加 (コピー中のURLを使用)"]
                      tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
                          if (buttonIndex != actionSheet.cancelButtonIndex) {
                              if (buttonIndex == 0) {
@@ -336,7 +336,28 @@ CLLocationManagerDelegate, MKMapViewDelegate>
         || [host isEqualToString:@"s.tabelog.com"]
         || [host isEqualToString:@"r.gnavi.co.jp"]) {
         self.searcher = [ATDTabelogSearcher new];
-        [_searcher searchInfoWithTabelogUrl:url];
+        [_searcher searchInfoWithTabelogUrl:url
+                                    handler:^(NSString *title, CLLocation *location, NSString *imageUrl, NSString *errorMsg) {
+                                        if (errorMsg) {
+                                            [UIAlertView showWithTitle:@"エラー"
+                                                               message:errorMsg
+                                                     cancelButtonTitle:nil
+                                                     otherButtonTitles:@[@"OK"]
+                                                              tapBlock:nil];
+                                            return;
+                                        }
+                                        
+                                        NSLog(@"===== success =====");
+                                        NSLog(@"title[%@]", title);
+                                        NSLog(@"coordinate[%f-%f]", location.coordinate.latitude, location.coordinate.longitude);
+                                        NSLog(@"imageUrl[%@]", imageUrl);
+                                        
+                                        NSDictionary *params = @{@"title":title,
+                                                                 @"location":location,
+                                                                 @"imageUrl":imageUrl};
+                                        [self performSegueWithIdentifier:@"showAddFromSite" sender:params];
+                                        
+                                    }];
     }
     else {
         [UIAlertView showWithTitle:@"コピーされている文字列がありません"
@@ -436,6 +457,17 @@ CLLocationManagerDelegate, MKMapViewDelegate>
         ATDAddViewController *addVC = segue.destinationViewController;
         addVC.image = sender;
         addVC.coordinate = _imageCoordinate;
+    }
+    else if ([segue.identifier isEqualToString:@"showAddFromSite"]) {
+        NSDictionary *params = (NSDictionary *)sender;
+        
+        ATDAddViewController *addVC = segue.destinationViewController;
+        addVC.isRegistFromSite = YES;   // このフラグをたてる
+        addVC.defaultMemoStr = params[@"title"];
+        addVC.imageUrl = params[@"imageUrl"];
+        
+        CLLocation *location = params[@"location"];
+        addVC.coordinate = location.coordinate;
     }
     else if ([segue.identifier isEqualToString:@"showDetail"]) {
         ATDDetailViewController *detailVC = segue.destinationViewController;
