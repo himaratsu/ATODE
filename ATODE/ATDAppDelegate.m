@@ -11,13 +11,31 @@
 #import "Crittercism.h"
 #import "UIViewController+GAInject.h"
 
+#define kDefaultTextColor [UIColor colorWithRed:70/255.0 green:171/255.0 blue:235/255.0 alpha:1.0]
+
 @implementation ATDAppDelegate
+
++ (UIColor*)colorWithHexString:(NSString *)hex {
+    return [self colorWithHexString:hex alpha:1.0];
+}
+
++ (UIColor*)colorWithHexString:(NSString *)hex alpha:(CGFloat)a {
+    NSScanner *colorScanner = [NSScanner scannerWithString:hex];
+    unsigned int color;
+    if (![colorScanner scanHexInt:&color]) return nil;
+    CGFloat r = ((color & 0xFF0000) >> 16)/255.0f;
+    CGFloat g = ((color & 0x00FF00) >> 8) /255.0f;
+    CGFloat b =  (color & 0x0000FF) /255.0f;
+    return [UIColor colorWithRed:r green:g blue:b alpha:a];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Google Analytics
     [GAI sharedInstance].trackUncaughtExceptions = YES;
     [GAI sharedInstance].dispatchInterval = 20;
+    
+    UIColor *color = kDefaultTextColor;
     
     [[GAI sharedInstance] trackerWithTrackingId:@"UA-53347390-1"];
     
@@ -38,7 +56,8 @@
 - (void)setAppearance {
     [UITableViewCell appearance].separatorInset = UIEdgeInsetsZero;
     
-    [UINavigationBar appearance].barTintColor = [UIColor colorWithRed:70/255.0 green:171/255.0 blue:235/255.0 alpha:1.0];
+    [UINavigationBar appearance].barTintColor
+                        = [UIColor colorWithRed:70/255.0 green:171/255.0 blue:235/255.0 alpha:1.0];
     [UINavigationBar appearance].tintColor = [UIColor whiteColor];
     NSDictionary *attributes = @{
                                  NSFontAttributeName : [UIFont systemFontOfSize:18],

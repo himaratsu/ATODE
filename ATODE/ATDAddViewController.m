@@ -43,13 +43,13 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
     
     _imageView.image = _image;
     
-    _titleTextView.placeholder = NSLocalizedString(CAN_INPUT_MEMO, nil);
+    _titleTextView.placeholder = NSLocalizedString(@"CAN_INPUT_MEMO", nil);
     
     if (_coordinate.latitude != 0 && _coordinate.longitude != 0) {
         _latlngLabel.text = [NSString stringWithFormat:@"%f, %f", _coordinate.latitude, _coordinate.longitude];
     }
     else {
-        _latlngLabel.text = NSLocalizedString(CANNOT_GET_LOCATION, nil);
+        _latlngLabel.text = NSLocalizedString(@"CANNOT_GET_LOCATION", nil);
     }
     
     [self setUpViews];
@@ -102,7 +102,7 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
     [[ATDCoreDataManger sharedInstance] saveNewMemo:memo];
     
     [UIAlertView showWithTitle:@"Success"
-                       message:NSLocalizedString(ADD_PLACE, nil)
+                       message:NSLocalizedString(@"ADD_PLACE", nil)
              cancelButtonTitle:nil
              otherButtonTitles:@[@"OK"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
                  if (alertView.cancelButtonIndex != buttonIndex) {
@@ -179,8 +179,8 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
     // 画像
     NSString *filePath = [self saveImageWithImage:_image];
     if (!filePath) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(ERROR, nil)
-                                                        message:NSLocalizedString(FAIL_SAVE_IMAGE, nil)
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ERROR", nil)
+                                                        message:NSLocalizedString(@"FAIL_SAVE_IMAGE", nil)
                                                        delegate:nil
                                               cancelButtonTitle:nil
                                               otherButtonTitles:@"OK", nil];
@@ -272,10 +272,10 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
 #pragma mark IBAction
 
 - (void)closeBtnTouched {
-    [UIAlertView showWithTitle:NSLocalizedString(CONFIRM, nil)
-                       message:NSLocalizedString(DELETE_EDITED_OK, nil)
-             cancelButtonTitle:NSLocalizedString(CANCEL, nik)
-             otherButtonTitles:@[NSLocalizedString(DESTROY, nil)]
+    [UIAlertView showWithTitle:NSLocalizedString(@"CONFIRM", nil)
+                       message:NSLocalizedString(@"DELETE_EDITED_OK", nil)
+             cancelButtonTitle:NSLocalizedString(@"CANCEL", nik)
+             otherButtonTitles:@[NSLocalizedString(@"DESTROY", nil)]
                       tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
                           if (alertView.cancelButtonIndex != buttonIndex) {
                               [self.navigationController popViewControllerAnimated:YES];

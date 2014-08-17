@@ -50,22 +50,22 @@
 }
 
 - (IBAction)actionBtnTouched:(id)sender {
-    [UIActionSheet showInView:self.view
-                    withTitle:NSLocalizedString(OPEN_OTHER_APP, nil)
-            cancelButtonTitle:NSLocalizedString(CANCEL, nil)
-       destructiveButtonTitle:nil
-            otherButtonTitles:@[NSLocalizedString(OPEN_IOS_MAP, nil),
-                                NSLocalizedString(OPEN_GOOGLE_MAP, nil)]
-                     tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
-                         if (actionSheet.cancelButtonIndex != buttonIndex) {
-                             if (buttonIndex == 0) {
-                                 [self openNativeMap];
-                             }
-                             else if (buttonIndex == 1) {
-                                 [self openGoogleMap];
-                             }
+[UIActionSheet showInView:self.view
+                withTitle:NSLocalizedString(@"OPEN_OTHER_APP", nil)
+        cancelButtonTitle:NSLocalizedString(@"CANCEL", nil)
+   destructiveButtonTitle:nil
+        otherButtonTitles:@[NSLocalizedString(@"OPEN_IOS_MAP", nil),
+                            NSLocalizedString(@"OPEN_GOOGLE_MAP", nil)]
+                 tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
+                     if (actionSheet.cancelButtonIndex != buttonIndex) {
+                         if (buttonIndex == 0) {
+                             [self openNativeMap];
                          }
-                     }];
+                         else if (buttonIndex == 1) {
+                             [self openGoogleMap];
+                         }
+                     }
+                 }];
 }
 
 
