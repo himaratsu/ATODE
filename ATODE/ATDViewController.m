@@ -86,6 +86,13 @@ CLLocationManagerDelegate, MKMapViewDelegate>
     if (!isDoneTutorial) {
         [self showTutorialView];
     }
+    else {
+        NSString *versionDiffId = @"version1.1";
+        BOOL isDoneShowVersionDiff = [[NSUserDefaults standardUserDefaults] boolForKey:versionDiffId];
+        if (!isDoneShowVersionDiff) {
+            [self showVersionUpView:versionDiffId];
+        }
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -709,6 +716,18 @@ CLLocationManagerDelegate, MKMapViewDelegate>
     view.center = self.view.center;
     view.isFirstTutorial = YES;
     [view show];
+}
+
+- (void)showVersionUpView:(NSString *)showVersionUpView {
+    [UIAlertView showWithTitle:@"Ver.1.1 の変更点"
+                       message:@"・食べログのURLからお店を追加できるようになりました\n・foursquareの検索の精度を向上しました"
+             cancelButtonTitle:nil
+             otherButtonTitles:@[@"OK"]
+                      tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                          NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                          [defaults setBool:YES forKey:showVersionUpView];
+                          [defaults synchronize];
+                      }];
 }
 
 @end
