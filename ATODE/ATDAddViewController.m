@@ -42,7 +42,7 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
 {
     [super viewDidLoad];
     
-    _titleTextView.placeholder = NSLocalizedString(CAN_INPUT_MEMO, nil);
+    _titleTextView.placeholder = NSLocalizedString(@"CAN_INPUT_MEMO", nil);
     
     if (_isRegistFromSite) {
         [_imageView setImageWithURL:[NSURL URLWithString:_imageUrl]

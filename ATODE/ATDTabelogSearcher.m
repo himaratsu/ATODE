@@ -48,7 +48,7 @@
         if (shopTitle == nil || [shopTitle isEqualToString:@""]
             || address == nil || [address isEqualToString:@""]
             || imageUrl == nil || [imageUrl isEqualToString:@""]) {
-            self.handler(nil, nil, nil, @"該当するお店を見つけられませんでした。URLが正しいかを確認してください");
+            self.handler(nil, nil, nil, NSLocalizedString(@"SHOP_NOT_FOUND", nil));
             return;
         }
         
@@ -56,7 +56,7 @@
         CLGeocoder *geocoder = [[CLGeocoder alloc] init];
         [geocoder geocodeAddressString:address completionHandler:^(NSArray *placemarks, NSError *error) {
             if (error) {
-                self.handler(nil, nil, nil, @"住所取得中にエラーが発生しました。時間をおいて再度お試しください");
+                self.handler(nil, nil, nil, NSLocalizedString(@"GET_ADDRESS_ERROR", nil));
                 return;
             }
             else {
@@ -66,7 +66,7 @@
                     self.handler(shopTitle, location, imageUrl, nil);
                 }
                 else {
-                    self.handler(nil, nil, nil, @"住所を分析できませんでした");
+                    self.handler(nil, nil, nil, NSLocalizedString(@"CANNOT_ANALYZE_ADDRESS", nil));
                     NSLog(@"住所をジオコーディングできませんでした");
                 }
             }

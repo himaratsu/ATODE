@@ -199,7 +199,7 @@ CLLocationManagerDelegate, MKMapViewDelegate>
                                                                                    [memo.longitude floatValue]);
             
             // 空欄対策
-            NSString *pinTitle = @"メモなし";
+            NSString *pinTitle = NSLocalizedString(@"NO_MEMO_PIN", nil);
             NSString *pinSubTitle = @"";
             if (memo.title) {
                 pinTitle = memo.title;
@@ -279,9 +279,9 @@ CLLocationManagerDelegate, MKMapViewDelegate>
                     withTitle:NSLocalizedString(@"PHOTO", nil)
             cancelButtonTitle:NSLocalizedString(@"CANCEL", nil)
        destructiveButtonTitle:nil
-            otherButtonTitles:@[NSLocalizedString(TAKE_PICTURE, nil),
-                                NSLocalizedString(SELECT_LIBRARY, nil),
-                                @"食べログから追加 (コピー中のURLを使用)"]
+            otherButtonTitles:@[NSLocalizedString(@"TAKE_PICTURE", nil),
+                                NSLocalizedString(@"SELECT_LIBRARY", nil),
+                                NSLocalizedString(@"ADD_FROM_TABELOG", nil)]
                      tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
                          if (buttonIndex != actionSheet.cancelButtonIndex) {
                              if (buttonIndex == 0) {
@@ -343,7 +343,7 @@ CLLocationManagerDelegate, MKMapViewDelegate>
                                     handler:^(NSString *title, CLLocation *location, NSString *imageUrl, NSString *errorMsg) {
                                         [SVProgressHUD dismiss];
                                         if (errorMsg) {
-                                            [UIAlertView showWithTitle:@"エラー"
+                                            [UIAlertView showWithTitle:NSLocalizedString(@"ERROR", nil)
                                                                message:errorMsg
                                                      cancelButtonTitle:nil
                                                      otherButtonTitles:@[@"OK"]
@@ -364,8 +364,8 @@ CLLocationManagerDelegate, MKMapViewDelegate>
                                     }];
     }
     else {
-        [UIAlertView showWithTitle:@"コピーされている文字列がありません"
-                           message:@"食べログのURLをコピーして再度お試しください"
+        [UIAlertView showWithTitle:NSLocalizedString(@"NO_COPY_URL", nil)
+                           message:NSLocalizedString(@"PLZ_COPY_TABELOG_URL", nil)
                  cancelButtonTitle:nil
                  otherButtonTitles:@[@"OK"]
                           tapBlock:nil];

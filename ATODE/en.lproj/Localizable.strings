@@ -19,6 +19,7 @@
 // TOPViewController
 "TAKE_PICTURE"  = "Camera";
 "SELECT_LIBRARY"    = "Choose from Library";
+"ADD_FROM_TABELOG" = "Add from Tabelog (Use Clipboard Url)";
 "LOCATION_SETTING_NOTICE"   =  "Please turn location information 'ON'.\n\nSetting:\nSetting(app) > Privacy > Location Manager";
 
 // ADDViewController
@@ -57,3 +58,9 @@
 
 // APP
 "APP_DESCRIPTION" = "regist 'Will Go Later' place, Go Memo";
+"NO_COPY_URL" = "clipboard has no url";
+"PLZ_COPY_TABELOG_URL" = "copy tabelog.com url and try again!";
+"NO_MEMO_PIN" = "No memo";
+"SHOP_NOT_FOUND" = "shop not found. please verify url you coppied";
+"GET_ADDRESS_ERROR" = "shop address is not found. plz try again later";
+"CANNOT_ANALYZE_ADDRESS" = "sorry. we cannot understand address";
