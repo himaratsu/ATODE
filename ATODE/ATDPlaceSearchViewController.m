@@ -23,7 +23,7 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
 @property (nonatomic, strong) NSArray *places;
 @property (nonatomic, strong) NSArray *filterdPlaces;
 
-
+@property (nonatomic, assign) BOOL isUseDefaultPosition;    // 渋谷起点で検索しているフラグ
 
 @end
 
@@ -65,7 +65,8 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
                         _coordinate.longitude];
     }
     else {
-        ll = @"35.661913, 139.700943";
+        ll = @"35.661913, 139.700943";  // Shibuya
+        _isUseDefaultPosition = YES;
     }
 #endif
     
@@ -102,11 +103,16 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
                     _coordinate.latitude,
                     _coordinate.longitude];
     
-    NSDictionary *params = @{@"client_id":kApiClientID,
-                             @"client_secret":kApiClientSecret,
-                             @"query":query,
-                             @"v":@"20140707",
-                             @"ll":ll};
+    NSMutableDictionary *params = @{@"client_id":kApiClientID,
+                                    @"client_secret":kApiClientSecret,
+                                    @"query":query,
+                                    @"v":@"20140707"}.mutableCopy;
+    if (!_isUseDefaultPosition) {
+        params[@"ll"] = ll;
+    }
+    else {
+        params[@"intent"] = @"global";
+    }
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:@"https://api.foursquare.com/v2/venues/search"
