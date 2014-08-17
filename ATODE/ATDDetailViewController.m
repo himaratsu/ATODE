@@ -237,7 +237,7 @@ MWPhotoBrowserDelegate>
 }
 
 #pragma mark -
-#pragma mark MWPhoto
+#pragma mark MWPhotoBrowserDelegate
 
 - (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
     return self.foursquarePhotos.count;
@@ -254,9 +254,9 @@ MWPhotoBrowserDelegate>
 #pragma mark IBAction
 
 - (IBAction)deleteBtnTouched:(id)sender {
-    [UIActionSheet showInView:self.view withTitle:NSLocalizedString(DELETE_CONFIRM, nil)
-            cancelButtonTitle:NSLocalizedString(CANCEL, nil)
-       destructiveButtonTitle:NSLocalizedString(GO_DELETE, nil)
+    [UIActionSheet showInView:self.view withTitle:NSLocalizedString(@"DELETE_CONFIRM", nil)
+            cancelButtonTitle:NSLocalizedString(@"CANCEL", nil)
+       destructiveButtonTitle:NSLocalizedString(@"GO_DELETE", nil)
             otherButtonTitles:nil
                      tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
                          if (actionSheet.destructiveButtonIndex == buttonIndex) {
@@ -269,7 +269,7 @@ MWPhotoBrowserDelegate>
     [[ATDCoreDataManger sharedInstance] deleteMemo:_memo];
     
     [UIAlertView showWithTitle:@"Success!"
-                       message:NSLocalizedString(DELETE_DONE, nil)
+                       message:NSLocalizedString(@"DELETE_DONE", nil)
              cancelButtonTitle:nil
              otherButtonTitles:@[@"OK"]
                       tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {

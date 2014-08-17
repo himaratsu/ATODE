@@ -88,13 +88,13 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (section == 0) {
-        return NSLocalizedString(CONTACT_US, nil);
+        return NSLocalizedString(@"CONTACT_US", nil);
     }
     else if (section == 1) {
-        return NSLocalizedString(ABOUT, nil);
+        return NSLocalizedString(@"ABOUT", nil);
     }
     else if (section == 2) {
-        return NSLocalizedString(OTHER, nil);
+        return NSLocalizedString(@"OTHER", nil);
     }
     
     return @"";
@@ -106,13 +106,13 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IndicatorCell"];
         switch (indexPath.row) {
             case kSettingRequestCellTypeRequest:
-                cell.textLabel.text = NSLocalizedString(FEEDBACK_AND_COMMENT, nil);
+                cell.textLabel.text = NSLocalizedString(@"FEEDBACK_AND_COMMENT", nil);
                 break;
             case kSettingRequestCellTypeIntroduce:
-                cell.textLabel.text = NSLocalizedString(INTRODUCE_FRIENDS, nil);
+                cell.textLabel.text = NSLocalizedString(@"INTRODUCE_FRIENDS", nil);
                 break;
             case kSettingRequestCellTypeReview:
-                cell.textLabel.text = NSLocalizedString(WRITE_REVIEW, nil);
+                cell.textLabel.text = NSLocalizedString(@"WRITE_REVIEW", nil);
                 break;
         }
         return cell;
@@ -121,15 +121,15 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IndicatorCell"];
         switch (indexPath.row) {
             case kSettingAboutCellTypeHowToUse:
-                cell.textLabel.text = NSLocalizedString(HOW_TO_USE, nil);
+                cell.textLabel.text = NSLocalizedString(@"HOW_TO_USE", nil);
                 break;
             case kSettingAboutCellTypeLicense:
-                cell.textLabel.text = NSLocalizedString(LICENSE, nil);
+                cell.textLabel.text = NSLocalizedString(@"LICENSE", nil);
                 break;
             case kSettingAboutCellTypeVersion:
             {
                 UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-                cell.textLabel.text = NSLocalizedString(VERSION, nil);
+                cell.textLabel.text = NSLocalizedString(@"VERSION", nil);
                 cell.detailTextLabel.text = [self _appVersion];
                 return cell;
             }
@@ -191,8 +191,8 @@
         if (indexPath.row == 0) {
             // データ削除
             [UIActionSheet showInView:self.view
-                            withTitle:NSLocalizedString(DELETE_CONFIRM, nil)
-                    cancelButtonTitle:NSLocalizedString(CANCEL, nil)
+                            withTitle:NSLocalizedString(@"DELETE_CONFIRM", nil)
+                    cancelButtonTitle:NSLocalizedString(@"CANCEL", nil)
                destructiveButtonTitle:@"データをすべて削除する"
                     otherButtonTitles:nil
                              tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
@@ -208,7 +208,7 @@
 
 - (void)resetMemoData {
     [[ATDCoreDataManger sharedInstance] resetSaveData];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(DELETE_DONE, nil)
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"DELETE_DONE", nil)
                                                      message:@""
                                                     delegate:nil
                                            cancelButtonTitle:nil otherButtonTitles:@"OK", nil
@@ -241,12 +241,12 @@
 
 - (void)introduceFriends {
     [UIActionSheet showInView:self.view
-                    withTitle:NSLocalizedString(INTRODUCE_FRIENDS, nil)
-            cancelButtonTitle:NSLocalizedString(CANCEL, nil)
+                    withTitle:NSLocalizedString(@"INTRODUCE_FRIENDS", nil)
+            cancelButtonTitle:NSLocalizedString(@"CANCEL", nil)
        destructiveButtonTitle:nil
-            otherButtonTitles:@[NSLocalizedString(POST_TO_TWITTER, nil),
-                                NSLocalizedString(POST_TO_FACEBOOK, nil),
-                                NSLocalizedString(POST_TO_LINE, nil)]
+            otherButtonTitles:@[NSLocalizedString(@"POST_TO_TWITTER", nil),
+                                NSLocalizedString(@"POST_TO_FACEBOOK", nil),
+                                NSLocalizedString(@"POST_TO_LINE", nil)]
                      tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
                          if (actionSheet.cancelButtonIndex != buttonIndex) {
                              if (buttonIndex == 0) {
@@ -264,7 +264,7 @@
 
 - (NSString *)createShareMessage {
     NSString *msg = [NSString stringWithFormat:@"%@ - %@",
-                     NSLocalizedString(APP_DESCRIPTION, nil),
+                     NSLocalizedString(@"APP_DESCRIPTION", nil),
                      APP_STORE_URL];
     return msg;
 }
@@ -272,7 +272,7 @@
 - (void)postTwitter {
     SLComposeViewController *vc = [SLComposeViewController
                                    composeViewControllerForServiceType:SLServiceTypeTwitter];
-    [vc setInitialText:NSLocalizedString(APP_DESCRIPTION, nil)];
+    [vc setInitialText:NSLocalizedString(@"APP_DESCRIPTION", nil)];
     [vc addURL:[NSURL URLWithString:APP_STORE_URL]];
     [self presentViewController:vc animated:YES completion:nil];
     
@@ -286,7 +286,7 @@
 - (void)postFacebook {
     SLComposeViewController *vc = [SLComposeViewController
                                    composeViewControllerForServiceType:SLServiceTypeFacebook];
-    [vc setInitialText:NSLocalizedString(APP_DESCRIPTION, nil)];
+    [vc setInitialText:NSLocalizedString(@"APP_DESCRIPTION", nil)];
     [vc addURL:[NSURL URLWithString:APP_STORE_URL]];
     [self presentViewController:vc animated:YES completion:nil];
     
@@ -300,7 +300,7 @@
 - (void)postLINE {
     if (![[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"line://"]]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
-                                                        message:NSLocalizedString(LINE_NOT_INSTALLED, nil)
+                                                        message:NSLocalizedString(@"LINE_NOT_INSTALLED", nil)
                                                        delegate:nil
                                               cancelButtonTitle:nil
                                               otherButtonTitles:@"OK", nil];
@@ -348,14 +348,14 @@
         [mailViewController setToRecipients:[NSArray arrayWithObject:SUPPORT_MAIL_ADDRESS]];
         mailViewController.title = @"";
         
-        NSString *subjectStr = [NSString stringWithFormat:@"【Go Memo】%@", NSLocalizedString(CONTACT_US, nil)];
+        NSString *subjectStr = [NSString stringWithFormat:@"【Go Memo】%@", NSLocalizedString(@"CONTACT_US", nil)];
         [mailViewController setSubject:subjectStr];
         
         // マーケットに出ている場合
         NSString *body = @"【%@】\n\n\n\n※%@ \n-----\nDEVICE: %@\niOS: %@\nVERSION: %@\n";
         [mailViewController setMessageBody:[NSString stringWithFormat:body,
-                                            NSLocalizedString(FEEDBACK_AND_COMMENT, nil),
-                                            NSLocalizedString(DONT_CHANGE_BELOW, nil),
+                                            NSLocalizedString(@"FEEDBACK_AND_COMMENT", nil),
+                                            NSLocalizedString(@"DONT_CHANGE_BELOW", nil),
                                             [UIDevice currentDevice].systemVersion,
                                             [self _platformString],
                                             [self _appVersion]] isHTML:NO];
@@ -440,8 +440,8 @@
     
     // 送信
     if (result == MFMailComposeResultSent) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(THANK_YOU, nil)
-                                                            message:NSLocalizedString(WE_IMPROVE, nil)
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"THANK_YOU", nil)
+                                                            message:NSLocalizedString(@"WE_IMPROVE", nil)
                                                            delegate:nil
                                                   cancelButtonTitle:nil
                                                   otherButtonTitles:@"OK", nil];

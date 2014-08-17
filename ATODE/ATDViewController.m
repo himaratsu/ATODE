@@ -174,7 +174,7 @@ CLLocationManagerDelegate, MKMapViewDelegate>
     [_mapView addSubview:errorOverlayView];
     
     UILabel *descLabel = [[UILabel alloc] initWithFrame:_mapView.bounds];
-    descLabel.text = NSLocalizedString(LOCATION_SETTING_NOTICE, nil);
+    descLabel.text = NSLocalizedString(@"LOCATION_SETTING_NOTICE", nil);
     descLabel.numberOfLines = 0;
     descLabel.tag = 2;
     descLabel.font = [UIFont systemFontOfSize:13.0f];
@@ -276,8 +276,8 @@ CLLocationManagerDelegate, MKMapViewDelegate>
 
 - (IBAction)addBtnTouched:(id)sender {
     [UIActionSheet showInView:self.view
-                    withTitle:NSLocalizedString(PHOTO, nil)
-            cancelButtonTitle:NSLocalizedString(CANCEL, nil)
+                    withTitle:NSLocalizedString(@"PHOTO", nil)
+            cancelButtonTitle:NSLocalizedString(@"CANCEL", nil)
        destructiveButtonTitle:nil
             otherButtonTitles:@[NSLocalizedString(TAKE_PICTURE, nil),
                                 NSLocalizedString(SELECT_LIBRARY, nil),

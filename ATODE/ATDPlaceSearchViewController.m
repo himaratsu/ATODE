@@ -73,7 +73,7 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
                              @"client_secret":kApiClientSecret,
                              @"v":@"20140707",
                              @"ll":ll};
-    
+
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:@"https://api.foursquare.com/v2/venues/search"
       parameters:params
