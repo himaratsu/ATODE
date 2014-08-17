@@ -351,10 +351,10 @@ CLLocationManagerDelegate, MKMapViewDelegate>
                                             return;
                                         }
                                         
-                                        NSLog(@"===== success =====");
-                                        NSLog(@"title[%@]", title);
-                                        NSLog(@"coordinate[%f-%f]", location.coordinate.latitude, location.coordinate.longitude);
-                                        NSLog(@"imageUrl[%@]", imageUrl);
+//                                        NSLog(@"===== success =====");
+//                                        NSLog(@"title[%@]", title);
+//                                        NSLog(@"coordinate[%f-%f]", location.coordinate.latitude, location.coordinate.longitude);
+//                                        NSLog(@"imageUrl[%@]", imageUrl);
                                         
                                         NSDictionary *params = @{@"title":title,
                                                                  @"location":location,
