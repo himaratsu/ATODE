@@ -11,7 +11,9 @@
 #import "ATDAddViewController.h"
 #import "ATDDetailViewController.h"
 #import "ATDCoreDataManger.h"
+#import "ATDTabelogSearcher.h"
 #import "PlaceMemo.h"
+#import <UIAlertView+Blocks/UIAlertView+Blocks.h>
 #import <UIActionSheet+Blocks/UIActionSheet+Blocks.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <CoreLocation/CoreLocation.h>
@@ -19,6 +21,7 @@
 #import <ImageIO/ImageIO.h>
 #import <MapKit/MapKit.h>
 #import <FontAwesomeKit/FontAwesomeKit.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 #import "MKMapView+ATDZoomLevel.h"
 #import "ATDAnnotation.h"
 #import "ATDTutorialView.h"
@@ -53,6 +56,8 @@ CLLocationManagerDelegate, MKMapViewDelegate>
 @property (weak, nonatomic) IBOutlet UISegmentedControl *typeSegmentedControl;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *leftBarButtonItem;
+
+@property (nonatomic, strong) ATDTabelogSearcher *searcher;
 
 // ad
 @property (nonatomic, strong) GADBannerView *bannerView;
@@ -133,7 +138,6 @@ CLLocationManagerDelegate, MKMapViewDelegate>
 }
 
 
-
 - (void)setUpMapViews {
     [self resetMapErrorViews];
     
@@ -195,7 +199,7 @@ CLLocationManagerDelegate, MKMapViewDelegate>
                                                                                    [memo.longitude floatValue]);
             
             // 空欄対策
-            NSString *pinTitle = @"メモなし";
+            NSString *pinTitle = NSLocalizedString(@"NO_MEMO_PIN", nil);
             NSString *pinSubTitle = @"";
             if (memo.title) {
                 pinTitle = memo.title;
@@ -276,7 +280,8 @@ CLLocationManagerDelegate, MKMapViewDelegate>
             cancelButtonTitle:NSLocalizedString(@"CANCEL", nil)
        destructiveButtonTitle:nil
             otherButtonTitles:@[NSLocalizedString(@"TAKE_PICTURE", nil),
-                                NSLocalizedString(@"SELECT_LIBRARY", nil)]
+                                NSLocalizedString(@"SELECT_LIBRARY", nil),
+                                NSLocalizedString(@"ADD_FROM_TABELOG", nil)]
                      tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
                          if (buttonIndex != actionSheet.cancelButtonIndex) {
                              if (buttonIndex == 0) {
@@ -284,6 +289,9 @@ CLLocationManagerDelegate, MKMapViewDelegate>
                              }
                              else if (buttonIndex == 1) {
                                  [self getPhotoFromLibrary];
+                             }
+                             else if (buttonIndex == 2) {
+                                 [self getInfoFromTabelog];
                              }
                          }
                      }];
@@ -317,6 +325,52 @@ CLLocationManagerDelegate, MKMapViewDelegate>
                                                            value:nil] build]];
 }
 
+- (void)getInfoFromTabelog {
+    // Pasteboardをチェックして
+    UIPasteboard *board = [UIPasteboard generalPasteboard];
+    NSString *url = [board valueForPasteboardType:@"public.text"];
+    
+    // パターンにマッチすれば提案を出す
+    NSString *host = [[NSURL URLWithString:url] host];
+    if ([host isEqualToString:@"tabelog.com"]
+        || [host isEqualToString:@"s.tabelog.com"]
+        || [host isEqualToString:@"r.gnavi.co.jp"]) {
+        
+        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
+        
+        self.searcher = [ATDTabelogSearcher new];
+        [_searcher searchInfoWithTabelogUrl:url
+                                    handler:^(NSString *title, CLLocation *location, NSString *imageUrl, NSString *errorMsg) {
+                                        [SVProgressHUD dismiss];
+                                        if (errorMsg) {
+                                            [UIAlertView showWithTitle:NSLocalizedString(@"ERROR", nil)
+                                                               message:errorMsg
+                                                     cancelButtonTitle:nil
+                                                     otherButtonTitles:@[@"OK"]
+                                                              tapBlock:nil];
+                                            return;
+                                        }
+                                        
+//                                        NSLog(@"===== success =====");
+//                                        NSLog(@"title[%@]", title);
+//                                        NSLog(@"coordinate[%f-%f]", location.coordinate.latitude, location.coordinate.longitude);
+//                                        NSLog(@"imageUrl[%@]", imageUrl);
+                                        
+                                        NSDictionary *params = @{@"title":title,
+                                                                 @"location":location,
+                                                                 @"imageUrl":imageUrl};
+                                        [self performSegueWithIdentifier:@"showAddFromSite" sender:params];
+                                        
+                                    }];
+    }
+    else {
+        [UIAlertView showWithTitle:NSLocalizedString(@"NO_COPY_URL", nil)
+                           message:NSLocalizedString(@"PLZ_COPY_TABELOG_URL", nil)
+                 cancelButtonTitle:nil
+                 otherButtonTitles:@[@"OK"]
+                          tapBlock:nil];
+    }
+}
 
 - (void)gotoAddViewWithAsset:(NSURL *)assetURL image:(UIImage *)image {
     self.library = [[ALAssetsLibrary alloc] init];
@@ -407,6 +461,17 @@ CLLocationManagerDelegate, MKMapViewDelegate>
         ATDAddViewController *addVC = segue.destinationViewController;
         addVC.image = sender;
         addVC.coordinate = _imageCoordinate;
+    }
+    else if ([segue.identifier isEqualToString:@"showAddFromSite"]) {
+        NSDictionary *params = (NSDictionary *)sender;
+        
+        ATDAddViewController *addVC = segue.destinationViewController;
+        addVC.isRegistFromSite = YES;   // このフラグをたてる
+        addVC.defaultMemoStr = params[@"title"];
+        addVC.imageUrl = params[@"imageUrl"];
+        
+        CLLocation *location = params[@"location"];
+        addVC.coordinate = location.coordinate;
     }
     else if ([segue.identifier isEqualToString:@"showDetail"]) {
         ATDDetailViewController *detailVC = segue.destinationViewController;

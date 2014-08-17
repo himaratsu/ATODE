@@ -14,6 +14,7 @@
 #import <CommonCrypto/CommonCrypto.h>
 #import <UIAlertView+Blocks/UIAlertView+Blocks.h>
 #import <AFNetworking/AFNetworking.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "GAIDictionaryBuilder.h"
 
 static NSString * const kApiClientID = @"UXFP35M0BBM3BSQS0IEDLDHQECN4PIP5IYE14CD4MBR1VPS2";
@@ -41,9 +42,19 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
 {
     [super viewDidLoad];
     
-    _imageView.image = _image;
-    
     _titleTextView.placeholder = NSLocalizedString(@"CAN_INPUT_MEMO", nil);
+    
+    if (_isRegistFromSite) {
+        [_imageView setImageWithURL:[NSURL URLWithString:_imageUrl]
+                          completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                            // fade?
+                          }];
+        _titleTextView.text = _defaultMemoStr;
+        
+    }
+    else {
+        _imageView.image = _image;
+    }
     
     if (_coordinate.latitude != 0 && _coordinate.longitude != 0) {
         _latlngLabel.text = [NSString stringWithFormat:@"%f, %f", _coordinate.latitude, _coordinate.longitude];
@@ -177,7 +188,7 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
     NSString *title = _titleTextView.text;
     
     // 画像
-    NSString *filePath = [self saveImageWithImage:_image];
+    NSString *filePath = [self saveImageWithImage:_imageView.image];
     if (!filePath) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ERROR", nil)
                                                         message:NSLocalizedString(@"FAIL_SAVE_IMAGE", nil)
@@ -190,7 +201,6 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
     
     // 投稿日時
     NSString *postdate = [self postdateFromNow];
-    NSLog(@"postdate[%@]", postdate);
     
     // 保存
     [self saveNewMemoWithTitle:title

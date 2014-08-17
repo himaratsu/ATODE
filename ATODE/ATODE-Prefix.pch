@@ -19,4 +19,8 @@
 #import "GAI.h"
 
 
+#ifdef DEBUG
+
+#else
 #define NSLog(...)
+#endif
