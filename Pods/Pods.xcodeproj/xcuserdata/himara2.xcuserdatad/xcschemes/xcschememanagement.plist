@@ -2,64 +2,127 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Pods-AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-DACircularProgress.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-FontAwesomeKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MBProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MWPhotoBrowser.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MagicalRecord.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-PSTCollectionView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SVProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-UIActionSheet+Blocks.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-UIAlertView+Blocks.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>22C247F091DC49DEA6FE6CB8</key>
+		<key>10C133C7CFFB4C8C92F817D3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>25635ECB08E14A19A7C0B7FF</key>
+		<key>3D6274CB44174DFBB5F4223C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3F3D6D111A894B2B8087DA80</key>
+		<key>422C4DD146FC433884F3324F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5D40D4C6EA7246D79B8C2122</key>
+		<key>85C3C9C3631A4C9DA6EB834E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7C5263F9248B47A9ADFB2394</key>
+		<key>86751A9BE03D45DC88B053CC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>908A8ED358A2445CBB3F0E29</key>
+		<key>87E43AD694FE4DF4BB6B3927</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>913C4DA84CCE423BB55A191B</key>
+		<key>93C1A41D3BCF45828BE6EB8E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A453C253F42448E7ADEB4139</key>
+		<key>98C41682920E4B5AA83A1889</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C3F06785018C40A98BC97B4F</key>
+		<key>A299CC4736444119B17145A6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CCF1F342F7174EC9AD82D651</key>
+		<key>AC080DEE1E51440291BAAF47</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CE9BAE0B34A74B4188EEB77C</key>
+		<key>D6F627F54AFB479C9650DB1F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FE229735A7604554A6E69945</key>
+		<key>F87BAF0B0D6F4E60966EA8F6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
