@@ -26,39 +26,29 @@
 
 #pragma mark - UIWebViewDelegate
 
-- (void)webViewDidStartLoad:(UIWebView *)webView {
-    
-}
+- (void)webViewDidStartLoad:(UIWebView *)webView {}
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    // 検索リクエストをもう投げた後なら無視する
+    // 検索リクエストをもう投げた後なら以降は無視する
+    // （複数リクエスト飛ぶ問題対策）
     if (_isFinishSearch) {
         return;
     }
     
-    NSString *title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     NSString *host = webView.request.URL.host;
     
     if ([host isEqualToString:@"tabelog.com"]
         || [host isEqualToString:@"s.tabelog.com"]) {
-        // エラーハンドリング
-        if ([webView.request.URL.absoluteString isEqualToString:@"http://s.tabelog.com/2800145/"]) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"食べログ エラー"
-                                                            message:@"該当するお店を見つけられませんでした。URLが正しいかを確認してください"
-                                                           delegate:nil
-                                                  cancelButtonTitle:nil
-                                                  otherButtonTitles:@"OK", nil];
-            [alert show];
-            return;
-        }
         
         // 食べログサイトから情報を抽出
+        NSString *shopTitle = [self searchShopTitleForTabelog];
         NSString *address = [self searchAddressForTabelog];
         NSString *imageUrl = [self searchImageUrlForTablelog];
         
-        if (address == nil || [address isEqualToString:@""]
+        if (shopTitle == nil || [shopTitle isEqualToString:@""]
+            || address == nil || [address isEqualToString:@""]
             || imageUrl == nil || [imageUrl isEqualToString:@""]) {
-            self.handler(nil, nil, nil, @"食べログ情報取得中にエラーが発生しました。時間をおいて再度お試しください");
+            self.handler(nil, nil, nil, @"該当するお店を見つけられませんでした。URLが正しいかを確認してください");
             return;
         }
         
@@ -73,7 +63,7 @@
                 if (placemarks > 0) {
                     CLPlacemark *p = placemarks[0]; // 0番目を使用
                     CLLocation *location = p.location;
-                    self.handler(title, location, imageUrl, nil);
+                    self.handler(shopTitle, location, imageUrl, nil);
                 }
                 else {
                     self.handler(nil, nil, nil, @"住所を分析できませんでした");
@@ -85,29 +75,24 @@
         _isFinishSearch = YES;
     }
     else {
-        // どちらでもないなら
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"エラー"
-                                                        message:@"検索に失敗しました。食べログのURLを確認してください"
-                                                       delegate:nil
-                                              cancelButtonTitle:nil
-                                              otherButtonTitles:@"OK", nil];
-        [alert show];
+        self.handler(nil, nil, nil, @"店情報の検索に失敗しました。食べログのURLを確認してください");
+        return;
     }
 }
 
 
+- (NSString *)searchShopTitleForTabelog {
+    NSString *jsStr = @"document.getElementsByClassName('rst-name')[0].innerHTML";
+    return [_webView stringByEvaluatingJavaScriptFromString:jsStr];
+}
 
 - (NSString *)searchAddressForTabelog {
-    // PCサイト
-    //    NSString *jsStr = @"document.getElementsByClassName('address')[0].getElementsByTagName('p')[0].innerText";
-    
-    // スマホサイト（食べログ）
     NSString *jsStr = @"document.getElementsByClassName('add data')[0].innerText";
     return [_webView stringByEvaluatingJavaScriptFromString:jsStr];
 }
 
 - (NSString *)searchImageUrlForTablelog {
-    NSString *jsStr = @"document.getElementsByClassName('post-photos')[0].getElementsByTagName('li')[0].getElementsByTagName('img')[0].getAttribute('src')";
+    NSString *jsStr = @"document.getElementById('mainphoto-view').getElementsByTagName('li')[0].getElementsByClassName('mainphoto-image')[0].getAttribute('src')";
     return [_webView stringByEvaluatingJavaScriptFromString:jsStr];
 }
 

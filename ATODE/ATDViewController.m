@@ -21,6 +21,7 @@
 #import <ImageIO/ImageIO.h>
 #import <MapKit/MapKit.h>
 #import <FontAwesomeKit/FontAwesomeKit.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 #import "MKMapView+ATDZoomLevel.h"
 #import "ATDAnnotation.h"
 #import "ATDTutorialView.h"
@@ -135,7 +136,6 @@ CLLocationManagerDelegate, MKMapViewDelegate>
     
     [_bannerView loadRequest:[GADRequest request]];
 }
-
 
 
 - (void)setUpMapViews {
@@ -335,9 +335,13 @@ CLLocationManagerDelegate, MKMapViewDelegate>
     if ([host isEqualToString:@"tabelog.com"]
         || [host isEqualToString:@"s.tabelog.com"]
         || [host isEqualToString:@"r.gnavi.co.jp"]) {
+        
+        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
+        
         self.searcher = [ATDTabelogSearcher new];
         [_searcher searchInfoWithTabelogUrl:url
                                     handler:^(NSString *title, CLLocation *location, NSString *imageUrl, NSString *errorMsg) {
+                                        [SVProgressHUD dismiss];
                                         if (errorMsg) {
                                             [UIAlertView showWithTitle:@"エラー"
                                                                message:errorMsg
