@@ -39,13 +39,13 @@ PODS:
   - MagicalRecord (2.2):
     - MagicalRecord/Core
   - MagicalRecord/Core (2.2)
-  - MBProgressHUD (0.8)
+  - MBProgressHUD (0.9)
   - MWPhotoBrowser (1.4.0):
     - DACircularProgress
     - MBProgressHUD (~> 0.8)
     - PSTCollectionView (~> 1.2)
     - SDWebImage (~> 3.5.4)
-  - PSTCollectionView (1.2.1)
+  - PSTCollectionView (1.2.3)
   - SDWebImage (3.6):
     - SDWebImage/Core
   - SDWebImage/Core (3.6)
@@ -68,9 +68,9 @@ SPEC CHECKSUMS:
   DACircularProgress: 3b41941891a56dc6aa17971f5322a9a38a6f446e
   FontAwesomeKit: af6eef70d23986349284d2feb4e959459621587d
   MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
-  MBProgressHUD: c356980b0cd097f19acec959b49dca5eb8ec31be
+  MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
   MWPhotoBrowser: 4efcdb9da34751f97992128a5356f3929d1af537
-  PSTCollectionView: a63299550ad566b579479d07cb5e2bf61148686b
+  PSTCollectionView: d9f466e4554cc83260ca9bde7beb27f308e8fd76
   SDWebImage: c6989652c1cdf27cbdf3f56957e2030f825af5bc
   SVProgressHUD: 5034c6e22b8c2ca3e09402e48d41ed0340aa1c50
   UIActionSheet+Blocks: c8b9c02f3d08964e8f7a4202f004a639c15eab80

@@ -798,7 +798,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PROJECT_DIR}/scripts/update_storyboard_strings.sh";
+			shellScript = "
+";
 		};
 		2855450B6C934BC79E4B7E34 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
