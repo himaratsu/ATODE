@@ -80,6 +80,7 @@
 		D9CD7F2C1982176B00293F37 /* ATDPlaceSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9CD7F2B1982176B00293F37 /* ATDPlaceSearchCell.xib */; };
 		D9CD7F3F1986061300293F37 /* LicenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CD7F3D1986061300293F37 /* LicenseViewController.m */; };
 		D9CD7F401986061300293F37 /* LicenseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9CD7F3E1986061300293F37 /* LicenseViewController.xib */; };
+		D9DD14F319A81AE00042066F /* noimage.gif in Resources */ = {isa = PBXBuildFile; fileRef = D9DD14F219A81AE00042066F /* noimage.gif */; };
 		D9E958651980D2080090BEED /* ATDPlaceSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E958631980D2080090BEED /* ATDPlaceSearchCell.m */; };
 /* End PBXBuildFile section */
 
@@ -234,6 +235,7 @@
 		D9CD7F3C1986061300293F37 /* LicenseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LicenseViewController.h; sourceTree = "<group>"; };
 		D9CD7F3D1986061300293F37 /* LicenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LicenseViewController.m; sourceTree = "<group>"; };
 		D9CD7F3E1986061300293F37 /* LicenseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LicenseViewController.xib; sourceTree = "<group>"; };
+		D9DD14F219A81AE00042066F /* noimage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = noimage.gif; sourceTree = "<group>"; };
 		D9E958621980D2080090BEED /* ATDPlaceSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDPlaceSearchCell.h; sourceTree = "<group>"; };
 		D9E958631980D2080090BEED /* ATDPlaceSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDPlaceSearchCell.m; sourceTree = "<group>"; };
 		E43CBDEB2F3F49CA98E99DC4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -287,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				201F04261970FF5B0045AB37 /* fontawesome-webfont.ttf */,
+				D9DD14F219A81AE00042066F /* noimage.gif */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -780,6 +783,7 @@
 				D9AEEBE01987C3290058AFA7 /* ATDTutorialFirstView.xib in Resources */,
 				202C660F19604D5D00497257 /* InfoPlist.strings in Resources */,
 				201F04271970FF5B0045AB37 /* fontawesome-webfont.ttf in Resources */,
+				D9DD14F319A81AE00042066F /* noimage.gif in Resources */,
 				D9AEEBE41987C4900058AFA7 /* ATDTutorialThirdView.xib in Resources */,
 				20D64FDA198BCF11006A6E07 /* ATDTutorialStartView.xib in Resources */,
 				D9AEEBE61987C4CA0058AFA7 /* ATDTutorialFinalView.xib in Resources */,

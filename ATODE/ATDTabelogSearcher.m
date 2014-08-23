@@ -35,6 +35,8 @@
         return;
     }
     
+    _isFinishSearch = YES;
+    
     NSString *host = webView.request.URL.host;
     
     if ([host isEqualToString:@"tabelog.com"]
@@ -46,10 +48,14 @@
         NSString *imageUrl = [self searchImageUrlForTablelog];
         
         if (shopTitle == nil || [shopTitle isEqualToString:@""]
-            || address == nil || [address isEqualToString:@""]
-            || imageUrl == nil || [imageUrl isEqualToString:@""]) {
+            || address == nil || [address isEqualToString:@""]) {
             self.handler(nil, nil, nil, NSLocalizedString(@"SHOP_NOT_FOUND", nil));
             return;
+        }
+        
+        // トップ画像がなければユーザー画像を使用
+        if (imageUrl == nil || [imageUrl isEqualToString:@""]) {
+            imageUrl = [self searchUserPostImageUrlForTablelog];
         }
         
         // ジオコーディング
@@ -71,8 +77,6 @@
                 }
             }
         }];
-        
-        _isFinishSearch = YES;
     }
     else {
         self.handler(nil, nil, nil, @"店情報の検索に失敗しました。食べログのURLを確認してください");
@@ -93,6 +97,11 @@
 
 - (NSString *)searchImageUrlForTablelog {
     NSString *jsStr = @"document.getElementById('mainphoto-view').getElementsByTagName('li')[0].getElementsByClassName('mainphoto-image')[0].getAttribute('src')";
+    return [_webView stringByEvaluatingJavaScriptFromString:jsStr];
+}
+
+- (NSString *)searchUserPostImageUrlForTablelog {
+    NSString *jsStr = @"document.getElementsByClassName('post-photos')[0].getElementsByTagName('li')[0].getElementsByTagName('img')[0].getAttribute('src')";
     return [_webView stringByEvaluatingJavaScriptFromString:jsStr];
 }
 

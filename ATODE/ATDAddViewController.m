@@ -45,12 +45,16 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
     _titleTextView.placeholder = NSLocalizedString(@"CAN_INPUT_MEMO", nil);
     
     if (_isRegistFromSite) {
-        [_imageView setImageWithURL:[NSURL URLWithString:_imageUrl]
-                          completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                            // fade?
-                          }];
+        if ([_imageUrl isEqualToString:@""]) {
+            _imageView.image = [UIImage imageNamed:@"noimage.gif"];
+        }
+        else {
+            [_imageView setImageWithURL:[NSURL URLWithString:_imageUrl]
+                              completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                                  // fade?
+                              }];
+        }
         _titleTextView.text = _defaultMemoStr;
-        
     }
     else {
         _imageView.image = _image;
