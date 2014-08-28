@@ -24,6 +24,8 @@
 
 @property (weak, nonatomic) IBOutlet UIView *titleFrameView;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+
 @property (weak, nonatomic) IBOutlet UILabel *latlngLabel;
 
 @end
@@ -39,8 +41,44 @@
 
 @implementation ActionViewController
 
+
+// 見た目の設定
+- (void)setAppearance {
+    UINavigationBar *navBar = self.navigationController.navigationBar;
+    
+    navBar.barTintColor = [UIColor colorWithRed:70/255.0 green:171/255.0 blue:235/255.0 alpha:1.0];
+    navBar.tintColor = [UIColor whiteColor];
+    NSDictionary *attributes = @{
+                                 NSFontAttributeName : [UIFont systemFontOfSize:18],
+                                 NSForegroundColorAttributeName : [UIColor whiteColor]
+                                 };
+    navBar.titleTextAttributes = attributes;
+}
+
+- (void)setUpViews {
+    _titleFrameView.layer.cornerRadius = 3.0f;
+    _titleFrameView.layer.masksToBounds = YES;
+    
+    _placeAddButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    _placeAddButton.contentEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0);
+    
+    _placeAddButton.layer.cornerRadius = 3.0f;
+    _placeAddButton.layer.masksToBounds = YES;
+    
+    _doneButton.layer.cornerRadius = 3.0f;
+    _doneButton.layer.masksToBounds = YES;
+    
+    _cancelButton.layer.cornerRadius = 3.0f;
+    _cancelButton.layer.masksToBounds = YES;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self setAppearance];
+    
+    [self setUpViews];
     
     _titleTextView.placeholder = @"メモを追加（オプション）";
     
