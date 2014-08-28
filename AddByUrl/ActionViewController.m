@@ -8,12 +8,22 @@
 
 #import "ActionViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
+#import "ATDPlaceholderTextView.h"
+#import "ATD4sqPlace.h"
 
 @interface ActionViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *urlLabel;
+@property (weak, nonatomic) IBOutlet ATDPlaceholderTextView *titleTextView;
+@property (nonatomic, strong) ATD4sqPlace *placeInfo;
+@property (weak, nonatomic) IBOutlet UIButton *placeAddButton;
+
+@property (weak, nonatomic) IBOutlet UIView *titleFrameView;
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
+@property (weak, nonatomic) IBOutlet UILabel *latlngLabel;
 
 @end
+
 
 @implementation ActionViewController
 
@@ -44,14 +54,8 @@
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-- (IBAction)done {
-    // Return any edited content to the host app.
-    // This template doesn't do anything, so we just echo the passed in items.
+- (IBAction)doneBtnTouched:(id)sender {
     [self.extensionContext completeRequestReturningItems:self.extensionContext.inputItems completionHandler:nil];
 }
 
