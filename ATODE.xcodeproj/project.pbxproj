@@ -50,6 +50,7 @@
 		20AA05BA1975698E009A1735 /* ATDMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20AA05B91975698E009A1735 /* ATDMapCell.m */; };
 		20AA05BD197569A9009A1735 /* ATDPostDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20AA05BC197569A9009A1735 /* ATDPostDateCell.m */; };
 		20D64FDA198BCF11006A6E07 /* ATDTutorialStartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D64FD9198BCF11006A6E07 /* ATDTutorialStartView.xib */; };
+		A4A6366BD6BB49B993827183 /* libPods-AddByUrl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B64661D5E144647B76D5E10 /* libPods-AddByUrl.a */; };
 		BADD391C7A8C4D6FBB1C5F1C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E43CBDEB2F3F49CA98E99DC4 /* libPods.a */; };
 		D975167019AF401C00D65938 /* ActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D975166F19AF401C00D65938 /* ActionViewController.m */; };
 		D975167219AF401C00D65938 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D975167119AF401C00D65938 /* MainInterface.storyboard */; };
@@ -159,6 +160,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1529A9D501BA43AB91FCC080 /* Pods-AddByUrl.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AddByUrl.xcconfig"; path = "Pods/Pods-AddByUrl.xcconfig"; sourceTree = "<group>"; };
+		1B64661D5E144647B76D5E10 /* libPods-AddByUrl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AddByUrl.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		201F041F19699AEE0045AB37 /* ATDPlaceSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDPlaceSearchViewController.h; sourceTree = "<group>"; };
 		201F042019699AEE0045AB37 /* ATDPlaceSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDPlaceSearchViewController.m; sourceTree = "<group>"; };
 		201F04221970F9560045AB37 /* ATD4sqPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATD4sqPlace.h; sourceTree = "<group>"; };
@@ -360,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D97516A219AF4F8000D65938 /* ATODEFramework.framework in Frameworks */,
+				A4A6366BD6BB49B993827183 /* libPods-AddByUrl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +395,7 @@
 				202C660319604D5D00497257 /* Frameworks */,
 				202C660219604D5D00497257 /* Products */,
 				D74FAF12D3944CD3976CCA94 /* Pods.xcconfig */,
+				1529A9D501BA43AB91FCC080 /* Pods-AddByUrl.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -426,6 +431,7 @@
 				202C660819604D5D00497257 /* UIKit.framework */,
 				202C662319604D5E00497257 /* XCTest.framework */,
 				E43CBDEB2F3F49CA98E99DC4 /* libPods.a */,
+				1B64661D5E144647B76D5E10 /* libPods-AddByUrl.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -878,9 +884,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D975167A19AF401C00D65938 /* Build configuration list for PBXNativeTarget "AddByUrl" */;
 			buildPhases = (
+				5F8AF130D2EC44EFAC3F3D39 /* Check Pods Manifest.lock */,
 				D975166619AF401C00D65938 /* Sources */,
 				D975166719AF401C00D65938 /* Frameworks */,
 				D975166819AF401C00D65938 /* Resources */,
+				E2B8DA034BF842B48E252D27 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1021,6 +1029,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5F8AF130D2EC44EFAC3F3D39 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E2B8DA034BF842B48E252D27 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-AddByUrl-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F98D58F4EE264E79A40416FF /* Copy Pods Resources */ = {
@@ -1328,7 +1366,10 @@
 		};
 		D975167819AF401C00D65938 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1529A9D501BA43AB91FCC080 /* Pods-AddByUrl.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1348,7 +1389,10 @@
 		};
 		D975167919AF401C00D65938 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1529A9D501BA43AB91FCC080 /* Pods-AddByUrl.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: RYOSUKE HIRAMATSU (Y6LHTNYSDM)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: RYOSUKE HIRAMATSU (Y6LHTNYSDM)";
@@ -1453,6 +1497,7 @@
 				D975167919AF401C00D65938 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D975169919AF4E1800D65938 /* Build configuration list for PBXNativeTarget "ATODEFramework" */ = {
 			isa = XCConfigurationList;
@@ -1461,6 +1506,7 @@
 				D975169B19AF4E1800D65938 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

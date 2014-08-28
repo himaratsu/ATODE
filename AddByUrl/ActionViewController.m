@@ -8,6 +8,7 @@
 
 #import "ActionViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "ATODEFramework.h"
 #import "ATDPlaceholderTextView.h"
 #import "ATD4sqPlace.h"
@@ -84,6 +85,15 @@
                                     
                                     _titleTextView.text = title;
                                     _imageView.backgroundColor = [UIColor yellowColor]; // TODO:
+                                    [_imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl]
+                                                         completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                                                             if (error) {
+                                                                 _imageView.image = nil;
+                                                             }
+                                                             else {
+                                                                 _imageView.image = image;
+                                                             }
+                                                         }];
                                     
                                     CLLocationCoordinate2D coordinate = location.coordinate;
                                     _latlngLabel.text = [NSString stringWithFormat:@"%f, %f", coordinate.latitude, coordinate.longitude];
@@ -95,5 +105,10 @@
 - (IBAction)doneBtnTouched:(id)sender {
     [self.extensionContext completeRequestReturningItems:self.extensionContext.inputItems completionHandler:nil];
 }
+
+- (IBAction)cancelBtnTouched:(id)sender {
+        [self.extensionContext completeRequestReturningItems:self.extensionContext.inputItems completionHandler:nil];
+}
+
 
 @end
