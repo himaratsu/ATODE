@@ -35,6 +35,20 @@
                ReferencedContainer = "container:ATODE.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D975168A19AF4E1800D65938"
+               BuildableName = "ATODEFrameworkTests.xctest"
+               BlueprintName = "ATODEFrameworkTests"
+               ReferencedContainer = "container:ATODE.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -43,13 +57,23 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D975168A19AF4E1800D65938"
+               BuildableName = "ATODEFrameworkTests.xctest"
+               BlueprintName = "ATODEFrameworkTests"
+               ReferencedContainer = "container:ATODE.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D975166919AF401C00D65938"
-            BuildableName = "AddByUrl.appex"
-            BlueprintName = "AddByUrl"
+            BlueprintIdentifier = "202C660019604D5D00497257"
+            BuildableName = "ATODE.app"
+            BlueprintName = "ATODE"
             ReferencedContainer = "container:ATODE.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -64,7 +88,10 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <PathRunnable
+         FilePath = "/Users/rhiramat/Library/Developer/CoreSimulator/Devices/CC35008D-4BE7-4971-807B-9B8545FF3ECF/data/Containers/Bundle/Application/B6DA27B7-5290-4CEF-B023-D519E7210F6F/ATODE.app">
+      </PathRunnable>
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "202C660019604D5D00497257"
@@ -72,7 +99,7 @@
             BlueprintName = "ATODE"
             ReferencedContainer = "container:ATODE.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

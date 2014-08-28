@@ -8,6 +8,7 @@
 
 #import "ActionViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
+#import "ATODEFramework.h"
 #import "ATDPlaceholderTextView.h"
 #import "ATD4sqPlace.h"
 
@@ -29,6 +30,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _titleTextView.placeholder = @"メモを追加（オプション）";
     
     // Get the item[s] we're handling from the extension context.
     NSExtensionItem *urlItem = [self.extensionContext.inputItems firstObject];
