@@ -35,8 +35,6 @@
     [GAI sharedInstance].trackUncaughtExceptions = YES;
     [GAI sharedInstance].dispatchInterval = 20;
     
-    UIColor *color = kDefaultTextColor;
-    
     [[GAI sharedInstance] trackerWithTrackingId:@"UA-53347390-1"];
     
     // GAIを仕込む
