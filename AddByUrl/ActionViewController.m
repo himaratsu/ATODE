@@ -11,9 +11,11 @@
 #import "ATODEFramework.h"
 #import "ATDPlaceholderTextView.h"
 #import "ATD4sqPlace.h"
+#import "ATDTabelogSearcher.h"
 
 @interface ActionViewController ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *urlLabel;
 @property (weak, nonatomic) IBOutlet ATDPlaceholderTextView *titleTextView;
 @property (nonatomic, strong) ATD4sqPlace *placeInfo;
@@ -24,6 +26,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *latlngLabel;
 
 @end
+
+
+@interface ActionViewController ()
+
+@property (nonatomic, strong) ATDTabelogSearcher *searcher;
+
+@end
+
 
 
 @implementation ActionViewController
@@ -49,12 +59,36 @@
                                              _urlLabel.text = item.absoluteString;
                                          }
                                          [_urlLabel sizeToFit];
+                                         
+                                         [self searchTabelogInfoFromUrl:item.absoluteString];
                                      });
                                  }];
     }
     else {
         _urlLabel.text = @"形式が異なります";
     }
+}
+
+- (void)searchTabelogInfoFromUrl:(NSString *)url {
+    self.searcher = [ATDTabelogSearcher new];
+    [_searcher searchInfoWithTabelogUrl:url
+                                handler:^(NSString *title, CLLocation *location, NSString *imageUrl, NSString *errorMsg) {
+                                    if (errorMsg) {
+                                        _urlLabel.text = [NSString stringWithFormat:@"エラー %@", errorMsg];
+                                        return;
+                                    }
+                                    
+                                    if (!imageUrl) {
+                                        imageUrl = @"";
+                                    }
+                                    
+                                    _titleTextView.text = title;
+                                    _imageView.backgroundColor = [UIColor yellowColor]; // TODO:
+                                    
+                                    CLLocationCoordinate2D coordinate = location.coordinate;
+                                    _latlngLabel.text = [NSString stringWithFormat:@"%f, %f", coordinate.latitude, coordinate.longitude];
+                                    
+                                }];
 }
 
 

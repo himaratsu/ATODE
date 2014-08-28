@@ -71,6 +71,7 @@
                     <size key="freeformSize" width="320" height="528"/>
                     <connections>
                         <outlet property="doneButton" destination="h82-HF-lTK" id="mHV-Tj-zqj"/>
+                        <outlet property="imageView" destination="7Jy-Te-kj9" id="4Vv-eR-ERQ"/>
                         <outlet property="latlngLabel" destination="0Re-4G-9Vh" id="Svm-l3-RBl"/>
                         <outlet property="placeAddButton" destination="qia-s6-SiP" id="wMm-Hs-ChN"/>
                         <outlet property="titleFrameView" destination="RBb-en-8O6" id="f3F-8H-n70"/>

@@ -60,6 +60,8 @@
 		D97516A019AF4F1600D65938 /* ATDPlaceholderTextView.h in Sources */ = {isa = PBXBuildFile; fileRef = D99774031977EB3800DBEF35 /* ATDPlaceholderTextView.h */; };
 		D97516A119AF4F1600D65938 /* ATDPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D99774041977EB3800DBEF35 /* ATDPlaceholderTextView.m */; };
 		D97516A219AF4F8000D65938 /* ATODEFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D975168119AF4E1800D65938 /* ATODEFramework.framework */; };
+		D97516A319AF4FCB00D65938 /* ATDTabelogSearcher.h in Sources */ = {isa = PBXBuildFile; fileRef = D99390C3199B1D0700E71695 /* ATDTabelogSearcher.h */; };
+		D97516A419AF4FCB00D65938 /* ATDTabelogSearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D99390C4199B1D0700E71695 /* ATDTabelogSearcher.m */; };
 		D99390C5199B1D0700E71695 /* ATDTabelogSearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D99390C4199B1D0700E71695 /* ATDTabelogSearcher.m */; };
 		D99773F71977825100DBEF35 /* ATDImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99773F61977825100DBEF35 /* ATDImageViewController.m */; };
 		D99774011977DFCC00DBEF35 /* ATDEditMemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99774001977DFCC00DBEF35 /* ATDEditMemoViewController.m */; };
@@ -1096,6 +1098,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D97516A319AF4FCB00D65938 /* ATDTabelogSearcher.h in Sources */,
+				D97516A419AF4FCB00D65938 /* ATDTabelogSearcher.m in Sources */,
 				D97516A019AF4F1600D65938 /* ATDPlaceholderTextView.h in Sources */,
 				D97516A119AF4F1600D65938 /* ATDPlaceholderTextView.m in Sources */,
 			);

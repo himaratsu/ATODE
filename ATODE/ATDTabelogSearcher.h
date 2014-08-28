@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
 typedef void(^ATDTabelogSearchHandler)(NSString *title, CLLocation *location, NSString *imageUrl, NSString *errorMsg);
