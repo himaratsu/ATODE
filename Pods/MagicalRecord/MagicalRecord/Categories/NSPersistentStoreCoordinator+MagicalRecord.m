@@ -48,7 +48,7 @@ NSString * const kMagicalRecordPSCDidCompleteiCloudSetupNotification = @"kMagica
     }
 }
 
-- (void) MR_createPathToStoreFileIfNeccessary:(NSURL *)urlForStore
+- (void) MR_createPathToStoreFileIfNeccessary:(NSURL *)urlForStore oldUrl:(NSURL *)oldUrlForStore
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSURL *pathToStore = [urlForStore URLByDeletingLastPathComponent];
@@ -60,14 +60,38 @@ NSString * const kMagicalRecordPSCDidCompleteiCloudSetupNotification = @"kMagica
     {
         [MagicalRecord handleErrors:error];
     }
+    
+    // pathが同一なら終了
+    if ([[urlForStore path] isEqualToString:[oldUrlForStore path]]) {
+        return;
+    }
+    
+    // himara2 editted:
+    // Copy ~Ver.1.1 sqlite file to new path 'Shared/ATODE.sqlite'
+    if ([fileManager fileExistsAtPath:[oldUrlForStore path]]) {
+        NSLog(@"昔のデータが存在するよ!!!!");
+        
+        // mv ATODE.sqlite to new path!
+        [fileManager moveItemAtPath:[oldUrlForStore path]
+                             toPath:[urlForStore path]
+                              error:&error];
+        
+        if (error) {
+            [MagicalRecord handleErrors:error];
+        }
+    }
 }
 
 - (NSPersistentStore *) MR_addSqliteStoreNamed:(id)storeFileName withOptions:(__autoreleasing NSDictionary *)options
 {
-    NSURL *url = [storeFileName isKindOfClass:[NSURL class]] ? storeFileName : [NSPersistentStore MR_urlForStoreName:storeFileName];
+    NSURL *url = [storeFileName isKindOfClass:[NSURL class]] ? storeFileName : [NSPersistentStore MR_urlForAppGroupsStoreName:storeFileName];
     NSError *error = nil;
     
-    [self MR_createPathToStoreFileIfNeccessary:url];
+    NSURL *oldUrl = [NSPersistentStore MR_urlForStoreName:storeFileName];
+    
+    NSLog(@"このURLに書き込みます url:[%@]", url);
+    
+    [self MR_createPathToStoreFileIfNeccessary:url oldUrl:oldUrl];
     
     NSPersistentStore *store = [self addPersistentStoreWithType:NSSQLiteStoreType
                                                   configuration:nil

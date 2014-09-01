@@ -15,7 +15,9 @@
 
 + (void) setupCoreDataStack
 {
-    [self setupCoreDataStackWithStoreNamed:[self defaultStoreName]];
+    [self setupCoreDataStackWithStoreNamed:@"ATODE.sqlite"];
+    
+//    [self setupCoreDataStackWithStoreNamed:[self defaultStoreName]];
 }
 
 + (void) setupAutoMigratingCoreDataStack
