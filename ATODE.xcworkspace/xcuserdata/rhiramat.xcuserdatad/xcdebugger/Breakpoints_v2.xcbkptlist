@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pods/MagicalRecord/MagicalRecord/Categories/NSPersistentStoreCoordinator+MagicalRecord.m"
-            timestampString = "431235423.180662"
+            timestampString = "431341658.729336"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "-MR_createPathToStoreFileIfNeccessary:oldUrl:"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,41 +26,87 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pods/MagicalRecord/MagicalRecord/Categories/NSPersistentStoreCoordinator+MagicalRecord.m"
-            timestampString = "431235570.971277"
+            timestampString = "431342618.100798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "-MR_createPathToStoreFileIfNeccessary:oldUrl:"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "-removeFileWithPath:"
             landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[NSPersistentStoreCoordinator(MagicalRecord) MR_createPathToStoreFileIfNeccessary:oldUrl:]"
+                  symbolName = "-[NSPersistentStoreCoordinator(MagicalRecord) removeFileWithPath:]"
                   moduleName = "ATODE"
                   urlString = "file:///Users/rhiramat/Documents/objc_private/ATODE/Pods/MagicalRecord/MagicalRecord/Categories/NSPersistentStoreCoordinator+MagicalRecord.m"
-                  timestampString = "431235885.891575"
+                  timestampString = "431342677.343583"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "65"
-                  endingLineNumber = "65"
-                  offsetFromSymbolStart = "374">
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "47">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[NSPersistentStoreCoordinator(MagicalRecord) MR_createPathToStoreFileIfNeccessary:oldUrl:]"
+                  symbolName = "-[NSPersistentStoreCoordinator(MagicalRecord) removeFileWithPath:]"
                   moduleName = "ATODEFramework"
                   urlString = "file:///Users/rhiramat/Documents/objc_private/ATODE/Pods/MagicalRecord/MagicalRecord/Categories/NSPersistentStoreCoordinator+MagicalRecord.m"
-                  timestampString = "431235886.022187"
+                  timestampString = "431342677.424725"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "65"
-                  endingLineNumber = "65"
-                  offsetFromSymbolStart = "374">
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "47">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/MagicalRecord/MagicalRecord/Categories/NSPersistentStoreCoordinator+MagicalRecord.m"
+            timestampString = "431342620.97555"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "-moveFileWithPath:destPath:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[NSPersistentStoreCoordinator(MagicalRecord) moveFileWithPath:destPath:]"
+                  moduleName = "ATODE"
+                  urlString = "file:///Users/rhiramat/Documents/objc_private/ATODE/Pods/MagicalRecord/MagicalRecord/Categories/NSPersistentStoreCoordinator+MagicalRecord.m"
+                  timestampString = "431342677.346443"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "70">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[NSPersistentStoreCoordinator(MagicalRecord) moveFileWithPath:destPath:]"
+                  moduleName = "ATODEFramework"
+                  urlString = "file:///Users/rhiramat/Documents/objc_private/ATODE/Pods/MagicalRecord/MagicalRecord/Categories/NSPersistentStoreCoordinator+MagicalRecord.m"
+                  timestampString = "431342677.425102"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "70">
                </Location>
             </Locations>
          </BreakpointContent>
