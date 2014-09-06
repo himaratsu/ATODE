@@ -20,4 +20,6 @@
 @property (nonatomic, weak) id<ATDPhotoCellDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
 
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
+
 @end
