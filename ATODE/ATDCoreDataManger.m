@@ -66,6 +66,16 @@
     return newMemo;
 }
 
+- (PlaceMemo *)updateMemo:(PlaceMemo *)memo imageFilePath:(NSString *)imageFilePath {
+    [self setUpStack];
+    
+    PlaceMemo *newMemo = memo;
+    newMemo.imageFilePath = imageFilePath;
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+    
+    return newMemo;
+}
+
 - (void)printCoreData {
     NSLog(@"メモが %d件 あります", [[PlaceMemo MR_findAll] count]);
 }
