@@ -43,7 +43,9 @@
 }
 
 - (IBAction)editBtnTouched:(id)sender {
-    // カメラロール出したり
+    if ([_delegate respondsToSelector:@selector(didTapEditButton)]) {
+        [_delegate didTapEditButton];
+    }
 }
 
 
