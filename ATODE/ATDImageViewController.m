@@ -9,6 +9,7 @@
 #import "ATDImageViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <CommonCrypto/CommonCrypto.h>
+#import <UIActionSheet+Blocks/UIActionSheet+Blocks.h>
 #import "ATDCoreDataManger.h"
 
 @interface ATDImageViewController ()
@@ -43,13 +44,58 @@
 }
 
 - (void)showImagePicker {
+    [UIActionSheet showInView:self.view
+                    withTitle:NSLocalizedString(@"PHOTO_EDIT", nil)
+            cancelButtonTitle:NSLocalizedString(@"CANCEL", nil)
+       destructiveButtonTitle:nil
+            otherButtonTitles:@[NSLocalizedString(@"TAKE_PICTURE", nil),
+                                NSLocalizedString(@"SELECT_LIBRARY", nil)]
+                     tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
+                         if (buttonIndex != actionSheet.cancelButtonIndex) {
+                             if (buttonIndex == 0) {
+                                 [self getPhotoFromCamera];
+                             }
+                             else if (buttonIndex == 1) {
+                                 [self getPhotoFromLibrary];
+                             }
+                         }
+                     }];
+}
+
+- (void)getPhotoFromCamera {
+#if (TARGET_IPHONE_SIMULATOR)
+    // シミュレータで動作中
+    UIImage *image = [UIImage imageNamed:@"sample.jpg"];
+    [self performSegueWithIdentifier:@"showAdd" sender:image];
+#else
+    // 実機で動作中
+    [self showImagePickerView:UIImagePickerControllerSourceTypeCamera];
+#endif
+    
+//    id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
+//    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ACTION"
+//                                                          action:@"touch"
+//                                                           label:@"add from camera"
+//                                                           value:nil] build]];
+}
+
+- (void)getPhotoFromLibrary {
+    [self showImagePickerView:UIImagePickerControllerSourceTypePhotoLibrary];
+    
+//    id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
+//    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ACTION"
+//                                                          action:@"touch"
+//                                                           label:@"add from library"
+//                                                           value:nil] build]];
+}
+
+- (void)showImagePickerView:(UIImagePickerControllerSourceType)sourceType {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
+    picker.sourceType = sourceType;
     picker.allowsEditing = YES;
     [self presentViewController:picker animated:YES completion:nil];
 }
-
-
 
 - (void)didTapView {
     [self dismissViewControllerAnimated:YES completion:nil];

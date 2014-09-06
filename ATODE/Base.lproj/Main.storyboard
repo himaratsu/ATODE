@@ -687,11 +687,11 @@ add first memo!</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uRH-e9-BMG">
-                                <rect key="frame" x="257" y="8" width="56" height="30"/>
+                                <rect key="frame" x="239" y="31" width="70" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="fB5-uk-eVf"/>
-                                    <constraint firstAttribute="width" constant="56" id="gVB-vJ-iAb"/>
+                                    <constraint firstAttribute="width" constant="70" id="iAm-lh-XBb"/>
                                 </constraints>
                                 <state key="normal" title="編集">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -706,11 +706,11 @@ add first memo!</string>
                         <constraints>
                             <constraint firstItem="5sm-I4-2Ld" firstAttribute="leading" secondItem="l7m-Qd-Mh7" secondAttribute="leading" id="0RK-SB-PCh"/>
                             <constraint firstItem="i3t-PS-FVC" firstAttribute="top" secondItem="BTo-eI-As7" secondAttribute="bottom" constant="13" id="AwS-s9-QQI"/>
-                            <constraint firstAttribute="trailing" secondItem="uRH-e9-BMG" secondAttribute="trailing" constant="7" id="L9F-dj-nZL"/>
+                            <constraint firstItem="uRH-e9-BMG" firstAttribute="top" secondItem="Lq0-iS-a6i" secondAttribute="bottom" constant="11" id="Mk1-mk-Phh"/>
                             <constraint firstAttribute="trailing" secondItem="5sm-I4-2Ld" secondAttribute="trailing" id="daq-Jf-UVI"/>
-                            <constraint firstItem="uRH-e9-BMG" firstAttribute="top" secondItem="Lq0-iS-a6i" secondAttribute="bottom" constant="-12" id="lx8-Vx-d7z"/>
                             <constraint firstAttribute="centerX" secondItem="5sm-I4-2Ld" secondAttribute="centerX" id="puN-Y2-gWE"/>
                             <constraint firstAttribute="centerY" secondItem="5sm-I4-2Ld" secondAttribute="centerY" id="qlo-IJ-DEw"/>
+                            <constraint firstAttribute="trailing" secondItem="uRH-e9-BMG" secondAttribute="trailing" constant="11" id="t5P-A7-iTl"/>
                         </constraints>
                     </view>
                     <connections>
@@ -719,7 +719,7 @@ add first memo!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sxZ-DV-wsT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1654" y="-242"/>
+            <point key="canvasLocation" x="1653" y="-223"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UOA-qK-A6C">
