@@ -45,6 +45,7 @@
 - (void)showImagePicker {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
+    picker.allowsEditing = YES;
     [self presentViewController:picker animated:YES completion:nil];
 }
 
@@ -116,6 +117,10 @@
     
     // UI update
     self.image = image;
+    
+    if ([_delegate respondsToSelector:@selector(didChangeMemo:)]) {
+        [_delegate didChangeMemo:newMemo];
+    }
     
 }
 

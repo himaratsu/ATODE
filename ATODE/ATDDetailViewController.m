@@ -39,7 +39,7 @@ typedef NS_ENUM(NSUInteger, DetailTableCell) {
 <UITableViewDataSource, UITableViewDelegate,
 ATDPhotoCellDelegate, ATDMapCellDelegate,
 ATDPlaceInfoCellDelegate,
-ATDEditMemoViewControllerDelegate,
+ATDDetailMemoProtocol,
 MWPhotoBrowserDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -297,7 +297,9 @@ MWPhotoBrowserDelegate>
     }
     else if ([segue.identifier isEqualToString:@"showImage"]) {
         ATDImageViewController *imageVC = segue.destinationViewController;
+        imageVC.delegate = self;
         imageVC.image = sender;
+        imageVC.memo = _memo;
     }
     else if ([segue.identifier isEqualToString:@"editMemo"]) {
         ATDEditMemoViewController *editVC = segue.destinationViewController;
