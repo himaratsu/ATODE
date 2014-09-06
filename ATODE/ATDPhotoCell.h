@@ -11,6 +11,7 @@
 @protocol ATDPhotoCellDelegate <NSObject>
 
 - (void)didTapImage:(UIImage *)image;
+- (void)didTapEditButton;
 
 @end
 

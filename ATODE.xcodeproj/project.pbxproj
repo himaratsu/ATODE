@@ -50,6 +50,7 @@
 		20AA05BA1975698E009A1735 /* ATDMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20AA05B91975698E009A1735 /* ATDMapCell.m */; };
 		20AA05BD197569A9009A1735 /* ATDPostDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20AA05BC197569A9009A1735 /* ATDPostDateCell.m */; };
 		20BBB55619BAB8DE0088A6B9 /* ATDPhotoSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BBB55519BAB8DE0088A6B9 /* ATDPhotoSelector.m */; };
+		20BBB55919BABB090088A6B9 /* ATDSavePhotoHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BBB55819BABB090088A6B9 /* ATDSavePhotoHandler.m */; };
 		20D64FDA198BCF11006A6E07 /* ATDTutorialStartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D64FD9198BCF11006A6E07 /* ATDTutorialStartView.xib */; };
 		BADD391C7A8C4D6FBB1C5F1C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E43CBDEB2F3F49CA98E99DC4 /* libPods.a */; };
 		D99390C5199B1D0700E71695 /* ATDTabelogSearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D99390C4199B1D0700E71695 /* ATDTabelogSearcher.m */; };
@@ -175,6 +176,8 @@
 		20AA05BC197569A9009A1735 /* ATDPostDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDPostDateCell.m; sourceTree = "<group>"; };
 		20BBB55419BAB8DE0088A6B9 /* ATDPhotoSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDPhotoSelector.h; sourceTree = "<group>"; };
 		20BBB55519BAB8DE0088A6B9 /* ATDPhotoSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDPhotoSelector.m; sourceTree = "<group>"; };
+		20BBB55719BABB090088A6B9 /* ATDSavePhotoHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDSavePhotoHandler.h; sourceTree = "<group>"; };
+		20BBB55819BABB090088A6B9 /* ATDSavePhotoHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDSavePhotoHandler.m; sourceTree = "<group>"; };
 		20D64FD5198BBFF1006A6E07 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		20D64FD7198BC371006A6E07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		20D64FD8198BC380006A6E07 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
@@ -383,6 +386,8 @@
 				201F04231970F9560045AB37 /* ATD4sqPlace.m */,
 				20BBB55419BAB8DE0088A6B9 /* ATDPhotoSelector.h */,
 				20BBB55519BAB8DE0088A6B9 /* ATDPhotoSelector.m */,
+				20BBB55719BABB090088A6B9 /* ATDSavePhotoHandler.h */,
+				20BBB55819BABB090088A6B9 /* ATDSavePhotoHandler.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -867,6 +872,7 @@
 				20A0FA5A1972D48B004FA008 /* MKMapView+ATDZoomLevel.m in Sources */,
 				D9E958651980D2080090BEED /* ATDPlaceSearchCell.m in Sources */,
 				208131C11967AF2F0094E577 /* ATDCoreDataManger.m in Sources */,
+				20BBB55919BABB090088A6B9 /* ATDSavePhotoHandler.m in Sources */,
 				20AA05BA1975698E009A1735 /* ATDMapCell.m in Sources */,
 				202C661119604D5D00497257 /* main.m in Sources */,
 				D99774011977DFCC00DBEF35 /* ATDEditMemoViewController.m in Sources */,

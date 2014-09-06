@@ -23,7 +23,9 @@
 #import <MapKit/MapKit.h>
 #import <MWPhotoBrowser/MWPhotoBrowser.h>
 #import "GAIDictionaryBuilder.h"
-
+#import "ATDPhotoSelector.h"
+#import "ATDSavePhotoHandler.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
 typedef NS_ENUM(NSUInteger, DetailTableCell) {
     DetailTableCellPhoto,
@@ -40,7 +42,9 @@ typedef NS_ENUM(NSUInteger, DetailTableCell) {
 ATDPhotoCellDelegate, ATDMapCellDelegate,
 ATDPlaceInfoCellDelegate,
 ATDDetailMemoProtocol,
-MWPhotoBrowserDelegate>
+MWPhotoBrowserDelegate,
+UIImagePickerControllerDelegate,
+UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -180,6 +184,51 @@ MWPhotoBrowserDelegate>
                                                            value:nil] build]];
 }
 
+- (void)didTapEditButton {
+    ATDPhotoSelector *photoSelector = [[ATDPhotoSelector alloc] init];
+    photoSelector.parent = self;
+    [photoSelector showImagePicker];
+}
+
+#pragma mark -
+#pragma mark UIImagePickerViewControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    UIImage *image = info[UIImagePickerControllerEditedImage];
+    
+    if (picker.sourceType == UIImagePickerControllerSourceTypePhotoLibrary) {
+        [self saveNewPhoto:image];
+    }
+    else if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+        UIImage *originImage = info[UIImagePickerControllerOriginalImage];
+        
+        NSMutableDictionary *metadata = (NSMutableDictionary *)[info objectForKey:UIImagePickerControllerMediaMetadata];
+        
+        ALAssetsLibrary *assetsLibrary = [[ALAssetsLibrary alloc] init];
+        [assetsLibrary writeImageToSavedPhotosAlbum:originImage.CGImage metadata:metadata completionBlock:^(NSURL *assetURL, NSError *error) {
+            if (error) {
+                NSLog(@"Save image failed. %@", error);
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"エラー"
+                                                                message:@"写真保存時にエラーが発生しました。申し訳ありませんが再度撮影してください"
+                                                               delegate:nil
+                                                      cancelButtonTitle:nil
+                                                      otherButtonTitles:@"OK", nil];
+                [alert show];
+            }
+            else {
+                [self saveNewPhoto:image];
+            }
+        }];
+    }
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 
 #pragma mark -
 #pragma mark ATDMapCellDelegate
@@ -264,6 +313,30 @@ MWPhotoBrowserDelegate>
                          }
                      }];
 }
+
+#pragma mark -
+#pragma mark Update Memo Info
+
+- (void)saveNewPhoto:(UIImage *)image {
+    // 画像の保存
+    ATDSavePhotoHandler *saveHandler = [[ATDSavePhotoHandler alloc] init];
+    NSString *filePath = [saveHandler saveImageWithImage:image];
+    if (!filePath) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ERROR", nil)
+                                                        message:NSLocalizedString(@"FAIL_SAVE_IMAGE", nil)
+                                                       delegate:nil
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"OK", nil];
+        [alert show];
+        return;
+    }
+    
+    // CoreDataに編集しているデータの変更
+    PlaceMemo *newMemo = [[ATDCoreDataManger sharedInstance] updateMemo:_memo imageFilePath:filePath];
+    
+    [self didChangeMemo:newMemo];
+}
+
 
 - (void)deleteMemo {
     [[ATDCoreDataManger sharedInstance] deleteMemo:_memo];
