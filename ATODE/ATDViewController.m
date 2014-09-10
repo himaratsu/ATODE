@@ -308,7 +308,7 @@ CLLocationManagerDelegate, MKMapViewDelegate>
 - (void)getPhotoFromCamera {
 #if (TARGET_IPHONE_SIMULATOR)
     // シミュレータで動作中
-    UIImage *image = [UIImage imageNamed:@"sample.jpg"];
+    UIImage *image = [UIImage imageNamed:@"noimage.gif"];
     [self performSegueWithIdentifier:@"showAdd" sender:image];
 #else
     // 実機で動作中

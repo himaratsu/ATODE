@@ -21,9 +21,6 @@
 		202C661819604D5D00497257 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 202C661619604D5D00497257 /* Main.storyboard */; };
 		202C661B19604D5D00497257 /* ATDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 202C661A19604D5D00497257 /* ATDViewController.m */; };
 		202C661D19604D5D00497257 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 202C661C19604D5D00497257 /* Images.xcassets */; };
-		202C662419604D5E00497257 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 202C662319604D5E00497257 /* XCTest.framework */; };
-		202C662519604D5E00497257 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 202C660419604D5D00497257 /* Foundation.framework */; };
-		202C662619604D5E00497257 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 202C660819604D5D00497257 /* UIKit.framework */; };
 		202C663C19678BB400497257 /* ATDPlaceMemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 202C663B19678BB400497257 /* ATDPlaceMemo.m */; };
 		204C1599198935AB00CFDCBB /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 204C1598198935AB00CFDCBB /* libGoogleAnalyticsServices.a */; };
 		204C159B198935D600CFDCBB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 204C159A198935D600CFDCBB /* libz.dylib */; };
@@ -86,16 +83,6 @@
 		D9E958651980D2080090BEED /* ATDPlaceSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E958631980D2080090BEED /* ATDPlaceSearchCell.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		202C662719604D5E00497257 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 202C65F919604D5D00497257 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 202C660019604D5D00497257;
-			remoteInfo = ATODE;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		201F041F19699AEE0045AB37 /* ATDPlaceSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDPlaceSearchViewController.h; sourceTree = "<group>"; };
 		201F042019699AEE0045AB37 /* ATDPlaceSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDPlaceSearchViewController.m; sourceTree = "<group>"; };
@@ -119,7 +106,6 @@
 		202C661919604D5D00497257 /* ATDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATDViewController.h; sourceTree = "<group>"; };
 		202C661A19604D5D00497257 /* ATDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATDViewController.m; sourceTree = "<group>"; };
 		202C661C19604D5D00497257 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		202C662219604D5E00497257 /* ATODETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ATODETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		202C662319604D5E00497257 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		202C663A19678BB400497257 /* ATDPlaceMemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDPlaceMemo.h; sourceTree = "<group>"; };
 		202C663B19678BB400497257 /* ATDPlaceMemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDPlaceMemo.m; sourceTree = "<group>"; };
@@ -278,16 +264,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		202C661F19604D5E00497257 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				202C662419604D5E00497257 /* XCTest.framework in Frameworks */,
-				202C662619604D5E00497257 /* UIKit.framework in Frameworks */,
-				202C662519604D5E00497257 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -314,7 +290,6 @@
 			isa = PBXGroup;
 			children = (
 				202C660119604D5D00497257 /* ATODE.app */,
-				202C662219604D5E00497257 /* ATODETests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -721,24 +696,6 @@
 			productReference = 202C660119604D5D00497257 /* ATODE.app */;
 			productType = "com.apple.product-type.application";
 		};
-		202C662119604D5E00497257 /* ATODETests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 202C663619604D5E00497257 /* Build configuration list for PBXNativeTarget "ATODETests" */;
-			buildPhases = (
-				202C661E19604D5E00497257 /* Sources */,
-				202C661F19604D5E00497257 /* Frameworks */,
-				202C662019604D5E00497257 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				202C662819604D5E00497257 /* PBXTargetDependency */,
-			);
-			name = ATODETests;
-			productName = ATODETests;
-			productReference = 202C662219604D5E00497257 /* ATODETests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -751,9 +708,6 @@
 				TargetAttributes = {
 					202C660019604D5D00497257 = {
 						DevelopmentTeam = Y6LHTNYSDM;
-					};
-					202C662119604D5E00497257 = {
-						TestTargetID = 202C660019604D5D00497257;
 					};
 				};
 			};
@@ -772,7 +726,6 @@
 			projectRoot = "";
 			targets = (
 				202C660019604D5D00497257 /* ATODE */,
-				202C662119604D5E00497257 /* ATODETests */,
 			);
 		};
 /* End PBXProject section */
@@ -800,13 +753,6 @@
 				209A406C198A8FFB007409B1 /* Localizable.strings in Resources */,
 				D9AEEBDB1987C0070058AFA7 /* ATDTutorialView.xib in Resources */,
 				202C661819604D5D00497257 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		202C662019604D5E00497257 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -886,22 +832,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		202C661E19604D5E00497257 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		202C662819604D5E00497257 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 202C660019604D5D00497257 /* ATODE */;
-			targetProxy = 202C662719604D5E00497257 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		202C660D19604D5D00497257 /* InfoPlist.strings */ = {
@@ -1052,46 +983,6 @@
 			};
 			name = Release;
 		};
-		202C663719604D5E00497257 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ATODE.app/ATODE";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ATODE/ATODE-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "ATODETests/ATODETests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		202C663819604D5E00497257 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ATODE.app/ATODE";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ATODE/ATODE-Prefix.pch";
-				INFOPLIST_FILE = "ATODETests/ATODETests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1109,15 +1000,6 @@
 			buildConfigurations = (
 				202C663419604D5E00497257 /* Debug */,
 				202C663519604D5E00497257 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		202C663619604D5E00497257 /* Build configuration list for PBXNativeTarget "ATODETests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				202C663719604D5E00497257 /* Debug */,
-				202C663819604D5E00497257 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
