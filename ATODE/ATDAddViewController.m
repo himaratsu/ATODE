@@ -136,6 +136,13 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
                                                            value:nil] build]];
 }
 
+- (NSString *)todayStr {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYYMMddhhmmss"];
+    NSString *dateStr = [formatter stringFromDate:[NSDate date]];
+    return dateStr;
+}
+
 - (NSString *)hashFromImage:(UIImage *)image {
     unsigned char   result[16];
     NSData*         data;
@@ -158,6 +165,7 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
 
 - (NSString *)saveImageWithImage:(UIImage *)image {
     NSString *hashStr = [self hashFromImage:image];
+    hashStr = [NSString stringWithFormat:@"%@%@", hashStr, [self todayStr]];
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *DocumentsDirPath = [paths objectAtIndex:0];

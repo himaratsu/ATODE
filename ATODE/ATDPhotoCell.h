@@ -11,6 +11,7 @@
 @protocol ATDPhotoCellDelegate <NSObject>
 
 - (void)didTapImage:(UIImage *)image;
+- (void)didTapEditButton;
 
 @end
 
@@ -19,5 +20,7 @@
 
 @property (nonatomic, weak) id<ATDPhotoCellDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
+
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
 
 @end

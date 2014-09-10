@@ -24,6 +24,9 @@
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                  action:@selector(imageTouched)];
     [_photoImageView addGestureRecognizer:tapGesture];
+    
+    _editButton.layer.masksToBounds = YES;
+    _editButton.layer.cornerRadius = 12.0f;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -38,5 +41,12 @@
         [_delegate didTapImage:_photoImageView.image];
     }
 }
+
+- (IBAction)editBtnTouched:(id)sender {
+    if ([_delegate respondsToSelector:@selector(didTapEditButton)]) {
+        [_delegate didTapEditButton];
+    }
+}
+
 
 @end

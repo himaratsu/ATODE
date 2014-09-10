@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PlaceMemo.h"
+#import "ATDDetailViewController.h"
 
 @interface ATDImageViewController : UIViewController
 
 @property (nonatomic, strong) UIImage *image;
+@property (nonatomic, strong) PlaceMemo *memo;
+@property (nonatomic, assign) id<ATDDetailMemoProtocol> delegate;
 
 @end

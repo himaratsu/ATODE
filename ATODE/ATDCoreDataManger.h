@@ -18,6 +18,7 @@
 
 - (NSArray *)getAllMemos;
 - (PlaceMemo *)updateMemo:(PlaceMemo *)memo title:(NSString *)title;
+- (PlaceMemo *)updateMemo:(PlaceMemo *)memo imageFilePath:(NSString *)imageFilePath;
 - (void)resetSaveData;
 
 
