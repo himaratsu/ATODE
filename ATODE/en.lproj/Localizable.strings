@@ -64,3 +64,4 @@
 "SHOP_NOT_FOUND" = "shop not found. please verify url you coppied";
 "GET_ADDRESS_ERROR" = "shop address is not found. plz try again later";
 "CANNOT_ANALYZE_ADDRESS" = "sorry. we cannot understand address";
+"PHOTO_EDIT" = "edit photo\n(not change location info.)";

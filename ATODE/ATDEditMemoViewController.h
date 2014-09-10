@@ -8,17 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "PlaceMemo.h"
-
-@protocol ATDEditMemoViewControllerDelegate <NSObject>
-
-- (void)didChangeMemo:(PlaceMemo *)memo;
-
-@end
-
+#import "ATDDetailViewController.h"
 
 @interface ATDEditMemoViewController : UIViewController
 
-@property (nonatomic, assign) id<ATDEditMemoViewControllerDelegate> delegate;
+@property (nonatomic, assign) id<ATDDetailMemoProtocol> delegate;
 @property (nonatomic, strong) PlaceMemo *memo;
 
 @end

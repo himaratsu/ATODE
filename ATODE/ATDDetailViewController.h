@@ -11,6 +11,13 @@
 @class PlaceMemo;
 
 
+@protocol ATDDetailMemoProtocol <NSObject>
+
+- (void)didChangeMemo:(PlaceMemo *)memo;
+
+@end
+
+
 @interface ATDDetailViewController : UIViewController
 
 @property (nonatomic, strong) PlaceMemo *memo;
