@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		201F042119699AEE0045AB37 /* ATDPlaceSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 201F042019699AEE0045AB37 /* ATDPlaceSearchViewController.m */; };
-		201F04241970F9560045AB37 /* ATD4sqPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 201F04231970F9560045AB37 /* ATD4sqPlace.m */; };
 		201F04271970FF5B0045AB37 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 201F04261970FF5B0045AB37 /* fontawesome-webfont.ttf */; };
 		201F042A197102750045AB37 /* ATDSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 201F0429197102750045AB37 /* ATDSettingViewController.m */; };
 		20223CFD198BD4C800B8C97D /* ATDTutorialStartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20223CFC198BD4C800B8C97D /* ATDTutorialStartView.m */; };
@@ -24,7 +23,6 @@
 		202C662419604D5E00497257 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 202C662319604D5E00497257 /* XCTest.framework */; };
 		202C662519604D5E00497257 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 202C660419604D5D00497257 /* Foundation.framework */; };
 		202C662619604D5E00497257 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 202C660819604D5D00497257 /* UIKit.framework */; };
-		202C663C19678BB400497257 /* ATDPlaceMemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 202C663B19678BB400497257 /* ATDPlaceMemo.m */; };
 		204C1599198935AB00CFDCBB /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 204C1598198935AB00CFDCBB /* libGoogleAnalyticsServices.a */; };
 		204C159B198935D600CFDCBB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 204C159A198935D600CFDCBB /* libz.dylib */; };
 		204C159D198935E700CFDCBB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 204C159C198935E700CFDCBB /* CoreData.framework */; };
@@ -35,10 +33,8 @@
 		208131AF19678E8E0094E577 /* ATDPlaceMemoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 208131AE19678E8E0094E577 /* ATDPlaceMemoCell.m */; };
 		208131B119678E9B0094E577 /* ATDPlaceMemoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 208131B019678E9B0094E577 /* ATDPlaceMemoCell.xib */; };
 		208131B4196791A70094E577 /* ATDAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 208131B3196791A70094E577 /* ATDAddViewController.m */; };
-		208131C11967AF2F0094E577 /* ATDCoreDataManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 208131C01967AF2F0094E577 /* ATDCoreDataManger.m */; };
 		209A406C198A8FFB007409B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 209A406E198A8FFB007409B1 /* Localizable.strings */; };
 		20A0FA4E1972A53B004FA008 /* ATDDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A0FA4D1972A53B004FA008 /* ATDDetailViewController.m */; };
-		20A0FA541972B0E5004FA008 /* PlaceMemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A0FA531972B0E5004FA008 /* PlaceMemo.m */; };
 		20A0FA561972B6B6004FA008 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A0FA551972B6B6004FA008 /* MapKit.framework */; };
 		20A0FA5A1972D48B004FA008 /* MKMapView+ATDZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A0FA591972D48B004FA008 /* MKMapView+ATDZoomLevel.m */; };
 		20A0FA5D1972D5BE004FA008 /* ATDAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A0FA5C1972D5BE004FA008 /* ATDAnnotation.m */; };
@@ -72,12 +68,12 @@
 		D97516A219AF4F8000D65938 /* ATODEFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D975168119AF4E1800D65938 /* ATODEFramework.framework */; };
 		D97516A319AF4FCB00D65938 /* ATDTabelogSearcher.h in Sources */ = {isa = PBXBuildFile; fileRef = D99390C3199B1D0700E71695 /* ATDTabelogSearcher.h */; };
 		D97516A419AF4FCB00D65938 /* ATDTabelogSearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D99390C4199B1D0700E71695 /* ATDTabelogSearcher.m */; };
-		D99390C5199B1D0700E71695 /* ATDTabelogSearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D99390C4199B1D0700E71695 /* ATDTabelogSearcher.m */; };
 		D99773F71977825100DBEF35 /* ATDImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99773F61977825100DBEF35 /* ATDImageViewController.m */; };
 		D99774011977DFCC00DBEF35 /* ATDEditMemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99774001977DFCC00DBEF35 /* ATDEditMemoViewController.m */; };
-		D99774051977EB3800DBEF35 /* ATDPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D99774041977EB3800DBEF35 /* ATDPlaceholderTextView.m */; };
 		D99774111978D51700DBEF35 /* license.html in Resources */ = {isa = PBXBuildFile; fileRef = D997740F1978D51700DBEF35 /* license.html */; };
 		D99774121978D51700DBEF35 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = D99774101978D51700DBEF35 /* style.css */; };
+		D99DDD5C19CA6F3E00635A8E /* ATD4sqPlace.h in Sources */ = {isa = PBXBuildFile; fileRef = 201F04221970F9560045AB37 /* ATD4sqPlace.h */; };
+		D99DDD5D19CA6F3E00635A8E /* ATD4sqPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 201F04231970F9560045AB37 /* ATD4sqPlace.m */; };
 		D9AEEBA81986635D0058AFA7 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AEEBA71986635D0058AFA7 /* libGoogleAdMobAds.a */; };
 		D9AEEBB3198663960058AFA7 /* libAdapterIAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AEEBB2198663960058AFA7 /* libAdapterIAd.a */; };
 		D9AEEBB5198663BD0058AFA7 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AEEBB4198663BD0058AFA7 /* AdSupport.framework */; };
@@ -223,13 +219,13 @@
 		208131B019678E9B0094E577 /* ATDPlaceMemoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATDPlaceMemoCell.xib; sourceTree = "<group>"; };
 		208131B2196791A70094E577 /* ATDAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDAddViewController.h; sourceTree = "<group>"; };
 		208131B3196791A70094E577 /* ATDAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDAddViewController.m; sourceTree = "<group>"; };
-		208131BF1967AF2F0094E577 /* ATDCoreDataManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDCoreDataManger.h; sourceTree = "<group>"; };
-		208131C01967AF2F0094E577 /* ATDCoreDataManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDCoreDataManger.m; sourceTree = "<group>"; };
+		208131BF1967AF2F0094E577 /* ATDCoreDataManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATDCoreDataManger.h; path = ../ATODE/ATDCoreDataManger.h; sourceTree = "<group>"; };
+		208131C01967AF2F0094E577 /* ATDCoreDataManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATDCoreDataManger.m; path = ../ATODE/ATDCoreDataManger.m; sourceTree = "<group>"; };
 		209A406D198A8FFB007409B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		20A0FA4C1972A53B004FA008 /* ATDDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDDetailViewController.h; sourceTree = "<group>"; };
 		20A0FA4D1972A53B004FA008 /* ATDDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDDetailViewController.m; sourceTree = "<group>"; };
-		20A0FA521972B0E5004FA008 /* PlaceMemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceMemo.h; sourceTree = "<group>"; };
-		20A0FA531972B0E5004FA008 /* PlaceMemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceMemo.m; sourceTree = "<group>"; };
+		20A0FA521972B0E5004FA008 /* PlaceMemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaceMemo.h; path = ../ATODE/PlaceMemo.h; sourceTree = "<group>"; };
+		20A0FA531972B0E5004FA008 /* PlaceMemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaceMemo.m; path = ../ATODE/PlaceMemo.m; sourceTree = "<group>"; };
 		20A0FA551972B6B6004FA008 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		20A0FA581972D48B004FA008 /* MKMapView+ATDZoomLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+ATDZoomLevel.h"; sourceTree = "<group>"; };
 		20A0FA591972D48B004FA008 /* MKMapView+ATDZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+ATDZoomLevel.m"; sourceTree = "<group>"; };
@@ -271,8 +267,8 @@
 		D99773F61977825100DBEF35 /* ATDImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDImageViewController.m; sourceTree = "<group>"; };
 		D99773FF1977DFCC00DBEF35 /* ATDEditMemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDEditMemoViewController.h; sourceTree = "<group>"; };
 		D99774001977DFCC00DBEF35 /* ATDEditMemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDEditMemoViewController.m; sourceTree = "<group>"; };
-		D99774031977EB3800DBEF35 /* ATDPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDPlaceholderTextView.h; sourceTree = "<group>"; };
-		D99774041977EB3800DBEF35 /* ATDPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDPlaceholderTextView.m; sourceTree = "<group>"; };
+		D99774031977EB3800DBEF35 /* ATDPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATDPlaceholderTextView.h; path = ../ATODE/ATDPlaceholderTextView.h; sourceTree = "<group>"; };
+		D99774041977EB3800DBEF35 /* ATDPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATDPlaceholderTextView.m; path = ../ATODE/ATDPlaceholderTextView.m; sourceTree = "<group>"; };
 		D997740F1978D51700DBEF35 /* license.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = license.html; sourceTree = "<group>"; };
 		D99774101978D51700DBEF35 /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
 		D9AEEB9E1986635D0058AFA7 /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
@@ -463,7 +459,6 @@
 				208131B51967987A0094E577 /* Data */,
 				202C663E19678C9E00497257 /* ViewController */,
 				202C663D19678C9600497257 /* View */,
-				202C663919678B3D00497257 /* Model */,
 				202C661319604D5D00497257 /* ATDAppDelegate.h */,
 				202C661419604D5D00497257 /* ATDAppDelegate.m */,
 				202C661619604D5D00497257 /* Main.storyboard */,
@@ -488,13 +483,13 @@
 		202C663919678B3D00497257 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D99390C2199B1CF500E71695 /* Tabelog */,
 				202C663A19678BB400497257 /* ATDPlaceMemo.h */,
 				202C663B19678BB400497257 /* ATDPlaceMemo.m */,
 				201F04221970F9560045AB37 /* ATD4sqPlace.h */,
 				201F04231970F9560045AB37 /* ATD4sqPlace.m */,
 			);
 			name = Model;
+			path = ../ATODE;
 			sourceTree = "<group>";
 		};
 		202C663D19678C9600497257 /* View */ = {
@@ -571,10 +566,6 @@
 			isa = PBXGroup;
 			children = (
 				D93734C419B41724009E2D21 /* ATODE.xcdatamodeld */,
-				20A0FA521972B0E5004FA008 /* PlaceMemo.h */,
-				20A0FA531972B0E5004FA008 /* PlaceMemo.m */,
-				208131BF1967AF2F0094E577 /* ATDCoreDataManger.h */,
-				208131C01967AF2F0094E577 /* ATDCoreDataManger.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -672,6 +663,14 @@
 			isa = PBXGroup;
 			children = (
 				D975168519AF4E1800D65938 /* ATODEFramework.h */,
+				D99774031977EB3800DBEF35 /* ATDPlaceholderTextView.h */,
+				D99774041977EB3800DBEF35 /* ATDPlaceholderTextView.m */,
+				208131BF1967AF2F0094E577 /* ATDCoreDataManger.h */,
+				208131C01967AF2F0094E577 /* ATDCoreDataManger.m */,
+				20A0FA521972B0E5004FA008 /* PlaceMemo.h */,
+				20A0FA531972B0E5004FA008 /* PlaceMemo.m */,
+				202C663919678B3D00497257 /* Model */,
+				D99390C2199B1CF500E71695 /* Tabelog */,
 				D975168319AF4E1800D65938 /* Supporting Files */,
 			);
 			path = ATODEFramework;
@@ -692,6 +691,7 @@
 				D99390C4199B1D0700E71695 /* ATDTabelogSearcher.m */,
 			);
 			name = Tabelog;
+			path = ../ATODE;
 			sourceTree = "<group>";
 		};
 		D99773F81977D94400DBEF35 /* Map */ = {
@@ -731,8 +731,6 @@
 				D9CD7F3C1986061300293F37 /* LicenseViewController.h */,
 				D9CD7F3D1986061300293F37 /* LicenseViewController.m */,
 				D9CD7F3E1986061300293F37 /* LicenseViewController.xib */,
-				D99774031977EB3800DBEF35 /* ATDPlaceholderTextView.h */,
-				D99774041977EB3800DBEF35 /* ATDPlaceholderTextView.m */,
 				D997740E1978D50700DBEF35 /* license */,
 			);
 			name = Library;
@@ -1144,7 +1142,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D93734C619B41724009E2D21 /* ATODE.xcdatamodeld in Sources */,
-				20A0FA541972B0E5004FA008 /* PlaceMemo.m in Sources */,
 				201F042119699AEE0045AB37 /* ATDPlaceSearchViewController.m in Sources */,
 				20A0FA5D1972D5BE004FA008 /* ATDAnnotation.m in Sources */,
 				20A0FA4E1972A53B004FA008 /* ATDDetailViewController.m in Sources */,
@@ -1152,18 +1149,15 @@
 				D9CD7F3F1986061300293F37 /* LicenseViewController.m in Sources */,
 				20AA05B119756967009A1735 /* ATDPhotoCell.m in Sources */,
 				20AA05B419756975009A1735 /* ATDPlaceInfoCell.m in Sources */,
-				D99390C5199B1D0700E71695 /* ATDTabelogSearcher.m in Sources */,
 				201F042A197102750045AB37 /* ATDSettingViewController.m in Sources */,
 				202C661519604D5D00497257 /* ATDAppDelegate.m in Sources */,
 				D9AEEBE91987CDA40058AFA7 /* ATDTutorialFinalView.m in Sources */,
 				20A0FA601972F8C7004FA008 /* ATDMapViewController.m in Sources */,
 				20AA05BD197569A9009A1735 /* ATDPostDateCell.m in Sources */,
-				202C663C19678BB400497257 /* ATDPlaceMemo.m in Sources */,
 				20223CFD198BD4C800B8C97D /* ATDTutorialStartView.m in Sources */,
 				20AA05B719756982009A1735 /* ATDMemoCell.m in Sources */,
 				20A0FA5A1972D48B004FA008 /* MKMapView+ATDZoomLevel.m in Sources */,
 				D9E958651980D2080090BEED /* ATDPlaceSearchCell.m in Sources */,
-				208131C11967AF2F0094E577 /* ATDCoreDataManger.m in Sources */,
 				20AA05BA1975698E009A1735 /* ATDMapCell.m in Sources */,
 				202C661119604D5D00497257 /* main.m in Sources */,
 				D99774011977DFCC00DBEF35 /* ATDEditMemoViewController.m in Sources */,
@@ -1172,8 +1166,6 @@
 				208131AF19678E8E0094E577 /* ATDPlaceMemoCell.m in Sources */,
 				D9AEEBD91987BFF90058AFA7 /* ATDTutorialView.m in Sources */,
 				207796961989380800EF3879 /* UIViewController+GAInject.m in Sources */,
-				201F04241970F9560045AB37 /* ATD4sqPlace.m in Sources */,
-				D99774051977EB3800DBEF35 /* ATDPlaceholderTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1197,6 +1189,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D99DDD5C19CA6F3E00635A8E /* ATD4sqPlace.h in Sources */,
+				D99DDD5D19CA6F3E00635A8E /* ATD4sqPlace.m in Sources */,
 				D93734C019B40C55009E2D21 /* ATDPlaceMemo.h in Sources */,
 				D93734C119B40C55009E2D21 /* ATDPlaceMemo.m in Sources */,
 				D93734BE19B40BFB009E2D21 /* PlaceMemo.h in Sources */,
