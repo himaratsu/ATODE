@@ -365,7 +365,7 @@ CLLocationManagerDelegate, MKMapViewDelegate>
                                             imageUrl = @"";
                                         }
 
-                                        NSString *customTitle = [NSString stringWithFormat:@"%@\n%@", title, URL.absoluteString];
+                                        NSString *customTitle = [NSString stringWithFormat:@"%@\n\n%@", title, URL.absoluteString];
                                         NSDictionary *params = @{@"title":customTitle,
                                                                  @"location":location,
                                                                  @"imageUrl":imageUrl};
