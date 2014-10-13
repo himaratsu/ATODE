@@ -21,7 +21,6 @@
 		202C661819604D5D00497257 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 202C661619604D5D00497257 /* Main.storyboard */; };
 		202C661B19604D5D00497257 /* ATDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 202C661A19604D5D00497257 /* ATDViewController.m */; };
 		202C661D19604D5D00497257 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 202C661C19604D5D00497257 /* Images.xcassets */; };
-		202C663C19678BB400497257 /* ATDPlaceMemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 202C663B19678BB400497257 /* ATDPlaceMemo.m */; };
 		204C1599198935AB00CFDCBB /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 204C1598198935AB00CFDCBB /* libGoogleAnalyticsServices.a */; };
 		204C159B198935D600CFDCBB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 204C159A198935D600CFDCBB /* libz.dylib */; };
 		204C159D198935E700CFDCBB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 204C159C198935E700CFDCBB /* CoreData.framework */; };
@@ -33,10 +32,8 @@
 		208131B119678E9B0094E577 /* ATDPlaceMemoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 208131B019678E9B0094E577 /* ATDPlaceMemoCell.xib */; };
 		208131B4196791A70094E577 /* ATDAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 208131B3196791A70094E577 /* ATDAddViewController.m */; };
 		208131BB196798BA0094E577 /* ATODE.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 208131B9196798BA0094E577 /* ATODE.xcdatamodeld */; };
-		208131C11967AF2F0094E577 /* ATDCoreDataManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 208131C01967AF2F0094E577 /* ATDCoreDataManger.m */; };
 		209A406C198A8FFB007409B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 209A406E198A8FFB007409B1 /* Localizable.strings */; };
 		20A0FA4E1972A53B004FA008 /* ATDDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A0FA4D1972A53B004FA008 /* ATDDetailViewController.m */; };
-		20A0FA541972B0E5004FA008 /* PlaceMemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A0FA531972B0E5004FA008 /* PlaceMemo.m */; };
 		20A0FA561972B6B6004FA008 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A0FA551972B6B6004FA008 /* MapKit.framework */; };
 		20A0FA5A1972D48B004FA008 /* MKMapView+ATDZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A0FA591972D48B004FA008 /* MKMapView+ATDZoomLevel.m */; };
 		20A0FA5D1972D5BE004FA008 /* ATDAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A0FA5C1972D5BE004FA008 /* ATDAnnotation.m */; };
@@ -47,7 +44,6 @@
 		20AA05BA1975698E009A1735 /* ATDMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20AA05B91975698E009A1735 /* ATDMapCell.m */; };
 		20AA05BD197569A9009A1735 /* ATDPostDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20AA05BC197569A9009A1735 /* ATDPostDateCell.m */; };
 		20BBB55619BAB8DE0088A6B9 /* ATDPhotoSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BBB55519BAB8DE0088A6B9 /* ATDPhotoSelector.m */; };
-		20BBB55919BABB090088A6B9 /* ATDSavePhotoHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BBB55819BABB090088A6B9 /* ATDSavePhotoHandler.m */; };
 		20D64FDA198BCF11006A6E07 /* ATDTutorialStartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D64FD9198BCF11006A6E07 /* ATDTutorialStartView.xib */; };
 		570045879D7E43FC9B0EFFAD /* libPods-ATODEFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EE9B64C9C3441C1A1A1AA9E /* libPods-ATODEFramework.a */; };
 		75EE8389EEB04721AB520E74 /* libPods-AddByUrl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D68F28C4904D40BAB25303A3 /* libPods-AddByUrl.a */; };
@@ -73,10 +69,8 @@
 		D92D580D19EBC49900B87C20 /* ATDSavePhotoHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BBB55819BABB090088A6B9 /* ATDSavePhotoHandler.m */; };
 		D92D580E19EBC4F900B87C20 /* PlaceMemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A0FA531972B0E5004FA008 /* PlaceMemo.m */; };
 		D92D580F19EBC50F00B87C20 /* PlaceMemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A0FA531972B0E5004FA008 /* PlaceMemo.m */; };
-		D99390C5199B1D0700E71695 /* ATDTabelogSearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D99390C4199B1D0700E71695 /* ATDTabelogSearcher.m */; };
 		D99773F71977825100DBEF35 /* ATDImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99773F61977825100DBEF35 /* ATDImageViewController.m */; };
 		D99774011977DFCC00DBEF35 /* ATDEditMemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99774001977DFCC00DBEF35 /* ATDEditMemoViewController.m */; };
-		D99774051977EB3800DBEF35 /* ATDPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D99774041977EB3800DBEF35 /* ATDPlaceholderTextView.m */; };
 		D99774111978D51700DBEF35 /* license.html in Resources */ = {isa = PBXBuildFile; fileRef = D997740F1978D51700DBEF35 /* license.html */; };
 		D99774121978D51700DBEF35 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = D99774101978D51700DBEF35 /* style.css */; };
 		D9AEEBA81986635D0058AFA7 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AEEBA71986635D0058AFA7 /* libGoogleAdMobAds.a */; };
@@ -1160,7 +1154,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20A0FA541972B0E5004FA008 /* PlaceMemo.m in Sources */,
 				201F042119699AEE0045AB37 /* ATDPlaceSearchViewController.m in Sources */,
 				20A0FA5D1972D5BE004FA008 /* ATDAnnotation.m in Sources */,
 				20A0FA4E1972A53B004FA008 /* ATDDetailViewController.m in Sources */,
@@ -1169,20 +1162,16 @@
 				20AA05B119756967009A1735 /* ATDPhotoCell.m in Sources */,
 				20AA05B419756975009A1735 /* ATDPlaceInfoCell.m in Sources */,
 				208131BB196798BA0094E577 /* ATODE.xcdatamodeld in Sources */,
-				D99390C5199B1D0700E71695 /* ATDTabelogSearcher.m in Sources */,
 				201F042A197102750045AB37 /* ATDSettingViewController.m in Sources */,
 				202C661519604D5D00497257 /* ATDAppDelegate.m in Sources */,
 				D9AEEBE91987CDA40058AFA7 /* ATDTutorialFinalView.m in Sources */,
 				20A0FA601972F8C7004FA008 /* ATDMapViewController.m in Sources */,
 				20AA05BD197569A9009A1735 /* ATDPostDateCell.m in Sources */,
-				202C663C19678BB400497257 /* ATDPlaceMemo.m in Sources */,
 				20223CFD198BD4C800B8C97D /* ATDTutorialStartView.m in Sources */,
 				20BBB55619BAB8DE0088A6B9 /* ATDPhotoSelector.m in Sources */,
 				20AA05B719756982009A1735 /* ATDMemoCell.m in Sources */,
 				20A0FA5A1972D48B004FA008 /* MKMapView+ATDZoomLevel.m in Sources */,
 				D9E958651980D2080090BEED /* ATDPlaceSearchCell.m in Sources */,
-				208131C11967AF2F0094E577 /* ATDCoreDataManger.m in Sources */,
-				20BBB55919BABB090088A6B9 /* ATDSavePhotoHandler.m in Sources */,
 				20AA05BA1975698E009A1735 /* ATDMapCell.m in Sources */,
 				202C661119604D5D00497257 /* main.m in Sources */,
 				D99774011977DFCC00DBEF35 /* ATDEditMemoViewController.m in Sources */,
@@ -1192,7 +1181,6 @@
 				D9AEEBD91987BFF90058AFA7 /* ATDTutorialView.m in Sources */,
 				207796961989380800EF3879 /* UIViewController+GAInject.m in Sources */,
 				201F04241970F9560045AB37 /* ATD4sqPlace.m in Sources */,
-				D99774051977EB3800DBEF35 /* ATDPlaceholderTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
