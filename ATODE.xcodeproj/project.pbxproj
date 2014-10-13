@@ -59,6 +59,10 @@
 		D92D57F419EBAB9300B87C20 /* ATODEFrameworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D92D57F319EBAB9300B87C20 /* ATODEFrameworkTests.m */; };
 		D92D57F719EBAB9300B87C20 /* ATODEFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D92D57E319EBAB9300B87C20 /* ATODEFramework.framework */; };
 		D92D57F819EBAB9300B87C20 /* ATODEFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D92D57E319EBAB9300B87C20 /* ATODEFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D92D580319EBABE300B87C20 /* ATDTabelogSearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D99390C4199B1D0700E71695 /* ATDTabelogSearcher.m */; };
+		D92D580419EBAC1800B87C20 /* ATDTabelogSearcher.h in Headers */ = {isa = PBXBuildFile; fileRef = D99390C3199B1D0700E71695 /* ATDTabelogSearcher.h */; };
+		D92D580519EBB9A100B87C20 /* ATDPlaceholderTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = D99774031977EB3800DBEF35 /* ATDPlaceholderTextView.h */; };
+		D92D580619EBB9A400B87C20 /* ATDPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D99774041977EB3800DBEF35 /* ATDPlaceholderTextView.m */; };
 		D99390C5199B1D0700E71695 /* ATDTabelogSearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D99390C4199B1D0700E71695 /* ATDTabelogSearcher.m */; };
 		D99773F71977825100DBEF35 /* ATDImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99773F61977825100DBEF35 /* ATDImageViewController.m */; };
 		D99774011977DFCC00DBEF35 /* ATDEditMemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99774001977DFCC00DBEF35 /* ATDEditMemoViewController.m */; };
@@ -850,7 +854,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D92D580419EBAC1800B87C20 /* ATDTabelogSearcher.h in Headers */,
 				D92D57E819EBAB9300B87C20 /* ATODEFramework.h in Headers */,
+				D92D580519EBB9A100B87C20 /* ATDPlaceholderTextView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1153,6 +1159,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D92D580319EBABE300B87C20 /* ATDTabelogSearcher.m in Sources */,
+				D92D580619EBB9A400B87C20 /* ATDPlaceholderTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1403,7 +1411,7 @@
 				);
 				INFOPLIST_FILE = ATODEFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1428,7 +1436,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				INFOPLIST_FILE = ATODEFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
