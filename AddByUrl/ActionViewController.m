@@ -10,6 +10,10 @@
 #import "ATODEFramework.h"
 #import "ATDPlaceholderTextView.h"
 #import "ATDTabelogSearcher.h"
+#import "ATDPlaceMemo.h"
+#import "ATD4sqPlace.h"
+#import "ATDCoreDataManger.h"
+#import "ATDSavePhotoHandler.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 
@@ -25,8 +29,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 
-
 @property (nonatomic, strong) ATDTabelogSearcher *searcher;
+@property (nonatomic, strong) ATD4sqPlace *placeInfo;
+@property (nonatomic, assign) CLLocationCoordinate2D coordinate;
 
 
 @end
@@ -139,6 +144,70 @@
 - (IBAction)cancelBtnTouched:(id)sender {
     [self.extensionContext completeRequestReturningItems:self.extensionContext.inputItems completionHandler:nil];
 }
+
+- (void)saveNewMemo {
+    // タイトル
+    NSString *title = _titleTextView.text;
+    
+    // 画像
+    ATDSavePhotoHandler *saveHandler = [[ATDSavePhotoHandler alloc] init];
+    NSString *filePath = [saveHandler saveImageWithImage:_imageView.image];
+    if (!filePath) {
+        // TODO: error (cannot save)
+        return;
+    }
+    
+    // 投稿日時
+    NSString *postdate = [self postdateFromNow];
+    
+    // 保存
+    [self saveNewMemoWithTitle:title
+                      filePath:filePath
+                      postdate:postdate
+                       siteUrl:@""];
+}
+
+
+- (void)saveNewMemoWithTitle:(NSString *)title
+                    filePath:(NSString *)filePath
+                    postdate:(NSString *)postdate
+                     siteUrl:(NSString *)siteUrl {
+    ATDPlaceMemo *memo = [ATDPlaceMemo new];
+    
+    memo.title = title;
+    memo.imageFilePath = filePath;
+    memo.postdate = postdate;
+    memo.siteUrl = siteUrl;
+    
+    if (_placeInfo) {
+        memo.placeInfo = _placeInfo;
+    }
+    
+    if (_coordinate.latitude != 0 && _coordinate.longitude != 0) {
+        memo.latitude = _coordinate.latitude;
+        memo.longitude = _coordinate.longitude;
+    }
+    
+    [[ATDCoreDataManger sharedInstance] saveNewMemo:memo];
+    
+    
+    // 閉じる
+    [self.extensionContext completeRequestReturningItems:self.extensionContext.inputItems completionHandler:nil];
+}
+
+
+- (NSString *)postdateFromNow {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    
+    NSLocale *enUSPOSIXLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+    [dateFormatter setLocale:enUSPOSIXLocale];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+    dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm";
+    
+    return [dateFormatter stringFromDate:[NSDate date]];
+    
+}
+
 
 @end
 

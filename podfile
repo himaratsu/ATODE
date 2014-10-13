@@ -11,3 +11,7 @@ pod 'FontAwesomeKit'
 target :AddByUrl do
   pod 'SDWebImage'
 end
+
+target :ATODEFramework do
+  pod 'MagicalRecord', '~> 2.2'
+end

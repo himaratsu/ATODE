@@ -49,6 +49,7 @@
 		20BBB55619BAB8DE0088A6B9 /* ATDPhotoSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BBB55519BAB8DE0088A6B9 /* ATDPhotoSelector.m */; };
 		20BBB55919BABB090088A6B9 /* ATDSavePhotoHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BBB55819BABB090088A6B9 /* ATDSavePhotoHandler.m */; };
 		20D64FDA198BCF11006A6E07 /* ATDTutorialStartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D64FD9198BCF11006A6E07 /* ATDTutorialStartView.xib */; };
+		570045879D7E43FC9B0EFFAD /* libPods-ATODEFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EE9B64C9C3441C1A1A1AA9E /* libPods-ATODEFramework.a */; };
 		75EE8389EEB04721AB520E74 /* libPods-AddByUrl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D68F28C4904D40BAB25303A3 /* libPods-AddByUrl.a */; };
 		BADD391C7A8C4D6FBB1C5F1C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E43CBDEB2F3F49CA98E99DC4 /* libPods.a */; };
 		D92D57CA19EBA8A000B87C20 /* AddByUrl.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D92D57BF19EBA8A000B87C20 /* AddByUrl.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -63,6 +64,15 @@
 		D92D580419EBAC1800B87C20 /* ATDTabelogSearcher.h in Headers */ = {isa = PBXBuildFile; fileRef = D99390C3199B1D0700E71695 /* ATDTabelogSearcher.h */; };
 		D92D580519EBB9A100B87C20 /* ATDPlaceholderTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = D99774031977EB3800DBEF35 /* ATDPlaceholderTextView.h */; };
 		D92D580619EBB9A400B87C20 /* ATDPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D99774041977EB3800DBEF35 /* ATDPlaceholderTextView.m */; };
+		D92D580719EBC15B00B87C20 /* ATDPlaceMemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 202C663B19678BB400497257 /* ATDPlaceMemo.m */; };
+		D92D580819EBC32100B87C20 /* ATDSavePhotoHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BBB55819BABB090088A6B9 /* ATDSavePhotoHandler.m */; };
+		D92D580919EBC33900B87C20 /* ATDCoreDataManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 208131C01967AF2F0094E577 /* ATDCoreDataManger.m */; };
+		D92D580A19EBC3BC00B87C20 /* ATDSavePhotoHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 20BBB55719BABB090088A6B9 /* ATDSavePhotoHandler.h */; };
+		D92D580B19EBC3DD00B87C20 /* ATDCoreDataManger.h in Headers */ = {isa = PBXBuildFile; fileRef = 208131BF1967AF2F0094E577 /* ATDCoreDataManger.h */; };
+		D92D580C19EBC48E00B87C20 /* ATDCoreDataManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 208131C01967AF2F0094E577 /* ATDCoreDataManger.m */; };
+		D92D580D19EBC49900B87C20 /* ATDSavePhotoHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BBB55819BABB090088A6B9 /* ATDSavePhotoHandler.m */; };
+		D92D580E19EBC4F900B87C20 /* PlaceMemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A0FA531972B0E5004FA008 /* PlaceMemo.m */; };
+		D92D580F19EBC50F00B87C20 /* PlaceMemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A0FA531972B0E5004FA008 /* PlaceMemo.m */; };
 		D99390C5199B1D0700E71695 /* ATDTabelogSearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D99390C4199B1D0700E71695 /* ATDTabelogSearcher.m */; };
 		D99773F71977825100DBEF35 /* ATDImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99773F61977825100DBEF35 /* ATDImageViewController.m */; };
 		D99774011977DFCC00DBEF35 /* ATDEditMemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99774001977DFCC00DBEF35 /* ATDEditMemoViewController.m */; };
@@ -160,6 +170,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0901B87A75D346DC9F645A34 /* Pods-ATODEFramework.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATODEFramework.xcconfig"; path = "Pods/Pods-ATODEFramework.xcconfig"; sourceTree = "<group>"; };
 		201F041F19699AEE0045AB37 /* ATDPlaceSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDPlaceSearchViewController.h; sourceTree = "<group>"; };
 		201F042019699AEE0045AB37 /* ATDPlaceSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDPlaceSearchViewController.m; sourceTree = "<group>"; };
 		201F04221970F9560045AB37 /* ATD4sqPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATD4sqPlace.h; sourceTree = "<group>"; };
@@ -244,6 +255,7 @@
 		20D64FD7198BC371006A6E07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		20D64FD8198BC380006A6E07 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		20D64FD9198BCF11006A6E07 /* ATDTutorialStartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATDTutorialStartView.xib; sourceTree = "<group>"; };
+		6EE9B64C9C3441C1A1A1AA9E /* libPods-ATODEFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ATODEFramework.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D68F28C4904D40BAB25303A3 /* libPods-AddByUrl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AddByUrl.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D74FAF12D3944CD3976CCA94 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		D92D57BF19EBA8A000B87C20 /* AddByUrl.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AddByUrl.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -366,6 +378,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				570045879D7E43FC9B0EFFAD /* libPods-ATODEFramework.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +412,7 @@
 				202C660219604D5D00497257 /* Products */,
 				D74FAF12D3944CD3976CCA94 /* Pods.xcconfig */,
 				DDC5AED1FCE34F70B45F9BA3 /* Pods-AddByUrl.xcconfig */,
+				0901B87A75D346DC9F645A34 /* Pods-ATODEFramework.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -435,6 +449,7 @@
 				202C662319604D5E00497257 /* XCTest.framework */,
 				E43CBDEB2F3F49CA98E99DC4 /* libPods.a */,
 				D68F28C4904D40BAB25303A3 /* libPods-AddByUrl.a */,
+				6EE9B64C9C3441C1A1A1AA9E /* libPods-ATODEFramework.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -856,7 +871,9 @@
 			files = (
 				D92D580419EBAC1800B87C20 /* ATDTabelogSearcher.h in Headers */,
 				D92D57E819EBAB9300B87C20 /* ATODEFramework.h in Headers */,
+				D92D580B19EBC3DD00B87C20 /* ATDCoreDataManger.h in Headers */,
 				D92D580519EBB9A100B87C20 /* ATDPlaceholderTextView.h in Headers */,
+				D92D580A19EBC3BC00B87C20 /* ATDSavePhotoHandler.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -911,10 +928,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D92D57FF19EBAB9400B87C20 /* Build configuration list for PBXNativeTarget "ATODEFramework" */;
 			buildPhases = (
+				E0E1F907CFD646B7A5DEFCF6 /* Check Pods Manifest.lock */,
 				D92D57DE19EBAB9300B87C20 /* Sources */,
 				D92D57DF19EBAB9300B87C20 /* Frameworks */,
 				D92D57E019EBAB9300B87C20 /* Headers */,
 				D92D57E119EBAB9300B87C20 /* Resources */,
+				C2BDDA3851074A848E95F92D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1089,6 +1108,36 @@
 			shellScript = "\"${SRCROOT}/Pods/Pods-AddByUrl-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C2BDDA3851074A848E95F92D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-ATODEFramework-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0E1F907CFD646B7A5DEFCF6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		F98D58F4EE264E79A40416FF /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1151,6 +1200,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D92D580C19EBC48E00B87C20 /* ATDCoreDataManger.m in Sources */,
+				D92D580F19EBC50F00B87C20 /* PlaceMemo.m in Sources */,
+				D92D580D19EBC49900B87C20 /* ATDSavePhotoHandler.m in Sources */,
 				D92D57D419EBA94E00B87C20 /* ActionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1159,6 +1211,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D92D580819EBC32100B87C20 /* ATDSavePhotoHandler.m in Sources */,
+				D92D580719EBC15B00B87C20 /* ATDPlaceMemo.m in Sources */,
+				D92D580919EBC33900B87C20 /* ATDCoreDataManger.m in Sources */,
+				D92D580E19EBC4F900B87C20 /* PlaceMemo.m in Sources */,
 				D92D580319EBABE300B87C20 /* ATDTabelogSearcher.m in Sources */,
 				D92D580619EBB9A400B87C20 /* ATDPlaceholderTextView.m in Sources */,
 			);
@@ -1395,6 +1451,7 @@
 		};
 		D92D57FB19EBAB9400B87C20 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0901B87A75D346DC9F645A34 /* Pods-ATODEFramework.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: RYOSUKE HIRAMATSU (CX83Y44847)";
@@ -1424,6 +1481,7 @@
 		};
 		D92D57FC19EBAB9400B87C20 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0901B87A75D346DC9F645A34 /* Pods-ATODEFramework.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: RYOSUKE HIRAMATSU (Y6LHTNYSDM)";
@@ -1524,6 +1582,7 @@
 				D92D57FC19EBAB9400B87C20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D92D580119EBAB9400B87C20 /* Build configuration list for PBXNativeTarget "ATODEFrameworkTests" */ = {
 			isa = XCConfigurationList;
@@ -1532,6 +1591,7 @@
 				D92D57FE19EBAB9400B87C20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
