@@ -677,7 +677,14 @@ CLLocationManagerDelegate, MKMapViewDelegate>
     PlaceMemo *memo = _memos[indexPath.row];
     
     cell.nameLabel.text = memo.title;
-    [cell.imageView setImageWithURL:[NSURL fileURLWithPath:memo.imageFilePath]];
+
+    
+    NSString *lastPath = [NSURL fileURLWithPath:memo.imageFilePath].lastPathComponent;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *DocumentsDirPath = [paths objectAtIndex:0];
+    NSString *filePath = [DocumentsDirPath stringByAppendingFormat:@"/%@", lastPath];
+    
+    [cell.imageView sd_setImageWithURL:[NSURL fileURLWithPath:filePath]];
     
     return cell;
 }
