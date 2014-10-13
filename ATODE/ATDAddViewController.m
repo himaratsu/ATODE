@@ -49,10 +49,11 @@ static NSString * const kApiClientSecret = @"FWEEVYATFIJXWUOLHBYKDUUVLKEDU2L0DHY
             _imageView.image = [UIImage imageNamed:@"noimage.gif"];
         }
         else {
-            [_imageView setImageWithURL:[NSURL URLWithString:_imageUrl]
-                              completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                                  // fade?
-                              }];
+            [_imageView sd_setImageWithURL:[NSURL URLWithString:_imageUrl]
+                          placeholderImage:nil
+                                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                                     // fade?
+                                 }];
         }
         _titleTextView.text = _defaultMemoStr;
     }

@@ -140,7 +140,7 @@ UINavigationControllerDelegate>
             cell.placeImageView.alpha = 1.0;
             
             if ([_memo.placeInfo.photoUrls count] > 0) {
-                [cell.placeImageView setImageWithURL:[NSURL URLWithString:_memo.placeInfo.photoUrls[0]]];
+                [cell.placeImageView sd_setImageWithURL:[NSURL URLWithString:_memo.placeInfo.photoUrls[0]]];
             }
             else {
                 cell.placeImageView.image = nil;
