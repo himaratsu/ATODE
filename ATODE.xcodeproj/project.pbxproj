@@ -263,6 +263,8 @@
 		D92D57ED19EBAB9300B87C20 /* ATODEFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ATODEFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D92D57F219EBAB9300B87C20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D92D57F319EBAB9300B87C20 /* ATODEFrameworkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATODEFrameworkTests.m; sourceTree = "<group>"; };
+		D92D581219EBCB6A00B87C20 /* AddByUrl.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AddByUrl.entitlements; sourceTree = "<group>"; };
+		D92D581319EBCB7100B87C20 /* ATODE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ATODE.entitlements; sourceTree = "<group>"; };
 		D99390C3199B1D0700E71695 /* ATDTabelogSearcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDTabelogSearcher.h; sourceTree = "<group>"; };
 		D99390C4199B1D0700E71695 /* ATDTabelogSearcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDTabelogSearcher.m; sourceTree = "<group>"; };
 		D99773F51977825100DBEF35 /* ATDImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDImageViewController.h; sourceTree = "<group>"; };
@@ -451,6 +453,7 @@
 		202C660A19604D5D00497257 /* ATODE */ = {
 			isa = PBXGroup;
 			children = (
+				D92D581319EBCB7100B87C20 /* ATODE.entitlements */,
 				D9AEEBD61987BFDF0058AFA7 /* Tutorial */,
 				D99774021977EB2100DBEF35 /* Library */,
 				20A0FA571972D470004FA008 /* Category */,
@@ -650,6 +653,7 @@
 		D92D57C019EBA8A000B87C20 /* AddByUrl */ = {
 			isa = PBXGroup;
 			children = (
+				D92D581219EBCB6A00B87C20 /* AddByUrl.entitlements */,
 				D92D57D119EBA94E00B87C20 /* ActionViewController.h */,
 				D92D57D219EBA94E00B87C20 /* ActionViewController.m */,
 				D92D57D319EBA94E00B87C20 /* MainInterface.storyboard */,
@@ -968,10 +972,20 @@
 				TargetAttributes = {
 					202C660019604D5D00497257 = {
 						DevelopmentTeam = Y6LHTNYSDM;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					D92D57BE19EBA8A000B87C20 = {
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = Y6LHTNYSDM;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					D92D57E219EBAB9300B87C20 = {
 						CreatedOnToolsVersion = 6.0;
@@ -1356,6 +1370,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				BUNDLE_ID_SUFFIX = .debug;
+				CODE_SIGN_ENTITLEMENTS = ATODE/ATODE.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: RYOSUKE HIRAMATSU (CX83Y44847)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: RYOSUKE HIRAMATSU (CX83Y44847)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1381,6 +1396,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				BUNDLE_ID_SUFFIX = "";
+				CODE_SIGN_ENTITLEMENTS = ATODE/ATODE.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: RYOSUKE HIRAMATSU (Y6LHTNYSDM)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: RYOSUKE HIRAMATSU (Y6LHTNYSDM)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1404,6 +1420,7 @@
 			baseConfigurationReference = DDC5AED1FCE34F70B45F9BA3 /* Pods-AddByUrl.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = AddByUrl/AddByUrl.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: RYOSUKE HIRAMATSU (CX83Y44847)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: RYOSUKE HIRAMATSU (CX83Y44847)";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1425,6 +1442,7 @@
 			baseConfigurationReference = DDC5AED1FCE34F70B45F9BA3 /* Pods-AddByUrl.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = AddByUrl/AddByUrl.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: RYOSUKE HIRAMATSU (Y6LHTNYSDM)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: RYOSUKE HIRAMATSU (Y6LHTNYSDM)";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
