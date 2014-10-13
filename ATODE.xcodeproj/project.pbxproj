@@ -50,6 +50,10 @@
 		20BBB55919BABB090088A6B9 /* ATDSavePhotoHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BBB55819BABB090088A6B9 /* ATDSavePhotoHandler.m */; };
 		20D64FDA198BCF11006A6E07 /* ATDTutorialStartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D64FD9198BCF11006A6E07 /* ATDTutorialStartView.xib */; };
 		BADD391C7A8C4D6FBB1C5F1C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E43CBDEB2F3F49CA98E99DC4 /* libPods.a */; };
+		D92D57CA19EBA8A000B87C20 /* AddByUrl.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D92D57BF19EBA8A000B87C20 /* AddByUrl.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D92D57D419EBA94E00B87C20 /* ActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D92D57D219EBA94E00B87C20 /* ActionViewController.m */; };
+		D92D57D519EBA94E00B87C20 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D92D57D319EBA94E00B87C20 /* MainInterface.storyboard */; };
+		D92D57DD19EBA99000B87C20 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D92D57DC19EBA99000B87C20 /* Info.plist */; };
 		D99390C5199B1D0700E71695 /* ATDTabelogSearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D99390C4199B1D0700E71695 /* ATDTabelogSearcher.m */; };
 		D99773F71977825100DBEF35 /* ATDImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99773F61977825100DBEF35 /* ATDImageViewController.m */; };
 		D99774011977DFCC00DBEF35 /* ATDEditMemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99774001977DFCC00DBEF35 /* ATDEditMemoViewController.m */; };
@@ -82,6 +86,37 @@
 		D9DD14F319A81AE00042066F /* noimage.gif in Resources */ = {isa = PBXBuildFile; fileRef = D9DD14F219A81AE00042066F /* noimage.gif */; };
 		D9E958651980D2080090BEED /* ATDPlaceSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E958631980D2080090BEED /* ATDPlaceSearchCell.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D92D57C819EBA8A000B87C20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 202C65F919604D5D00497257 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D92D57BE19EBA8A000B87C20;
+			remoteInfo = AddByUrl;
+		};
+		D92D57CB19EBA8A000B87C20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 202C65F919604D5D00497257 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D92D57BE19EBA8A000B87C20;
+			remoteInfo = AddByUrl;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D92D57D019EBA8A000B87C20 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D92D57CA19EBA8A000B87C20 /* AddByUrl.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		201F041F19699AEE0045AB37 /* ATDPlaceSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDPlaceSearchViewController.h; sourceTree = "<group>"; };
@@ -169,6 +204,11 @@
 		20D64FD8198BC380006A6E07 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		20D64FD9198BCF11006A6E07 /* ATDTutorialStartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATDTutorialStartView.xib; sourceTree = "<group>"; };
 		D74FAF12D3944CD3976CCA94 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		D92D57BF19EBA8A000B87C20 /* AddByUrl.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AddByUrl.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D92D57D119EBA94E00B87C20 /* ActionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionViewController.h; sourceTree = "<group>"; };
+		D92D57D219EBA94E00B87C20 /* ActionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionViewController.m; sourceTree = "<group>"; };
+		D92D57D319EBA94E00B87C20 /* MainInterface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		D92D57DC19EBA99000B87C20 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D99390C3199B1D0700E71695 /* ATDTabelogSearcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDTabelogSearcher.h; sourceTree = "<group>"; };
 		D99390C4199B1D0700E71695 /* ATDTabelogSearcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDTabelogSearcher.m; sourceTree = "<group>"; };
 		D99773F51977825100DBEF35 /* ATDImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDImageViewController.h; sourceTree = "<group>"; };
@@ -264,6 +304,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D92D57BC19EBA8A000B87C20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -280,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				202C660A19604D5D00497257 /* ATODE */,
+				D92D57C019EBA8A000B87C20 /* AddByUrl */,
 				202C660319604D5D00497257 /* Frameworks */,
 				202C660219604D5D00497257 /* Products */,
 				D74FAF12D3944CD3976CCA94 /* Pods.xcconfig */,
@@ -290,6 +338,7 @@
 			isa = PBXGroup;
 			children = (
 				202C660119604D5D00497257 /* ATODE.app */,
+				D92D57BF19EBA8A000B87C20 /* AddByUrl.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -518,6 +567,25 @@
 			name = DetailCell;
 			sourceTree = "<group>";
 		};
+		D92D57C019EBA8A000B87C20 /* AddByUrl */ = {
+			isa = PBXGroup;
+			children = (
+				D92D57D119EBA94E00B87C20 /* ActionViewController.h */,
+				D92D57D219EBA94E00B87C20 /* ActionViewController.m */,
+				D92D57D319EBA94E00B87C20 /* MainInterface.storyboard */,
+				D92D57C119EBA8A000B87C20 /* Supporting Files */,
+			);
+			path = AddByUrl;
+			sourceTree = "<group>";
+		};
+		D92D57C119EBA8A000B87C20 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D92D57DC19EBA99000B87C20 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		D99390C2199B1CF500E71695 /* Tabelog */ = {
 			isa = PBXGroup;
 			children = (
@@ -686,15 +754,35 @@
 				202C65FE19604D5D00497257 /* Frameworks */,
 				202C65FF19604D5D00497257 /* Resources */,
 				F98D58F4EE264E79A40416FF /* Copy Pods Resources */,
+				D92D57D019EBA8A000B87C20 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D92D57C919EBA8A000B87C20 /* PBXTargetDependency */,
+				D92D57CC19EBA8A000B87C20 /* PBXTargetDependency */,
 			);
 			name = ATODE;
 			productName = ATODE;
 			productReference = 202C660119604D5D00497257 /* ATODE.app */;
 			productType = "com.apple.product-type.application";
+		};
+		D92D57BE19EBA8A000B87C20 /* AddByUrl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D92D57CD19EBA8A000B87C20 /* Build configuration list for PBXNativeTarget "AddByUrl" */;
+			buildPhases = (
+				D92D57BB19EBA8A000B87C20 /* Sources */,
+				D92D57BC19EBA8A000B87C20 /* Frameworks */,
+				D92D57BD19EBA8A000B87C20 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AddByUrl;
+			productName = AddByUrl;
+			productReference = D92D57BF19EBA8A000B87C20 /* AddByUrl.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -707,6 +795,10 @@
 				ORGANIZATIONNAME = himara2;
 				TargetAttributes = {
 					202C660019604D5D00497257 = {
+						DevelopmentTeam = Y6LHTNYSDM;
+					};
+					D92D57BE19EBA8A000B87C20 = {
+						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = Y6LHTNYSDM;
 					};
 				};
@@ -726,6 +818,7 @@
 			projectRoot = "";
 			targets = (
 				202C660019604D5D00497257 /* ATODE */,
+				D92D57BE19EBA8A000B87C20 /* AddByUrl */,
 			);
 		};
 /* End PBXProject section */
@@ -753,6 +846,15 @@
 				209A406C198A8FFB007409B1 /* Localizable.strings in Resources */,
 				D9AEEBDB1987C0070058AFA7 /* ATDTutorialView.xib in Resources */,
 				202C661819604D5D00497257 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D92D57BD19EBA8A000B87C20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D92D57DD19EBA99000B87C20 /* Info.plist in Resources */,
+				D92D57D519EBA94E00B87C20 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -832,7 +934,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D92D57BB19EBA8A000B87C20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D92D57D419EBA94E00B87C20 /* ActionViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D92D57C919EBA8A000B87C20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D92D57BE19EBA8A000B87C20 /* AddByUrl */;
+			targetProxy = D92D57C819EBA8A000B87C20 /* PBXContainerItemProxy */;
+		};
+		D92D57CC19EBA8A000B87C20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D92D57BE19EBA8A000B87C20 /* AddByUrl */;
+			targetProxy = D92D57CB19EBA8A000B87C20 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		202C660D19604D5D00497257 /* InfoPlist.strings */ = {
@@ -985,6 +1108,42 @@
 			};
 			name = Release;
 		};
+		D92D57CE19EBA8A000B87C20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: RYOSUKE HIRAMATSU (CX83Y44847)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: RYOSUKE HIRAMATSU (CX83Y44847)";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AddByUrl/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D92D57CF19EBA8A000B87C20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: RYOSUKE HIRAMATSU (Y6LHTNYSDM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: RYOSUKE HIRAMATSU (Y6LHTNYSDM)";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = AddByUrl/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1005,6 +1164,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		D92D57CD19EBA8A000B87C20 /* Build configuration list for PBXNativeTarget "AddByUrl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D92D57CE19EBA8A000B87C20 /* Debug */,
+				D92D57CF19EBA8A000B87C20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 

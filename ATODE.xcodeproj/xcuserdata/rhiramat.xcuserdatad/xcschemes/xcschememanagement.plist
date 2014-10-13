@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>AddByUrl.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>13</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -18,6 +23,11 @@
 			<true/>
 		</dict>
 		<key>202C662119604D5E00497257</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D92D57BE19EBA8A000B87C20</key>
 		<dict>
 			<key>primary</key>
 			<true/>
