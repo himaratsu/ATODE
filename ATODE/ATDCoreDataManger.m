@@ -39,6 +39,10 @@
     addMemo.latitude = @(memo.latitude);
     addMemo.longitude = @(memo.longitude);
     
+    NSLog(@"addMemo [%@]", addMemo);
+    
+    NSLog(@"magicalContext [%@]", _magicalContext);
+    
     [_magicalContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
         NSLog(@"write to CoreData :success[%d]", success);
     }];

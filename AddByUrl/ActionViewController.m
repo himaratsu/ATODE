@@ -138,7 +138,8 @@
 }
 
 - (IBAction)doneBtnTouched:(id)sender {
-    [self.extensionContext completeRequestReturningItems:self.extensionContext.inputItems completionHandler:nil];
+    [self saveNewMemo];
+//    [self.extensionContext completeRequestReturningItems:self.extensionContext.inputItems completionHandler:nil];
 }
 
 - (IBAction)cancelBtnTouched:(id)sender {
@@ -154,6 +155,7 @@
     NSString *filePath = [saveHandler saveImageWithImage:_imageView.image];
     if (!filePath) {
         // TODO: error (cannot save)
+        NSLog(@"error: cannoe save image");
         return;
     }
     
@@ -179,6 +181,8 @@
     memo.postdate = postdate;
     memo.siteUrl = siteUrl;
     
+    NSLog(@"memo [%@]", memo);
+    
     if (_placeInfo) {
         memo.placeInfo = _placeInfo;
     }
@@ -190,6 +194,8 @@
     
     [[ATDCoreDataManger sharedInstance] saveNewMemo:memo];
     
+    
+    NSLog(@"save completely");
     
     // 閉じる
     [self.extensionContext completeRequestReturningItems:self.extensionContext.inputItems completionHandler:nil];
