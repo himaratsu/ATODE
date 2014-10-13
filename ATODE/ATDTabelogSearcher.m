@@ -35,10 +35,15 @@
         return;
     }
     
+    NSUInteger index = [webView.request.URL.pathComponents indexOfObject:@"redirector"];
+    if (index != NSNotFound) {
+        return;
+    }
+    
     _isFinishSearch = YES;
     
-    NSString *host = webView.request.URL.host;
     
+    NSString *host = webView.request.URL.host;
     if ([host isEqualToString:@"tabelog.com"]
         || [host isEqualToString:@"s.tabelog.com"]) {
         
@@ -69,6 +74,7 @@
                 if (placemarks > 0) {
                     CLPlacemark *p = placemarks[0]; // 0番目を使用
                     CLLocation *location = p.location;
+                    
                     self.handler(shopTitle, location, imageUrl, nil);
                 }
                 else {

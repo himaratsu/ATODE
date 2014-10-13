@@ -335,18 +335,21 @@ CLLocationManagerDelegate, MKMapViewDelegate>
 - (void)getInfoFromTabelog {
     // Pasteboardをチェックして
     UIPasteboard *board = [UIPasteboard generalPasteboard];
-    NSString *url = [board valueForPasteboardType:@"public.text"];
+    NSString *pasteStr = board.string;
+    
+    NSLog(@"pasteStr is [%@]", pasteStr);
+    
+    NSURL *URL = [NSURL URLWithString:pasteStr];
+    NSString *host = URL.host;
     
     // パターンにマッチすれば提案を出す
-    NSString *host = [[NSURL URLWithString:url] host];
     if ([host isEqualToString:@"tabelog.com"]
-        || [host isEqualToString:@"s.tabelog.com"]
-        || [host isEqualToString:@"r.gnavi.co.jp"]) {
+        || [host isEqualToString:@"s.tabelog.com"]) {
         
         [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
         
         self.searcher = [ATDTabelogSearcher new];
-        [_searcher searchInfoWithTabelogUrl:url
+        [_searcher searchInfoWithTabelogUrl:URL.absoluteString
                                     handler:^(NSString *title, CLLocation *location, NSString *imageUrl, NSString *errorMsg) {
                                         [SVProgressHUD dismiss];
                                         if (errorMsg) {
@@ -362,7 +365,8 @@ CLLocationManagerDelegate, MKMapViewDelegate>
                                             imageUrl = @"";
                                         }
 
-                                        NSDictionary *params = @{@"title":title,
+                                        NSString *customTitle = [NSString stringWithFormat:@"%@\n%@", title, URL.absoluteString];
+                                        NSDictionary *params = @{@"title":customTitle,
                                                                  @"location":location,
                                                                  @"imageUrl":imageUrl};
                                         [self performSegueWithIdentifier:@"showAddFromSite" sender:params];
@@ -662,6 +666,15 @@ CLLocationManagerDelegate, MKMapViewDelegate>
     }
 }
 
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    if (status == kCLAuthorizationStatusNotDetermined) {
+        
+        // iOS 8では認証ダイアログの表示が必要
+        if ([manager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+            [manager requestWhenInUseAuthorization];
+        }
+    }
+}
 
 #pragma mark -
 #pragma mark UICollectionViewDelegate

@@ -19,7 +19,7 @@
     [self replacedViewDidAppear:animated];
     
     // クラスをトラックする
-    NSLog(@"GA track:[%@]", NSStringFromClass([self class]));
+//    NSLog(@"GA track:[%@]", NSStringFromClass([self class]));
     
     [[GAI sharedInstance].defaultTracker set:kGAIScreenName
                                        value:NSStringFromClass([self class])];
