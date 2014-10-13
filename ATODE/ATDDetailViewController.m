@@ -103,7 +103,13 @@ UINavigationControllerDelegate>
     if (indexPath.row == DetailTableCellPhoto) {
         ATDPhotoCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ATDPhotoCell class])];
         cell.delegate = self;
-        [cell.photoImageView setImageWithURL:[NSURL fileURLWithPath:_memo.imageFilePath]];
+        
+        NSString *lastPath = [NSURL fileURLWithPath:_memo.imageFilePath].lastPathComponent;
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *DocumentsDirPath = [paths objectAtIndex:0];
+        NSString *filePath = [DocumentsDirPath stringByAppendingFormat:@"/%@", lastPath];
+        
+        [cell.photoImageView sd_setImageWithURL:[NSURL fileURLWithPath:filePath]];
         return cell;
     }
     else if (indexPath.row == DetailTableCellMemo) {
