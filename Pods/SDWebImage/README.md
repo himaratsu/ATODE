@@ -4,8 +4,6 @@ Web Image
 [![Pod Version](http://img.shields.io/cocoapods/v/SDWebImage.svg?style=flat)](http://cocoadocs.org/docsets/SDWebImage/)
 [![Pod Platform](http://img.shields.io/cocoapods/p/SDWebImage.svg?style=flat)](http://cocoadocs.org/docsets/SDWebImage/)
 [![Pod License](http://img.shields.io/cocoapods/l/SDWebImage.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0.html)
-[![Dependency Status](https://www.versioneye.com/objective-c/sdwebimage/3.3/badge.svg?style=flat)](https://www.versioneye.com/objective-c/sdwebimage/3.3)
-[![Reference Status](https://www.versioneye.com/objective-c/sdwebimage/reference_badge.svg?style=flat)](https://www.versioneye.com/objective-c/sdwebimage/references)
 
 This library provides a category for UIImageView with support for remote images coming from the web.
 
@@ -37,7 +35,7 @@ Find out [who uses SDWebImage](https://github.com/rs/SDWebImage/wiki/Who-Uses-SD
 How To Use
 ----------
 
-API documentation is available at [CocoaDocs - SDWebImage](http://cocoadocs.org/docsets/SDWebImage/)
+API documentation is available at [http://hackemist.com/SDWebImage/doc/](http://hackemist.com/SDWebImage/doc/)
 
 ### Using UIImageView+WebCache category with UITableView
 
@@ -177,8 +175,9 @@ the URL before to use it as a cache key:
 ```objective-c
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    SDWebImageManager.sharedManager.cacheKeyFilter = ^(NSURL *url) {
-        url = [[NSURL alloc] initWithScheme:url.scheme host:url.host path:url.path];
+    SDWebImageManager.sharedManager.cacheKeyFilter:^(NSURL *url)
+    {
+        url = [[[NSURL alloc] initWithScheme:url.scheme host:url.host path:url.path] autorelease];
         return [url absoluteString];
     };
 
@@ -253,13 +252,9 @@ Open the "Build Settings" tab, in the "Linking" section, locate the "Other Linke
 ![Other Linker Flags](http://dl.dropbox.com/u/123346/SDWebImage/10_other_linker_flags.jpg)
 
 Alternatively, if this causes compilation problems with frameworks that extend optional libraries, such as Parse,  RestKit or opencv2, instead of the -ObjC flag use:
+
 ```
 -force_load SDWebImage.framework/Versions/Current/SDWebImage
-```
-
-If you're using Cocoa Pods and have any frameworks that extend optional libraries, such as Parsen RestKit or opencv2, instead of the -ObjC flag use:
-```
--force_load $(TARGET_BUILD_DIR)/libPods.a
 ```
 
 ### Import headers in your source files

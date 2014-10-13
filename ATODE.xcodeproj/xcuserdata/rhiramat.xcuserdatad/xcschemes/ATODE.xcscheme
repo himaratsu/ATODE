@@ -34,6 +34,20 @@
                ReferencedContainer = "container:ATODE.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D92D57EC19EBAB9300B87C20"
+               BuildableName = "ATODEFrameworkTests.xctest"
+               BlueprintName = "ATODEFrameworkTests"
+               ReferencedContainer = "container:ATODE.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -49,6 +63,16 @@
                BlueprintIdentifier = "202C662119604D5E00497257"
                BuildableName = "ATODETests.xctest"
                BlueprintName = "ATODETests"
+               ReferencedContainer = "container:ATODE.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D92D57EC19EBAB9300B87C20"
+               BuildableName = "ATODEFrameworkTests.xctest"
+               BlueprintName = "ATODEFrameworkTests"
                ReferencedContainer = "container:ATODE.xcodeproj">
             </BuildableReference>
          </TestableReference>
