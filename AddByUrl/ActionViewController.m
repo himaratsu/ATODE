@@ -14,6 +14,7 @@
 @interface ActionViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
+@property (weak, nonatomic) IBOutlet UIView *titleFrameView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet ATDPlaceholderTextView *titleTextView;
 @property (weak, nonatomic) IBOutlet UIButton *addPlaceButton;
@@ -29,6 +30,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self setAppearance];
+    
+    [self setUpViews];
     
     // Get the item[s] we're handling from the extension context.
     
@@ -60,14 +65,48 @@
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+// 見た目の設定
+- (void)setAppearance {
+    UINavigationBar *navBar = self.navigationController.navigationBar;
+
+    navBar.barTintColor = [UIColor colorWithRed:70/255.0 green:171/255.0 blue:235/255.0 alpha:1.0];
+    navBar.tintColor = [UIColor whiteColor];
+    NSDictionary *attributes = @{
+                                 NSFontAttributeName : [UIFont systemFontOfSize:18],
+                                 NSForegroundColorAttributeName : [UIColor whiteColor]
+                                 };
+    navBar.titleTextAttributes = attributes;
 }
+
+- (void)setUpViews {
+    _titleFrameView.layer.cornerRadius = 3.0f;
+    _titleFrameView.layer.masksToBounds = YES;
+
+    _addPlaceButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    _addPlaceButton.contentEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0);
+
+    _addPlaceButton.layer.cornerRadius = 3.0f;
+    _addPlaceButton.layer.masksToBounds = YES;
+
+    _doneButton.layer.cornerRadius = 3.0f;
+    _doneButton.layer.masksToBounds = YES;
+
+    _cancelButton.layer.cornerRadius = 3.0f;
+    _cancelButton.layer.masksToBounds = YES;
+}
+
 
 - (IBAction)done {
     // Return any edited content to the host app.
     // This template doesn't do anything, so we just echo the passed in items.
+    [self.extensionContext completeRequestReturningItems:self.extensionContext.inputItems completionHandler:nil];
+}
+
+- (IBAction)doneBtnTouched:(id)sender {
+    [self.extensionContext completeRequestReturningItems:self.extensionContext.inputItems completionHandler:nil];
+}
+
+- (IBAction)cancelBtnTouched:(id)sender {
     [self.extensionContext completeRequestReturningItems:self.extensionContext.inputItems completionHandler:nil];
 }
 
