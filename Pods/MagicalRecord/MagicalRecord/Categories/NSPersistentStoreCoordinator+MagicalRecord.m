@@ -62,12 +62,99 @@ NSString * const kMagicalRecordPSCDidCompleteiCloudSetupNotification = @"kMagica
     }
 }
 
+- (void) MR_createPathToStoreFileIfNeccessary:(NSURL *)urlForStore oldUrl:(NSURL *)oldUrlForStore
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSURL *pathToStore = [urlForStore URLByDeletingLastPathComponent];
+    
+    NSError *error = nil;
+    BOOL pathWasCreated = [fileManager createDirectoryAtPath:[pathToStore path]
+                                 withIntermediateDirectories:YES
+                                                  attributes:nil
+                                                       error:&error];
+    
+    if (!pathWasCreated)
+    {
+        [MagicalRecord handleErrors:error];
+    }
+    
+    // pathが同一なら終了
+    if ([[urlForStore path] isEqualToString:[oldUrlForStore path]]) {
+        return;
+    }
+    
+    // himara2 editted:
+    // Copy ~Ver.1.1 sqlite file to new path 'Shared/ATODE.sqlite'
+    if ([fileManager fileExistsAtPath:[oldUrlForStore path]]) {
+        NSLog(@"昔のデータが存在するよ!!!!");
+        
+        NSString *pathToStoreUrl = [pathToStore path];
+        NSString *sqliteFile = [pathToStoreUrl stringByAppendingPathComponent:@"ATODE.sqlite"];
+        NSString *sqliteWalFile = [pathToStoreUrl stringByAppendingPathComponent:@"ATODE.sqlite-wal"];
+        NSString *sqliteShmFile = [pathToStoreUrl stringByAppendingPathComponent:@"ATODE.sqlite-shm"];
+        
+        [self removeFileWithPath:sqliteFile];
+        [self removeFileWithPath:sqliteWalFile];
+        [self removeFileWithPath:sqliteShmFile];
+        
+        
+        NSString *oldPathToStoreUrl = [[oldUrlForStore URLByDeletingLastPathComponent] path];
+        NSString *oldSqliteFile = [oldPathToStoreUrl stringByAppendingPathComponent:@"ATODE.sqlite"];
+        NSString *oldSqliteWalFile = [oldPathToStoreUrl stringByAppendingPathComponent:@"ATODE.sqlite-wal"];
+        NSString *oldSqliteShmFile = [oldPathToStoreUrl stringByAppendingPathComponent:@"ATODE.sqlite-shm"];
+        
+        [self moveFileWithPath:oldSqliteFile destPath:sqliteFile];
+        [self moveFileWithPath:oldSqliteWalFile destPath:sqliteWalFile];
+        [self moveFileWithPath:oldSqliteShmFile destPath:sqliteShmFile];
+        
+        if (error) {
+            [MagicalRecord handleErrors:error];
+        }
+    }
+}
+
+- (void)moveFileWithPath:(NSString *)filePath destPath:(NSString *)destPath {
+    NSError *error = nil;
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    if ([fileManager fileExistsAtPath:filePath]) {
+        [fileManager moveItemAtPath:filePath
+                             toPath:destPath
+                              error:&error];
+        if (error) {
+            [MagicalRecord handleErrors:error];
+        }
+    }
+}
+
+- (void)removeFileWithPath:(NSString *)filePath {
+    NSError *error = nil;
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    if ([fileManager fileExistsAtPath:filePath]) {
+        [fileManager removeItemAtPath:filePath
+                                error:&error];
+        
+        if (error) {
+            [MagicalRecord handleErrors:error];
+        }
+        else {
+            NSLog(@"削除したよ: %@", filePath);
+        }
+    }
+}
+
+
 - (NSPersistentStore *) MR_addSqliteStoreNamed:(id)storeFileName withOptions:(__autoreleasing NSDictionary *)options
 {
-    NSURL *url = [storeFileName isKindOfClass:[NSURL class]] ? storeFileName : [NSPersistentStore MR_urlForStoreName:storeFileName];
+    NSURL *url = [storeFileName isKindOfClass:[NSURL class]] ? storeFileName : [NSPersistentStore MR_urlForAppGroupsStoreName:storeFileName];
     NSError *error = nil;
     
-    [self MR_createPathToStoreFileIfNeccessary:url];
+    NSURL *oldUrl = [NSPersistentStore MR_urlForStoreName:storeFileName];
+    
+    NSLog(@"このURLに書き込みます url:[%@]", url);
+    
+    [self MR_createPathToStoreFileIfNeccessary:url oldUrl:oldUrl];
     
     NSPersistentStore *store = [self addPersistentStoreWithType:NSSQLiteStoreType
                                                   configuration:nil

@@ -37,8 +37,22 @@ static NSPersistentStore *defaultPersistentStore_ = nil;
 
 + (NSString *)MR_applicationStorageDirectory
 {
-    NSString *applicationName = [[[NSBundle mainBundle] infoDictionary] valueForKey:(NSString *)kCFBundleNameKey];
+    NSString *applicationName = @"ATODE";
     return [[self MR_directory:NSApplicationSupportDirectory] stringByAppendingPathComponent:applicationName];
+}
+
++ (NSString *)MR_applicationAppGroupsStorageDirectory
+{
+    NSString *applicationName = @"ATODE";
+    
+    NSURL *storeURL = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.gomemo"];
+    NSString *storeAbsoluteUrl = [[storeURL absoluteString] stringByReplacingOccurrencesOfString:@"file:" withString:@""];
+    storeAbsoluteUrl = [storeAbsoluteUrl stringByAppendingPathComponent:@"ATODE"];
+    
+    NSLog(@"current path [%@]", [[self MR_directory:NSApplicationSupportDirectory] stringByAppendingPathComponent:applicationName]);
+    NSLog(@"app groups path [%@]", storeAbsoluteUrl);
+    
+    return storeAbsoluteUrl;
 }
 
 + (NSURL *) MR_urlForStoreName:(NSString *)storeFileName
@@ -57,6 +71,22 @@ static NSPersistentStore *defaultPersistentStore_ = nil;
 
     //set default url
     return [NSURL fileURLWithPath:[[self MR_applicationStorageDirectory] stringByAppendingPathComponent:storeFileName]];
+}
+
++ (NSURL *)MR_urlForAppGroupsStoreName:(NSString *)storeFileName {
+    NSArray *paths = [NSArray arrayWithObjects:[self MR_applicationAppGroupsStorageDirectory], nil];
+    NSFileManager *fm = [[NSFileManager alloc] init];
+    
+    for (NSString *path in paths)
+    {
+        NSString *filepath = [path stringByAppendingPathComponent:storeFileName];
+        if ([fm fileExistsAtPath:filepath])
+        {
+            return [NSURL fileURLWithPath:filepath];
+        }
+    }
+    
+    return [NSURL fileURLWithPath:[[self MR_applicationAppGroupsStorageDirectory] stringByAppendingPathComponent:storeFileName]];
 }
 
 + (NSURL *) MR_cloudURLForUbiqutiousContainer:(NSString *)bucketName;
