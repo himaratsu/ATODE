@@ -7,7 +7,6 @@
 //
 
 #import "ActionViewController.h"
-#import "ATODEFramework.h"
 #import "ATDPlaceholderTextView.h"
 #import "ATDTabelogSearcher.h"
 #import "ATDPlaceMemo.h"
