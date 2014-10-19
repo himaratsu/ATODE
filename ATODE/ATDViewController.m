@@ -691,20 +691,26 @@ CLLocationManagerDelegate, MKMapViewDelegate>
     
     cell.nameLabel.text = memo.title;
     
-    
-    
 #if (TARGET_IPHONE_SIMULATOR)
     // シミュレータで動作中
     [cell.imageView sd_setImageWithURL:[NSURL fileURLWithPath:memo.imageFilePath]];
 #else
     // 実機で動作中
     NSString *lastPath = [NSURL fileURLWithPath:memo.imageFilePath].lastPathComponent;
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *DocumentsDirPath = [paths objectAtIndex:0];
-    NSString *filePath = [DocumentsDirPath stringByAppendingFormat:@"/%@", lastPath];
-    NSLog(@"imageFilePath[%@]", memo.imageFilePath);
     
-    [cell.imageView sd_setImageWithURL:[NSURL fileURLWithPath:filePath]];
+    if ([memo.imageFilePath containsString:@"Shared/AppGroup"]) {
+        // extension から追加された分
+        NSURL *fileURL = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.gomemo"];
+        fileURL = [fileURL URLByAppendingPathComponent:lastPath];
+        [cell.imageView sd_setImageWithURL:fileURL];
+    }
+    else {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *DocumentsDirPath = [paths objectAtIndex:0];
+        NSString *filePath = [DocumentsDirPath stringByAppendingFormat:@"/%@", lastPath];
+        [cell.imageView sd_setImageWithURL:[NSURL fileURLWithPath:filePath]];
+    }
+
 #endif
     
     return cell;
