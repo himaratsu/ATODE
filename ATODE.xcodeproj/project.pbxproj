@@ -57,6 +57,7 @@
 		D92B4A9819F409510041B927 /* ATDPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D99774041977EB3800DBEF35 /* ATDPlaceholderTextView.m */; };
 		D92B4A9919F409510041B927 /* ATDPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D99774041977EB3800DBEF35 /* ATDPlaceholderTextView.m */; };
 		D92B4A9A19F409750041B927 /* ATDSavePhotoHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BBB55819BABB090088A6B9 /* ATDSavePhotoHandler.m */; };
+		D92B4A9B19F41F5F0041B927 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 202C661C19604D5D00497257 /* Images.xcassets */; };
 		D92D57CA19EBA8A000B87C20 /* AddByUrl.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D92D57BF19EBA8A000B87C20 /* AddByUrl.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D92D57D419EBA94E00B87C20 /* ActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D92D57D219EBA94E00B87C20 /* ActionViewController.m */; };
 		D92D57D519EBA94E00B87C20 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D92D57D319EBA94E00B87C20 /* MainInterface.storyboard */; };
@@ -897,6 +898,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D92B4A9B19F41F5F0041B927 /* Images.xcassets in Resources */,
 				D92D57DD19EBA99000B87C20 /* Info.plist in Resources */,
 				D92D57D519EBA94E00B87C20 /* MainInterface.storyboard in Resources */,
 			);
@@ -1197,6 +1199,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DDC5AED1FCE34F70B45F9BA3 /* Pods-AddByUrl.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Action;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_ENTITLEMENTS = AddByUrl/AddByUrl.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: RYOSUKE HIRAMATSU (CX83Y44847)";
@@ -1219,6 +1223,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DDC5AED1FCE34F70B45F9BA3 /* Pods-AddByUrl.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Action;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_ENTITLEMENTS = AddByUrl/AddByUrl.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: RYOSUKE HIRAMATSU (Y6LHTNYSDM)";
