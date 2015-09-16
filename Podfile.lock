@@ -1,11 +1,11 @@
 PODS:
   - AFNetworking (2.3.1):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-    - AFNetworking/UIKit
+    - AFNetworking/NSURLConnection (= 2.3.1)
+    - AFNetworking/NSURLSession (= 2.3.1)
+    - AFNetworking/Reachability (= 2.3.1)
+    - AFNetworking/Security (= 2.3.1)
+    - AFNetworking/Serialization (= 2.3.1)
+    - AFNetworking/UIKit (= 2.3.1)
   - AFNetworking/NSURLConnection (2.3.1):
     - AFNetworking/Reachability
     - AFNetworking/Security
@@ -20,36 +20,32 @@ PODS:
   - AFNetworking/UIKit (2.3.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - DACircularProgress (2.2.0)
-  - FontAwesomeKit (2.1.7):
+  - DACircularProgress (2.3.1)
+  - FontAwesomeKit (2.2.0):
+    - FontAwesomeKit/Core (= 2.2.0)
+    - FontAwesomeKit/FontAwesome (= 2.2.0)
+    - FontAwesomeKit/FoundationIcons (= 2.2.0)
+    - FontAwesomeKit/IonIcons (= 2.2.0)
+    - FontAwesomeKit/Zocial (= 2.2.0)
+  - FontAwesomeKit/Core (2.2.0)
+  - FontAwesomeKit/FontAwesome (2.2.0):
     - FontAwesomeKit/Core
-    - FontAwesomeKit/FontAwesome
-    - FontAwesomeKit/FoundationIcons
-    - FontAwesomeKit/IonIcons
-    - FontAwesomeKit/Zocial
-  - FontAwesomeKit/Core (2.1.7)
-  - FontAwesomeKit/FontAwesome (2.1.7):
+  - FontAwesomeKit/FoundationIcons (2.2.0):
     - FontAwesomeKit/Core
-  - FontAwesomeKit/FoundationIcons (2.1.7):
+  - FontAwesomeKit/IonIcons (2.2.0):
     - FontAwesomeKit/Core
-  - FontAwesomeKit/IonIcons (2.1.7):
+  - FontAwesomeKit/Zocial (2.2.0):
     - FontAwesomeKit/Core
-  - FontAwesomeKit/Zocial (2.1.7):
-    - FontAwesomeKit/Core
-  - MagicalRecord (2.2):
-    - MagicalRecord/Core
-  - MagicalRecord/Core (2.2)
-  - MBProgressHUD (0.9)
-  - MWPhotoBrowser (1.4.0):
-    - DACircularProgress
-    - MBProgressHUD (~> 0.8)
-    - PSTCollectionView (~> 1.2)
-    - SDWebImage (~> 3.5.4)
-  - PSTCollectionView (1.2.3)
-  - SDWebImage (HEAD based on 3.7.1):
-    - SDWebImage/Core
-  - SDWebImage/Core (HEAD based on 3.7.1)
-  - SVProgressHUD (1.0)
+  - MagicalRecord (2.3.0)
+  - MBProgressHUD (0.9.1)
+  - MWPhotoBrowser (2.1.1):
+    - DACircularProgress (~> 2.3)
+    - MBProgressHUD (~> 0.9)
+    - SDWebImage (!= 3.7.2, ~> 3.7)
+  - SDWebImage (3.7.3):
+    - SDWebImage/Core (= 3.7.3)
+  - SDWebImage/Core (3.7.3)
+  - SVProgressHUD (1.1.3)
   - UIActionSheet+Blocks (0.8.1)
   - UIAlertView+Blocks (0.8.1)
 
@@ -58,22 +54,21 @@ DEPENDENCIES:
   - FontAwesomeKit
   - MagicalRecord (~> 2.2)
   - MWPhotoBrowser
-  - SDWebImage (HEAD)
+  - SDWebImage
   - SVProgressHUD
   - UIActionSheet+Blocks (~> 0.8.1)
   - UIAlertView+Blocks (~> 0.8.1)
 
 SPEC CHECKSUMS:
-  AFNetworking: 6d7b76aa5d04c8c37daad3eef4b7e3f2a7620da3
-  DACircularProgress: 3b41941891a56dc6aa17971f5322a9a38a6f446e
-  FontAwesomeKit: af6eef70d23986349284d2feb4e959459621587d
-  MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
-  MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
-  MWPhotoBrowser: 4efcdb9da34751f97992128a5356f3929d1af537
-  PSTCollectionView: d9f466e4554cc83260ca9bde7beb27f308e8fd76
-  SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
-  SVProgressHUD: 5034c6e22b8c2ca3e09402e48d41ed0340aa1c50
-  UIActionSheet+Blocks: c8b9c02f3d08964e8f7a4202f004a639c15eab80
-  UIAlertView+Blocks: 0b749f1f7bd5131ff2233b30a406c1585a7171b2
+  AFNetworking: 05b9f6e3aa5ac45bc383b4bb108ef338080a26c7
+  DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
+  FontAwesomeKit: 025fd4dd1017fe4e3f8d47b03e024deedbb33cd4
+  MagicalRecord: 89eb7d7ead39fb37f01c3d010665ee94d17f8dba
+  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  MWPhotoBrowser: ba0d0c09ffda3a7ea10093518738c502c1c7141c
+  SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
+  SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
+  UIActionSheet+Blocks: 7fdab45fc8f15ac2dc1cd65af1470746600b5f46
+  UIAlertView+Blocks: 45c3d3b7194906702d3e9a14c7ece5581505646d
 
-COCOAPODS: 0.33.1
+COCOAPODS: 0.38.2

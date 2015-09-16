@@ -168,7 +168,7 @@
 		20D64FD7198BC371006A6E07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		20D64FD8198BC380006A6E07 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		20D64FD9198BCF11006A6E07 /* ATDTutorialStartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATDTutorialStartView.xib; sourceTree = "<group>"; };
-		D74FAF12D3944CD3976CCA94 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		C269A4394558DE6603E5B853 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D99390C3199B1D0700E71695 /* ATDTabelogSearcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDTabelogSearcher.h; sourceTree = "<group>"; };
 		D99390C4199B1D0700E71695 /* ATDTabelogSearcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDTabelogSearcher.m; sourceTree = "<group>"; };
 		D99773F51977825100DBEF35 /* ATDImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDImageViewController.h; sourceTree = "<group>"; };
@@ -230,6 +230,7 @@
 		D9DD14F219A81AE00042066F /* noimage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = noimage.gif; sourceTree = "<group>"; };
 		D9E958621980D2080090BEED /* ATDPlaceSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDPlaceSearchCell.h; sourceTree = "<group>"; };
 		D9E958631980D2080090BEED /* ATDPlaceSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDPlaceSearchCell.m; sourceTree = "<group>"; };
+		DF921EB0B485F2D00F867CA9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E43CBDEB2F3F49CA98E99DC4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -282,7 +283,7 @@
 				202C660A19604D5D00497257 /* ATODE */,
 				202C660319604D5D00497257 /* Frameworks */,
 				202C660219604D5D00497257 /* Products */,
-				D74FAF12D3944CD3976CCA94 /* Pods.xcconfig */,
+				73228B231C42CDB76122C782 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -518,6 +519,15 @@
 			name = DetailCell;
 			sourceTree = "<group>";
 		};
+		73228B231C42CDB76122C782 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DF921EB0B485F2D00F867CA9 /* Pods.debug.xcconfig */,
+				C269A4394558DE6603E5B853 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D99390C2199B1CF500E71695 /* Tabelog */ = {
 			isa = PBXGroup;
 			children = (
@@ -703,7 +713,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = ATD;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = himara2;
 				TargetAttributes = {
 					202C660019604D5D00497257 = {
@@ -786,7 +796,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -880,8 +890,10 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: RYOSUKE HIRAMATSU (CX83Y44847)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -899,6 +911,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
+				PROVISIONING_PROFILE = "64753295-bbd9-49c8-abb6-db4a379ae150";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -939,7 +952,7 @@
 		};
 		202C663419604D5E00497257 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D74FAF12D3944CD3976CCA94 /* Pods.xcconfig */;
+			baseConfigurationReference = DF921EB0B485F2D00F867CA9 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -955,15 +968,16 @@
 					"$(PROJECT_DIR)/ATODE",
 					"$(PROJECT_DIR)/ATODE/CrittercismSDK",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = in.mashroom.gomemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "44f122b6-445a-409c-a112-a0af21546f0c";
+				PROVISIONING_PROFILE = "64753295-bbd9-49c8-abb6-db4a379ae150";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		202C663519604D5E00497257 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D74FAF12D3944CD3976CCA94 /* Pods.xcconfig */;
+			baseConfigurationReference = C269A4394558DE6603E5B853 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -979,6 +993,7 @@
 					"$(PROJECT_DIR)/ATODE",
 					"$(PROJECT_DIR)/ATODE/CrittercismSDK",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = in.mashroom.gomemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "17536024-DC56-45F6-841D-5D361C97E7C2";
 				WRAPPER_EXTENSION = app;

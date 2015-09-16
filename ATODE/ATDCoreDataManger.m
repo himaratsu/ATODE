@@ -8,7 +8,7 @@
 
 #import "ATDCoreDataManger.h"
 #import <MagicalRecord/MagicalRecord.h>
-#import <MagicalRecord/CoreData+MagicalRecord.h>
+//#import <MagicalRecord/CoreData+MagicalRecord.h>
 
 #import "PlaceMemo.h"
 
