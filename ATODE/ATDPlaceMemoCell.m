@@ -20,7 +20,8 @@
 
 - (void)awakeFromNib {
     CAGradientLayer *gradient = [CAGradientLayer layer];
-    gradient.frame = self.gradientBackgroundView.bounds;
+    CGFloat cellSize = ([UIScreen mainScreen].bounds.size.width - 30) / 2;
+    gradient.frame = CGRectMake(0, 0, cellSize, cellSize);
     gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor clearColor] CGColor], (id)[[UIColor blackColor] CGColor], nil];
     [self.gradientBackgroundView.layer insertSublayer:gradient atIndex:0];
     self.gradientBackgroundView.alpha = 0.6f;

@@ -32,6 +32,7 @@ static NSString * const kBannerUnitID = @"ca-app-pub-5042077439159662/4239166953
 
 @interface ATDViewController ()
 <UICollectionViewDataSource, UICollectionViewDelegate,
+UICollectionViewDelegateFlowLayout,
 UIImagePickerControllerDelegate, UINavigationControllerDelegate,
 CLLocationManagerDelegate, MKMapViewDelegate>
 
@@ -288,7 +289,7 @@ CLLocationManagerDelegate, MKMapViewDelegate>
        destructiveButtonTitle:nil
             otherButtonTitles:@[NSLocalizedString(@"TAKE_PICTURE", nil),
                                 NSLocalizedString(@"SELECT_LIBRARY", nil),
-                                NSLocalizedString(@"ADD_FROM_TABELOG", nil)]
+                                /*NSLocalizedString(@"ADD_FROM_TABELOG", nil)*/]
                      tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
                          if (buttonIndex != actionSheet.cancelButtonIndex) {
                              if (buttonIndex == 0) {
@@ -705,6 +706,11 @@ CLLocationManagerDelegate, MKMapViewDelegate>
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     PlaceMemo *memo = _memos[indexPath.row];
     [self performSegueWithIdentifier:@"showDetail" sender:memo];
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    CGFloat cellSize = ([UIScreen mainScreen].bounds.size.width - 30) / 2;
+    return CGSizeMake(cellSize, cellSize);
 }
 
 
