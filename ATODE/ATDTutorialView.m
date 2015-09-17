@@ -72,6 +72,7 @@ ATDTutorialFinalViewDelegate>
                                  _scrollView.frame.size.width,
                                  _scrollView.frame.size.height);
     startView.delegate = self;
+    startView.tag = 1;
     [_scrollView addSubview:startView];
     
     NSArray *normalNibNames = @[@"ATDTutorialFirstView",
@@ -84,6 +85,7 @@ ATDTutorialFinalViewDelegate>
                                 0,
                                 _scrollView.frame.size.width,
                                 _scrollView.frame.size.height);
+        view.tag = 1;
         [_scrollView addSubview:view];
     }];
     
@@ -93,6 +95,7 @@ ATDTutorialFinalViewDelegate>
                                  0,
                                  _scrollView.frame.size.width,
                                  _scrollView.frame.size.height);
+    finalView.tag = 1;
     finalView.delegate = self;
     [_scrollView addSubview:finalView];
     
