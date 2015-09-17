@@ -81,6 +81,7 @@
 		D9CD7F401986061300293F37 /* LicenseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9CD7F3E1986061300293F37 /* LicenseViewController.xib */; };
 		D9DD14F319A81AE00042066F /* noimage.gif in Resources */ = {isa = PBXBuildFile; fileRef = D9DD14F219A81AE00042066F /* noimage.gif */; };
 		D9E958651980D2080090BEED /* ATDPlaceSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E958631980D2080090BEED /* ATDPlaceSearchCell.m */; };
+		D9FEBEC11BA956E100814BB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9FEBEC01BA956E100814BB2 /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -230,6 +231,7 @@
 		D9DD14F219A81AE00042066F /* noimage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = noimage.gif; sourceTree = "<group>"; };
 		D9E958621980D2080090BEED /* ATDPlaceSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDPlaceSearchCell.h; sourceTree = "<group>"; };
 		D9E958631980D2080090BEED /* ATDPlaceSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDPlaceSearchCell.m; sourceTree = "<group>"; };
+		D9FEBEC01BA956E100814BB2 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF921EB0B485F2D00F867CA9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E43CBDEB2F3F49CA98E99DC4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -670,6 +672,7 @@
 				D9AEEBE71987CDA40058AFA7 /* ATDTutorialFinalView.h */,
 				D9AEEBE81987CDA40058AFA7 /* ATDTutorialFinalView.m */,
 				D9AEEBE51987C4CA0058AFA7 /* ATDTutorialFinalView.xib */,
+				D9FEBEC01BA956E100814BB2 /* LaunchScreen.storyboard */,
 			);
 			name = Tutorial;
 			sourceTree = "<group>";
@@ -751,6 +754,7 @@
 				208131B119678E9B0094E577 /* ATDPlaceMemoCell.xib in Resources */,
 				D9CD7F2C1982176B00293F37 /* ATDPlaceSearchCell.xib in Resources */,
 				D9CD7F401986061300293F37 /* LicenseViewController.xib in Resources */,
+				D9FEBEC11BA956E100814BB2 /* LaunchScreen.storyboard in Resources */,
 				2077969E19893FF300EF3879 /* dsym_upload.sh in Resources */,
 				D99774111978D51700DBEF35 /* license.html in Resources */,
 				D9AEEBE01987C3290058AFA7 /* ATDTutorialFirstView.xib in Resources */,
