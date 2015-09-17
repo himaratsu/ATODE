@@ -289,7 +289,7 @@ CLLocationManagerDelegate, MKMapViewDelegate>
        destructiveButtonTitle:nil
             otherButtonTitles:@[NSLocalizedString(@"TAKE_PICTURE", nil),
                                 NSLocalizedString(@"SELECT_LIBRARY", nil),
-                                NSLocalizedString(@"ADD_FROM_TABELOG", nil)]
+                                /*NSLocalizedString(@"ADD_FROM_TABELOG", nil)*/]
                      tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
                          if (buttonIndex != actionSheet.cancelButtonIndex) {
                              if (buttonIndex == 0) {
