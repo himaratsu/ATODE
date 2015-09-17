@@ -88,7 +88,7 @@ CLLocationManagerDelegate, MKMapViewDelegate>
         [self showTutorialView];
     }
     else {
-        NSString *versionDiffId = @"version1.1";
+        NSString *versionDiffId = @"version1.2";
         BOOL isDoneShowVersionDiff = [[NSUserDefaults standardUserDefaults] boolForKey:versionDiffId];
         if (!isDoneShowVersionDiff) {
             [self showVersionUpView:versionDiffId];
@@ -745,8 +745,8 @@ CLLocationManagerDelegate, MKMapViewDelegate>
 }
 
 - (void)showVersionUpView:(NSString *)showVersionUpView {
-    [UIAlertView showWithTitle:@"Ver.1.1 の変更点"
-                       message:@"・食べログのURLからお店を追加できるようになりました\n・foursquareの検索の精度を向上しました"
+    [UIAlertView showWithTitle:@"Ver.1.2 の変更点"
+                       message:@"・iPhone 6/6plusに対応しました\n・iOS 9に対応しました"
              cancelButtonTitle:nil
              otherButtonTitles:@[@"OK"]
                       tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
