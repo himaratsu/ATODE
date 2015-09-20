@@ -739,7 +739,10 @@ CLLocationManagerDelegate, MKMapViewDelegate>
 
 - (void)showTutorialView {
     ATDTutorialView *view = [ATDTutorialView view];
-    view.center = self.view.center;
+    view.frame = CGRectMake(0,
+                            0,
+                            [UIScreen mainScreen].bounds.size.width,
+                            [UIScreen mainScreen].bounds.size.height);
     view.isFirstTutorial = YES;
     [view show];
 }
