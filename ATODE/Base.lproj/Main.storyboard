@@ -306,7 +306,7 @@ add first memo!</string>
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="102.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="sZA-id-Dh8">
+                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="sZA-id-Dh8">
                                                     <rect key="frame" x="10" y="4" width="300" height="93"/>
                                                 </mapView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nVO-lR-r6d">
@@ -316,9 +316,13 @@ add first memo!</string>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="nVO-lR-r6d" firstAttribute="leading" secondItem="uOW-pE-QXt" secondAttribute="leading" constant="10" id="Gsz-it-0mZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="sZA-id-Dh8" secondAttribute="trailing" constant="10" id="Ju2-cz-pEO"/>
+                                                <constraint firstItem="sZA-id-Dh8" firstAttribute="leading" secondItem="uOW-pE-QXt" secondAttribute="leading" constant="10" id="PXN-zY-pZB"/>
                                                 <constraint firstItem="nVO-lR-r6d" firstAttribute="top" secondItem="uOW-pE-QXt" secondAttribute="top" constant="4" id="Wge-VT-jy9"/>
                                                 <constraint firstAttribute="trailing" secondItem="nVO-lR-r6d" secondAttribute="trailing" constant="10" id="XVg-Ww-WVn"/>
+                                                <constraint firstItem="sZA-id-Dh8" firstAttribute="top" secondItem="uOW-pE-QXt" secondAttribute="top" constant="4" id="dzi-Hu-EMb"/>
                                                 <constraint firstAttribute="bottom" secondItem="nVO-lR-r6d" secondAttribute="bottom" constant="5.5" id="f1Q-ls-3ix"/>
+                                                <constraint firstAttribute="bottom" secondItem="sZA-id-Dh8" secondAttribute="bottom" constant="5.5" id="w9A-zo-beI"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

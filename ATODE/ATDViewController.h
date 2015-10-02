@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@import GoogleMobileAds;
 
 @interface ATDViewController : UIViewController
 

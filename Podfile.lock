@@ -36,6 +36,10 @@ PODS:
     - FontAwesomeKit/Core
   - FontAwesomeKit/Zocial (2.2.0):
     - FontAwesomeKit/Core
+  - Google-Mobile-Ads-SDK (7.5.1)
+  - GoogleAnalytics-iOS-SDK (3.10):
+    - GoogleAnalytics-iOS-SDK/Core (= 3.10)
+  - GoogleAnalytics-iOS-SDK/Core (3.10)
   - MagicalRecord (2.3.0)
   - MBProgressHUD (0.9.1)
   - MWPhotoBrowser (2.1.1):
@@ -52,6 +56,8 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 2.3.1)
   - FontAwesomeKit
+  - Google-Mobile-Ads-SDK (~> 7.0)
+  - GoogleAnalytics-iOS-SDK (= 3.10)
   - MagicalRecord (~> 2.2)
   - MWPhotoBrowser
   - SDWebImage
@@ -63,6 +69,8 @@ SPEC CHECKSUMS:
   AFNetworking: 05b9f6e3aa5ac45bc383b4bb108ef338080a26c7
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   FontAwesomeKit: 025fd4dd1017fe4e3f8d47b03e024deedbb33cd4
+  Google-Mobile-Ads-SDK: 37315a38a1c6ed738da43a938afb2425099e6759
+  GoogleAnalytics-iOS-SDK: 4f98a376c1d61e6ac4ca47951655820314856eef
   MagicalRecord: 89eb7d7ead39fb37f01c3d010665ee94d17f8dba
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MWPhotoBrowser: ba0d0c09ffda3a7ea10093518738c502c1c7141c

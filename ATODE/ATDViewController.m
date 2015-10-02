@@ -25,7 +25,6 @@
 #import "MKMapView+ATDZoomLevel.h"
 #import "ATDAnnotation.h"
 #import "ATDTutorialView.h"
-#import "GADBannerView.h"
 #import "GAIDictionaryBuilder.h"
 
 static NSString * const kBannerUnitID = @"ca-app-pub-5042077439159662/4239166953";
